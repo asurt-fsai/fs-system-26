@@ -16,7 +16,7 @@ echo "ZED camera launched with PID $ZED_PID"
 
 # Wait for the ZED camera to initialize
 echo "Waiting for camera to initialize..."
-sleep 5
+sleep 15
 
 # Step 2: Run the ROS2 node to subscribe to the object detection topic and log messages
 echo "Launching Object Detection Logger Node"
