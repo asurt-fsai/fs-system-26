@@ -1,21 +1,43 @@
-# path_planning/modules/filters.py
+"""
+Filter module for building safe graph from Voronoi diagram.
+Applies color matching, distance pruning, and collision detection.
+"""
+
 import numpy as np
-import networkx as nx  # to build and return a graph
+import networkx as nx
+from .collision import is_collision, build_obstacle_tree
 
 
-def build_safe_graph(vor, colors):
+def build_safe_graph(vor, colors, cone_data, robot_radius=1.5, max_edge_len=3.0, safety_margin=0.5):
     """
-    A function that accepts a voronoi structure vor and a list of cone colors
-    Filters Voronoi ridges based on Color Mismatch and Distance.
+    A function that accepts a voronoi structure vor and a list of cone colors.
+    Filters Voronoi ridges based on:
+    1. Color Mismatch (blue-yellow pairs only)
+    2. Distance pruning
+    3. Collision detection with cones
+    
     Returns a NetworkX graph of safe paths.
+    
+    :param vor: Voronoi diagram object
+    :param colors: List of cone colors corresponding to Voronoi input points
+    :param cone_data: Original cone data [(x, y, color), ...]
+    :param robot_radius: Effective radius of vehicle
+    :param max_edge_len: Maximum allowable edge length
+    :param safety_margin: Additional safety buffer around robot
+    :return: NetworkX graph with safe edges
     """
-    G = nx.Graph()  # create an empty graph to hold safe edges and vertices
+    G = nx.Graph()  # Create an empty graph to hold safe edges and vertices
+
+    # Build KDTree for efficient collision detection
+    obstacle_tree = build_obstacle_tree(cone_data)
+    
+    # Effective robot radius with safety margin
+    effective_radius = robot_radius + safety_margin
 
     # Iterate through all potential paths (ridges)
     for (p1_idx, p2_idx), (v1_idx, v2_idx) in vor.ridge_dict.items():
 
-        # 1. Color Check: Logic Step 4
-        # Skip if both cones are the same color (Blue-Blue or Yellow-Yellow)
+        # 1. Color Check: Skip if both cones are the same color
         if colors[p1_idx] == colors[p2_idx]:
             continue
 
@@ -23,18 +45,28 @@ def build_safe_graph(vor, colors):
         if v1_idx == -1 or v2_idx == -1:
             continue
 
-        # Get the actual physical 2D points of the voronoi vertex of this ridge
+        # Get the actual physical 2D points of the voronoi vertices
         p_start = vor.vertices[v1_idx]
         p_end = vor.vertices[v2_idx]
 
-        # 2. Distance Check: Logic Step 4 (Pruning)
-        # computing the Euclidean distance between the two voronoi vertices
+        # 2. Distance Check: Prune edges that are too long
         dist = np.linalg.norm(p_start - p_end)
-        if dist > 3.0:  # Max allowable path segment length
+        if dist > max_edge_len:
             continue
 
-        # Add to Graph
-        # We use the vertex index as the Node ID, and store 'pos' data
+        # 3. Collision Check: Ensure edge doesn't collide with cones
+        collision_detected = is_collision(
+            p_start[0], p_start[1],
+            p_end[0], p_end[1],
+            effective_radius,
+            obstacle_tree,
+            max_edge_len
+        )
+        
+        if collision_detected:
+            continue  # Skip this edge if collision detected
+
+        # Add to Graph (only if all checks passed)
         G.add_node(v1_idx, pos=p_start)
         G.add_node(v2_idx, pos=p_end)
         G.add_edge(v1_idx, v2_idx, weight=dist)
