@@ -5,6 +5,7 @@ import numpy as np
 from . import voronoi_gen
 from . import filters
 from . import graph_search
+from .smoothing import smooth_path_bspline
 
 
 class PathPlanner:
@@ -31,5 +32,14 @@ class PathPlanner:
 
         # 4. Module 3: Search Graph
         path = graph_search.find_optimal_path(safe_graph, car_pos, car_yaw)
+
+        # 5. Module 4: smoothing
+        rx = [p[0] for p in path]
+        ry = [p[1] for p in path]
+        smoothed_x, smoothed_y = smooth_path_bspline(rx, ry)
+
+        # Return list of smoothed points as tuples
+        smoothed_path = list(zip(smoothed_x, smoothed_y))
+        return smoothed_path
 
         return path
