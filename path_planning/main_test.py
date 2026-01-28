@@ -19,7 +19,8 @@ cone_data = [
 car_data = [(0.0, 1.5, 0.0)]
 
 # --- 2. Execution ---
-planner = PathPlanner()
+planner = PathPlanner(robot_radius=0.5, safety_margin=0.2, max_edge_len=5.0)
+print(f"Planner config: robot_radius={planner.robot_radius}, safety_margin={planner.safety_margin}, max_edge_len={planner.max_edge_len}")
 path_points = planner.execute_cycle(cone_data, car_data)
 
 # --- 3. Visualization ---

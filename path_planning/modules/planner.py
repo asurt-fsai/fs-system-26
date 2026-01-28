@@ -53,6 +53,8 @@ class PathPlanner:
             max_edge_len=self.max_edge_len,
             safety_margin=self.safety_margin
         )
+        
+        print(f"Graph has {len(safe_graph.nodes)} nodes and {len(safe_graph.edges)} edges")
 
         # 4. Module 3: Search Graph
         path = graph_search.find_optimal_path(safe_graph, car_pos, car_yaw)
