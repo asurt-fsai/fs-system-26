@@ -33,6 +33,11 @@ class PathPlanner:
         # 4. Module 3: Search Graph
         path = graph_search.find_optimal_path(safe_graph, car_pos, car_yaw)
 
+        # If no path was found, return an empty path immediately
+        if not path:
+            print("No path found.")
+            return []
+
         # 5. Module 4: smoothing
         rx = [p[0] for p in path]
         ry = [p[1] for p in path]
@@ -41,5 +46,3 @@ class PathPlanner:
         # Return list of smoothed points as tuples
         smoothed_path = list(zip(smoothed_x, smoothed_y))
         return smoothed_path
-
-        return path
