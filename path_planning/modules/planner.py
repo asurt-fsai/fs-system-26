@@ -1,7 +1,5 @@
 # path_planning/modules/planner.py
 import numpy as np
-
-# Importing our custom modules
 from . import voronoi_gen
 from . import filters
 from . import graph_search
@@ -13,7 +11,7 @@ class PathPlanner:
         """
         Main pipeline function.
         Args:
-            cone_data: [(x, y, color), ...]
+            cone_data: [(x, y, color) ]
             car_data: [(x, y, orientation)]
         """
         # 1.  Car Data
@@ -45,4 +43,5 @@ class PathPlanner:
 
         # Return list of smoothed points as tuples
         smoothed_path = list(zip(smoothed_x, smoothed_y))
+       
         return smoothed_path
