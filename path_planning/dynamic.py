@@ -2,23 +2,30 @@ import matplotlib.pyplot as plt
 import numpy as np
 from modules.planner import PathPlanner
 
-# --- 1. CONFIGURATION ---
+# ==========================================
+# 1. CONFIGURATION
+# ==========================================
 START_VISIBLE = 10
 REVEAL_RATE = 4
 
-# --- SELECT YOUR SHAPE HERE ---
 # Options: 'straight', 's_curve', 'hairpin'
+# FIXED: Changed 'jj' to 'hairpin' so you see a real track
 SHAPE_MODE = 's_curve'
 
-# --- HELPER FUNCTIONS (Paste the functions from above here) ---
-# (I will include the 'get_hairpin_path' and 'generate_cones_from_path' 
-# inline for this runnable example)
-
-def generate_cones_from_path(center_line_points, track_width=4.0):
+# ==========================================
+# 2. HELPER FUNCTIONS
+# ==========================================
+def generate_cones_from_path(center_line_points, track_width=4.0, step=3):
     cones = []
-    for i in range(len(center_line_points) - 1):
+    # The 'step' parameter controls density. 
+    for i in range(0, len(center_line_points) - 1, step):
         p_curr = np.array(center_line_points[i])
-        p_next = np.array(center_line_points[i+1])
+        
+        next_idx = min(i + step, len(center_line_points) - 1)
+        if next_idx == i: break 
+        
+        p_next = np.array(center_line_points[next_idx])
+        
         tangent = p_next - p_curr
         length = np.linalg.norm(tangent)
         if length == 0: continue
@@ -45,7 +52,9 @@ def get_hairpin_path():
 def get_s_curve_path():
     return [(x, 5 * np.sin(x * 0.2)) for x in np.linspace(0, 50, 60)]
 
-# --- 2. GENERATE TRACK ---
+# ==========================================
+# 3. GENERATE TRACK
+# ==========================================
 if SHAPE_MODE == 'hairpin':
     center_points = get_hairpin_path()
 elif SHAPE_MODE == 's_curve':
@@ -55,8 +64,16 @@ else:
 
 full_track_cones = generate_cones_from_path(center_points)
 
-# --- 3. SIMULATION ---
-planner = PathPlanner()
+# ==========================================
+# 4. SIMULATION (THE FIX IS HERE)
+# ==========================================
+
+# FIX: Initialize with FS Rules specific parameters
+# robot_radius=0.75 -> Represents a ~1.5m wide car (Half width)
+# safety_margin=0.5 -> Keeps 0.5m away from cones
+# max_edge_len=8.0  -> Allows connection even if cones are sparse (step=3)
+planner = PathPlanner(robot_radius=0.75, safety_margin=0.5, max_edge_len=8.0)
+
 car_data = [(0.0, 0.0, 0.0)] # Start at 0,0
 
 plt.ion()
@@ -79,10 +96,16 @@ for n in range(START_VISIBLE, len(full_track_cones) + 1, REVEAL_RATE):
     if path_points:
         px = [p[0] for p in path_points]
         py = [p[1] for p in path_points]
-        ax.plot(px, py, '-g', linewidth=2)
+        ax.plot(px, py, '-g', linewidth=3, label='Planned Path')
+        ax.scatter(px, py, c='lime', s=20)
+    else:
+        # Debugging: Show text if no path found
+        ax.text(0, 0, "NO PATH FOUND", fontsize=15, color='red')
         
     ax.set_xlim(-5, 35)
     ax.set_ylim(-10, 25) # Expanded view for hairpin
+    ax.set_title(f"Simulation Frame: {n} Cones Visible")
+    ax.legend()
     ax.grid(True)
     plt.pause(0.1)
 

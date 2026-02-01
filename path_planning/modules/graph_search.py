@@ -36,7 +36,7 @@ def find_optimal_path(graph, car_pos, car_orientation):
     path_lengths = nx.single_source_dijkstra_path_length(graph, start_node)
     end_node = max(path_lengths, key=path_lengths.get)
 
-    #  3. Retrieve and Stitch Path
+    #  3. Retrieve Path
     try:
         # Get the list of Node IDs 
         path_indices = nx.shortest_path(graph, start_node, end_node)

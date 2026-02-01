@@ -8,7 +8,7 @@ import numpy as np
 from scipy.spatial import cKDTree
 
 
-def is_collision(sx, sy, gx, gy, robot_radius, obstacle_tree, max_edge_len=30.0):
+def is_collision(sx, sy, gx, gy, robot_radius, obstacle_tree, max_edge_len=25.0):
     """
     Checks for collisions between two waypoints (sx, sy) and (gx, gy).
     
