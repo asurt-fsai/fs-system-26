@@ -27,7 +27,11 @@ class PathPlanner:
 
         # 3. Balance Uneven Cones (Add ghosts if one side is missing)
         # Note: We call the helper method defined below
-        balanced_cone_data = self._balance_uneven_cones(cone_data, virtual_width=3.5)
+        balanced_cone_data = self._balance_uneven_cones(
+            cone_data,
+            car_yaw=car_yaw,
+            virtual_width=3.0
+        )
 
         # 4. Module 1: Generate Voronoi
         points, colors, vor = voronoi_gen.generate_voronoi(balanced_cone_data)
@@ -102,7 +106,7 @@ class PathPlanner:
         
         return []
 
-    def _balance_uneven_cones(self, cone_data, virtual_width=3.0):
+    def _balance_uneven_cones(self, cone_data, car_yaw, virtual_width=3.0):
         """
         Add virtual cones opposite to uneven cone distributions.
         Now defined as a method inside the class.
@@ -112,6 +116,23 @@ class PathPlanner:
         
         balanced_cones = list(cone_data)
         
+        # Special case: all cones on one side
+        if len(blue_cones) == 0 and len(yellow_cones) > 0:
+            right_vec = np.array([np.sin(car_yaw), -np.cos(car_yaw)])
+            for y in yellow_cones:
+                yellow_pos = np.array([y[0], y[1]])
+                virtual_blue = yellow_pos - right_vec * virtual_width
+                balanced_cones.append((virtual_blue[0], virtual_blue[1], 'b'))
+            return balanced_cones
+
+        if len(yellow_cones) == 0 and len(blue_cones) > 0:
+            right_vec = np.array([np.sin(car_yaw), -np.cos(car_yaw)])
+            for b in blue_cones:
+                blue_pos = np.array([b[0], b[1]])
+                virtual_yellow = blue_pos + right_vec * virtual_width
+                balanced_cones.append((virtual_yellow[0], virtual_yellow[1], 'y'))
+            return balanced_cones
+
         # If more yellow cones, add virtual blue cones
         if len(yellow_cones) > len(blue_cones):
             extra_count = len(yellow_cones) - len(blue_cones)
