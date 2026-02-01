@@ -10,7 +10,7 @@ from .smoothing import smooth_path_bspline
 
 
 class PathPlanner:
-    def __init__(self, robot_radius=0.75, safety_margin=0.5, max_edge_len=6.0):
+    def __init__(self, robot_radius=0.75, safety_margin=0.5, max_edge_len=8.0):
         """
         Initialize the path planner with configuration parameters.
         

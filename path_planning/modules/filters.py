@@ -8,7 +8,7 @@ import networkx as nx
 from .collision import is_collision, build_obstacle_tree
 
 
-def build_safe_graph(vor, colors, cone_data, robot_radius=1.5, max_edge_len=3.0, safety_margin=0.5):
+def build_safe_graph(vor, colors, cone_data, robot_radius, max_edge_len, safety_margin):
     """
     A function that accepts a voronoi structure vor and a list of cone colors.
     Filters Voronoi ridges based on:

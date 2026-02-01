@@ -12,7 +12,7 @@ def test_no_collision():
     obstacle_tree = build_obstacle_tree(cone_data)
     
     # Path from (0, 0) to (20, 0) - should not collide with cones at (5, 5) and (15, 5)
-    result = is_collision(0, 0, 20, 0, robot_radius=1.5, obstacle_tree=obstacle_tree)
+    result = is_collision(0, 0, 20, 0, robot_radius=0.75, obstacle_tree=obstacle_tree)
     assert result == False, "Expected no collision for clear path"
     print("✓ Test passed: No collision on clear path")
 
@@ -23,7 +23,7 @@ def test_direct_collision():
     obstacle_tree = build_obstacle_tree(cone_data)
     
     # Path from (0, 0) to (20, 0) passes through cone at (10, 0)
-    result = is_collision(0, 0, 20, 0, robot_radius=1.5, obstacle_tree=obstacle_tree)
+    result = is_collision(0, 0, 20, 0, robot_radius=0.75, obstacle_tree=obstacle_tree)
     assert result == True, "Expected collision when path hits cone"
     print("✓ Test passed: Collision detected on direct path")
 
