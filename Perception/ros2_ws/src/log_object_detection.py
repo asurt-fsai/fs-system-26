@@ -26,7 +26,7 @@ class ObjectDetectionLogger(Node):
         )
         self.log_file_path = log_file_path
         self.message_count = 0
-        self.max_messages = 5
+        self.max_messages = 2000
         self.log_file = open(self.log_file_path, 'w')
         self.get_logger().info(f"Logging to {self.log_file_path}")
 
