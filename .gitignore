@@ -1,0 +1,22 @@
+# Ignoring the ROS2 build process
+build/
+install/
+log/
+bags/
+tum_files/
+src/fs_slam/
+.vscode/
+# Ignoring large-sized data
+*.svo
+*.mcap
+*.bag
+*.db3
+*.tum
+
+# Ignoring results/reports
+fs_slam_eval/results/*
+fs_slam_eval/recordings/*
+
+# Ignoring extra python caches
+__pyache__/
+*.pyc
