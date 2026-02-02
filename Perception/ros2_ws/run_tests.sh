@@ -23,7 +23,7 @@ sleep 15
 
 # Step 2: Start recording ROS2 bag (all topics)
 echo "Starting ROS2 bag recording..."
-ros2 bag record -a -o "$BAG_DIR" &
+ros2 bag record -o "$BAG_DIR" /zed/zed_node/obj_det/objects &
 BAG_PID=$!
 echo "ROS2 bag recording started with PID $BAG_PID to directory $BAG_DIR"
 
