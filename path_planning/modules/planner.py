@@ -5,7 +5,7 @@ from . import graph_search
 from .smoothing import smooth_path_bspline
 
 class PathPlanner:
-    def __init__(self, robot_radius=0.75, safety_margin=0.5, max_edge_len=8.0):
+    def __init__(self, robot_radius=0.7, safety_margin=0.4, max_edge_len=8.0):
         """
         Initialize the path planner with configuration parameters.
         """
@@ -74,7 +74,7 @@ class PathPlanner:
         """
         print(f"Low cones detected ({len(cone_data)}). Using fallback logic.")
         
-        ASSUMED_WIDTH = 3.5
+        ASSUMED_WIDTH = 3
         target_point = None
         
         # CASE 1: 2 Cones
@@ -106,57 +106,39 @@ class PathPlanner:
         
         return []
 
-    def _balance_uneven_cones(self, cone_data, car_yaw, virtual_width=3.0):
+    def _balance_uneven_cones(self, cone_data, car_yaw, virtual_width=3.0, pairing_threshold=2.0):
         """
-        Add virtual cones opposite to uneven cone distributions.
-        Now defined as a method inside the class.
+        Improved balance: Checks if each cone has a partner within 'pairing_threshold' 
+        meters of longitudinal distance (X-axis).
         """
-        yellow_cones = [c for c in cone_data if c[2] == 'y']
-        blue_cones = [c for c in cone_data if c[2] == 'b']
-        
+        yellow_cones = sorted([c for c in cone_data if c[2] == 'y'], key=lambda x: x[0])
+        blue_cones = sorted([c for c in cone_data if c[2] == 'b'], key=lambda x: x[0])
+    
         balanced_cones = list(cone_data)
+        right_vec = np.array([np.sin(car_yaw), -np.cos(car_yaw)])
+
+    # Check for lonely Yellow cones
+        for y in yellow_cones:
+        # Look for ANY blue cone that is roughly at the same X-distance
+            has_partner = any(abs(y[0] - b[0]) <= pairing_threshold for b in blue_cones)
         
-        # Special case: all cones on one side
-        if len(blue_cones) == 0 and len(yellow_cones) > 0:
-            right_vec = np.array([np.sin(car_yaw), -np.cos(car_yaw)])
-            for y in yellow_cones:
-                yellow_pos = np.array([y[0], y[1]])
-                virtual_blue = yellow_pos - right_vec * virtual_width
+            if not has_partner:
+            # Create a virtual blue cone opposite this lonely yellow one
+                y_pos = np.array([y[0], y[1]])
+                virtual_blue = y_pos - right_vec * virtual_width
                 balanced_cones.append((virtual_blue[0], virtual_blue[1], 'b'))
-            return balanced_cones
+                print(f"Adding virtual Blue partner for Yellow at x={y[0]}")
 
-        if len(yellow_cones) == 0 and len(blue_cones) > 0:
-            right_vec = np.array([np.sin(car_yaw), -np.cos(car_yaw)])
-            for b in blue_cones:
-                blue_pos = np.array([b[0], b[1]])
-                virtual_yellow = blue_pos + right_vec * virtual_width
+    # Check for lonely Blue cones
+        for b in blue_cones:
+        # Look for ANY yellow cone that is roughly at the same X-distance
+            has_partner = any(abs(b[0] - y[0]) <= pairing_threshold for y in yellow_cones)
+        
+            if not has_partner:
+            # Create a virtual yellow cone opposite this lonely blue one
+                b_pos = np.array([b[0], b[1]])
+                virtual_yellow = b_pos + right_vec * virtual_width
                 balanced_cones.append((virtual_yellow[0], virtual_yellow[1], 'y'))
-            return balanced_cones
+                print(f"Adding virtual Yellow partner for Blue at x={b[0]}")
 
-        # If more yellow cones, add virtual blue cones
-        if len(yellow_cones) > len(blue_cones):
-            extra_count = len(yellow_cones) - len(blue_cones)
-            if blue_cones:
-                blue_avg_y = np.mean([c[1] for c in blue_cones])
-            else:
-                blue_avg_y = 0
-            
-            for i in range(extra_count):
-                ref_yellow = yellow_cones[i % len(yellow_cones)]
-                virtual_cone = (ref_yellow[0], blue_avg_y, 'b')
-                balanced_cones.append(virtual_cone)
-        
-        # If more blue cones, add virtual yellow cones
-        elif len(blue_cones) > len(yellow_cones):
-            extra_count = len(blue_cones) - len(yellow_cones)
-            if yellow_cones:
-                yellow_avg_y = np.mean([c[1] for c in yellow_cones])
-            else:
-                yellow_avg_y = 0
-            
-            for i in range(extra_count):
-                ref_blue = blue_cones[i % len(blue_cones)]
-                virtual_cone = (ref_blue[0], yellow_avg_y, 'y')
-                balanced_cones.append(virtual_cone)
-        
         return balanced_cones
