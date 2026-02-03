@@ -37,3 +37,46 @@ def smooth_path_bspline(rx, ry, smoothing=0.5, num_points=100):
     smoothed_x, smoothed_y = splev(u_fine, tck)
 
     return smoothed_x, smoothed_y
+
+
+def smooth_path_line(rx, ry, num_points=50):
+    """
+    Straighten a sparse/zigzag path by fitting a line (PCA) and
+    resampling points along that line.
+
+    Args:
+        rx, ry: raw path x/y lists
+        num_points: number of output points
+
+    Returns:
+        straight_x, straight_y
+    """
+    rx = np.array(rx)
+    ry = np.array(ry)
+
+    if len(rx) < 2:
+        return rx, ry
+
+    pts = np.column_stack((rx, ry))
+    mean = pts.mean(axis=0)
+    centered = pts - mean
+
+    # Principal direction (largest eigenvector of covariance)
+    cov = np.cov(centered.T)
+    eigvals, eigvecs = np.linalg.eig(cov)
+    direction = eigvecs[:, np.argmax(eigvals)]
+    direction = direction / np.linalg.norm(direction)
+
+    # Project points onto the line to get ordering
+    t = centered @ direction
+    t_min, t_max = t.min(), t.max()
+    if t_max == t_min:
+        return rx, ry
+
+    t_samples = np.linspace(t_min, t_max, num_points)
+    line_pts = mean + np.outer(t_samples, direction)
+
+    straight_x = line_pts[:, 0]
+    straight_y = line_pts[:, 1]
+
+    return straight_x, straight_y

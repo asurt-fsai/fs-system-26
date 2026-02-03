@@ -2,7 +2,7 @@ import numpy as np
 from . import voronoi_gen
 from . import filters
 from . import graph_search
-from .smoothing import smooth_path_bspline
+from .smoothing import smooth_path_bspline, smooth_path_line
 
 class PathPlanner:
     def __init__(self, robot_radius=0.7, safety_margin=0.4, max_edge_len=8.0):
@@ -61,8 +61,14 @@ class PathPlanner:
         rx = [p[0] for p in path]
         ry = [p[1] for p in path]
         try:
-            smoothed_x, smoothed_y = smooth_path_bspline(rx, ry)
-            return list(zip(smoothed_x, smoothed_y))
+            yellow_count = sum(1 for c in cone_data if c[2] == 'y')
+            blue_count = sum(1 for c in cone_data if c[2] == 'b')
+            if min(yellow_count, blue_count) < 2:
+                straight_x, straight_y = smooth_path_line(rx, ry, num_points=max(len(rx), 10))
+                return list(zip(straight_x, straight_y))
+            else:
+                smoothed_x, smoothed_y = smooth_path_bspline(rx, ry)
+                return list(zip(smoothed_x, smoothed_y))
         except:
             return path
 
