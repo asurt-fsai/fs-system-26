@@ -57,7 +57,7 @@ def remove_ghost_cones(
 
             # Rule 2: Different color cones: d<3m is suspicious
             else:
-                if distance < diff_color_min_dist:
+                if distance <= diff_color_min_dist:
                     violation_counts[i] += 1
 
     # Find the maximum number of violations
