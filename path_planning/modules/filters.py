@@ -8,6 +8,69 @@ import networkx as nx
 from .collision import is_collision, build_obstacle_tree
 
 
+def remove_ghost_cones(
+    cone_data,
+    same_color_max_dist=5.0,
+    diff_color_min_dist=3.0
+):
+    """
+    Remove ghost cones using very simple distance consistency rules.
+
+    Rules we know for sure :
+    - Same-color cones should NOT be farther than 5 meters apart
+    - Different-color cones should NOT be closer than 3 meters
+
+    Method:
+    - Each cone gets a violation counter
+    - The cone(s) with the highest violations are considered ghosts
+    """
+
+    # If there are fewer than 3 cones, we cannot make a reliable decision
+    if len(cone_data) < 3:
+        return cone_data
+
+    num_cones = len(cone_data)
+
+    # One violation counter per cone
+    violation_counts = [0] * num_cones
+
+    # Compare every cone with every other cone
+    for i in range(num_cones):
+        xi, yi, color_i = cone_data[i]
+
+        for j in range(num_cones):
+            # Skip comparing the cone with itself
+            if i == j:
+                continue
+
+            xj, yj, color_j = cone_data[j]
+
+            # Compute distance between the two cones
+            dx = xi - xj
+            dy = yi - yj
+            distance = np.sqrt(dx * dx + dy * dy)
+
+            # Rule 1: Same color cones: d>5m is suspicious
+            if color_i == color_j:
+                if distance > same_color_max_dist:
+                    violation_counts[i] += 1
+
+            # Rule 2: Different color cones: d<3m is suspicious
+            else:
+                if distance < diff_color_min_dist:
+                    violation_counts[i] += 1
+
+    # Find the maximum number of violations
+    max_violations = max(violation_counts)
+
+    # If no cone violated any rule, keep everything
+    if max_violations == 0:
+        return cone_data
+
+    # Remove the cone(s) with the highest violation count
+    filtered = [cone_data[i] for i in range(num_cones) if violation_counts[i] < max_violations]
+
+    return filtered
 def build_safe_graph(vor, colors, cone_data, robot_radius, max_edge_len, safety_margin):
     """
     A function that accepts a voronoi structure vor and a list of cone colors.
@@ -54,7 +117,7 @@ def build_safe_graph(vor, colors, cone_data, robot_radius, max_edge_len, safety_
         if dist > max_edge_len:
             continue
 
-        # 3. Collision Check: Ensure edge doesn't collide with cones
+        """"   # 3. Collision Check: Ensure edge doesn't collide with cones
         collision_detected = is_collision(
             p_start[0], p_start[1],
             p_end[0], p_end[1],
@@ -62,9 +125,12 @@ def build_safe_graph(vor, colors, cone_data, robot_radius, max_edge_len, safety_
             obstacle_tree,
             max_edge_len
         )
-        
+       
         if collision_detected:
             continue  # Skip this edge if collision detected
+        """
+
+
 
         # Add to Graph (only if all checks passed)
         G.add_node(v1_idx, pos=p_start)

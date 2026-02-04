@@ -2,6 +2,7 @@ import numpy as np
 from . import voronoi_gen
 from . import filters
 from . import graph_search
+from .filters import remove_ghost_cones
 from .smoothing import smooth_path_bspline, smooth_path_line
 
 class PathPlanner:
@@ -28,6 +29,9 @@ class PathPlanner:
         # 2. Check for Low Cones (Startup / Fallback Mode)
         if len(cone_data) < 3:
             return self._handle_low_cones(cone_data, car_pos, car_yaw)
+
+         # 3. Remove Ghost Cones
+        cone_data = remove_ghost_cones(cone_data)
 
         # 3. Balance Uneven Cones (Add ghosts if one side is missing)
         balanced_cone_data = self._balance_uneven_cones(
