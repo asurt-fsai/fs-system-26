@@ -55,16 +55,16 @@ def build_safe_graph(vor, colors, cone_data, robot_radius, max_edge_len, safety_
             continue
 
         # 3. Collision Check: Ensure edge doesn't collide with cones
-        collision_detected = is_collision(
-            p_start[0], p_start[1],
-            p_end[0], p_end[1],
-            effective_radius,
-            obstacle_tree,
-            max_edge_len
-        )
+        #collision_detected = is_collision(
+         #   p_start[0], p_start[1],    
+           # p_end[0], p_end[1],
+           # effective_radius,
+           # obstacle_tree,
+           # max_edge_len
+         #)
         
-        if collision_detected:
-            continue  # Skip this edge if collision detected
+        #if collision_detected:
+          #  continue  # Skip this edge if collision detected
 
         # Add to Graph (only if all checks passed)
         G.add_node(v1_idx, pos=p_start)
