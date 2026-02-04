@@ -6,7 +6,7 @@ from modules.planner import PathPlanner
 # 1. CONFIGURATION
 # ==========================================
 # Select what you want to run: 'full_sim', 'test_1_cone', or 'test_2_cones'
-RUN_MODE = 'test_uneven_balance'
+RUN_MODE = 'full_sim'
 
 # Simulation Settings
 START_VISIBLE = 1
@@ -62,7 +62,7 @@ def run_full_simulation():
     full_track_cones = generate_cones_from_path(center)
     
     # 2. Setup Planner
-    planner = PathPlanner(robot_radius=0.7, safety_margin=0.4, max_edge_len=8.0)
+    planner = PathPlanner(robot_radius=0.6, safety_margin=0.5, max_edge_len=6.0)
     car_data = [(0.0, 0.0, 0.0)]
 
     plt.ion()
@@ -220,16 +220,23 @@ def test_2_cones():
 # ==========================================
 if __name__ == "__main__":
     
-    if RUN_MODE == 'test_1_cone':
-        test_1_cone()
-        
-    elif RUN_MODE == 'test_2_cones':
-        test_2_cones()
-        
-    elif RUN_MODE == 'full_sim':
-        run_full_simulation()
-    elif RUN_MODE == 'test_uneven_balance':
-        test_uneven_balance()
-        
-    else:
-        print("Invalid Run Mode selected.")
+    # Run all tests sequentially
+    print("\n" + "="*60)
+    print("RUNNING ALL TESTS")
+    print("="*60 + "\n")
+    
+    print("\n>>> TEST 1: Single Cone Test")
+    test_1_cone()
+    
+    print("\n>>> TEST 2: Two Cone Gate Test")
+    test_2_cones()
+    
+    print("\n>>> TEST 3: Uneven Balance Test")
+    test_uneven_balance()
+    
+    print("\n>>> TEST 4: Full Hairpin Simulation")
+    run_full_simulation()
+    
+    print("\n" + "="*60)
+    print("ALL TESTS COMPLETED")
+    print("="*60)
