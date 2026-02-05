@@ -3,6 +3,7 @@ from . import voronoi_gen
 from . import filters
 from . import graph_search
 from .smoothing import smooth_path_bspline, smooth_path_line
+from .filters import remove_ghost_cones
 
 
 class PathPlanner:
