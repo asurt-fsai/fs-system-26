@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.interpolate import splprep, splev
 
-def smooth_path_bspline(rx, ry, smoothing=0.5, num_points=100):
+def smooth_path_bspline(rx, ry, smoothing=0.4, num_points=300):
     """
     Smooth path using B-spline .
 
