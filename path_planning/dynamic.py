@@ -9,9 +9,9 @@ from modules.planner import PathPlanner
 RUN_MODE = 'full_sim'
 
 # Simulation Settings
-START_VISIBLE = 2
+START_VISIBLE = 1
 REVEAL_RATE = 4
-SHAPE_MODE = 'straight'  # Options: 'straight', 'hairpin', 's_curve'
+SHAPE_MODE = 'hairpin'
 
 # ==========================================
 # 2. HELPER FUNCTIONS (Track Generation)
@@ -60,6 +60,14 @@ def run_full_simulation():
         center = [(x, 0) for x in np.linspace(0, 50, 50)]
         
     full_track_cones = generate_cones_from_path(center)
+    # ==========================================
+    # ADD GHOST CONE TO HAIRPIN HERE
+    # ==========================================
+    if SHAPE_MODE == 'hairpin':
+        # Placed at (22, 8), which is right in the middle of the hairpin turn
+        # This sits between the blue and yellow boundaries.
+        full_track_cones.append((28.0, 8.0, 'b'))
+        # ==========================================
     
     # 2. Setup Planner
     planner = PathPlanner(robot_radius=0.6, safety_margin=0.5, max_edge_len=6.0)
@@ -68,61 +76,29 @@ def run_full_simulation():
     plt.ion()
     fig, ax = plt.subplots(figsize=(10, 8))
 
-    # 3. The Loop (Updated for Dynamic Movement & Yaw)
-    # 3. The Loop (Updated with Virtual Cone Visualization)
-    current_x, current_y, current_yaw = 0.0, 0.0, 0.0
-
+    # 3. The Loop
     for n in range(START_VISIBLE, len(full_track_cones) + 1, REVEAL_RATE):
         visible_cones = full_track_cones[:n]
-        car_data = [(current_x, current_y, current_yaw)]
-        
-        # --- DEBUG STEP: Get the balanced list to visualize hallucinations ---
-        # Assuming your planner stores the balanced list or you can call it:
-        balanced_cones = planner._balance_uneven_cones(visible_cones, current_yaw)
-        
-        # Execute the planning cycle
         path_points = planner.execute_cycle(visible_cones, car_data)
         
-        if path_points and len(path_points) > 1:
-            next_p = path_points[1]
-            dx, dy = next_p[0] - current_x, next_p[1] - current_y
-            current_yaw = np.arctan2(dy, dx)
-            current_x, current_y = next_p[0], next_p[1]
-
-        # --- Visualization ---
         ax.clear()
-        
-        # 1. Plot VIRTUAL Cones (Faded colors)
-        # We identify them by checking which cones in 'balanced' aren't in 'visible'
-        visible_coords = set((c[0], c[1]) for c in visible_cones)
-        for bc in balanced_cones:
-            if (bc[0], bc[1]) not in visible_coords:
-                v_col = 'cyan' if bc[2] == 'b' else 'orange'
-                ax.scatter(bc[0], bc[1], c=v_col, s=150, alpha=0.3, edgecolors='none', label="Virtual" if 'Virtual' not in ax.get_legend_handles_labels()[1] else "")
-
-        # 2. Plot REAL Cones (Solid colors)
         xs = [c[0] for c in visible_cones]
         ys = [c[1] for c in visible_cones]
         cols = ['gold' if c[2] == 'y' else 'blue' for c in visible_cones]
-        ax.scatter(xs, ys, c=cols, s=100, edgecolors='k', zorder=5, label="Real Cones")
+        ax.scatter(xs, ys, c=cols, s=100, edgecolors='k')
         
-        # 3. Plot Car
-        ax.plot(current_x, current_y, color='red', marker=(3, 0, np.degrees(current_yaw)-90), markersize=15)
-        
-        # 4. Plot Path
         if path_points:
-            px, py = zip(*path_points)
+            px = [p[0] for p in path_points]
+            py = [p[1] for p in path_points]
             ax.plot(px, py, '-g', linewidth=3, label='Planned Path')
+            ax.scatter(px, py, c='lime', s=20)
         else:
-            ax.text(current_x, current_y, "NO PATH FOUND", fontsize=15, color='red', weight='bold')
+            ax.text(0, 0, "NO PATH FOUND", fontsize=15, color='red')
             
-        # Camera & Layout
-        ax.set_aspect('equal')
-        ax.set_xlim(current_x - 15, current_x + 25)
-        ax.set_ylim(current_y - 15, current_y + 15)
-        ax.grid(True, linestyle=':', alpha=0.6)
-        ax.legend(loc='upper right', fontsize='small')
-        
+        ax.set_xlim(-5, 35)
+        ax.set_ylim(-10, 25)
+        ax.set_title(f"Full Sim: {n} Cones")
+        ax.grid(True)
         plt.pause(0.1)
     
     plt.ioff()
@@ -170,7 +146,11 @@ def run_static_test(cones, title):
     ax.legend()
     plt.show()
 
-
+def test_1_cone():
+    # Scenario: Single Blue Cone at (5, 2)
+    # Expected: Path should swerve right using Ghost Cone logic
+    test_cones = [(2.0, 5.0, 'y')]
+    run_static_test(test_cones, "1 Cone Test (Single Yellow)")
 
 def test_uneven_balance():
     """
@@ -234,6 +214,14 @@ def test_uneven_balance():
     ax.legend()
     plt.show()
 
+def test_2_cones():
+    # Scenario: A Gate (Blue at 5,2 | Yellow at 5,-2)
+    # Expected: Path should go straight through the middle
+    test_cones = [
+        (5.0, 2.0, 'b'),
+        (5.0, -2.0, 'y')
+    ]
+    run_static_test(test_cones, "2 Cone Test (Gate)")
 
 # ==========================================
 # 5. MAIN EXECUTION (Select Mode Here)
@@ -253,4 +241,8 @@ if __name__ == "__main__":
     
     print("\n" + "="*60)
     print("ALL TESTS COMPLETED")
+<<<<<<< HEAD
     print("="*60)
+=======
+    print("="*60)
+>>>>>>> f658a09b1c1dab425a67515d8f1cf6f047899b96

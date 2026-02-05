@@ -51,9 +51,9 @@ print("="*60)
 # List of tuples: [(x, y, color), ...]
 cone_data = [
     # Right Side (Yellow)
-    (0, 0, 'y'), (2, 0, 'y'), (4, 1, 'y'), (6, 1, 'y'), (8, 0, 'y'), (10, 0, 'y'),
+    (0, 0, 'y'), (2,1, 'y'), (4, 2, 'y'), (6, 1, 'y'), (8, 0, 'y'), (10, 0, 'y'),
     # Left Side (Blue)
-    (0, 3, 'b'), (2, 3, 'b'), (4, 4, 'b'), (6, 4, 'b'), (8, 3, 'b'), (10, 3, 'b')
+    (0, 3, 'b'), (2, 4, 'b'), (4, 5, 'b'), (6, 4, 'b'), (8, 3, 'b'), (10, 3, 'b')
 ]
 # Recommended Car Start: (0.0, 1.5, 0.0)
 
@@ -61,6 +61,8 @@ cone_data = [
 # Car input: [(x, y, orientation_in_radians)]
 # Orientation 0.0 points East (Right)
 car_data = [(0.0, 1.5, 0.0)]
+
+
 
 # --- 2. Execution ---
 planner = PathPlanner(robot_radius=0.5, safety_margin=0.2, max_edge_len=5.0)

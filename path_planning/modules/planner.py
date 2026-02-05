@@ -4,6 +4,7 @@ from . import filters
 from . import graph_search
 from .smoothing import smooth_path_bspline, smooth_path_line
 
+
 class PathPlanner:
     def __init__(self, robot_radius=0.5, safety_margin=0.2, max_edge_len=8.0):
         self.robot_radius = robot_radius
@@ -11,13 +12,18 @@ class PathPlanner:
         self.max_edge_len = max_edge_len
 
     def execute_cycle(self, cone_data, car_data):
+        """
+        Main pipeline function.
+        """
+        # 1. Extract Car Data FIRST (So we can use it for low-cone logic)
         car_pos = np.array([car_data[0][0], car_data[0][1]])
         car_yaw = car_data[0][2]
 
         if len(cone_data) < 3:
             return self._handle_low_cones(cone_data, car_pos, car_yaw)
 
-        # 4. Balance Cones and generate Midpoints
+        # 4. Balance Cones and generate Midpoints and ghost cones
+        cone_data = remove_ghost_cones(cone_data)
         balanced_cone_data, midpoint_nodes = self._balance_by_full_mirror(
             cone_data, virtual_width=4.0
         )
@@ -37,7 +43,7 @@ class PathPlanner:
             cone_data=balanced_cone_data,
             max_edge_len=self.max_edge_len
         )
-        
+
         # 7. Module 3: Search Graph
         path = graph_search.find_optimal_path(safe_graph, car_pos, car_yaw)
 
