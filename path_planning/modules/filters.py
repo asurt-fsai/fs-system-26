@@ -11,66 +11,77 @@ from .collision import is_collision, build_obstacle_tree
 def remove_ghost_cones(
     cone_data,
     same_color_max_dist=5.0,
-    diff_color_min_dist=3.0
+    diff_color_min_dist=3.0,
+    min_violation_ratio=0.4 #to avoid removing real cones from dense areas (we only remove cones that violate rules in more than 40% of their comparisons)
 ):
     """
-    Remove ghost cones using very simple distance consistency rules.
+    Remove ghost cones using distance rules.
+    what we know for sure:
+    -same color cones: max distance allowed is 5m
+    -diff color cones: min distance allowed is 3m
 
-    Rules we know for sure :
-    - Same-color cones should NOT be farther than 5 meters apart
-    - Different-color cones should NOT be closer than 3 meters
+    Each cone accumulates violations (potential ghost counter) normalized by number of checks.
+    Cones with high violation ratios are removed.
 
-    Method:
-    - Each cone gets a violation counter
-    - The cone(s) with the highest violations are considered ghosts
+    Pot_ghost: A cone gets +1 for each same-color cone that is too far, and +2 for each different-color cone that is too close.
+    checks: Count of comparisons made for each cone (to normalize pot_ghost).
+
+
     """
 
-    # If there are fewer than 3 cones, we cannot make a reliable decision
-    if len(cone_data) < 3:
+    #Number of detected cones
+    n = len(cone_data)
+
+    if n < 3:
         return cone_data
 
-    num_cones = len(cone_data)
+    pot_ghost = [0.0] * n # potential ghost score for each cone
+    checks = [0] * n  # number of checks conducted with every other cone
 
-    # One violation counter per cone
-    violation_counts = [0] * num_cones
+    #compare each cone with every other cone once
+    for i in range(n):
+        xi, yi, ci = cone_data[i]
 
-    # Compare every cone with every other cone
-    for i in range(num_cones):
-        xi, yi, color_i = cone_data[i]
+        for j in range(i + 1, n):
+            xj, yj, cj = cone_data[j]
 
-        for j in range(num_cones):
-            # Skip comparing the cone with itself
-            if i == j:
-                continue
-
-            xj, yj, color_j = cone_data[j]
-
-            # Compute distance between the two cones
+            #compute distance between cone i and j
             dx = xi - xj
             dy = yi - yj
-            distance = np.sqrt(dx * dx + dy * dy)
+            d = np.hypot(dx, dy)
 
-            # Rule 1: Same color cones: d>5m is suspicious
-            if color_i == color_j:
-                if distance > same_color_max_dist:
-                    violation_counts[i] += 1
-
-            # Rule 2: Different color cones: d<3m is suspicious
+            #Rule 1: Same color cones: d > same_color_max_dist
+            if ci == cj:
+                if d > same_color_max_dist:
+                    pot_ghost[i] += 1.0
+                    pot_ghost[j] += 1.0
+            # Rule 2: Different color cones: d < diff_color_min_dist
+            # diff color being too close gives higher penalty
             else:
-                if distance <= diff_color_min_dist:
-                    violation_counts[i] += 1
+                if d < diff_color_min_dist:
+                    pot_ghost[i] += 2.0
+                    pot_ghost[j] += 2.0
 
-    # Find the maximum number of violations
-    max_violations = max(violation_counts)
+            checks[i] += 1
+            checks[j] += 1
 
-    # If no cone violated any rule, keep everything
-    if max_violations == 0:
-        return cone_data
+    # Compute normalized violation ratio (total pot_ghost / total checks)
+    ratios = [
+        pot_ghost[i] / checks[i] if checks[i] > 0 else 0.0
+        for i in range(n)
+    ]
 
-    # Remove the cone(s) with the highest violation count
-    filtered = [cone_data[i] for i in range(num_cones) if violation_counts[i] < max_violations]
+    # Keep cones with low violation ratios
+    filtered = [
+        cone_data[i]
+        for i in range(n)
+        if ratios[i] < min_violation_ratio
+    ]
 
     return filtered
+
+
+
 def build_safe_graph(vor, colors, cone_data, robot_radius, max_edge_len, safety_margin):
     """
     A function that accepts a voronoi structure vor and a list of cone colors.
