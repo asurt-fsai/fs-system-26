@@ -20,3 +20,33 @@ fs_slam_eval/recordings/*
 # Ignoring extra python caches
 __pyache__/
 *.pyc
+
+# ROS2 build artifacts
+Perception/ros2_ws/build/
+Perception/ros2_ws/install/
+Perception/ros2_ws/log/
+
+# Log files (including large training logs)
+Perception/logs/
+*.txt
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs (optional - uncomment if you don't want to track logs)
+# Perception/logs/

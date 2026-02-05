@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Step 1: Launch the ZED camera with RViz
+ros2 launch zed_display_rviz2 display_zed_cam.launch.py camera_model:=zed2i &
+ZED_PID=$!
+echo "ZED camera launched with PID $ZED_PID"
+
+LOG_FILE_PATH="test_log_${ZED_PID}.txt"
+
+# Wait for the ZED camera to initialize
+sleep 10
+
+# Step 2: Run the ROS2 node to subscribe to the object detection topic and log messages
+echo "Launching Object Detection Logger Node"
+ros2 run ./log_object_detection.py
+ros2 run zed-ros2-wrapper log_object_detection.py "$LOG_FILE_PATH"
+echo "Object Detection Logger Node Done"
+
+# Kill the ZED camera process
+kill $ZED_PID
+
+# Step 3: Run the test analysis script 
+FILE_PATH="/home/user/data/input.txt"
+python3 script.py "$FILE_PATH"
+
+# Notify the user that the script has completed
+echo "Test run and analysis completed. Results are saved in $LOG_FILE_PATH"
