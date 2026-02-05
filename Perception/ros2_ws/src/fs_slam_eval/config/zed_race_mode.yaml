@@ -1,0 +1,49 @@
+# ZED Race Mode Configuration
+# PRIORITIZE: Accuracy, Loop Closure, Neural Depth
+
+/zed/zed_node:
+  ros__parameters:
+    
+    general:
+      camera_model: 'zed2i' 
+      grab_resolution: 'HD720' 
+      #Resoultion Options:
+      #'HD2K', 'HD1080', 'HD720', 'VGA', 'AUTO'
+      grab_frame_rate: 30 
+      #FPS
+    
+    
+    depth:
+      depth_mode: "NEURAL"     
+      # depth mode options:
+      # 'NEURAL_PLUS', 'NEURAL' 'NEURAL_LIGHT'
+      #
+      # NEURAL_PLUS: Very High Range, Very High GPU load (may be too far for racing)
+      # NEURAL: High Range, High GPU load (probably the most optimal)
+      # NEURAL_LIGHT: Medium Range, Medium GPU load (backup choice if fps drops too bad)
+     
+      min_depth: 0.3
+      #Camera will ignore anything closer than 30 cm
+      # Min: 0.01, Max: 3.0
+      max_depth: 10.0
+      #Camera will ignore anything further than 10 m
+      # Min: 0.5, Max: 20.0
+
+
+    pos_tracking:
+      pos_tracking_enabled: true
+      #Turns on the localiztion system
+      pos_tracking_mode: "GEN_3" 
+      # Latest GEN for tracking, GEN_1 & GEN_2 are lighter but less accurate
+      area_memory: true         
+      # Enable Loop Closure 
+      imu_fusion: true
+      # Use IMU fusion (crucial if the camera goes blind for example)
+      set_floor_as_origin: true
+      #Looks for the ground and takes it as a reference (so ground starts at height x and ground is 0)
+    mapping:
+      mapping_enabled: false    
+      # We only care about Trajectory for now
+
+    sensors:
+      sensors_timestamp_sync: false
