@@ -60,6 +60,14 @@ def run_full_simulation():
         center = [(x, 0) for x in np.linspace(0, 50, 50)]
         
     full_track_cones = generate_cones_from_path(center)
+    # ==========================================
+    # ADD GHOST CONE TO HAIRPIN HERE
+    # ==========================================
+    if SHAPE_MODE == 'hairpin':
+        # Placed at (22, 8), which is right in the middle of the hairpin turn
+        # This sits between the blue and yellow boundaries.
+        full_track_cones.append((28.0, 8.0, 'b'))
+        # ==========================================
     
     # 2. Setup Planner
     planner = PathPlanner(robot_radius=0.6, safety_margin=0.5, max_edge_len=6.0)
