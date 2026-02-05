@@ -240,26 +240,10 @@ def test_uneven_balance():
 # ==========================================
 if __name__ == "__main__":
     
-<<<<<<< HEAD
-    
-    if RUN_MODE == 'full_sim':
-        run_full_simulation()
-    elif RUN_MODE == 'test_uneven_balance':
-        test_uneven_balance()
-        
-    else:
-        print("Invalid Run Mode selected.")
-=======
     # Run all tests sequentially
     print("\n" + "="*60)
     print("RUNNING ALL TESTS")
     print("="*60 + "\n")
-    
-    print("\n>>> TEST 1: Single Cone Test")
-    test_1_cone()
-    
-    print("\n>>> TEST 2: Two Cone Gate Test")
-    test_2_cones()
     
     print("\n>>> TEST 3: Uneven Balance Test")
     test_uneven_balance()
@@ -270,4 +254,3 @@ if __name__ == "__main__":
     print("\n" + "="*60)
     print("ALL TESTS COMPLETED")
     print("="*60)
->>>>>>> 3b00664610b751b680f44a8d3c76f0a7e9d7d9e5
