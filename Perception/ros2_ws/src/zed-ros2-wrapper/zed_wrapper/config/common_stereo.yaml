@@ -76,7 +76,7 @@
             apply_to_depth: true # Apply ROI to depth processing
             apply_to_positional_tracking: true # Apply ROI to positional tracking processing
             apply_to_object_detection: true # Apply ROI to object detection processing
-            apply_to_body_tracking: true # Apply ROI to body tracking processing
+            apply_to_body_tracking: false # Apply ROI to body tracking processing
             apply_to_spatial_mapping: true # Apply ROI to spatial mapping processing
             publish_roi_mask: false # Advertise the ROI mask image topic that is published only if a node subscribes to it
 
@@ -114,7 +114,7 @@
             depth_min_range: 0.0 # Set this value for removing fixed zones of the robot in the FoV of the camerafrom the visual odometry evaluation
             set_as_static: false # If 'true' the camera will be static and not move in the environment
             set_gravity_as_origin: true # If 'true' align the positional tracking world to imu gravity measurement. Keep the yaw from the user initial pose.
-            floor_alignment: false # Enable to automatically calculate camera/floor offset
+            floor_alignment: true # Enable to automatically calculate camera/floor offset
             initial_base_pose: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0] # Initial position of the `camera_link` frame in the map -> [X, Y, Z, R, P, Y]
             path_pub_rate: 2.0 # [DYNAMIC] - Camera trajectory publishing frequency
             path_max_count: -1 # use '-1' for unlimited path size
