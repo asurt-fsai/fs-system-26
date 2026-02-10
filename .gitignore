@@ -1,52 +1,68 @@
-# Ignoring the ROS2 build process
-build/
-install/
-log/
-bags/
-tum_files/
-src/fs_slam/
-.vscode/
-# Ignoring large-sized data
-*.svo
+# ROS / colcon build artifacts (ignore anywhere in tree)
+**/build/
+**/install/
+**/log/
+**/devel_isolated/
+**/build_isolated/
+**/install_isolated/
+
+# Colcon/ROS transient files
+*.pyc
+__pycache__/
 *.mcap
+*.svo
 *.bag
 *.db3
 *.tum
+bags/
+datasets/
+tum_files/
 
-# Ignoring results/reports
-fs_slam_eval/results/*
-fs_slam_eval/recordings/*
+# Logs and results
+logs/
+*.log
+fs_slam_eval/results/
+fs_slam_eval/recordings/
 
-# Ignoring extra python caches
-__pyache__/
-*.pyc
-
-# ROS2 build artifacts
-Perception/ros2_ws/build/
-Perception/ros2_ws/install/
-Perception/ros2_ws/log/
-
-# Log files (including large training logs)
-Perception/logs/
-*.txt
-
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
+# Python envs & caches
+.venv/
+venv/
+.env
 .Python
-*.so
+.python-version
+.mypy_cache/
+.coverage
+htmlcov/
 
-# Jupyter Notebook checkpoints
+# Jupyter
 .ipynb_checkpoints/
 
-# IDE
+# IDEs and editors
 .vscode/
 .idea/
-*.swp
 *.swo
+*.swp
 *~
 
-# Logs (optional - uncomment if you don't want to track logs)
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts & binaries
+*.o
+*.so
+*.a
+*.dll
+*.dylib
+*.exe
+
+# Misc
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Optional: ignore local run artifacts (uncomment if desired)
 # Perception/logs/

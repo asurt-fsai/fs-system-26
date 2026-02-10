@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from zed_msgs.msg import ObjectsStamped
-from asurt_msgs.msg import LandmarkArray, Landmark
+from cone_mapping.msg import LandmarkArray, Landmark
 from visualization_msgs.msg import MarkerArray, Marker
 import math
 
@@ -22,7 +22,7 @@ class Zed_to_Landmark(Node):
             10
         )
         # Publisher will send a LandmarkArray message containing all detected landmarks
-        self.landmarks_publisher = self.create_publisher(LandmarkArray, "/perception_landmarks", 10)
+        self.landmarks_publisher = self.create_publisher(LandmarkArray, "/perception/landmarks", 10)
         
         # Publisher for MarkerArray visualization
         self.marker_publisher = self.create_publisher(MarkerArray, "/perception_markers", 10)
@@ -62,7 +62,7 @@ class Zed_to_Landmark(Node):
 
     def convert_object_to_landmark(self, obj):
         """
-        Convert a ZED Object to an `asurt_msgs/Landmark` message.
+        Convert a ZED Object to a `cone_mapping/Landmark` message.
         """
         lm = Landmark()
         # Fill position (geometry_msgs/Point)

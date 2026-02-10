@@ -18,6 +18,7 @@
   <depend>tf2_geometry_msgs</depend>
   
   <depend>fs_interfaces</depend>
+  <depend>asurt_msgs</depend>
   <depend>zed_msgs</depend>
 
   <build_depend>rosidl_default_generators</build_depend>
