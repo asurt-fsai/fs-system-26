@@ -94,7 +94,7 @@ class Zed_to_Landmark(Node):
         return lm
 
 
-    def convert_object_to_marker(self, obj, marker_id, frame_id="map"):
+    def convert_object_to_marker(self, obj, marker_id, frame_id="zed_left_camera_frame"):
         """
         Convert a ZED Object to a visualization_msgs/Marker message.
         """
