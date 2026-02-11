@@ -8,7 +8,7 @@ cone_mapping_node:
     # Distance and Spatial Gating
     # ====================================================================
     max_detection_range: 15.0  # meters (r_max)
-    max_cone_height_deviation: 0.3  # meters (z-axis tolerance)
+    max_cone_height_deviation: 2.0  # Maximum deviation from expected cone height (meters)
     
     # ====================================================================
     # Data Association Parameters
@@ -31,7 +31,7 @@ cone_mapping_node:
     # ====================================================================
     # Lifecycle Management
     # ====================================================================
-    observations_for_confirmation: 3  # Required observations before CONFIRMED
+    observations_for_confirmation: 1  # Required observations before CONFIRMED
     covariance_threshold_confirmation: 0.5  # Maximum trace(P) for confirmation (m²)
     frames_until_lost: 10  # Consecutive frames before CONFIRMED → LOST
     timeout_until_deleted: 5.0  # Seconds before LOST → DELETED
