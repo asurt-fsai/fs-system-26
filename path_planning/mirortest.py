@@ -5,21 +5,18 @@ from modules import voronoi_gen
 
 import matplotlib.pyplot as plt
 import numpy as np
-
-import matplotlib.pyplot as plt
-import numpy as np
 from modules.planner import PathPlanner
 from modules import voronoi_gen
 
 def run_test_visual(name, cones, planner):
     print(f"\n--- RUNNING TEST: {name} ---")
-    car_data = [(0.0, 0.0, 0.0)] # x, y, yaw
+    car_data = [(-10, 0.0, 0.0)] # x, y, yaw
     
     # 1. Execute Cycle
     path_points = planner.execute_cycle(cones, car_data)
     
     # 2. Get data for visualization
-    balanced, midpoints = planner._balance_by_full_mirror(cones, virtual_width=4.0)
+    balanced, midpoints = planner._balance_by_full_mirror(cones, car_data[0][2], virtual_width=4.0)
     
     fig, ax = plt.subplots(figsize=(12, 7))
     
@@ -45,8 +42,8 @@ def run_test_visual(name, cones, planner):
         ax.scatter(px, py, c='lime', s=20, zorder=5)
 
     # --- DYNAMIC ZOOM FOR CASE 12 ---
-    if "12" in name:
-        ax.set_xlim(-2, 30)
+    if "14" in name:
+        ax.set_xlim(-10, 30)
         ax.set_ylim(-5, 22)
         # Add width labels for clarity
         ax.text(2, 0, "3m Width", color='black', fontsize=9, ha='center')
@@ -102,14 +99,27 @@ if __name__ == "__main__":
     
     # --- The Curve (Constant 4m width) ---
     # Coordinates calculated to keep Yellow on the right and Blue on the left
-    (17, 8, 'b'),   # Turn starts
+    (13, 8, 'b'),   # Turn starts
      # Blue outside, Yellow inside
-    (23, 14, 'b'),  # Maintaining 4m sweep
-    (27, 18, 'b'), (27, 10, 'y')   # Exiting curve
+    (15, 14, 'b'),  # Maintaining 4m sweep
+    (20, 18, 'b'), (27, 10, 'y') 
+     
 ]
 
 # Add to your test cases in mirortest.py
-    test_cases.append(("12. Precision Precision Sweep", case_precision_sweep))
+    case_13 =[(1,1,'y'),(4,1.2,'y'),(4,5.2,'b'),(8,2,'y'),(12,2.5,'y'),(12,6.5,'b'),(16,3,'y'),(16,7,'b')]
+
+
+    
+    #test_cases.append(("12. Precision Precision Sweep", case_precision_sweep))
+    #test_cases.append(("13. Asymmetric Pairing Challenge", case_13))
+    # --- CASE 14: The Hairpin Challenge ---
+# A tight 180-degree turn to test local heading and adaptive width.
+    case_hairpin = [(-2,1,'y'),(-5,1,'y'),(-8,1,'y')
+   ,(1,1,'y'),(4,1,'y'),(7,2,'y'),(9,4,'y'),(10,7,'y'),(7,9,'y'),(4,10,'y')]
+
+
+    test_cases.append(("14. Hairpin 180-Degree Turn", case_hairpin))
 
     for name, cones in test_cases:
         run_test_visual(name, cones, planner)

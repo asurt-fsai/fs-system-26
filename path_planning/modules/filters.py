@@ -99,64 +99,7 @@ def remove_ghost_cones(
 
 
 
-def build_safe_graph(vor, colors, cone_data, robot_radius, max_edge_len, safety_margin):
-    """
-    A function that accepts a voronoi structure vor and a list of cone colors.
-    Filters Voronoi ridges based on:
-    1. Color Mismatch (blue-yellow pairs only)
-    2. Distance pruning
-    3. Collision detection with cones
-    
-    Returns a NetworkX graph of safe paths.
-    
-    :param vor: Voronoi diagram object
-    :param colors: List of cone colors corresponding to Voronoi input points
-    :param cone_data: Original cone data [(x, y, color), ...]
-    :param robot_radius: Effective radius of vehicle
-    :param max_edge_len: Maximum allowable edge length
-    :param safety_margin: Additional safety buffer around robot
-    :return: NetworkX graph with safe edges
-    """
-    G = nx.Graph()  # Create an empty graph to hold safe edges and vertices
 
-    # Build KDTree for efficient collision detection
-    obstacle_tree = build_obstacle_tree(cone_data)
-    
-    # Effective robot radius with safety margin
-    effective_radius = robot_radius + safety_margin
-
-    # Iterate through all potential paths (ridges)
-    for (p1_idx, p2_idx), (v1_idx, v2_idx) in vor.ridge_dict.items():
-
-        # 1. Color Check: Skip if both cones are the same color
-        if colors[p1_idx] == colors[p2_idx]:
-            continue
-
-        # Check for infinite ridges (open ends)
-        if v1_idx == -1 or v2_idx == -1:
-            continue
-
-        # Get the actual physical 2D points of the voronoi vertices
-        p_start = vor.vertices[v1_idx]
-        p_end = vor.vertices[v2_idx]
-
-        # 2. Distance Check: Prune edges that are too long
-        dist = np.linalg.norm(p_start - p_end)
-        if dist > max_edge_len:
-            continue
-
-        """"   # 3. Collision Check: Ensure edge doesn't collide with cones
-        collision_detected = is_collision(
-            p_start[0], p_start[1],
-            p_end[0], p_end[1],
-            effective_radius,
-            obstacle_tree,
-            max_edge_len
-        )
-       
-        if collision_detected:
-            continue  # Skip this edge if collision detected
-        """
 
 def build_safe_graph(vor, colors, midpoint_nodes, cone_data, max_edge_len):
     """
