@@ -307,7 +307,7 @@ class KalmanLandmark:
             if (self.observation_count >= MappingConstants.OBSERVATIONS_FOR_CONFIRMATION and
                 np.trace(self.covariance) < MappingConstants.COVARIANCE_THRESHOLD_CONFIRMATION):
                 self.lifecycle_state = LandmarkState.CONFIRMED
-                self.assigned_color = self.color  # Lock color
+                self.assigned_type = self.cone_type  # Lock type
                 
         elif self.lifecycle_state == LandmarkState.CONFIRMED:
             # Confirmed → Lost
@@ -733,17 +733,44 @@ class ConeMappingNode(Node):
     Main ROS2 node for cone mapping and localization.
     
     Subscribes to:
-        - /perception_landmarks
-        - /zed/zed_node/pose (PoseStamped from ZED camera or pose estimator)
+        - /perception/landmarks (LandmarkArray)
+        - /zed2i/zed_node/pose (PoseStamped)
     
     Publishes:
         - /map/global_cones (LandmarkArray)
-    
-    Note: For testing without real hardware, see test_launch.py which uses simulators.
-    """ 
+    """
     
     def __init__(self):
         super().__init__('cone_mapping_node')
+        
+        # Declare and load parameters from YAML
+        self.declare_parameter('max_detection_range', 15.0)
+        self.declare_parameter('max_cone_height_deviation', 0.3)
+        self.declare_parameter('association_gate_radius', 2.0)
+        self.declare_parameter('mahalanobis_threshold', 5.991)
+        self.declare_parameter('sigma_0_squared', 0.01)
+        self.declare_parameter('noise_scale_factor', 0.02)
+        self.declare_parameter('process_noise_q', 0.001)
+        self.declare_parameter('observations_for_confirmation', 3)
+        self.declare_parameter('covariance_threshold_confirmation', 0.5)
+        self.declare_parameter('frames_until_lost', 10)
+        self.declare_parameter('timeout_until_deleted', 5.0)
+        
+        # Override MappingConstants with loaded parameters
+        MappingConstants.MAX_DETECTION_RANGE = self.get_parameter('max_detection_range').value
+        MappingConstants.MAX_CONE_HEIGHT_DEVIATION = self.get_parameter('max_cone_height_deviation').value
+        MappingConstants.ASSOCIATION_GATE_RADIUS = self.get_parameter('association_gate_radius').value
+        MappingConstants.MAHALANOBIS_THRESHOLD = self.get_parameter('mahalanobis_threshold').value
+        MappingConstants.SIGMA_0_SQUARED = self.get_parameter('sigma_0_squared').value
+        MappingConstants.NOISE_SCALE_FACTOR = self.get_parameter('noise_scale_factor').value
+        MappingConstants.PROCESS_NOISE_Q = self.get_parameter('process_noise_q').value
+        MappingConstants.OBSERVATIONS_FOR_CONFIRMATION = self.get_parameter('observations_for_confirmation').value
+        MappingConstants.COVARIANCE_THRESHOLD_CONFIRMATION = self.get_parameter('covariance_threshold_confirmation').value
+        MappingConstants.FRAMES_UNTIL_LOST = self.get_parameter('frames_until_lost').value
+        MappingConstants.TIMEOUT_UNTIL_DELETED = self.get_parameter('timeout_until_deleted').value
+        
+        self.get_logger().info(f"Loaded parameters: height_dev={MappingConstants.MAX_CONE_HEIGHT_DEVIATION}m, "
+                              f"range={MappingConstants.MAX_DETECTION_RANGE}m")
         
         # Initialize TF2
         self.tf_buffer = Buffer()
@@ -761,15 +788,18 @@ class ConeMappingNode(Node):
         # Process noise matrix (static model)
         self.Q = np.eye(2) * MappingConstants.PROCESS_NOISE_Q
         
+        # Debug counters
+        self.landmark_msg_count = 0
+        self.pose_msg_count = 0
+        self.sync_callback_count = 0
+        
         # Subscribers with message filters for synchronization
-        # Subscribe to converted landmarks (from conversion_node)
         self.landmark_sub = message_filters.Subscriber(
             self,
             LandmarkArray,
-            '/perception_landmarks'
+            '/perception/landmarks'
         )
         
-        # Subscribe to vehicle pose from ZED camera or external pose estimator
         self.pose_sub = message_filters.Subscriber(
             self,
             PoseStamped,
@@ -783,6 +813,8 @@ class ConeMappingNode(Node):
             slop=0.1  # 100ms tolerance
         )
         self.sync.registerCallback(self.synchronized_callback)
+        
+        self.get_logger().info("Message synchronizer configured (slop=0.1s)")
         
         # Publisher for global map
         self.map_pub = self.create_publisher(
@@ -814,7 +846,16 @@ class ConeMappingNode(Node):
             landmarks_msg: LandmarkArray in zed_camera frame
             pose_msg: PoseStamped (vehicle pose in map frame)
         """
+        self.sync_callback_count += 1
+        
+        if self.sync_callback_count == 1:
+            self.get_logger().info("✓ Synchronized callback triggered! Processing started.")
+        
+        if self.sync_callback_count % 10 == 0:
+            self.get_logger().info(f"Processed {self.sync_callback_count} synchronized message pairs")
+        
         if self.transformer.T_base_camera is None:
+            self.get_logger().warn("Static transform not ready, skipping frame")
             return  # Static transform not ready
         
         # PHASE 1: Transform and gate detections
@@ -822,6 +863,12 @@ class ConeMappingNode(Node):
             landmarks_msg.landmarks,
             pose_msg.pose
         )
+        
+        if self.sync_callback_count <= 5 or self.sync_callback_count % 100 == 0:
+            self.get_logger().info(
+                f"Phase 1: {len(landmarks_msg.landmarks)} raw detections -> "
+                f"{len(detections)} after transform & gating"
+            )
         
         if len(detections) == 0:
             # No valid detections, update lifecycle
@@ -837,6 +884,13 @@ class ConeMappingNode(Node):
                 detections,
                 self.landmarks
             )
+            
+            if self.sync_callback_count <= 5 or self.sync_callback_count % 100 == 0:
+                self.get_logger().info(
+                    f"Phase 2: {len(matches)} matches, "
+                    f"{len(unmatched_dets)} new detections, "
+                    f"{len(unmatched_lms)} unmatched landmarks"
+                )
             
             # PHASE 3: Update matched landmarks (Kalman filter)
             for det_idx, lm_idx in matches:
@@ -908,7 +962,8 @@ class ConeMappingNode(Node):
                 f"Map: {len(self.landmarks)} total | "
                 f"Confirmed: {stats[LandmarkState.CONFIRMED]} | "
                 f"Tentative: {stats[LandmarkState.TENTATIVE]} | "
-                f"Lost: {stats[LandmarkState.LOST]}"
+                f"Lost: {stats[LandmarkState.LOST]} | "
+                f"Callbacks: {self.sync_callback_count}"
             )
     
     def publish_map(self):

@@ -28,7 +28,7 @@ class Colors:
 
 class ConeMappingDiagnostics:
     def __init__(self):
-        self.source_cmd = "source /home/hazem/Desktop/FSAI/SLAM_Camera/install/setup.bash"
+        self.source_cmd = "source /home/eyad/ZED_Benchmarking_ws/fs-system-26/install/setup.bash"
         self.results = {
             'timestamp': datetime.now().isoformat(),
             'tests_passed': 0,
