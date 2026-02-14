@@ -36,7 +36,6 @@ install(PROGRAMS
   cone_mapping/test_case_5_multilap.py
   DESTINATION lib/${PROJECT_NAME}
 )
-
 # Install launch files
 install(DIRECTORY
   launch
