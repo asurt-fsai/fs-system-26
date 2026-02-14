@@ -1,8 +1,8 @@
 """
 Integrated Launch File for Perception + SLAM
 Launches all components needed for real camera integration:
-1. perception_zed conversion node (subscribes to ZED raw detections)
-2. message_adapter (converts asurt_msgs ↔ cone_mapping messages)
+1. zed_to_landmark (converts ZED objects -> landmarks)
+2. message_adapter (converts asurt_msgs <-> cone_mapping messages)
 3. cone_mapping_node (performs SLAM and mapping)
 4. static_transform_publisher (camera calibration)
 5. Optional: RViz for visualization
@@ -20,7 +20,6 @@ from launch.actions import DeclareLaunchArgument, ExecuteProcess
 from launch.substitutions import LaunchConfiguration
 from launch.conditions import IfCondition
 import os
-
 
 def generate_launch_description():
     """Generate launch description with all integrated nodes."""
@@ -49,29 +48,55 @@ def generate_launch_description():
     record_bag = LaunchConfiguration('record_bag')
     log_level = LaunchConfiguration('log_level')
     
+    # Define generic paths (used for source fallback search)
+    launch_dir = os.path.dirname(os.path.abspath(__file__))
+    install_root = os.path.normpath(os.path.join(launch_dir, '..', '..', '..'))
+
     # =========================================================================
-    # 1. Perception ZED Node
+    # 1. Perception ZED Node (Zed_to_Landmark)
     # Subscribes to: /zed/zed_node/obj_det/objects (ZED camera detections)
-    # Publishes to: /perception/landmarks (asurt_msgs::LandmarkArray)
+    # Publishes to: /perception/landmarks (LandmarkArray)
     # =========================================================================
-    perception_node = Node(
-        package='perception_zed_pkg',
-        executable='conversion_node',
-        name='zed_to_landmark',
-        output='screen',
-        arguments=['--ros-args', '--log-level', log_level]
-    )
     
+    # Path to installed executable (if built/installed)
+    installed_perception = os.path.join(install_root, 'lib', 'cone_mapping', 'zed_to_landmark')
+    
+    # Path to source script (fallback)
+    source_module_path = os.path.normpath(os.path.join(launch_dir, '..', '..', 'cone_mapping'))
+    source_perception = os.path.join(source_module_path, 'zed_to_landmark.py')
+
+    # Fallback search logic: look up directory tree if source not found in standard location
+    if not os.path.exists(source_perception):
+        for up in range(1, 7):
+            candidate_root = os.path.normpath(os.path.join(launch_dir, *(['..'] * up)))
+            candidate_perception = os.path.join(candidate_root, 'src', 'SLAM_Camera', 'src', 'cone_mapping', 'cone_mapping', 'zed_to_landmark.py')
+            if os.path.exists(candidate_perception):
+                source_perception = candidate_perception
+                break
+
+    if os.path.exists(installed_perception):
+        perception_node = Node(
+            package='cone_mapping',
+            executable='zed_to_landmark',
+            name='zed_to_landmark',
+            output='screen',
+            arguments=['--ros-args', '--log-level', log_level]
+        )
+    else:
+        # Fallback: Run python script directly
+        perception_node = ExecuteProcess(
+            cmd=['python3', source_perception, '--ros-args', '--log-level', log_level],
+            output='screen',
+            name='zed_to_landmark'
+        )
+
     # =========================================================================
     # Pose Republisher
     # Republishes incoming ZED pose so downstream nodes can subscribe here
     # =========================================================================
-    launch_dir = os.path.dirname(os.path.abspath(__file__))
-    install_root = os.path.normpath(os.path.join(launch_dir, '..', '..', '..'))
     installed_pose = os.path.join(install_root, 'lib', 'cone_mapping', 'pose_republisher')
-    source_pose = os.path.normpath(os.path.join(launch_dir, '..', '..', 'cone_mapping', 'pose_republisher.py'))
-    # If source path points into the installed tree (when launch executed from install),
-    # search upward for workspace root that contains the source package.
+    source_pose = os.path.join(source_module_path, 'pose_republisher.py')
+    
     if not os.path.exists(source_pose):
         for up in range(1, 7):
             candidate_root = os.path.normpath(os.path.join(launch_dir, *(['..'] * up)))
@@ -79,6 +104,7 @@ def generate_launch_description():
             if os.path.exists(candidate_pose):
                 source_pose = candidate_pose
                 break
+
     if os.path.exists(installed_pose):
         pose_republisher_node = Node(
             package='cone_mapping',
@@ -96,22 +122,13 @@ def generate_launch_description():
     # =========================================================================
     # 2. Cone Mapping Node (SLAM)
     # Subscribes to: 
-    #   - /perception/landmarks (cone_mapping messages from conversion_node)
+    #   - /perception/landmarks (from zed_to_landmark)
     #   - /zed/zed_node/pose (vehicle pose)
     # Publishes to: /map/global_cones (confirmed landmarks)
     # =========================================================================
-    # Detect paths for source code fallback (when running from source tree)
-    launch_dir = os.path.dirname(os.path.abspath(__file__))
-    install_root = os.path.normpath(os.path.join(launch_dir, '..', '..', '..'))
     installed_node = os.path.join(install_root, 'lib', 'cone_mapping', 'cone_mapping_node')
-
-    source_module_path = os.path.normpath(os.path.join(launch_dir, '..', '..', 'cone_mapping'))
     source_node = os.path.join(source_module_path, 'cone_mapping_node.py')
 
-    # If running the launch file from the installed location, the above
-    # source paths will point inside `install/...` which is not the workspace
-    # source tree. As a fallback, search upward for a workspace root that
-    # contains the source package at `src/SLAM_Camera/src/cone_mapping/cone_mapping`.
     if not os.path.exists(source_node):
         for up in range(1, 7):
             candidate_root = os.path.normpath(os.path.join(launch_dir, *(['..'] * up)))
@@ -126,7 +143,8 @@ def generate_launch_description():
             executable='cone_mapping_node',
             name='cone_mapping_node',
             output='screen',
-            arguments=['--ros-args', '--log-level', log_level]
+            arguments=['--ros-args', '--log-level', log_level],
+            parameters=[os.path.join(source_module_path, '..', 'config', 'cone_mapping_params.yaml')]
         )
     else:
         cone_mapping_node = ExecuteProcess(
@@ -137,9 +155,6 @@ def generate_launch_description():
     # =========================================================================
     # 3. Static Transform Publisher
     # Publishes TF: base_link → zed_camera (camera calibration)
-    # Calibration parameters: 
-    #   position: [0.3m forward, 0.0m lateral, 0.5m up]
-    #   rotation: identity (camera points forward)
     # =========================================================================
     static_tf_publisher = Node(
         package='tf2_ros',

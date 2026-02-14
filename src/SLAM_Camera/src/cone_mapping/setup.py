@@ -29,6 +29,7 @@ setup(
             'cone_mapping_node = cone_mapping.cone_mapping_node:main',
             'message_adapter = cone_mapping.message_adapter:main',
             'pose_republisher = cone_mapping.pose_republisher:main',
+            'zed_to_landmark = cone_mapping.zed_to_landmark:main',
         ],
     },
 )

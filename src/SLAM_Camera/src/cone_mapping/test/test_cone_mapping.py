@@ -9,18 +9,20 @@ import numpy as np
 from numpy.testing import assert_array_almost_equal, assert_array_equal
 import sys
 import os
+from unittest.mock import MagicMock
 
 # Add parent directory to path to import the module
-sys.path.insert(0, os.path.dirname(__file__))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/cone_mapping")
+# Note: MappingConstants.MAX_CONE_HEIGHT_DEVIATION is updated to 1.0m in the node
 
 # Import modules to test
-# Note: In actual implementation, adjust imports based on package structure
 from cone_mapping_node import (
     KalmanLandmark,
     LandmarkState,
     MappingConstants,
     DataAssociator,
-    MapMaintenance
+    MapMaintenance,
+    ConeType
 )
 
 
@@ -30,15 +32,15 @@ class TestKalmanLandmark(unittest.TestCase):
     def setUp(self):
         """Initialize test fixtures"""
         self.position = np.array([5.0, 3.0])
-        self.color = "blue"
+        self.cone_type = ConeType.BLUE
         self.initial_cov = 10.0
         
     def test_initialization(self):
         """Test landmark initialization"""
-        landmark = KalmanLandmark(self.position, self.color, self.initial_cov)
+        landmark = KalmanLandmark(self.position, self.cone_type, self.initial_cov)
         
         assert_array_equal(landmark.state, self.position)
-        self.assertEqual(landmark.color, self.color)
+        self.assertEqual(landmark.cone_type, self.cone_type)
         self.assertEqual(landmark.lifecycle_state, LandmarkState.TENTATIVE)
         self.assertEqual(landmark.observation_count, 1)
         
@@ -48,7 +50,7 @@ class TestKalmanLandmark(unittest.TestCase):
     
     def test_predict_static_model(self):
         """Test Kalman prediction with static motion model"""
-        landmark = KalmanLandmark(self.position, self.color, self.initial_cov)
+        landmark = KalmanLandmark(self.position, self.cone_type, self.initial_cov)
         initial_state = landmark.state.copy()
         initial_cov = landmark.covariance.copy()
         
@@ -64,7 +66,7 @@ class TestKalmanLandmark(unittest.TestCase):
     
     def test_update_accept(self):
         """Test Kalman update with valid measurement"""
-        landmark = KalmanLandmark(self.position, self.color, 1.0)
+        landmark = KalmanLandmark(self.position, self.cone_type, 1.0)
         
         # Measurement close to state
         measurement = np.array([5.1, 3.1])
@@ -83,7 +85,7 @@ class TestKalmanLandmark(unittest.TestCase):
     
     def test_update_reject_outlier(self):
         """Test Kalman update rejects outlier measurements"""
-        landmark = KalmanLandmark(self.position, self.color, 0.1)
+        landmark = KalmanLandmark(self.position, self.cone_type, 0.1)
         
         # Measurement very far from state (outlier)
         measurement = np.array([20.0, 20.0])
@@ -102,7 +104,7 @@ class TestKalmanLandmark(unittest.TestCase):
     
     def test_mahalanobis_distance(self):
         """Test Mahalanobis distance computation"""
-        landmark = KalmanLandmark(self.position, self.color, 1.0)
+        landmark = KalmanLandmark(self.position, self.cone_type, 1.0)
         
         # Measurement at exact state position
         measurement_close = self.position.copy()
@@ -118,7 +120,7 @@ class TestKalmanLandmark(unittest.TestCase):
     
     def test_lifecycle_tentative_to_confirmed(self):
         """Test lifecycle transition from Tentative to Confirmed"""
-        landmark = KalmanLandmark(self.position, self.color, 10.0)
+        landmark = KalmanLandmark(self.position, self.cone_type, 10.0)
         
         # Simulate multiple observations
         R = np.eye(2) * 0.1
@@ -135,7 +137,7 @@ class TestKalmanLandmark(unittest.TestCase):
     
     def test_lifecycle_confirmed_to_lost(self):
         """Test lifecycle transition from Confirmed to Lost"""
-        landmark = KalmanLandmark(self.position, self.color, 0.1)
+        landmark = KalmanLandmark(self.position, self.cone_type, 0.1)
         landmark.lifecycle_state = LandmarkState.CONFIRMED
         landmark.observation_count = 10
         
@@ -145,19 +147,19 @@ class TestKalmanLandmark(unittest.TestCase):
         
         self.assertEqual(landmark.lifecycle_state, LandmarkState.LOST)
     
-    def test_color_consistency(self):
-        """Test color consistency checking"""
-        landmark = KalmanLandmark(self.position, "blue", 0.1)
+    def test_type_consistency(self):
+        """Test type consistency checking"""
+        landmark = KalmanLandmark(self.position, ConeType.BLUE, 0.1)
         landmark.lifecycle_state = LandmarkState.CONFIRMED
-        landmark.assigned_color = "blue"
+        landmark.assigned_type = ConeType.BLUE
         
-        # Matching color
-        self.assertTrue(landmark.check_color_consistency("blue"))
-        self.assertEqual(landmark.color_mismatch_count, 0)
+        # Matching type
+        self.assertTrue(landmark.check_type_consistency(ConeType.BLUE))
+        self.assertEqual(landmark.type_mismatch_count, 0)
         
-        # Mismatching color
-        self.assertFalse(landmark.check_color_consistency("yellow"))
-        self.assertEqual(landmark.color_mismatch_count, 1)
+        # Mismatching type
+        self.assertFalse(landmark.check_type_consistency(ConeType.YELLOW))
+        self.assertEqual(landmark.type_mismatch_count, 1)
 
 
 class TestDataAssociator(unittest.TestCase):
@@ -165,7 +167,8 @@ class TestDataAssociator(unittest.TestCase):
     
     def setUp(self):
         """Initialize test fixtures"""
-        self.associator = DataAssociator(None)  # Logger not needed for tests
+        self.mock_logger = MagicMock()
+        self.associator = DataAssociator(self.mock_logger)
     
     def test_measurement_noise_model(self):
         """Test distance-dependent measurement noise computation"""
@@ -187,13 +190,13 @@ class TestDataAssociator(unittest.TestCase):
     def test_associate_single_match(self):
         """Test association with single detection and single landmark"""
         # Create landmark
-        landmark = KalmanLandmark(np.array([5.0, 3.0]), "blue", 0.5)
+        landmark = KalmanLandmark(np.array([5.0, 3.0]), ConeType.BLUE, 0.5)
         landmarks = [landmark]
         
         # Create detection close to landmark
         detections = [{
             'position': np.array([5.1, 3.1]),
-            'color': 'blue',
+            'type': ConeType.BLUE,
             'distance': 5.0
         }]
         
@@ -209,13 +212,13 @@ class TestDataAssociator(unittest.TestCase):
     def test_associate_no_match(self):
         """Test association with detection too far from landmark"""
         # Create landmark
-        landmark = KalmanLandmark(np.array([5.0, 3.0]), "blue", 0.1)
+        landmark = KalmanLandmark(np.array([5.0, 3.0]), ConeType.BLUE, 0.1)
         landmarks = [landmark]
         
         # Create detection far from landmark
         detections = [{
             'position': np.array([15.0, 15.0]),
-            'color': 'blue',
+            'type': ConeType.BLUE,
             'distance': 20.0
         }]
         
@@ -231,16 +234,16 @@ class TestDataAssociator(unittest.TestCase):
         """Test Hungarian algorithm with multiple detections and landmarks"""
         # Create landmarks
         landmarks = [
-            KalmanLandmark(np.array([5.0, 3.0]), "blue", 0.5),
-            KalmanLandmark(np.array([10.0, 8.0]), "yellow", 0.5),
-            KalmanLandmark(np.array([15.0, 2.0]), "blue", 0.5),
+            KalmanLandmark(np.array([5.0, 3.0]), ConeType.BLUE, 0.5),
+            KalmanLandmark(np.array([10.0, 8.0]), ConeType.YELLOW, 0.5),
+            KalmanLandmark(np.array([15.0, 2.0]), ConeType.BLUE, 0.5),
         ]
         
         # Create detections near landmarks
         detections = [
-            {'position': np.array([5.1, 3.1]), 'color': 'blue', 'distance': 5.0},
-            {'position': np.array([10.1, 8.1]), 'color': 'yellow', 'distance': 10.0},
-            {'position': np.array([15.1, 2.1]), 'color': 'blue', 'distance': 15.0},
+            {'position': np.array([5.1, 3.1]), 'type': ConeType.BLUE, 'distance': 5.0},
+            {'position': np.array([10.1, 8.1]), 'type': ConeType.YELLOW, 'distance': 10.0},
+            {'position': np.array([15.1, 2.1]), 'type': ConeType.BLUE, 'distance': 15.0},
         ]
         
         matches, unmatched_dets, unmatched_lms = self.associator.associate(
@@ -267,7 +270,7 @@ class TestDataAssociator(unittest.TestCase):
         self.assertEqual(len(unmatched_lms), 0)
         
         # Only detections
-        detections = [{'position': np.array([5.0, 3.0]), 'color': 'blue', 'distance': 5.0}]
+        detections = [{'position': np.array([5.0, 3.0]), 'type': ConeType.BLUE, 'distance': 5.0}]
         matches, unmatched_dets, unmatched_lms = self.associator.associate(detections, [])
         self.assertEqual(len(matches), 0)
         self.assertEqual(unmatched_dets, [0])
@@ -279,16 +282,17 @@ class TestMapMaintenance(unittest.TestCase):
     
     def setUp(self):
         """Initialize test fixtures"""
-        self.maintenance = MapMaintenance(None)  # Logger not needed
+        self.mock_logger = MagicMock()
+        self.maintenance = MapMaintenance(self.mock_logger)
     
     def test_merge_close_landmarks(self):
         """Test merging of nearby landmarks"""
         # Create two close landmarks
-        lm1 = KalmanLandmark(np.array([5.0, 3.0]), "blue", 0.5)
+        lm1 = KalmanLandmark(np.array([5.0, 3.0]), ConeType.BLUE, 0.5)
         lm1.lifecycle_state = LandmarkState.CONFIRMED
         lm1.covariance = np.eye(2) * 0.5
         
-        lm2 = KalmanLandmark(np.array([5.2, 3.1]), "blue", 0.3)
+        lm2 = KalmanLandmark(np.array([5.2, 3.1]), ConeType.BLUE, 0.3)
         lm2.lifecycle_state = LandmarkState.CONFIRMED
         lm2.covariance = np.eye(2) * 0.3
         
@@ -307,10 +311,10 @@ class TestMapMaintenance(unittest.TestCase):
     def test_no_merge_far_landmarks(self):
         """Test that distant landmarks are not merged"""
         # Create two far landmarks
-        lm1 = KalmanLandmark(np.array([5.0, 3.0]), "blue", 0.5)
+        lm1 = KalmanLandmark(np.array([5.0, 3.0]), ConeType.BLUE, 0.5)
         lm1.lifecycle_state = LandmarkState.CONFIRMED
         
-        lm2 = KalmanLandmark(np.array([10.0, 8.0]), "blue", 0.5)
+        lm2 = KalmanLandmark(np.array([10.0, 8.0]), ConeType.BLUE, 0.5)
         lm2.lifecycle_state = LandmarkState.CONFIRMED
         
         landmarks = [lm1, lm2]
@@ -323,13 +327,13 @@ class TestMapMaintenance(unittest.TestCase):
     def test_prune_deleted_landmarks(self):
         """Test pruning of deleted landmarks"""
         # Create landmarks with different states
-        lm1 = KalmanLandmark(np.array([5.0, 3.0]), "blue", 0.5)
+        lm1 = KalmanLandmark(np.array([5.0, 3.0]), ConeType.BLUE, 0.5)
         lm1.lifecycle_state = LandmarkState.CONFIRMED
         
-        lm2 = KalmanLandmark(np.array([10.0, 8.0]), "yellow", 0.5)
+        lm2 = KalmanLandmark(np.array([10.0, 8.0]), ConeType.YELLOW, 0.5)
         lm2.lifecycle_state = LandmarkState.DELETED
         
-        lm3 = KalmanLandmark(np.array([15.0, 2.0]), "blue", 0.5)
+        lm3 = KalmanLandmark(np.array([15.0, 2.0]), ConeType.BLUE, 0.5)
         lm3.lifecycle_state = LandmarkState.TENTATIVE
         
         landmarks = [lm1, lm2, lm3]
@@ -345,12 +349,12 @@ class TestMapMaintenance(unittest.TestCase):
     def test_merge_covariance_weighting(self):
         """Test that merging properly weights by covariance"""
         # Landmark with low uncertainty
-        lm1 = KalmanLandmark(np.array([5.0, 3.0]), "blue", 0.1)
+        lm1 = KalmanLandmark(np.array([5.0, 3.0]), ConeType.BLUE, 0.1)
         lm1.lifecycle_state = LandmarkState.CONFIRMED
         lm1.covariance = np.eye(2) * 0.1
         
         # Landmark with high uncertainty
-        lm2 = KalmanLandmark(np.array([5.3, 3.2]), "blue", 2.0)
+        lm2 = KalmanLandmark(np.array([5.3, 3.2]), ConeType.BLUE, 2.0)
         lm2.lifecycle_state = LandmarkState.CONFIRMED
         lm2.covariance = np.eye(2) * 2.0
         
@@ -375,26 +379,26 @@ class TestIntegration(unittest.TestCase):
         """Simulate full pipeline with multiple frames"""
         # Initialize system
         landmarks = []
-        associator = DataAssociator(None)
-        maintenance = MapMaintenance(None)
-        Q = np.eye(2) * 0.001
+        mock_logger = MagicMock()
+        associator = DataAssociator(mock_logger)
+        maintenance = MapMaintenance(mock_logger)
         
         # Frame 1: Initialize landmarks
         detections_frame1 = [
-            {'position': np.array([5.0, 3.0]), 'color': 'blue', 'distance': 5.0},
-            {'position': np.array([10.0, 8.0]), 'color': 'yellow', 'distance': 10.0},
+            {'position': np.array([5.0, 3.0]), 'type': ConeType.BLUE, 'distance': 5.0},
+            {'position': np.array([10.0, 8.0]), 'type': ConeType.YELLOW, 'distance': 10.0},
         ]
         
         for det in detections_frame1:
-            lm = KalmanLandmark(det['position'], det['color'], 1.0)
+            lm = KalmanLandmark(det['position'], det['type'], 1.0)
             landmarks.append(lm)
         
         self.assertEqual(len(landmarks), 2)
         
         # Frame 2: Re-observe with noise
         detections_frame2 = [
-            {'position': np.array([5.1, 3.1]), 'color': 'blue', 'distance': 5.0},
-            {'position': np.array([10.1, 8.1]), 'color': 'yellow', 'distance': 10.0},
+            {'position': np.array([5.1, 3.1]), 'type': ConeType.BLUE, 'distance': 5.0},
+            {'position': np.array([10.1, 8.1]), 'type': ConeType.YELLOW, 'distance': 10.0},
         ]
         
         matches, unmatched_dets, _ = associator.associate(detections_frame2, landmarks)
@@ -414,9 +418,9 @@ class TestIntegration(unittest.TestCase):
         
         # Frame 3: Add new detection
         detections_frame3 = [
-            {'position': np.array([5.0, 3.0]), 'color': 'blue', 'distance': 5.0},
-            {'position': np.array([10.0, 8.0]), 'color': 'yellow', 'distance': 10.0},
-            {'position': np.array([15.0, 2.0]), 'color': 'blue', 'distance': 15.0},
+            {'position': np.array([5.0, 3.0]), 'type': ConeType.BLUE, 'distance': 5.0},
+            {'position': np.array([10.0, 8.0]), 'type': ConeType.YELLOW, 'distance': 10.0},
+            {'position': np.array([15.0, 2.0]), 'type': ConeType.BLUE, 'distance': 15.0},
         ]
         
         matches, unmatched_dets, _ = associator.associate(detections_frame3, landmarks)
@@ -428,7 +432,7 @@ class TestIntegration(unittest.TestCase):
         # Initialize new landmark
         for det_idx in unmatched_dets:
             det = detections_frame3[det_idx]
-            lm = KalmanLandmark(det['position'], det['color'], 1.0)
+            lm = KalmanLandmark(det['position'], det['type'], 1.0)
             landmarks.append(lm)
         
         self.assertEqual(len(landmarks), 3)

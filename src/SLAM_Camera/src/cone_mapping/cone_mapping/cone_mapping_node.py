@@ -100,7 +100,7 @@ class MappingConstants:
     MAX_DETECTION_RANGE = 15.0  # meters (r_max)
     
     # Height validation
-    MAX_CONE_HEIGHT_DEVIATION = 0.3  # meters
+    MAX_CONE_HEIGHT_DEVIATION = 1.0  # meters, increased to handle floating cones (camera z=0 issue)
     
     # Data association
     ASSOCIATION_GATE_RADIUS = 2.0  # meters (d_gate)
@@ -468,11 +468,17 @@ class CoordinateTransformer:
             # 1. Distance gating
             distance_2d = np.linalg.norm(p_map[:2])
             if distance_2d > MappingConstants.MAX_DETECTION_RANGE:
+                self.logger.info(f"Gating: Rejected cone at d={distance_2d:.2f}m (> {MappingConstants.MAX_DETECTION_RANGE:.2f}m)")
                 continue
             
             # 2. Height gating (z-coordinate check)
             # Assuming ground plane is approximately z=0 in map frame
             if abs(p_map[2]) > MappingConstants.MAX_CONE_HEIGHT_DEVIATION:
+                self.logger.info(
+                    f"Gating: Rejected cone at z={p_map[2]:.3f}m "
+                    f"(abs > {MappingConstants.MAX_CONE_HEIGHT_DEVIATION:.3f}m). "
+                    f"Pos: ({p_map[0]:.2f}, {p_map[1]:.2f})"
+                )
                 continue
             
             # Detection passed gating
@@ -482,6 +488,13 @@ class CoordinateTransformer:
                 'distance': distance_2d,
                 'probability': landmark.probability
             })
+            
+            # Log successful validations sparingly
+            if len(validated_detections) <= 3:
+                self.logger.info(
+                    f"Gating: Accepted cone at ({p_map[0]:.2f}, {p_map[1]:.2f}, {p_map[2]:.2f}) "
+                    f"type={type_to_color_string(landmark.type)}"
+                )
         
         return validated_detections
 
@@ -555,7 +568,9 @@ class DataAssociator:
         # Build cost matrix
         num_detections = len(detections)
         num_landmarks = len(active_landmarks)
-        cost_matrix = np.full((num_detections, num_landmarks), np.inf)
+        # linear_sum_assignment doesn't support np.inf, use large discrete value
+        LARGE_COST = 1e9
+        cost_matrix = np.full((num_detections, num_landmarks), LARGE_COST)
         
         for det_idx, detection in enumerate(detections):
             det_pos = detection['position']
@@ -581,10 +596,10 @@ class DataAssociator:
         # Solve assignment problem with Hungarian algorithm
         row_indices, col_indices = linear_sum_assignment(cost_matrix)
         
-        # Filter out invalid assignments (cost = inf)
+        # Filter out invalid assignments (cost = LARGE_COST)
         matches = []
         for r, c in zip(row_indices, col_indices):
-            if cost_matrix[r, c] < np.inf:
+            if cost_matrix[r, c] < LARGE_COST:
                 # Map back to original landmark index
                 original_lm_idx = landmarks.index(active_landmarks[c])
                 matches.append((r, original_lm_idx))
@@ -667,7 +682,7 @@ class MapMaintenance:
             # Merge multiple landmarks
             P_inv_sum = np.zeros((2, 2))
             P_inv_x_sum = np.zeros(2)
-            merged_color = current.color
+            merged_type = current.cone_type
             total_observations = 0
             
             for idx in merge_candidates:
@@ -687,11 +702,11 @@ class MapMaintenance:
                 x_merged = P_merged @ P_inv_x_sum
                 
                 # Create merged landmark
-                merged_lm = KalmanLandmark(x_merged, merged_color, 0.0)
+                merged_lm = KalmanLandmark(x_merged, merged_type, 0.0)
                 merged_lm.covariance = P_merged
                 merged_lm.lifecycle_state = LandmarkState.CONFIRMED
                 merged_lm.observation_count = total_observations
-                merged_lm.assigned_color = merged_color
+                merged_lm.assigned_type = merged_type
                 
                 result.append(merged_lm)
                 
@@ -745,7 +760,7 @@ class ConeMappingNode(Node):
         
         # Declare and load parameters from YAML
         self.declare_parameter('max_detection_range', 15.0)
-        self.declare_parameter('max_cone_height_deviation', 0.3)
+        self.declare_parameter('max_cone_height_deviation', 1.0)
         self.declare_parameter('association_gate_radius', 2.0)
         self.declare_parameter('mahalanobis_threshold', 5.991)
         self.declare_parameter('sigma_0_squared', 0.01)

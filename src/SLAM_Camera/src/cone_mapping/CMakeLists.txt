@@ -30,7 +30,6 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 # Install Python executables
 install(PROGRAMS
   cone_mapping/cone_mapping_node.py
-  cone_mapping/perception_simulator_base.py
   cone_mapping/test_case_1_ideal.py
   cone_mapping/test_case_2_noisy.py
   cone_mapping/test_case_3_loop_closure.py
