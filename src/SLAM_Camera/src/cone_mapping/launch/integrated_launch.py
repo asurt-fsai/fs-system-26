@@ -169,6 +169,22 @@ def generate_launch_description():
     )
     
     # =========================================================================
+    # 4. Map Frame Publisher (Identity: map -> odom)
+    # Required for RViz to visualize 'map' frame if no other node publishes it.
+    # =========================================================================
+    map_tf_publisher = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='map_to_odom_broadcaster',
+        arguments=[
+            '0.0', '0.0', '0.0',      # x, y, z
+            '0.0', '0.0', '0.0', '1.0',  # quaternion
+            'map',
+            'odom'
+        ]
+    )
+    
+    # =========================================================================
     # 5. RViz Visualization (Optional)
     # =========================================================================
     rviz_node = Node(
@@ -198,6 +214,7 @@ def generate_launch_description():
         pose_republisher_node,
         cone_mapping_node,
         static_tf_publisher,
+        map_tf_publisher,
         rviz_node,
         bag_record,
     ])

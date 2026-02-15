@@ -30,6 +30,14 @@ Launch the integrated stack (Perception + SLAM + TF):
 ```bash
 ros2 launch cone_mapping integrated_launch.py
 ```
+### Run the System (using rviz)
+Launch the integrated stack (Perception + SLAM + TF):
+
+```bash
+ros2 launch cone_mapping integrated_launch.py use_rviz:=true
+```
+*Note: In order to see pose + map together, you must add both the pose coming from the zed topic and the markerArray coming from the map inside of rviz.
+Don't also forget to set the fixed frame to "map" to see the visualization
 
 ## 2. Viewing Outputs
 
@@ -38,11 +46,8 @@ In a new terminal (don't forget to `source install/setup.bash`):
 
 1. **Run bag file**
    ```bash
-   ros2 bag play /testing_conemapping/testing_conemapping_0.db3
+   ros2 bag play [bag_file_path.db3]
    ```
-   This bag contains the topics necassary for doing mapping from a real SVO recording.
-   You can use this singular bag for now but more will be added
-   bag details: Circular track for 2 laps in sunlight
 
 2. **Check for Global Map (SLAM Output):**
    ```bash
@@ -50,7 +55,18 @@ In a new terminal (don't forget to `source install/setup.bash`):
    ```
    *Expectation:* You should see a list of landmarks with non-zero coordinates.
 
-3. **Check Vehicle Pose:**
+2. **Check for Visualization Markers:**
+   ```bash
+   ros2 topic echo /map/global_cones_markers
+   ```
+   *Note: Add a "MarkerArray" display in RViz subscribed to this topic to see 3D cones.*
+
+3. **Check for Raw Detections:**
+   ```bash
+   ros2 topic echo /perception/landmarks
+   ```
+
+4. **Check Vehicle Pose:**
    ```bash
    ros2 topic echo /pose_republisher/pose
    ```

@@ -24,9 +24,10 @@ from enum import Enum
 # ROS2 imports
 from geometry_msgs.msg import PoseStamped, TransformStamped, Point
 from std_msgs.msg import Header
-from tf2_ros import Buffer, TransformListener
+from tf2_ros import Buffer, TransformListener, TransformBroadcaster
 import tf2_geometry_msgs
 import message_filters
+from visualization_msgs.msg import Marker, MarkerArray
 
 # Custom message types
 try:
@@ -790,6 +791,7 @@ class ConeMappingNode(Node):
         # Initialize TF2
         self.tf_buffer = Buffer()
         self.tf_listener = TransformListener(self.tf_buffer, self)
+        self.tf_broadcaster = TransformBroadcaster(self)
         
         # Initialize subsystems
         self.transformer = CoordinateTransformer(self.tf_buffer, self.get_logger())
@@ -838,6 +840,13 @@ class ConeMappingNode(Node):
             10
         )
         
+        # Publisher for visualization markers
+        self.marker_pub = self.create_publisher(
+            MarkerArray,
+            '/map/global_cones_markers',
+            10
+        )
+        
         # Timers
         self.create_timer(1.0, self.maintenance_callback)  # 1 Hz map maintenance
         self.create_timer(0.1, self.publish_map)  # 10 Hz map publishing
@@ -866,18 +875,32 @@ class ConeMappingNode(Node):
         if self.sync_callback_count == 1:
             self.get_logger().info("✓ Synchronized callback triggered! Processing started.")
         
-        if self.sync_callback_count % 10 == 0:
-            self.get_logger().info(f"Processed {self.sync_callback_count} synchronized message pairs")
-        
-        if self.transformer.T_base_camera is None:
             self.get_logger().warn("Static transform not ready, skipping frame")
             return  # Static transform not ready
         
-        # PHASE 1: Transform and gate detections
-        detections = self.transformer.transform_and_gate(
-            landmarks_msg.landmarks,
-            pose_msg.pose
-        )
+        self.get_logger().debug(f"Sync callback: {len(landmarks_msg.landmarks)} landmarks")
+        
+        # 0. Broadcast TF (odom -> base_link) from pose
+        # This ensures the TF tree is complete even if the bag lacks /tf
+        t = TransformStamped()
+        t.header.stamp = pose_msg.header.stamp
+        t.header.frame_id = 'odom'
+        t.child_frame_id = 'base_link'
+        t.transform.translation.x = pose_msg.pose.position.x
+        t.transform.translation.y = pose_msg.pose.position.y
+        t.transform.translation.z = pose_msg.pose.position.z
+        t.transform.rotation = pose_msg.pose.orientation
+        self.tf_broadcaster.sendTransform(t)
+
+        # 1. Coordinate transformation & gating
+        try:
+            detections = self.transformer.transform_and_gate(
+                landmarks_msg.landmarks,
+                pose_msg.pose
+            )
+        except Exception as e:
+            self.get_logger().error(f"Error during transform_and_gate: {e}")
+            return
         
         if self.sync_callback_count <= 5 or self.sync_callback_count % 100 == 0:
             self.get_logger().info(
@@ -1007,6 +1030,90 @@ class ConeMappingNode(Node):
                 msg.landmarks.append(landmark_msg)
         
         self.map_pub.publish(msg)
+        
+        # Publish visualization markers
+        self.publish_markers(msg)
+
+    def publish_markers(self, landmark_msg):
+        """
+        Publish markers for RViz visualization using Pyramids (Triangle List).
+        """
+        marker_array = MarkerArray()
+        timestamp = self.get_clock().now().to_msg()
+        
+        # Cone dimensions
+        width = 0.228  # approx small cone width (meters)
+        height = 0.325 # approx small cone height
+        half_w = width / 2.0
+        
+        # Predefined pyramid vertices relative to center (x,y,0)
+        # Base: (w,w), (-w,w), (-w,-w), (w,-w)
+        # Tip: (0,0,h)
+        # We need triangles for sides.
+        
+        for i, lm in enumerate(landmark_msg.landmarks):
+            marker = Marker()
+            marker.header.frame_id = "map"
+            marker.header.stamp = timestamp
+            marker.ns = "global_cones"
+            marker.id = i
+            marker.type = Marker.TRIANGLE_LIST
+            marker.action = Marker.ADD
+            
+            # Position (center of base)
+            marker.pose.position.x = 0.0 # Applied via points relative to 0
+            marker.pose.position.y = 0.0
+            marker.pose.position.z = 0.0
+            marker.pose.orientation.w = 1.0
+            
+            # Scale should be 1.0 when using points
+            marker.scale.x = 1.0
+            marker.scale.y = 1.0
+            marker.scale.z = 1.0
+            
+            # Color
+            if lm.type == ConeType.BLUE:
+                marker.color.r = 0.0; marker.color.g = 0.0; marker.color.b = 1.0
+            elif lm.type == ConeType.YELLOW:
+                marker.color.r = 1.0; marker.color.g = 1.0; marker.color.b = 0.0
+            elif lm.type == ConeType.ORANGE:
+                marker.color.r = 1.0; marker.color.g = 0.5; marker.color.b = 0.0
+            else:
+                marker.color.r = 0.5; marker.color.g = 0.5; marker.color.b = 0.5
+            
+            marker.color.a = 1.0
+            marker.lifetime.sec = 0
+            marker.lifetime.nanosec = 200000000  # 0.2s
+            
+            # Generate Triangle Points
+            # Absolute positions in map frame
+            x = lm.position.x
+            y = lm.position.y
+            z = lm.position.z # Base z
+            
+            tip = Point(x=x, y=y, z=z+height)
+            fl = Point(x=x+half_w, y=y+half_w, z=z) # Front-Left
+            fr = Point(x=x+half_w, y=y-half_w, z=z) # Front-Right
+            bl = Point(x=x-half_w, y=y+half_w, z=z) # Back-Left
+            br = Point(x=x-half_w, y=y-half_w, z=z) # Back-Right
+            
+            # 4 Sides
+            # Side 1 (Front)
+            marker.points.append(tip); marker.points.append(fr); marker.points.append(fl)
+            # Side 2 (Right)
+            marker.points.append(tip); marker.points.append(br); marker.points.append(fr)
+            # Side 3 (Back)
+            marker.points.append(tip); marker.points.append(bl); marker.points.append(br)
+            # Side 4 (Left)
+            marker.points.append(tip); marker.points.append(fl); marker.points.append(bl)
+            
+            # Base (2 triangles)
+            marker.points.append(fl); marker.points.append(fr); marker.points.append(br)
+            marker.points.append(fl); marker.points.append(br); marker.points.append(bl)
+            
+            marker_array.markers.append(marker)
+            
+        self.marker_pub.publish(marker_array)
 
 
 # ============================================================================
