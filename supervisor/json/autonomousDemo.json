@@ -1,0 +1,10 @@
+{
+    "modules": [
+        {
+            "pkg": "supervisor",
+            "launch_file": "autoDemo_launch.py",
+            "heartbeats_topic": "/status/autonomous_demo",
+            "is_node_msg": true
+        }
+    ]
+}
