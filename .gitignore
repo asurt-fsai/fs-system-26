@@ -1,0 +1,43 @@
+# Build and install directories
+build/
+install/
+log/
+devel/
+
+# CMake files
+*.cmake
+CMakeCache.txt
+CMakeFiles/
+CMakeUserPresets.json
+
+# Compiled objects
+*.o
+*.so
+*.a
+*.lib
+*.dll
+*.dylib
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
