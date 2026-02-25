@@ -33,58 +33,58 @@ class PathPlanner:
         if len(cone_data) < 3:
             return self._handle_low_cones(cone_data, car_pos, car_yaw)
 
-        # 4. Balance Cones and generate Midpoints and ghost cones
-        #cone_data = remove_ghost_cones(cone_data)
-        orig_y = sum(1 for c in cone_data if c[2] == 'y')
-        orig_b = sum(1 for c in cone_data if c[2] == 'b')
-        original_cones = list(cone_data)
+        # # 4. Balance Cones and generate Midpoints and ghost cones
+        # #cone_data = remove_ghost_cones(cone_data)
+        # orig_y = sum(1 for c in cone_data if c[2] == 'y')
+        # orig_b = sum(1 for c in cone_data if c[2] == 'b')
+        # original_cones = list(cone_data)
 
-        # Run the filter
-        cone_data = remove_ghost_cones(cone_data)
+        # # Run the filter
+        # cone_data = remove_ghost_cones(cone_data)
 
-        # Count remaining colors
-        new_y = sum(1 for c in cone_data if c[2] == 'y')
-        new_b = sum(1 for c in cone_data if c[2] == 'b')
+        # # Count remaining colors
+        # new_y = sum(1 for c in cone_data if c[2] == 'y')
+        # new_b = sum(1 for c in cone_data if c[2] == 'b')
 
-        # Identify which specific cones were removed
-        removed = [c for c in original_cones if c not in cone_data]
+        # # Identify which specific cones were removed
+        # removed = [c for c in original_cones if c not in cone_data]
 
-        if removed:
-            print("\n--- GHOST FILTER SUMMARY ---")
-            print(f"Yellow Cones: {orig_y} -> {new_y} (Removed: {orig_y - new_y})")
-            print(f"Blue Cones:   {orig_b} -> {new_b} (Removed: {orig_b - new_b})")
-            print("Specific cones removed:")
-            for r in removed:
-                print(f" >> {r[2]} cone at ({r[0]:.2f}, {r[1]:.2f})")
-            print("---------------------------\n")
+        # if removed:
+        #     print("\n--- GHOST FILTER SUMMARY ---")
+        #     print(f"Yellow Cones: {orig_y} -> {new_y} (Removed: {orig_y - new_y})")
+        #     print(f"Blue Cones:   {orig_b} -> {new_b} (Removed: {orig_b - new_b})")
+        #     print("Specific cones removed:")
+        #     for r in removed:
+        #         print(f" >> {r[2]} cone at ({r[0]:.2f}, {r[1]:.2f})")
+        #     print("---------------------------\n")
         
-        balanced_cone_data, midpoint_nodes = self._balance_by_full_mirror(
-            cone_data, car_yaw, virtual_width=4.0
-        )
-        # 3. Remove Ghost Cones
-        # Count original colors
-        orig_y = sum(1 for c in cone_data if c[2] == 'y')
-        orig_b = sum(1 for c in cone_data if c[2] == 'b')
-        original_cones = list(cone_data)
+        # balanced_cone_data, midpoint_nodes = self._balance_by_full_mirror(
+        #     cone_data, car_yaw, virtual_width=4.0
+        # )
+        # # 3. Remove Ghost Cones
+        # # Count original colors
+        # orig_y = sum(1 for c in cone_data if c[2] == 'y')
+        # orig_b = sum(1 for c in cone_data if c[2] == 'b')
+        # original_cones = list(cone_data)
 
-        # Run the filter
-        cone_data = remove_ghost_cones(cone_data)
+        # # Run the filter
+        # cone_data = remove_ghost_cones(cone_data)
 
-        # Count remaining colors
-        new_y = sum(1 for c in cone_data if c[2] == 'y')
-        new_b = sum(1 for c in cone_data if c[2] == 'b')
+        # # Count remaining colors
+        # new_y = sum(1 for c in cone_data if c[2] == 'y')
+        # new_b = sum(1 for c in cone_data if c[2] == 'b')
 
-        # Identify which specific cones were removed
-        removed = [c for c in original_cones if c not in cone_data]
+        # # Identify which specific cones were removed
+        # removed = [c for c in original_cones if c not in cone_data]
 
-        if removed:
-            print("\n--- GHOST FILTER SUMMARY ---")
-            print(f"Yellow Cones: {orig_y} -> {new_y} (Removed: {orig_y - new_y})")
-            print(f"Blue Cones:   {orig_b} -> {new_b} (Removed: {orig_b - new_b})")
-            print("Specific cones removed:")
-            for r in removed:
-                print(f" >> {r[2]} cone at ({r[0]:.2f}, {r[1]:.2f})")
-            print("---------------------------\n")
+        # if removed:
+        #     print("\n--- GHOST FILTER SUMMARY ---")
+        #     print(f"Yellow Cones: {orig_y} -> {new_y} (Removed: {orig_y - new_y})")
+        #     print(f"Blue Cones:   {orig_b} -> {new_b} (Removed: {orig_b - new_b})")
+        #     print("Specific cones removed:")
+        #     for r in removed:
+        #         print(f" >> {r[2]} cone at ({r[0]:.2f}, {r[1]:.2f})")
+        #     print("---------------------------\n")
 
         # 5. Module 1: Generate Voronoi
         points, colors, vor = voronoi_gen.generate_voronoi(cone_data)

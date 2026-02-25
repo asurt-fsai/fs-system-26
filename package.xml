@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>planning_voronoi</name>
+  <version>1.0.0</version>
+  <description>Voronoi-based path planning for Formula Student</description>
+  <maintainer email="TODO@todo.com">Karim</maintainer>
+  <license>TODO</license>
+
+  <depend>rclpy</depend>
+  <depend>nav_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>tf_transformations</depend>
+  <depend>tf_helper</depend>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

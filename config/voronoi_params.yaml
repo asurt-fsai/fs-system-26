@@ -1,0 +1,15 @@
+voronoi_planning_node:
+  ros__parameters:
+    # --- Planner tuning ---
+    voronoi:
+      planner:
+        robot_radius: 0.7        # Vehicle effective radius (m)
+        safety_margin: 0.4       # Extra clearance around obstacles (m)
+        max_edge_len: 8.0        # Max Voronoi edge length to keep (m)
+
+      # --- Topics ---
+      topics:
+        frame_id: "map"
+        path_topic: "/path_voronoi"
+        odometry_topic: "/carmaker/Odometry"
+        cones_topic: "/cone_map"
