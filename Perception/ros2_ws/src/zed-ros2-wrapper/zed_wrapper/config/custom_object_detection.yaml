@@ -43,7 +43,7 @@
             max_allowed_acceleration: 100000.0 # If set with a different value from the default [100000], this value takes precedence over the selected preset, allowing for a custom maximum acceleration. Unit is m/s^2.
             velocity_smoothing_factor: 0.5 # Control the smoothing of the velocity estimation. Values between 0.0 and 1.0. Default: 0.5
             min_velocity_threshold: 0.2 # Threshold to force an object's velocity to zero. Default: 0.2 m/s
-            prediction_timeout_s: 0.5 # Duration to keep predicting a track's position after occlusion. Default: 0.5 seconds
+            prediction_timeout_s: 5.0 # Duration to keep predicting a track's position after occlusion. Default: 0.5 seconds
             min_confirmation_time_s: 0.05 # Minimum confirmation time required to validate a track. Default: 0.05 seconds
 
           class_001:
@@ -67,7 +67,7 @@
             max_allowed_acceleration: 100000.0 # If set with a different value from the default [100000], this value takes precedence over the selected preset, allowing for a custom maximum acceleration. Unit is m/s^2.
             velocity_smoothing_factor: 0.5 # Control the smoothing of the velocity estimation. Values between 0.0 and 1.0. Default: 0.5
             min_velocity_threshold: 0.2 # Threshold to force an object's velocity to zero. Default: 0.2 m/s
-            prediction_timeout_s: 0.5 # Duration to keep predicting a track's position after occlusion. Default: 0.5 seconds
+            prediction_timeout_s: 5.0 # Duration to keep predicting a track's position after occlusion. Default: 0.5 seconds
             min_confirmation_time_s: 0.05 # Minimum confirmation time required to validate a track. Default: 0.05 seconds
 
           class_002:
