@@ -7,7 +7,7 @@ Used for launching ROS2 modules locally.
 import subprocess
 import time
 import psutil
-from .process_launcher import ProcessLauncher
+from ProcessLauncher import ProcessLauncher
 from ModuleState import ModuleState
 
 
@@ -24,51 +24,51 @@ class LocalLauncher(ProcessLauncher):
         """
 
         # Prevent invalid state launch
-        if self._state not in [
+        if module.state not in [
             ModuleState.Shutdown,
             ModuleState.Error,
             ModuleState.Unresponsive,
         ]:
-            print(f"[MODULE] Cannot launch from state {self._state}")
+            print(f"[MODULE] Cannot launch from state {module.state}")
             return False
 
         try:
-            print(f"[MODULE] Launching {self.pkg}/{self.launch_file} ...")
+            print(f"[MODULE] Launching {module.pkg}/{module.launchFile} ...")
 
-            self._state = ModuleState.Starting
+            module.state = ModuleState.Starting
 
             # Optional: Validate launch path exists
             # (Debug protection — optional but useful)
             import os
             pkg_path = os.path.join(
                 os.getenv("ROS_PACKAGE_PATH", ""),
-                self.pkg,
+                module.pkg,
                 "launch",
-                self.launch_file,
+                module.launchFile,
             )
 
             if not os.path.exists(pkg_path):
                 print(f"[MODULE] Warning: Launch file not found at {pkg_path}")
 
             # Start process
-            self._process = subprocess.Popen(
-                ["ros2", "launch", self.pkg, self.launch_file],
+            module.process = subprocess.Popen(
+                ["ros2", "launch", module.pkg, module.launchFile],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
             )
 
-            print(f"[MODULE] Process started with PID: {self._process.pid}")
+            print(f"[MODULE] Process started with PID: {module.process.pid}")
 
             # Reset runtime tracking
-            self._last_heartbeat = None
-            self._restart_attempts = 0
+            module.lastHeartbeatTime = 0.0
+            module.restartAttempts = 0
 
             return True
 
         except Exception as e:
             print(f"[MODULE] Launch failed: {e}")
-            self._state = ModuleState.Error
-            self._process = None
+            module.state = ModuleState.Error
+            module.process = None
             return False
 
 
@@ -106,8 +106,11 @@ class LocalLauncher(ProcessLauncher):
             # Wait for all to exit
             psutil.wait_procs([parent] + children, timeout=5)
 
+            module.state = ModuleState.Shutdown
+
         except Exception as e:
             print(f"[LocalLauncher] Shutdown error: {e}")
+            module.state = ModuleState.Error
 
         finally:
             module.process = None
@@ -121,37 +124,37 @@ class LocalLauncher(ProcessLauncher):
         """
 
         # Prevent restart in invalid states
-        if self._state == ModuleState.Starting:
-            print(f"[MODULE] {self.name} is already starting. Restart aborted.")
+        if module.state == ModuleState.Starting:
+            print(f"[MODULE] {module.pkg} is already starting. Restart aborted.")
             return False
 
-        if self._restart_attempts >= self._max_restart_attempts:
-            print(f"[MODULE] Max restart attempts reached for {self.name}.")
-            self._state = ModuleState.Error
+        if module.restartAttempts >= module.maxRestartAttempts:
+            print(f"[MODULE] Max restart attempts reached for {module.pkg}.")
+            module.state = ModuleState.Error
             return False
 
         # Count this attempt
-        self._restart_attempts += 1
+        module.restartAttempts += 1
 
         print(
-            f"[MODULE] Restarting {self.name} "
-            f"(Attempt {self._restart_attempts}/{self._max_restart_attempts})..."
+            f"[MODULE] Restarting {module.pkg} "
+            f"(Attempt {module.restartAttempts}/{module.maxRestartAttempts})..."
         )
 
         # Force shutdown of the module
-        self.shutdown_module()
+        self.shutdown(module)
 
         # Cooldown before relaunch
         time.sleep(2)
 
         # Try to launch again
-        success = self.launch_module()
+        success = self.launch(module)
 
         if success:
-            print(f"[MODULE] {self.name} restart initiated (Starting state).")
-            self._state = ModuleState.Starting
+            print(f"[MODULE] {module.pkg} restart initiated (Starting state).")
+            module.state = ModuleState.Starting
         else:
-            print(f"[MODULE] Restart failed for {self.name}.")
-            self._state = ModuleState.Error
+            print(f"[MODULE] Restart failed for {module.pkg}.")
+            module.state = ModuleState.Error
 
         return success

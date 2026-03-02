@@ -71,7 +71,6 @@ class Module:
         print(f"[MODULE] Restarting {self.pkg} (Attempt {self.restartAttempts})")
 
         self.launcher.restart(self)
-        self.state = ModuleState.Starting
 
     # ==================================================
     # Heartbeat Handling
