@@ -7,7 +7,7 @@ Used for launching ROS2 modules locally.
 import subprocess
 import time
 import psutil
-from supervisor.helpers import ProcessLauncher
+from ProcessLauncher import ProcessLauncher
 from ModuleState import ModuleState
 
 

@@ -1,7 +1,7 @@
 import subprocess
 import time
 from ModuleState import ModuleState
-from supervisor.helpers import ProcessLauncher
+from ProcessLauncher import ProcessLauncher
 
 
 class DockerLauncher(ProcessLauncher):  
