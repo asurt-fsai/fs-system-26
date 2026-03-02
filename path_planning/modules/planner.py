@@ -59,7 +59,7 @@ class PathPlanner:
             print("---------------------------\n")
         
         balanced_cone_data, midpoint_nodes = self._balance_by_full_mirror(
-            cone_data, car_yaw, virtual_width=4.0
+            cone_data, car_pos, car_yaw, virtual_width=4.0
         )
         # 3. Remove Ghost Cones
         # Count original colors
@@ -128,13 +128,60 @@ class PathPlanner:
 
     import numpy as np
 
-    def _balance_by_full_mirror(self, cone_data, car_yaw, virtual_width=4.0, pairing_threshold=15.0, collision_threshold=2.5):
-        yellows = sorted([c for c in cone_data if c[2] == 'y'], key=lambda x: (x[0], x[1]))
-        blues = sorted([c for c in cone_data if c[2] == 'b'], key=lambda x: (x[0], x[1]))
+    def _order_cones_along_wall(self, cones, car_pos, car_heading):
+        if len(cones) <= 2:
+            return list(cones)
 
-    # --- CONCEPT: CAR YAW ANCHOR ---
-    # Convert the car's orientation into a reference vector to ensure "Forward" is always known.
+        remaining = list(cones)
+
+        if car_pos is not None:
+            car_pos = np.array([car_pos[0], car_pos[1]])
+            heading = car_heading / (np.linalg.norm(car_heading) + 1e-6)
+
+            def start_score(c):
+                v = np.array([c[0], c[1]]) - car_pos
+                d = np.linalg.norm(v)
+                if d == 0:
+                    return (0.0, 0.0)
+                in_front = np.dot(v / d, heading)
+                return (0.0 if in_front > -0.2 else 1.0, d)
+
+            start_idx = min(range(len(remaining)), key=lambda i: start_score(remaining[i]))
+        else:
+            start_idx = 0
+
+        ordered = [remaining.pop(start_idx)]
+        prev_vec = None
+
+        while remaining:
+            last = np.array([ordered[-1][0], ordered[-1][1]])
+
+            def score(i):
+                cand = np.array([remaining[i][0], remaining[i][1]])
+                vec = cand - last
+                d = np.linalg.norm(vec)
+                if d == 0:
+                    return (0.0, 0.0)
+                if prev_vec is None:
+                    return (d, 0.0)
+                prev_unit = prev_vec / (np.linalg.norm(prev_vec) + 1e-6)
+                vec_unit = vec / d
+                direction_penalty = 1.0 - np.dot(vec_unit, prev_unit)
+                return (d * (1.0 + 0.8 * max(0.0, direction_penalty)), direction_penalty)
+
+            next_idx = min(range(len(remaining)), key=score)
+            next_cone = remaining.pop(next_idx)
+            prev_vec = np.array([next_cone[0], next_cone[1]]) - last
+            ordered.append(next_cone)
+
+        return ordered
+
+    def _balance_by_full_mirror(self, cone_data, car_pos, car_yaw, virtual_width=4.0, pairing_threshold=15.0, collision_threshold=2.5):
+        # Convert the car's orientation into a reference vector to ensure "Forward" is always known.
         car_heading = np.array([np.cos(car_yaw), np.sin(car_yaw)])
+
+        yellows = self._order_cones_along_wall([c for c in cone_data if c[2] == 'y'], car_pos, car_heading)
+        blues = self._order_cones_along_wall([c for c in cone_data if c[2] == 'b'], car_pos, car_heading)
 
         balanced = [(float(c[0]), float(c[1]), c[2], False) for c in cone_data]
         midpoint_nodes = []
@@ -142,31 +189,24 @@ class PathPlanner:
         def mirror_wall(source_cones, target_cones, t_color, direction, reference_heading):
             if len(source_cones) < 2: return
 
-        # --- CONCEPT: HEADING SANITY CHECK ---
-        # Initialize the previous unit vector with the car's heading to anchor the first cone.
-            prev_unit_vec = reference_heading
-
             for i in range(len(source_cones)):
                 p_curr = np.array([source_cones[i][0], source_cones[i][1]])
-            
-            # 1. Track Direction
-                if i < len(source_cones) - 1:
-                    vec = np.array([source_cones[i+1][0], source_cones[i+1][1]]) - p_curr
-                else:
-                    vec = p_curr - np.array([source_cones[i-1][0], source_cones[i-1][1]])
-            
-                mag = np.linalg.norm(vec)
-                if mag == 0: continue
-                unit_vec = vec / mag
 
-            # --- FLIPPING CHECK ---
-            # If the calculated vector points >90 degrees away from the previous heading, flip it back.
-                if np.dot(unit_vec, prev_unit_vec) < 0:
-                    unit_vec = -unit_vec
-            
-            # Update the reference for the next cone in the sequence
-                prev_unit_vec = unit_vec 
-            # ----------------------
+                if i == 0:
+                    p_next = np.array([source_cones[i+1][0], source_cones[i+1][1]])
+                    vec = p_next - p_curr
+                elif i == len(source_cones) - 1:
+                    p_prev = np.array([source_cones[i-1][0], source_cones[i-1][1]])
+                    vec = p_curr - p_prev
+                else:
+                    p_prev = np.array([source_cones[i-1][0], source_cones[i-1][1]])
+                    p_next = np.array([source_cones[i+1][0], source_cones[i+1][1]])
+                    vec = p_next - p_prev
+
+                mag = np.linalg.norm(vec)
+                if mag == 0:
+                    continue
+                unit_vec = vec / mag
 
             # 2. Angle-from-Normal Partner Search
                 has_natural_partner = False

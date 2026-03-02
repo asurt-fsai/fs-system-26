@@ -16,7 +16,7 @@ def run_test_visual(name, cones, planner):
     path_points = planner.execute_cycle(cones, car_data)
     
     # 2. Get data for visualization
-    balanced, midpoints = planner._balance_by_full_mirror(cones, car_data[0][2], virtual_width=4.0)
+    balanced, midpoints = planner._balance_by_full_mirror(cones, car_data[0][:2], car_data[0][2], virtual_width=4.0)
     
     fig, ax = plt.subplots(figsize=(12, 7))
     
