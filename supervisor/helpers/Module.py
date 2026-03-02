@@ -54,23 +54,39 @@ class Module:
         self.state = ModuleState.Shutdown
 
     def restart(self):
-        now = time.time()
+            """ALL restart logic is here"""
+            now = time.time()
 
-        # Prevent restart spam
-        if self.restartAttempts >= self.max_restart_attempts:
-            print(f"[MODULE] {self.pkg} reached max restart attempts.")
-            self.state = ModuleState.Error
-            return
+            # Check max attempts
+            if self.restartAttempts >= self.maxRestartAttempts:
+                print(f"[MODULE] {self.pkg} reached max restart attempts ({self.maxRestartAttempts}).")
+                self.state = ModuleState.Error
+                return False
 
-        if now - self.lastRestartTime < self.restartCooldown:
-            return
+            # Check cooldown
+            if now - self.lastRestartTime < self.restartCooldown:
+                print(f"[MODULE] {self.pkg} in cooldown. Restart delayed.")
+                return False
 
-        self.restartAttempts += 1
-        self.lastRestartTime = now
+            # Update tracking BEFORE restart attempt
+            self.restartAttempts += 1
+            self.lastRestartTime = now
 
-        print(f"[MODULE] Restarting {self.pkg} (Attempt {self.restartAttempts})")
+            print(f"[MODULE] Restarting {self.pkg} (Attempt {self.restartAttempts}/{self.maxRestartAttempts})...")
 
-        self.launcher.restart(self)
+            # Transition to Starting state
+            self.state = ModuleState.Starting
+
+            # Delegate execution to launcher - no logic, just execution
+            success = self.launcher.restart(self)
+
+            if success:
+                print(f"[MODULE] {self.pkg} restart initiated successfully.")
+            else:
+                print(f"[MODULE] {self.pkg} restart failed.")
+                self.state = ModuleState.Error
+
+            return success
 
     # ==================================================
     # Heartbeat Handling
@@ -90,14 +106,22 @@ class Module:
 
     def check_health(self):
 
-        # 1 If process crashed
-        if self.process and self.process.poll() is not None:
+        # 1  If Docker launcher
+        if hasattr(self.launcher, "is_running"):
+            if self.process and not self.launcher.is_running(self):
+                print(f"[MODULE] {self.pkg} container stopped.")
+                self.state = ModuleState.Unresponsive
+                self.restart()
+                return
+        # If Local launcher    
+        # 2 If process crashed
+        elif self.process and self.process.poll() is not None:
             print(f"[MODULE] {self.pkg} process died.")
             self.state = ModuleState.Unresponsive
             self.restart()
             return
 
-        # 2️ If heartbeat timeout
+        # Heartbeat timeout
         if self.state == ModuleState.Running:
             if time.time() - self.lastHeartbeatTime > self.heartbeatTimeout:
                 print(f"[MODULE] {self.pkg} heartbeat timeout.")

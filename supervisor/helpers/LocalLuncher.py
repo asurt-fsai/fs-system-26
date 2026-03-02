@@ -7,7 +7,7 @@ Used for launching ROS2 modules locally.
 import subprocess
 import time
 import psutil
-from ProcessLauncher import ProcessLauncher
+from supervisor.helpers import ProcessLauncher
 from ModuleState import ModuleState
 
 
@@ -116,45 +116,8 @@ class LocalLauncher(ProcessLauncher):
             module.process = None
         
 
-
     def restart(self, module) -> bool:
-        """
-        Restart the ROS module safely.
-        Handles restart attempts, cooldown, and state transitions.
-        """
-
-        # Prevent restart in invalid states
-        if module.state == ModuleState.Starting:
-            print(f"[MODULE] {module.pkg} is already starting. Restart aborted.")
-            return False
-
-        if module.restartAttempts >= module.maxRestartAttempts:
-            print(f"[MODULE] Max restart attempts reached for {module.pkg}.")
-            module.state = ModuleState.Error
-            return False
-
-        # Count this attempt
-        module.restartAttempts += 1
-
-        print(
-            f"[MODULE] Restarting {module.pkg} "
-            f"(Attempt {module.restartAttempts}/{module.maxRestartAttempts})..."
-        )
-
-        # Force shutdown of the module
+        #NO LOGIC - just execute shutdown + launch
         self.shutdown(module)
-
-        # Cooldown before relaunch
-        time.sleep(2)
-
-        # Try to launch again
-        success = self.launch(module)
-
-        if success:
-            print(f"[MODULE] {module.pkg} restart initiated (Starting state).")
-            module.state = ModuleState.Starting
-        else:
-            print(f"[MODULE] Restart failed for {module.pkg}.")
-            module.state = ModuleState.Error
-
-        return success
+        time.sleep(2)  # Small cooldown between shutdown and launch
+        return self.launch(module)
