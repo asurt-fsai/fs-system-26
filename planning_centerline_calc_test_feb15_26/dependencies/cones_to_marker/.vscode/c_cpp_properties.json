@@ -1,0 +1,33 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/ahmed/intial_moreo/install/asurt_msgs/include/**",
+        "/home/ahmed/intial_moreo/install/ackermann_msgs/include/**",
+        "/home/ahmed/intial_moreo/src/install/eufs_msgs/include/**",
+        "/home/ahmed/intial_moreo/src/install/asurt_msgs/include/**",
+        "/home/ahmed/intial_moreo/src/install/ackermann_msgs/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/ahmed/intial_moreo/src/fs-system/dependencies/cones_to_marker/include/**",
+        "/home/ahmed/intial_moreo/src/fs-system/dependencies/spinnaker_sdk_camera_driver/include/**",
+        "/home/ahmed/intial_moreo/src/fs-system/planning/planning_trees/include/**",
+        "/home/ahmed/intial_moreo/src/fs-system/slam/aloam/include/**",
+        "/home/ahmed/intial_moreo/src/fs-system/slam/fast_gicp/include/**",
+        "/home/ahmed/intial_moreo/src/fs-system/slam/hdl_global_localization/include/**",
+        "/home/ahmed/intial_moreo/src/fs-system/slam/hdl_localization/include/**",
+        "/home/ahmed/intial_moreo/src/fs-system/slam/ndt_omp/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

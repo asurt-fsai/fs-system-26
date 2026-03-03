@@ -1,0 +1,11 @@
+# ROS 2 build artifacts
+Planning/build/
+Planning/install/
+Planning/log/
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+# Ignore heavy ROS 2 bag files
+*.db3
