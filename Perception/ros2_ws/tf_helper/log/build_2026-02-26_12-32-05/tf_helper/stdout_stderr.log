@@ -1,0 +1,54 @@
+running egg_info
+creating build/tf_helper/tf_helper.egg-info
+writing build/tf_helper/tf_helper.egg-info/PKG-INFO
+writing dependency_links to build/tf_helper/tf_helper.egg-info/dependency_links.txt
+writing entry points to build/tf_helper/tf_helper.egg-info/entry_points.txt
+writing requirements to build/tf_helper/tf_helper.egg-info/requires.txt
+writing top-level names to build/tf_helper/tf_helper.egg-info/top_level.txt
+writing manifest file 'build/tf_helper/tf_helper.egg-info/SOURCES.txt'
+reading manifest file 'build/tf_helper/tf_helper.egg-info/SOURCES.txt'
+writing manifest file 'build/tf_helper/tf_helper.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build
+creating /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build/lib
+creating /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build/lib/tf_helper
+copying tf_helper/TFHelperTest.py -> /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build/lib/tf_helper
+copying tf_helper/StatusPublisher.py -> /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build/lib/tf_helper
+copying tf_helper/__init__.py -> /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build/lib/tf_helper
+copying tf_helper/TFHelper.py -> /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build/lib/tf_helper
+copying tf_helper/utils.py -> /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build/lib/tf_helper
+copying tf_helper/statusPublisherTest.py -> /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build/lib/tf_helper
+copying tf_helper/markerVizTest.py -> /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build/lib/tf_helper
+copying tf_helper/MarkerViz.py -> /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build/lib/tf_helper
+running install
+running install_lib
+creating /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/python3.10/site-packages/tf_helper
+copying /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build/lib/tf_helper/TFHelperTest.py -> /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/python3.10/site-packages/tf_helper
+copying /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build/lib/tf_helper/StatusPublisher.py -> /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/python3.10/site-packages/tf_helper
+copying /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build/lib/tf_helper/__init__.py -> /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/python3.10/site-packages/tf_helper
+copying /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build/lib/tf_helper/TFHelper.py -> /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/python3.10/site-packages/tf_helper
+copying /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build/lib/tf_helper/utils.py -> /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/python3.10/site-packages/tf_helper
+copying /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build/lib/tf_helper/statusPublisherTest.py -> /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/python3.10/site-packages/tf_helper
+copying /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build/lib/tf_helper/markerVizTest.py -> /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/python3.10/site-packages/tf_helper
+copying /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/build/lib/tf_helper/MarkerViz.py -> /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/python3.10/site-packages/tf_helper
+byte-compiling /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/python3.10/site-packages/tf_helper/TFHelperTest.py to TFHelperTest.cpython-310.pyc
+byte-compiling /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/python3.10/site-packages/tf_helper/StatusPublisher.py to StatusPublisher.cpython-310.pyc
+byte-compiling /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/python3.10/site-packages/tf_helper/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/python3.10/site-packages/tf_helper/TFHelper.py to TFHelper.cpython-310.pyc
+byte-compiling /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/python3.10/site-packages/tf_helper/utils.py to utils.cpython-310.pyc
+byte-compiling /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/python3.10/site-packages/tf_helper/statusPublisherTest.py to statusPublisherTest.cpython-310.pyc
+byte-compiling /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/python3.10/site-packages/tf_helper/markerVizTest.py to markerVizTest.cpython-310.pyc
+byte-compiling /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/python3.10/site-packages/tf_helper/MarkerViz.py to MarkerViz.cpython-310.pyc
+running install_data
+creating /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/share/ament_index
+creating /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/share/ament_index/resource_index
+creating /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/share/ament_index/resource_index/packages
+copying resource/tf_helper -> /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/share/ament_index/resource_index/packages
+copying package.xml -> /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/share/tf_helper
+running install_egg_info
+Copying build/tf_helper/tf_helper.egg-info to /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/python3.10/site-packages/tf_helper-0.0.0-py3.10.egg-info
+running install_scripts
+Installing testing script to /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/tf_helper
+Installing testing2 script to /home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/install/tf_helper/lib/tf_helper
+writing list of installed files to '/home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/tf_helper/build/tf_helper/install.log'

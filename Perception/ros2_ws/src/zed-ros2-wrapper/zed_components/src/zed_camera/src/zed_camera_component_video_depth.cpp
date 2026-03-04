@@ -474,7 +474,7 @@ void ZedCamera::getDepthParams()
   }
 
   if (!matched) {
-    mDepthMode = sl::DEPTH_MODE::NEURAL;
+    mDepthMode = sl::DEPTH_MODE::PERFORMANCE;
     if (depth_mode_str != "NEURAL_LIGHT") {
       RCLCPP_WARN(
         get_logger(),
@@ -873,7 +873,6 @@ bool ZedCamera::isDepthRequired()
   // DEBUG_STREAM_COMM( "isDepthRequired called");
 
   if (mDepthDisabled) {
-    DEBUG_STREAM_COMM("Depth not required: depth disabled");
     return false;
   }
 
@@ -921,16 +920,7 @@ bool ZedCamera::isDepthRequired()
     return false;
   }
 
-  bool depth_required_for_pos_trk = isPosTrackingRequired();
-
-#if (ZED_SDK_MAJOR_VERSION * 10 + ZED_SDK_MINOR_VERSION) >= 52
-  // With ZED SDK v5.2 we can use Positional Tracking `GEN_3` even if depth is
-  // disabled
-  depth_required_for_pos_trk = isPosTrackingRequired() &&
-    (mPosTrkMode != sl::POSITIONAL_TRACKING_MODE::GEN_3);
-#endif
-
-  return tot_sub > 0 || depth_required_for_pos_trk;
+  return tot_sub > 0 || isPosTrackingRequired();
 }
 
 void ZedCamera::applyDepthSettings()
@@ -943,11 +933,10 @@ void ZedCamera::applyDepthSettings()
       mDepthTextConf;      // Update depth texture confidence if changed
     mRunParams.remove_saturated_areas = mRemoveSatAreas;
 
-    DEBUG_STREAM_COMM("Depth processing enabled");
+    DEBUG_STREAM_COMM_ONCE("Depth extraction enabled");
     mRunParams.enable_depth = true;
-
   } else {
-    DEBUG_STREAM_COMM("Depth processing disabled");
+    DEBUG_STREAM_COMM_ONCE("Depth extraction disabled");
     mRunParams.enable_depth = false;
   }
 }
@@ -1004,9 +993,9 @@ void ZedCamera::applyExposureGainSettings()
 
     if (err != sl::ERROR_CODE::SUCCESS) {
       RCLCPP_WARN_STREAM(
-        get_logger(),
-        "Error setting "
-          << sl::toString(sl::VIDEO_SETTINGS::EXPOSURE).c_str() << ": "
+        get_logger(), "Error setting "
+          << sl::toString(sl::VIDEO_SETTINGS::EXPOSURE).c_str()
+          << ": "
           << sl::toString(err).c_str());
     }
 
@@ -1017,10 +1006,10 @@ void ZedCamera::applyExposureGainSettings()
 
     if (err != sl::ERROR_CODE::SUCCESS) {
       RCLCPP_WARN_STREAM(
-        get_logger(),
-        "Error setting "
+        get_logger(), "Error setting "
           << sl::toString(sl::VIDEO_SETTINGS::GAIN).c_str()
-          << ": " << sl::toString(err).c_str());
+          << ": "
+          << sl::toString(err).c_str());
     }
   }
 }
@@ -1133,9 +1122,10 @@ void ZedCamera::applySaturationSharpnessGammaSettings()
 
   if (err != sl::ERROR_CODE::SUCCESS) {
     RCLCPP_WARN_STREAM(
-      get_logger(),
-      "Error setting " << sl::toString(setting).c_str()
-                       << ": " << sl::toString(err).c_str());
+      get_logger(), "Error setting "
+        << sl::toString(setting).c_str()
+        << ": "
+        << sl::toString(err).c_str());
   }
 
   setting = sl::VIDEO_SETTINGS::SHARPNESS;
@@ -1146,9 +1136,10 @@ void ZedCamera::applySaturationSharpnessGammaSettings()
 
   if (err != sl::ERROR_CODE::SUCCESS) {
     RCLCPP_WARN_STREAM(
-      get_logger(),
-      "Error setting " << sl::toString(setting).c_str()
-                       << ": " << sl::toString(err).c_str());
+      get_logger(), "Error setting "
+        << sl::toString(setting).c_str()
+        << ": "
+        << sl::toString(err).c_str());
   }
 
   setting = sl::VIDEO_SETTINGS::GAMMA;
@@ -1159,9 +1150,10 @@ void ZedCamera::applySaturationSharpnessGammaSettings()
 
   if (err != sl::ERROR_CODE::SUCCESS) {
     RCLCPP_WARN_STREAM(
-      get_logger(),
-      "Error setting " << sl::toString(setting).c_str()
-                       << ": " << sl::toString(err).c_str());
+      get_logger(), "Error setting "
+        << sl::toString(setting).c_str()
+        << ": "
+        << sl::toString(err).c_str());
   }
 }
 
@@ -1191,17 +1183,17 @@ void ZedCamera::applyZEDXExposureSettings()
     if (err == sl::ERROR_CODE::SUCCESS && value != mGmslExpTime) {
       err = mZed->setCameraSettings(setting, mGmslExpTime);
       DEBUG_STREAM_CTRL(
-        "New setting for " << sl::toString(setting).c_str()
-                           << ": " << mGmslExpTime << " [Old "
-                           << value << "]");
+        "New setting for "
+          << sl::toString(setting).c_str() << ": "
+          << mGmslExpTime << " [Old " << value << "]");
     }
 
     if (err != sl::ERROR_CODE::SUCCESS) {
       RCLCPP_WARN_STREAM(
-        get_logger(), "Error setting "
-          << sl::toString(setting).c_str()
-          << ": "
-          << sl::toString(err).c_str());
+        get_logger(),
+        "Error setting " << sl::toString(setting).c_str()
+                         << ": "
+                         << sl::toString(err).c_str());
     }
   }
 }
@@ -1220,11 +1212,11 @@ void ZedCamera::applyZEDXAutoExposureTimeRange()
   sl::ERROR_CODE err;
   int value_min, value_max;
   err = mZed->getCameraSettings(
-    sl::VIDEO_SETTINGS::AUTO_EXPOSURE_TIME_RANGE,
-    value_min, value_max);
+    sl::VIDEO_SETTINGS::AUTO_EXPOSURE_TIME_RANGE, value_min,
+    value_max);
   if (err == sl::ERROR_CODE::SUCCESS &&
-    (value_min != mGmslAutoExpTimeRangeMin ||
-    value_max != mGmslAutoExpTimeRangeMax))
+    (value_min != mGmslAutoExpTimeRangeMin || value_max !=
+    mGmslAutoExpTimeRangeMax))
   {
     err = mZed->setCameraSettings(
       sl::VIDEO_SETTINGS::AUTO_EXPOSURE_TIME_RANGE,
@@ -1233,11 +1225,10 @@ void ZedCamera::applyZEDXAutoExposureTimeRange()
 
   if (err != sl::ERROR_CODE::SUCCESS) {
     RCLCPP_WARN_STREAM(
-      get_logger(), "Error setting "
-        << sl::toString(
-        sl::VIDEO_SETTINGS::AUTO_EXPOSURE_TIME_RANGE)
-        .c_str()
-        << ": " << sl::toString(err).c_str());
+      get_logger(),
+      "Error setting " << sl::toString(sl::VIDEO_SETTINGS::AUTO_EXPOSURE_TIME_RANGE).c_str()
+                       << ": "
+                       << sl::toString(err).c_str());
   }
 }
 
@@ -1277,17 +1268,17 @@ void ZedCamera::applyZEDXAnalogDigitalGain()
     if (err == sl::ERROR_CODE::SUCCESS && value != mGmslAnalogGain) {
       err = mZed->setCameraSettings(setting, mGmslAnalogGain);
       DEBUG_STREAM_CTRL(
-        "New setting for " << sl::toString(setting).c_str()
-                           << ": " << mGmslAnalogGain
-                           << " [Old " << value << "]");
+        "New setting for "
+          << sl::toString(setting).c_str() << ": "
+          << mGmslAnalogGain << " [Old " << value << "]");
     }
 
     if (err != sl::ERROR_CODE::SUCCESS) {
       RCLCPP_WARN_STREAM(
-        get_logger(), "Error setting "
-          << sl::toString(setting).c_str()
-          << ": "
-          << sl::toString(err).c_str());
+        get_logger(),
+        "Error setting " << sl::toString(setting).c_str()
+                         << ": "
+                         << sl::toString(err).c_str());
     }
 
     setting = sl::VIDEO_SETTINGS::DIGITAL_GAIN;
@@ -1295,17 +1286,17 @@ void ZedCamera::applyZEDXAnalogDigitalGain()
     if (err == sl::ERROR_CODE::SUCCESS && value != mGmslDigitalGain) {
       err = mZed->setCameraSettings(setting, mGmslDigitalGain);
       DEBUG_STREAM_CTRL(
-        "New setting for " << sl::toString(setting).c_str()
-                           << ": " << mGmslDigitalGain
-                           << " [Old " << value << "]");
+        "New setting for "
+          << sl::toString(setting).c_str() << ": "
+          << mGmslDigitalGain << " [Old " << value << "]");
     }
 
     if (err != sl::ERROR_CODE::SUCCESS) {
       RCLCPP_WARN_STREAM(
-        get_logger(), "Error setting "
-          << sl::toString(setting).c_str()
-          << ": "
-          << sl::toString(err).c_str());
+        get_logger(),
+        "Error setting " << sl::toString(setting).c_str()
+                         << ": "
+                         << sl::toString(err).c_str());
     }
   }
 }
@@ -1323,36 +1314,33 @@ void ZedCamera::applyZEDXAutoAnalogGainRange()
 
   sl::ERROR_CODE err;
   int value_min, value_max;
-  err = mZed->getCameraSettings(
+  err =
+    mZed->getCameraSettings(
     sl::VIDEO_SETTINGS::AUTO_ANALOG_GAIN_RANGE,
     value_min, value_max);
   if (err == sl::ERROR_CODE::SUCCESS &&
-    (value_min != mGmslAnalogGainRangeMin ||
-    value_max != mGmslAnalogGainRangeMax))
+    (value_min != mGmslAnalogGainRangeMin || value_max !=
+    mGmslAnalogGainRangeMax))
   {
     err = mZed->setCameraSettings(
       sl::VIDEO_SETTINGS::AUTO_ANALOG_GAIN_RANGE,
-      mGmslAnalogGainRangeMin,
-      mGmslAnalogGainRangeMax);
+      mGmslAnalogGainRangeMin, mGmslAnalogGainRangeMax);
 
     if (err != sl::ERROR_CODE::SUCCESS) {
       RCLCPP_WARN_STREAM(
         get_logger(),
-        "Error setting "
-          << sl::toString(sl::VIDEO_SETTINGS::AUTO_ANALOG_GAIN_RANGE)
-          .c_str()
-          << ": " << sl::toString(err).c_str());
+        "Error setting " << sl::toString(sl::VIDEO_SETTINGS::AUTO_ANALOG_GAIN_RANGE).c_str()
+                         << ": "
+                         << sl::toString(err).c_str());
     }
   }
 
   if (err != sl::ERROR_CODE::SUCCESS) {
     RCLCPP_WARN_STREAM(
       get_logger(),
-      "Error setting "
-        << sl::toString(
-        sl::VIDEO_SETTINGS::AUTO_ANALOG_GAIN_RANGE)
-        .c_str()
-        << ": " << sl::toString(err).c_str());
+      "Error setting " << sl::toString(sl::VIDEO_SETTINGS::AUTO_ANALOG_GAIN_RANGE).c_str()
+                       << ": "
+                       << sl::toString(err).c_str());
   }
 }
 
@@ -1369,27 +1357,25 @@ void ZedCamera::applyZEDXAutoDigitalGainRange()
 
   sl::ERROR_CODE err;
   int value_min, value_max;
-  err = mZed->getCameraSettings(
+  err =
+    mZed->getCameraSettings(
     sl::VIDEO_SETTINGS::AUTO_DIGITAL_GAIN_RANGE,
     value_min, value_max);
   if (err == sl::ERROR_CODE::SUCCESS &&
-    (value_min != mGmslAutoDigitalGainRangeMin ||
-    value_max != mGmslAutoDigitalGainRangeMax))
+    (value_min != mGmslAutoDigitalGainRangeMin || value_max !=
+    mGmslAutoDigitalGainRangeMax))
   {
     err = mZed->setCameraSettings(
       sl::VIDEO_SETTINGS::AUTO_DIGITAL_GAIN_RANGE,
-      mGmslAutoDigitalGainRangeMin,
-      mGmslAutoDigitalGainRangeMax);
+      mGmslAutoDigitalGainRangeMin, mGmslAnalogGainRangeMax);
   }
 
   if (err != sl::ERROR_CODE::SUCCESS) {
     RCLCPP_WARN_STREAM(
       get_logger(),
-      "Error setting "
-        << sl::toString(
-        sl::VIDEO_SETTINGS::AUTO_DIGITAL_GAIN_RANGE)
-        .c_str()
-        << ": " << sl::toString(err).c_str());
+      "Error setting " << sl::toString(sl::VIDEO_SETTINGS::AUTO_DIGITAL_GAIN_RANGE).c_str()
+                       << ": "
+                       << sl::toString(err).c_str());
   }
 }
 
@@ -1429,6 +1415,7 @@ void ZedCamera::processVideoDepth()
 
     DEBUG_VD(" * [processVideoDepth] vd_lock -> try_lock");
     if (vd_lock.try_lock()) {
+
       bool gpu = false;
 #ifdef FOUND_ISAAC_ROS_NITROS
       if (!_nitrosDisabled) {
@@ -2615,66 +2602,60 @@ void ZedCamera::threadFunc_videoDepthElab()
 // Helper: Setup thread scheduling and debug info
 void ZedCamera::setupVideoDepthThread()
 {
-  if (mChangeThreadSched) {
-    DEBUG_STREAM_ADV("Video/Depth thread settings");
-    if (_debugAdvanced) {
-      int policy;
-      sched_param par;
-      if (pthread_getschedparam(pthread_self(), &policy, &par)) {
-        RCLCPP_WARN_STREAM(
-          get_logger(), " ! Failed to get thread policy! - "
-            << std::strerror(errno));
-      } else {
-        DEBUG_STREAM_ADV(
-          " * Default Video/Depth thread (#"
-            << pthread_self() << ") settings - Policy: "
-            << sl_tools::threadSched2Str(policy).c_str()
-            << " - Priority: " << par.sched_priority);
-      }
-    }
-
+  DEBUG_STREAM_ADV("Video/Depth thread settings");
+  if (_debugAdvanced) {
+    int policy;
     sched_param par;
-    par.sched_priority =
-      (mThreadSchedPolicy == "SCHED_FIFO" || mThreadSchedPolicy == "SCHED_RR") ?
-      mThreadPrioPointCloud :
-      0;
-
-    int sched_policy = SCHED_OTHER;
-    if (mThreadSchedPolicy == "SCHED_OTHER") {
-      sched_policy = SCHED_OTHER;
-    } else if (mThreadSchedPolicy == "SCHED_BATCH") {
-      sched_policy = SCHED_BATCH;
-    } else if (mThreadSchedPolicy == "SCHED_FIFO") {
-      sched_policy = SCHED_FIFO;
-    } else if (mThreadSchedPolicy == "SCHED_RR") {
-      sched_policy = SCHED_RR;
-    } else {
+    if (pthread_getschedparam(pthread_self(), &policy, &par)) {
       RCLCPP_WARN_STREAM(
-        get_logger(),
-        " ! Failed to set thread params! - Policy not supported");
-      return;
-    }
-
-    if (pthread_setschedparam(pthread_self(), sched_policy, &par)) {
-      RCLCPP_WARN_STREAM(
-        get_logger(), " ! Failed to set thread params! - "
+        get_logger(), " ! Failed to get thread policy! - "
           << std::strerror(errno));
+    } else {
+      DEBUG_STREAM_ADV(
+        " * Default Video/Depth thread (#"
+          << pthread_self() << ") settings - Policy: "
+          << sl_tools::threadSched2Str(policy).c_str()
+          << " - Priority: " << par.sched_priority);
     }
+  }
 
-    if (_debugAdvanced) {
-      int policy;
-      sched_param par2;
-      if (pthread_getschedparam(pthread_self(), &policy, &par2)) {
-        RCLCPP_WARN_STREAM(
-          get_logger(), " ! Failed to get thread policy! - "
-            << std::strerror(errno));
-      } else {
-        DEBUG_STREAM_ADV(
-          " * New Video/Depth thread (#"
-            << pthread_self() << ") settings - Policy: "
-            << sl_tools::threadSched2Str(policy).c_str()
-            << " - Priority: " << par2.sched_priority);
-      }
+  sched_param par;
+  par.sched_priority =
+    (mThreadSchedPolicy == "SCHED_FIFO" ||
+    mThreadSchedPolicy == "SCHED_RR") ? mThreadPrioPointCloud : 0;
+
+  int sched_policy = SCHED_OTHER;
+  if (mThreadSchedPolicy == "SCHED_OTHER") {
+    sched_policy = SCHED_OTHER;
+  } else if (mThreadSchedPolicy == "SCHED_BATCH") {
+    sched_policy = SCHED_BATCH;
+  } else if (mThreadSchedPolicy == "SCHED_FIFO") {
+    sched_policy = SCHED_FIFO;
+  } else if (mThreadSchedPolicy == "SCHED_RR") {sched_policy = SCHED_RR;} else {
+    RCLCPP_WARN_STREAM(
+      get_logger(), " ! Failed to set thread params! - Policy not supported");
+    return;
+  }
+
+  if (pthread_setschedparam(pthread_self(), sched_policy, &par)) {
+    RCLCPP_WARN_STREAM(
+      get_logger(), " ! Failed to set thread params! - "
+        << std::strerror(errno));
+  }
+
+  if (_debugAdvanced) {
+    int policy;
+    sched_param par2;
+    if (pthread_getschedparam(pthread_self(), &policy, &par2)) {
+      RCLCPP_WARN_STREAM(
+        get_logger(), " ! Failed to get thread policy! - "
+          << std::strerror(errno));
+    } else {
+      DEBUG_STREAM_ADV(
+        " * New Video/Depth thread (#"
+          << pthread_self() << ") settings - Policy: "
+          << sl_tools::threadSched2Str(policy).c_str()
+          << " - Priority: " << par2.sched_priority);
     }
   }
 }
@@ -2780,76 +2761,73 @@ void ZedCamera::publishCameraInfos()
 
 void ZedCamera::setupPointCloudThread()
 {
-  if (mChangeThreadSched) {
-    DEBUG_STREAM_ADV("Point Cloud thread settings");
-    if (_debugAdvanced) {
-      int policy;
-      sched_param par;
-      if (pthread_getschedparam(pthread_self(), &policy, &par)) {
-        RCLCPP_WARN_STREAM(
-          get_logger(), " ! Failed to get thread policy! - "
-            << std::strerror(errno));
-      } else {
-        DEBUG_STREAM_ADV(
-          " * Default Point Cloud thread (#"
-            << pthread_self() << ") settings - Policy: "
-            << sl_tools::threadSched2Str(policy).c_str()
-            << " - Priority: " << par.sched_priority);
-      }
-    }
-
-    if (mThreadSchedPolicy == "SCHED_OTHER") {
-      sched_param par;
-      par.sched_priority = 0;
-      if (pthread_setschedparam(pthread_self(), SCHED_OTHER, &par)) {
-        RCLCPP_WARN_STREAM(
-          get_logger(), " ! Failed to set thread params! - "
-            << std::strerror(errno));
-      }
-    } else if (mThreadSchedPolicy == "SCHED_BATCH") {
-      sched_param par;
-      par.sched_priority = 0;
-      if (pthread_setschedparam(pthread_self(), SCHED_BATCH, &par)) {
-        RCLCPP_WARN_STREAM(
-          get_logger(), " ! Failed to set thread params! - "
-            << std::strerror(errno));
-      }
-    } else if (mThreadSchedPolicy == "SCHED_FIFO") {
-      sched_param par;
-      par.sched_priority = mThreadPrioPointCloud;
-      if (pthread_setschedparam(pthread_self(), SCHED_FIFO, &par)) {
-        RCLCPP_WARN_STREAM(
-          get_logger(), " ! Failed to set thread params! - "
-            << std::strerror(errno));
-      }
-    } else if (mThreadSchedPolicy == "SCHED_RR") {
-      sched_param par;
-      par.sched_priority = mThreadPrioPointCloud;
-      if (pthread_setschedparam(pthread_self(), SCHED_RR, &par)) {
-        RCLCPP_WARN_STREAM(
-          get_logger(), " ! Failed to set thread params! - "
-            << std::strerror(errno));
-      }
-    } else {
+  DEBUG_STREAM_ADV("Point Cloud thread settings");
+  if (_debugAdvanced) {
+    int policy;
+    sched_param par;
+    if (pthread_getschedparam(pthread_self(), &policy, &par)) {
       RCLCPP_WARN_STREAM(
-        get_logger(),
-        " ! Failed to set thread params! - Policy not supported");
+        get_logger(), " ! Failed to get thread policy! - "
+          << std::strerror(errno));
+    } else {
+      DEBUG_STREAM_ADV(
+        " * Default Point Cloud thread (#"
+          << pthread_self() << ") settings - Policy: "
+          << sl_tools::threadSched2Str(policy).c_str()
+          << " - Priority: " << par.sched_priority);
     }
+  }
 
-    if (_debugAdvanced) {
-      int policy;
-      sched_param par;
-      if (pthread_getschedparam(pthread_self(), &policy, &par)) {
-        RCLCPP_WARN_STREAM(
-          get_logger(), " ! Failed to get thread policy! - "
-            << std::strerror(errno));
-      } else {
-        DEBUG_STREAM_ADV(
-          " * New Point Cloud thread (#"
-            << pthread_self() << ") settings - Policy: "
-            << sl_tools::threadSched2Str(policy).c_str()
-            << " - Priority: " << par.sched_priority);
-      }
+  if (mThreadSchedPolicy == "SCHED_OTHER") {
+    sched_param par;
+    par.sched_priority = 0;
+    if (pthread_setschedparam(pthread_self(), SCHED_OTHER, &par)) {
+      RCLCPP_WARN_STREAM(
+        get_logger(), " ! Failed to set thread params! - "
+          << std::strerror(errno));
+    }
+  } else if (mThreadSchedPolicy == "SCHED_BATCH") {
+    sched_param par;
+    par.sched_priority = 0;
+    if (pthread_setschedparam(pthread_self(), SCHED_BATCH, &par)) {
+      RCLCPP_WARN_STREAM(
+        get_logger(), " ! Failed to set thread params! - "
+          << std::strerror(errno));
+    }
+  } else if (mThreadSchedPolicy == "SCHED_FIFO") {
+    sched_param par;
+    par.sched_priority = mThreadPrioPointCloud;
+    if (pthread_setschedparam(pthread_self(), SCHED_FIFO, &par)) {
+      RCLCPP_WARN_STREAM(
+        get_logger(), " ! Failed to set thread params! - "
+          << std::strerror(errno));
+    }
+  } else if (mThreadSchedPolicy == "SCHED_RR") {
+    sched_param par;
+    par.sched_priority = mThreadPrioPointCloud;
+    if (pthread_setschedparam(pthread_self(), SCHED_RR, &par)) {
+      RCLCPP_WARN_STREAM(
+        get_logger(), " ! Failed to set thread params! - "
+          << std::strerror(errno));
+    }
+  } else {
+    RCLCPP_WARN_STREAM(
+      get_logger(), " ! Failed to set thread params! - Policy not supported");
+  }
+
+  if (_debugAdvanced) {
+    int policy;
+    sched_param par;
+    if (pthread_getschedparam(pthread_self(), &policy, &par)) {
+      RCLCPP_WARN_STREAM(
+        get_logger(), " ! Failed to get thread policy! - "
+          << std::strerror(errno));
+    } else {
+      DEBUG_STREAM_ADV(
+        " * New Point Cloud thread (#"
+          << pthread_self() << ") settings - Policy: "
+          << sl_tools::threadSched2Str(policy).c_str()
+          << " - Priority: " << par.sched_priority);
     }
   }
 }
