@@ -9,6 +9,8 @@ __pycache__/
 *$py.class
 *.so
 .Python
+*.pt
+*.onnx
 env/
 venv/
 .env/
@@ -24,10 +26,14 @@ pip-delete-this-directory.txt
 .DS_Store
 
 # ROS Bag files and data
-*.db3
+
 *.bag
 *.mcap
-*metadata.yaml
+*.db3
+/Straight_Path
+/Circular_Path
+/testing_conemapping
+/Mar_4_bags
 
 # OS generated files
 .DS_Store

@@ -99,7 +99,7 @@ class LandmarkState(Enum):
 class MappingConstants:
     """System-wide configuration parameters"""
     # Distance gating
-    MAX_DETECTION_RANGE = 15.0  # meters (r_max)
+    MAX_DETECTION_RANGE = 500.0  # meters (r_max)
     
     # Height validation
     MAX_CONE_HEIGHT_DEVIATION = 1.0  # meters, increased to handle floating cones (camera z=0 issue)
@@ -764,7 +764,8 @@ class ConeMappingNode(Node):
         super().__init__('cone_mapping_node')
         
         # Declare and load parameters from YAML
-        self.declare_parameter('max_detection_range', 15.0)
+        self.declare_parameter('max_detection_range', 500.0)
+        print("CONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEMAAAAAAAAAAAAAAAAAAAP")
         self.declare_parameter('max_cone_height_deviation', 1.0)
         self.declare_parameter('association_gate_radius', 2.0)
         self.declare_parameter('mahalanobis_threshold', 5.991)

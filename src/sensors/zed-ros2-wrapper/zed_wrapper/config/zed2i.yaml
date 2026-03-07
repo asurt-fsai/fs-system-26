@@ -18,5 +18,5 @@
 
         depth:
             min_depth: 0.01 # Min: 0.01, Max: 3.0
-            max_depth: 10.0 # Min: 0.5, Max: 20.0
+            max_depth: 20.0 # Min: 0.5, Max: 20.0
 

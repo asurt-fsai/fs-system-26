@@ -87,7 +87,7 @@ class PlanningDlNode(Node):
             # Swap to match your old model format
             y, x = x_rel, -y_rel
                         # ROI Filtering 
-            if x > 3 or y > 10 or x < -3 or y < 0: 
+            if x > 4 or y > 20 or x < -4 or y < 0: 
                 continue
 
     # # --- PIZZA SLICE ROI FILTERING ---
