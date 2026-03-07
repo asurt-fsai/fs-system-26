@@ -34,6 +34,7 @@ pip-delete-this-directory.txt
 /Circular_Path
 /testing_conemapping
 /Mar_4_bags
+/slam_dl
 
 # OS generated files
 .DS_Store
