@@ -10,7 +10,7 @@ from modules import voronoi_gen
 
 def run_test_visual(name, cones, planner):
     print(f"\n--- RUNNING TEST: {name} ---")
-    car_data = [(-10, 0.0, 0.0)] # x, y, yaw
+    car_data = [(-2.5, -2.5, 0.0)] # x, y, yaw
     
     # 1. Execute Cycle
     path_points = planner.execute_cycle(cones, car_data)
@@ -25,10 +25,10 @@ def run_test_visual(name, cones, planner):
         is_v = c[3] if len(c) > 3 else False
         cone_color = 'blue' if c[2] == 'b' else 'gold'
         ax.scatter(x=c[0], y=c[1], c=cone_color, 
-                   alpha=0.3 if is_v else 1.0, 
-                   edgecolors='none' if is_v else 'black', 
-                   s=120, zorder=3, 
-                   label=f"Virtual {c[2]}" if is_v else None)
+                    alpha=0.3 if is_v else 1.0, 
+                    edgecolors='none' if is_v else 'black', 
+                    s=120, zorder=3, 
+                    label=f"Virtual {c[2]}" if is_v else None)
 
     # --- LAYER 2: MIDPOINTS (Stars) ---
     for mp in midpoints:
@@ -73,7 +73,7 @@ if __name__ == "__main__":
         #("4. Tight Bottleneck", [(2, 3, 'b'), (2, -3, 'y'), (10, 1.2, 'b'), (10, -1.2, 'y'), (18, 3, 'b')]),
        # ("5. Narrowing Funnel", [(x, 5 - x*0.2, 'b') for x in range(2, 16, 4)] + [(x, -5 + x*0.2, 'y') for x in range(2, 16, 4)]),
        # ("6. 90-Deg Turn (Left)", [(2, 2, 'b'), (5, 2, 'b'), (8, 2, 'b'), (8, 5, 'b'), (8, 8, 'b')]),
-      # ("7. Sparse Straight", [(2, 2, 'b'), (2, -2, 'y'), (25, 2, 'b'), (25, -2, 'y')]),
+      #("7. Sparse Straight", [(2, 2, 'b'), (2, -2, 'y'), (25, 2, 'b'), (25, -2, 'y')]),
        #("8. Missing Partners", [(5, 3, 'b'), (10, -3, 'y'), (15, 3, 'b')]),
         
        #("10. Noisy/Close Cones", [(5, 2, 'b'), (5.1, 2.1, 'b'), (5, -2, 'y'), (5, -1.9, 'y')])
@@ -115,11 +115,60 @@ if __name__ == "__main__":
     #test_cases.append(("13. Asymmetric Pairing Challenge", case_13))
     # --- CASE 14: The Hairpin Challenge ---
 # A tight 180-degree turn to test local heading and adaptive width.
-    case_hairpin = [(-2,1,'y'),(-5,1,'y'),(-8,1,'y')
-   ,(1,1,'y'),(4,1,'y'),(7,2,'y'),(9,4,'y'),(10,7,'y'),(7,9,'y'),(4,10,'y')]
+    
+    perfect_hairpin = [(1,1,'y'),(4,1,'y'),(1,4,'b'),(4,4,'b'), (7,1.5,'y'),(7,4.5,'b'),(10,2,'y'),(9.5,5,'b'),(13,5,'y'),(10.5,8,'b')]
+    test_cases.append(("21. Perfect Hairpin", perfect_hairpin))
 
 
-    test_cases.append(("14. Hairpin 180-Degree Turn", case_hairpin))
+    def generate_hairpin(start_x=5, start_y=0, inner_radius=4.0, width=4.0, num_cones=6):
+        """
+        Generates a 180-degree hairpin turn.
+        Yellow = Outside (Larger radius)
+        Blue = Inside (Smaller radius)
+        """
+        cones = []
+    # Radii for both sides
+        r_blue = inner_radius
+        r_yellow = inner_radius + width
+    
+    # Generate angles from -90 to +90 degrees (a 180-deg U-turn)
+        angles = np.linspace(-np.pi/2, np.pi/2, num_cones)
+    
+        for alpha in angles:
+        # Blue Cones (Inside)
+            bx = start_x + r_blue * np.cos(alpha)
+            by = start_y + r_blue * np.sin(alpha) + r_blue
+            cones.append((bx, by, 'b'))
+        
+        # Yellow Cones (Outside)
+            yx = start_x + r_yellow * np.cos(alpha)
+            yy = start_y + r_yellow * np.sin(alpha) + r_blue # Centered on same point
+            cones.append((yx, yy, 'y'))
+            cones.append((7,-4,'y'))
+            cones.append((4,-4,'y'))
+            cones.append((1,-4,'y'))
+            cones.append((7,0,'b'))
+            cones.append((4,0,'b'))
+            cones.append((1,0,'b')) # Add some extra yellows to widen the entrance
+            cones.append((7,10,'b'))
+            cones.append((4,10,'b'))
+            cones.append((1,10,'b')) 
+            cones.append((7,14,'y'))
+            cones.append((4,14,'y'))
+            cones.append((1,14,'y')) # Add some extra yellows to widen the
+        
+        
+        return cones
+    
+    if __name__ == "__main__":
+        planner = PathPlanner(robot_radius=0.0, safety_margin=0.0, max_edge_len=15.0)
+        test_cases = []
 
-    for name, cones in test_cases:
-        run_test_visual(name, cones, planner)
+    # Generate the perfect hairpin
+    # start_x=10 moves it forward so it doesn't overlap the origin
+        hairpin_cones = generate_hairpin(start_x=10, start_y=0, inner_radius=5.0, width=4.0, num_cones=8)
+    
+        test_cases.append(("14. Mathematical Hairpin (Yellow Outside)", hairpin_cones))
+
+        for name, cones in test_cases:
+            run_test_visual(name, cones, planner)
