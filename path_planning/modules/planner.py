@@ -277,7 +277,20 @@ class PathPlanner:
         if len(cone_data) == 2:
             c1 = np.array([cone_data[0][0], cone_data[0][1]])
             c2 = np.array([cone_data[1][0], cone_data[1][1]])
-            target_point = (c1 + c2) / 2.0
+            color1, color2 = cone_data[0][2], cone_data[1][2]
+            
+            if color1 != color2:
+                # Different colors - use midpoint logic
+                target_point = (c1 + c2) / 2.0
+            else:
+                # Same color - use same logic as 1 cone
+                cone_pos = (c1 + c2) / 2.0  # Use midpoint as reference
+                right_vec = np.array([np.sin(car_yaw), -np.cos(car_yaw)])
+                
+                if color1 == 'b':  # Blue -> Path is to the Right
+                    target_point = cone_pos + (right_vec * (ASSUMED_WIDTH / 2.0))
+                elif color1 == 'y':  # Yellow -> Path is to the Left
+                    target_point = cone_pos - (right_vec * (ASSUMED_WIDTH / 2.0))
 
         # CASE 2: 1 Cone
         elif len(cone_data) == 1:

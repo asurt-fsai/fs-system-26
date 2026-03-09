@@ -199,11 +199,14 @@ class PathPlanner:
                 
                 if not any(np.linalg.norm(v_pos - np.array([c[0], c[1]])) < collision_threshold for c in cone_data):
                     balanced.append((float(v_pos[0]), float(v_pos[1]), t_color, True))
-                    midpoint_nodes.append(tuple((p_curr + v_pos) / 2.0))
+                    midpoint = tuple((p_curr + v_pos) / 2.0)
+                    midpoint_nodes.append(midpoint)
+                    print(f"[MIDPOINT TRACE] Added midpoint at {midpoint} between cone at {tuple(p_curr)} and virtual cone at {tuple(v_pos)} (color: {t_color})")
 
     # Pass the car_heading as the reference for both walls
         mirror_wall(blues, yellows, 'y', -1, car_heading)
         mirror_wall(yellows, blues, 'b', 1, car_heading)
+        print(f"[MIDPOINT TRACE] Total midpoints added: {len(midpoint_nodes)}")
         return balanced, midpoint_nodes
 
     def _handle_low_cones(self, cone_data, car_pos, car_yaw):
@@ -215,7 +218,21 @@ class PathPlanner:
             cp = np.array([c[0], c[1]])
             target_point = cp + (right_vec * (ASSUMED_WIDTH/2.0)) if c[2]=='b' else cp - (right_vec * (ASSUMED_WIDTH/2.0))
         elif len(cone_data) == 2:
-            target_point = (np.array(cone_data[0][:2]) + np.array(cone_data[1][:2])) / 2.0
+            c1 = np.array([cone_data[0][0], cone_data[0][1]])
+            c2 = np.array([cone_data[1][0], cone_data[1][1]])
+            color1, color2 = cone_data[0][2], cone_data[1][2]
+            
+            if color1 != color2:
+                # Different colors - use midpoint logic
+                target_point = (c1 + c2) / 2.0
+            else:
+                # Same color - use same logic as 1 cone
+                cone_pos = (c1 + c2) / 2.0  # Use midpoint as reference
+                
+                if color1 == 'b':  # Blue -> Path is to the Right
+                    target_point = cone_pos + (right_vec * (ASSUMED_WIDTH / 2.0))
+                elif color1 == 'y':  # Yellow -> Path is to the Left
+                    target_point = cone_pos - (right_vec * (ASSUMED_WIDTH / 2.0))
         
         if target_point is not None:
             direction = (target_point - car_pos) / (np.linalg.norm(target_point - car_pos) + 1e-6)

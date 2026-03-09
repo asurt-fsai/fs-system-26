@@ -71,7 +71,12 @@ if __name__ == "__main__":
       #("7. Sparse Straight", [(2, 2, 'b'), (2, -2, 'y'), (25, 2, 'b'), (25, -2, 'y')]),
        #("8. Missing Partners", [(5, 3, 'b'), (10, -3, 'y'), (15, 3, 'b')]),
         
-       #("10. Noisy/Close Cones", [(5, 2, 'b'), (5.1, 2.1, 'b'), (5, -2, 'y'), (5, -1.9, 'y')])
+       #("10. Noisy/Close Cones", [(5, 2, 'b'), (5.1, 2.1, 'b'), (5, -2, 'y'), (5, -1.9, 'y')]),
+
+       # Low Cone Test Cases
+       ("15. Low Cones: 2 Different Colors", [(5, 2, 'b'), (5, -2, 'y')]),
+       ("16. Low Cones: 2 Same Color Blue", [(5, 1, 'b'), (8, 1.5, 'b')]),
+       ("17. Low Cones: 2 Same Color Yellow", [(5, -1, 'y'), (8, -1.5, 'y')]),
     ]
 
     # CASE 12: Wide Vertical Sweep (No Virtual Cones Expected)
@@ -164,6 +169,12 @@ if __name__ == "__main__":
         hairpin_cones = generate_hairpin(start_x=10, start_y=0, inner_radius=5.0, width=4.0, num_cones=8)
     
         test_cases.append(("14. Mathematical Hairpin (Yellow Outside)", hairpin_cones))
+        
+        # Add Low Cone Test Cases
+        test_cases.append(("15. Low Cones: 2 Different Colors", [(5, 2, 'b'), (5, -2, 'y')]))
+        test_cases.append(("16. Low Cones: 2 Same Color Blue", [(5, 1, 'b'), (8, 1.5, 'b')]))
+        test_cases.append(("17. Low Cones: 2 Same Color Yellow", [(5, -1, 'y'), (8, -1.5, 'y')]))
 
         for name, cones in test_cases:
+            print(f"Test case '{name}' has {len(cones)} cones")
             run_test_visual(name, cones, planner)
