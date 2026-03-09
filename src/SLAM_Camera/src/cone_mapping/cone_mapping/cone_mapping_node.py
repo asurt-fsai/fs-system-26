@@ -24,6 +24,7 @@ from enum import Enum
 # ROS2 imports
 from geometry_msgs.msg import PoseStamped, TransformStamped, Point
 from std_msgs.msg import Header
+from nav_msgs.msg import Path  # [NEW] For corrected trajectory
 from tf2_ros import Buffer, TransformListener
 from std_msgs.msg import Bool
 import tf2_geometry_msgs
@@ -177,6 +178,11 @@ class KalmanLandmark:
         # Color consistency tracking
         self.type_mismatch_count = 0
         
+        # [NEW] Graph-SLAM Anchoring Fields
+        self.anchor_pose = None
+        self.anchor_timestamp = None
+        self.relative_state = None
+        
     def predict(self, Q):
         """
         Kalman prediction step.
@@ -297,12 +303,13 @@ class KalmanLandmark:
             self.type_mismatch_count += 1
             return False
     
-    def update_lifecycle(self, current_time):
+    def update_lifecycle(self, current_time, Tpose=None):
         """
         Update lifecycle state based on observation history.
         
         Args:
             current_time: rclpy.time.Time
+            Tpose: 4x4 numpy array (optional), vehicle pose for anchoring
         """
         if self.lifecycle_state == LandmarkState.TENTATIVE:
             # Tentative → Confirmed
@@ -310,6 +317,16 @@ class KalmanLandmark:
                 np.trace(self.covariance) < MappingConstants.COVARIANCE_THRESHOLD_CONFIRMATION):
                 self.lifecycle_state = LandmarkState.CONFIRMED
                 self.assigned_type = self.cone_type  # Lock type
+                
+                # [NEW] Graph-SLAM Anchoring Logic
+                if Tpose is not None:
+                    self.anchor_timestamp = current_time
+                    self.anchor_pose = Tpose
+                    p_map = np.array([self.state[0], self.state[1], 0.0, 1.0])
+                    try:
+                        self.relative_state = np.linalg.inv(Tpose) @ p_map
+                    except np.linalg.LinAlgError:
+                        self.relative_state = None  # Failed to compute relative state
                 
         elif self.lifecycle_state == LandmarkState.CONFIRMED:
             pass  # Map Persistence: Once a cone is confirmed, it stays in the global map forever!
@@ -857,6 +874,14 @@ class ConeMappingNode(Node):
         self.create_timer(1.0, self.maintenance_callback)  # 1 Hz map maintenance
         self.create_timer(0.1, self.publish_map)  # 10 Hz map publishing
         
+        # [NEW] Subscriber for SLAM corrected trajectory
+        self.trajectory_sub = self.create_subscription(
+            Path,
+            '/slam/corrected_trajectory',
+            self.trajectory_update_callback,
+            10
+        )
+
         # Wait for static transform
         self.get_logger().info("Waiting for static transform zed_camera -> base_link...")
         self.create_timer(0.5, self.init_static_transform)
@@ -906,10 +931,12 @@ class ConeMappingNode(Node):
         if len(detections) == 0:
             # No valid detections, update lifecycle
             with self.map_lock:
+                # [NEW] Calculate T_map_base for lifecycle updates
+                T_map_base = self.transformer._pose_to_matrix(pose_msg.pose)
                 for lm in self.landmarks:
                     lm.predict(self.Q)  # Predict state uncertainty forward even when no detections
                     lm.frames_not_seen += 1
-                    lm.update_lifecycle(self.get_clock().now())
+                    lm.update_lifecycle(self.get_clock().now(), T_map_base)
             return
         
         # PHASE 2: Data association
@@ -976,8 +1003,10 @@ class ConeMappingNode(Node):
             
             # Update all lifecycle states
             current_time = self.get_clock().now()
+            # [NEW] Calculate T_map_base for anchoring logic
+            T_map_base = self.transformer._pose_to_matrix(pose_msg.pose)
             for lm in self.landmarks:
-                lm.update_lifecycle(current_time)
+                lm.update_lifecycle(current_time, T_map_base)
     
     def maintenance_callback(self):
         """
@@ -1003,6 +1032,40 @@ class ConeMappingNode(Node):
                 f"Lost: {stats[LandmarkState.LOST]} | "
                 f"Callbacks: {self.sync_callback_count}"
             )
+            
+    def trajectory_update_callback(self, path_msg):
+        """
+        [NEW] Phase 6: Global Warp / Loop Closure Correction
+        Adjust anchored landmarks when the historical trajectory shifts.
+        """
+        with self.map_lock:
+            for lm in self.landmarks:
+                if (lm.lifecycle_state == LandmarkState.CONFIRMED and 
+                    lm.anchor_timestamp is not None and 
+                    lm.relative_state is not None):
+                    
+                    target_time = lm.anchor_timestamp.nanoseconds
+                    best_pose = None
+                    min_dt = float('inf')
+                    
+                    # Find closest pose in time
+                    for pose_stamped in path_msg.poses:
+                        pt_time = Time.from_msg(pose_stamped.header.stamp).nanoseconds
+                        dt = abs(pt_time - target_time)
+                        if dt < min_dt:
+                            min_dt = dt
+                            best_pose = pose_stamped
+                            
+                    if best_pose is not None:
+                        # Extract the new pose
+                        Tpose_new = self.transformer._pose_to_matrix(best_pose.pose)
+                        
+                        # Recalculate global position from relative state
+                        p_map_new = Tpose_new @ lm.relative_state
+                        
+                        # Overwrite the mapped state and save new anchor
+                        lm.state = np.array([p_map_new[0], p_map_new[1]])
+                        lm.anchor_pose = Tpose_new
     
     def publish_map(self):
         """
