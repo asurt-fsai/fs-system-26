@@ -3,11 +3,6 @@ import numpy as np
 from modules.planner import PathPlanner
 from modules import voronoi_gen
 
-import matplotlib.pyplot as plt
-import numpy as np
-from modules.planner import PathPlanner
-from modules import voronoi_gen
-
 def run_test_visual(name, cones, planner):
     print(f"\n--- RUNNING TEST: {name} ---")
     car_data = [(-2.5, -2.5, 0.0)] # x, y, yaw

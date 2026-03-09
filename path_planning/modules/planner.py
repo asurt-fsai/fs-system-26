@@ -60,7 +60,7 @@ class PathPlanner:
          
         #4.virtual cones logic
         balanced_cone_data, midpoint_nodes = self._balance_by_full_mirror(
-          cone_data, car_yaw, virtual_width=4.0
+          cone_data, car_pos, car_yaw, virtual_width=4.0
         )
        
     
@@ -254,11 +254,14 @@ class PathPlanner:
                 
                     if not any(np.linalg.norm(v_pos - np.array([c[0], c[1]])) < collision_threshold for c in cone_data):
                         balanced.append((float(v_pos[0]), float(v_pos[1]), t_color, True))
-                        midpoint_nodes.append(tuple((p_curr + v_pos) / 2.0))
+                        midpoint = tuple((p_curr + v_pos) / 2.0)
+                        midpoint_nodes.append(midpoint)
+                        print(f"[MIDPOINT TRACE] Added midpoint at {midpoint} between cone at {tuple(p_curr)} and virtual cone at {tuple(v_pos)} (color: {t_color})")
 
     # Pass the car_heading as the reference for both walls
         mirror_wall(blues, yellows, 'y', -1, car_heading)
         mirror_wall(yellows, blues, 'b', 1, car_heading)
+        print(f"[MIDPOINT TRACE] Total midpoints added: {len(midpoint_nodes)}")
         return balanced, midpoint_nodes
 
     def _handle_low_cones(self, cone_data, car_pos, car_yaw):
