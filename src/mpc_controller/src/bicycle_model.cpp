@@ -96,14 +96,19 @@ Eigen::VectorXd BicycleModel::dynamics(const Eigen::VectorXd& state,
 Eigen::VectorXd BicycleModel::step(const Eigen::VectorXd& state,
                                    const Eigen::Vector2d& control,
                                    double dt) const {
-    if (dt < 0) {
+    //if (dt < 0) {
         dt = config_.dt;
-    }
+    //}
     
-    // Use RK4 integration from integration_methods.h
-    // Bind the dynamics function to this->dynamics for the integration solver
-    auto dynamics_fn = [this](const Eigen::VectorXd& s, const Eigen::VectorXd& u) {
-        return this->dynamics(s, Eigen::Vector2d(u(0), u(1)));
+    // Create a wrapper function that adapts our dynamics() method to the RK4 integrator
+    // The RK4 integrator expects a function with signature:
+    //   (state_vector, control_vector) -> state_derivative
+    // Our dynamics() method needs control as Eigen::Vector2d, so we convert it here
+    auto dynamics_fn = [this](const Eigen::VectorXd& state, const Eigen::VectorXd& control) {
+        // Extract the two control inputs (acceleration and steering rate)
+        // and convert them to the Vector2d format that dynamics() expects
+        Eigen::Vector2d control_as_vector(control(0), control(1));
+        return this->dynamics(state, control_as_vector);
     };
     
     return integration::rungeKutta4<5, 2>(state, control, dynamics_fn, dt);
@@ -116,10 +121,15 @@ Eigen::VectorXd BicycleModel::stepEulerForward(const Eigen::VectorXd& state,
         dt = config_.dt;
     }
     
-    // Use Euler Forward integration from integration_methods.h
-    // This is the integration method used in the Python bicycle_model.py
-    auto dynamics_fn = [this](const Eigen::VectorXd& s, const Eigen::VectorXd& u) {
-        return this->dynamics(s, Eigen::Vector2d(u(0), u(1)));
+    // Create a wrapper function that adapts our dynamics() method to the Euler integrator
+    // The Euler integrator expects a function with signature:
+    //   (state_vector, control_vector) -> state_derivative
+    // Our dynamics() method needs control as Eigen::Vector2d, so we convert it here
+    auto dynamics_fn = [this](const Eigen::VectorXd& state, const Eigen::VectorXd& control) {
+        // Extract the two control inputs (acceleration and steering rate)
+        // and convert them to the Vector2d format that dynamics() expects
+        Eigen::Vector2d control_as_vector(control(0), control(1));
+        return this->dynamics(state, control_as_vector);
     };
     
     return integration::eulerForward<5, 2>(state, control, dynamics_fn, dt);
@@ -127,10 +137,15 @@ Eigen::VectorXd BicycleModel::stepEulerForward(const Eigen::VectorXd& state,
 
 Eigen::MatrixXd BicycleModel::predictTrajectory(const Eigen::VectorXd& x0,
                                                 const Eigen::MatrixXd& controls) const {
-    // Use the integration methods framework for trajectory prediction
-    // Bind the dynamics function for the integration solver
-    auto dynamics_fn = [this](const Eigen::VectorXd& s, const Eigen::VectorXd& u) {
-        return this->dynamics(s, Eigen::Vector2d(u(0), u(1)));
+    // Create a wrapper function that adapts our dynamics() method to the trajectory predictor
+    // The trajectory predictor expects a function with signature:
+    //   (state_vector, control_vector) -> state_derivative
+    // Our dynamics() method needs control as Eigen::Vector2d, so we convert it here
+    auto dynamics_fn = [this](const Eigen::VectorXd& state, const Eigen::VectorXd& control) {
+        // Extract the two control inputs (acceleration and steering rate)
+        // and convert them to the Vector2d format that dynamics() expects
+        Eigen::Vector2d control_as_vector(control(0), control(1));
+        return this->dynamics(state, control_as_vector);
     };
     
     // Use RK4 integration (use_rk4=true) for better MPC prediction accuracy
@@ -213,6 +228,7 @@ double BicycleModel::validateSteeringAngle(double steering_angle_rad) const {
 
 double BicycleModel::validateThrottle(double throttle) const {
     // REFERENCE: From kinematic_bicycle/bicycle_model.py
+    // Ask Maros to confirm this line, but it looks like if the throttle command exceeds ±1.0, the node is destroyed (emergency stop)
     // Lines: if (abs(msg.data) > 1.0): ... self.destroy_node()
     // 
     // FSAI 2026 control constraint: Throttle limited to [-1.0, 1.0]

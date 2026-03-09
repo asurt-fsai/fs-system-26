@@ -33,9 +33,10 @@ namespace mpc_controller{
             CubicSpline() = default;
             CubicSpline(const Eigen::VectorXd& x, const Eigen::VectorXd& y, bool is_evenly_spaced = false);
             // Evaluate spline and its derivatives at a query point
-            double evaluate(double x_query);
-            double evaluateDerivative(double x_query);
-            double evaluateSecondDerivative(double x_query);
+            double getPoint(const double x_query) const;
+            void generateSpline(const Eigen::VectorXd& x, const Eigen::VectorXd& y, bool is_evenly_spaced = false);
+            double getDerivative(double x_query) const;
+            double getSecondDerivative(double x_query) const;
             
         private:
             SplineParams params_;

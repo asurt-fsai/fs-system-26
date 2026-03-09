@@ -140,7 +140,7 @@ namespace mpc_controller{
         return x - x_max * std::floor(x / x_max);
     }
 
-    void CubicSpline::GenerateSpline(const Eigen::VectorXd& x, const Eigen::VectorXd& y, bool is_evenly_spaced)
+    void CubicSpline::generateSpline(const Eigen::VectorXd& x, const Eigen::VectorXd& y, bool is_evenly_spaced)
     {
         if(is_evenly_spaced)
         {
