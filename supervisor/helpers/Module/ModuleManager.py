@@ -1,4 +1,8 @@
-from ModuleState import ModuleState
+from pytest import Module, main
+
+from supervisor.helpers.Module.LocalLuncher import LocalLauncher
+from supervisor.helpers.Module.ModuleState import ModuleState
+from supervisor.helpers.CommunicationLayer import CommunicationLayer
 
 
 class ModuleManager:
@@ -89,3 +93,4 @@ class ModuleManager:
 
     def __len__(self):
         return len(self.modules)
+    

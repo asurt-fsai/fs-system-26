@@ -7,8 +7,10 @@ Used for launching ROS2 modules locally.
 import subprocess
 import time
 import psutil
-from ProcessLauncher import ProcessLauncher
-from ModuleState import ModuleState
+import os
+from supervisor.helpers.Module.ProcessLauncher import ProcessLauncher
+from supervisor.helpers.Module.ModuleState import ModuleState
+from supervisor.helpers.Module.Module import Module
 
 
 
@@ -22,7 +24,6 @@ class LocalLauncher(ProcessLauncher):
         """
         Launch the ROS module using ros2 launch.
         """
-
         # Prevent invalid state launch
         if module.state not in [
             ModuleState.Shutdown,
@@ -34,44 +35,25 @@ class LocalLauncher(ProcessLauncher):
 
         try:
             print(f"[MODULE] Launching {module.pkg}/{module.launchFile} ...")
-
+            
             module.state = ModuleState.Starting
-
-            # Optional: Validate launch path exists
-            # (Debug protection — optional but useful)
-            import os
-            pkg_path = os.path.join(
-                os.getenv("ROS_PACKAGE_PATH", ""),
-                module.pkg,
-                "launch",
-                module.launchFile,
-            )
-
-            if not os.path.exists(pkg_path):
-                print(f"[MODULE] Warning: Launch file not found at {pkg_path}")
-
-            # Start process
+            
+            # Just try to launch - let ros2 handle the path resolution
             module.process = subprocess.Popen(
                 ["ros2", "launch", module.pkg, module.launchFile],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
             )
-
+            
             print(f"[MODULE] Process started with PID: {module.process.pid}")
-
-            # Reset runtime tracking
-            module.lastHeartbeatTime = 0.0
-            module.restartAttempts = 0
-
             return True
-
+            
         except Exception as e:
             print(f"[MODULE] Launch failed: {e}")
             module.state = ModuleState.Error
             module.process = None
             return False
-
-
+    
     def shutdown(self, module):
         """
         Robust shutdown:
@@ -110,14 +92,16 @@ class LocalLauncher(ProcessLauncher):
 
         except Exception as e:
             print(f"[LocalLauncher] Shutdown error: {e}")
-            module.state = ModuleState.Error
+            #module.state = ModuleState.Error
+            return False
 
-        finally:
-            module.process = None
+        #finally:
+        #    module.process = None
+        return True
         
 
     def restart(self, module) -> bool:
-        #NO LOGIC - just execute shutdown + launch
+        #just execute shutdown + launch
         self.shutdown(module)
         time.sleep(2)  # Small cooldown between shutdown and launch
         return self.launch(module)

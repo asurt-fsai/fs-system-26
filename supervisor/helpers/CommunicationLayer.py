@@ -64,7 +64,7 @@ class CommunicationLayer(Node):
         self.create_subscription(String, 'can_state', self.onCANState, 10)
         self.create_subscription(String, 'velocity', self.onVelocity, 10)
         self.create_subscription(String, 'control', self.onControl, 10)
-        self.create_subscription(String, 'heartbeat', self.onHeartbeat, 10)
+        self.create_subscription(String, 'heartbeat', self.on_heartbeat, 10)
         self.create_subscription(String, 'cone_detection', self.onConeDetection, 10)
         self.create_subscription(String, 'loop_closure', self.onLoopClosure, 10)
         self.create_subscription(String, 'distance', self.onDistance, 10)
@@ -113,13 +113,13 @@ class CommunicationLayer(Node):
         if supervisor:
             supervisor.issueCommand(msg.data)
 
-    def onHeartbeat(self, msg):
+    def on_heartbeat(self, msg):
         with self.state_lock:
             modules_copy = list(self.registeredModules)
 
         for module in modules_copy:
-            if module.name == msg.data:
-                module.onHeartbeat()
+            if module.pkg == msg.data:
+                module.on_heartbeat()
 
     def onConeDetection(self, msg):
         with self.state_lock:
