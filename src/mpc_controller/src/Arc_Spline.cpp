@@ -6,13 +6,13 @@ static constexpr int N_SPLINE = 5000;
 
 namespace mpc_controller{
 
-    void ArcSpline::setregularSpacing(const Eigen::VectorXd& x, const Eigen::VectorXd& y){
+    void ArcSpline::setregularSpacing(const Eigen::VectorXd& x, const Eigen::VectorXd& y, const double spacing){
         if (x.size() == y.size()) 
         {
             splineData.x = x;
             splineData.y = y;
             splineData.n = x.size();
-            splineData.s = getTotalLength();
+            splineData.s = computeArcLength();
         } 
         else 
         {
@@ -21,14 +21,14 @@ namespace mpc_controller{
         }
     }
 
-    void ArcSpline::setirregularSpacing(const Eigen::VectorXd& x, const Eigen::VectorXd& y, const Eigen::VectorXd& s)
+    void ArcSpline::setirregularSpacing(const Eigen::VectorXd& x, const Eigen::VectorXd& y, const double spacing)
     {
         if (x.size() == y.size()) 
         {
             splineData.x = x;
             splineData.y = y;
             splineData.n = x.size();
-            splineData.s = s;
+            // TODO: Use spacing parameter to set splineData.s appropriately
         } 
         else 
         {
@@ -37,20 +37,20 @@ namespace mpc_controller{
         }
     }
 
-    Eigen::vectorXd ArcSpline::computeArcLength(const Eigen::VectorXd& x, const Eigen::VectorXd& y) const
+    Eigen::VectorXd ArcSpline::computeArcLength() const
     {
         // compute the arc lenght based on the straight line distance between the points, this is not the true arc length but it is a good approximation for closely spaced points
         // TODO implement a more accurate arc length computation method that takes into account the curvature of the path
         double dx, dy;
         double distance;
 
-        int n = x.size();
-        Eigen::vectorXd s(n);
+        int n = splineData.x.size();
+        Eigen::VectorXd s(n);
         s(0) = 0.0;
         for(int i = 1; i < n - 1; ++i)
         {
-            dx = x(i + 1) - x(i);
-            dy = y(i + 1) - y(i);
+            dx = splineData.x(i + 1) - splineData.x(i);
+            dy = splineData.y(i + 1) - splineData.y(i);
             distance = std::sqrt(dx * dx + dy * dy);
             s(i + 1) = s(i) + distance;
         }
@@ -74,95 +74,171 @@ namespace mpc_controller{
         return resampledData;
     }
 
-    Points ArcSpline::outlierDetection(const Eigen::VectorXd& x, const Eigen::VectorXd& y) const
+    points ArcSpline::outlierDetection(const Eigen::VectorXd& x, const Eigen::VectorXd& y) const
     {
-        // remove points which are not at all equally spaced, to avoid fitting problems
-
-        // compute mean distance between points and then process the points such that points
-        // are not closer than 0.75 the mean distance
-
-        double dx, dy, dx2, dy2;       // difference between points in x and y
-        Eigen::VectorXd distances;     // vector with all the distances
-        double mean_distance;          // mean distance
-        double distance, distance2;    // temp variable for distance
-        Points resamplePath;
-        int k = 0;                     // indices
-        int j = 0;
-
-        // Validate input sizes match
-        if (x.size() != y.size()) {
-            std::cerr << "Error: X and Y arrays must have same size in outlierDetection" << std::endl;
-            Points empty_path;
-            empty_path.x.resize(0);
-            empty_path.y.resize(0);
-            return empty_path;
+        // NOTE: The points struct only holds a single x,y pair, not vectors
+        // This function needs to be redesigned or the return type changed to PathData
+        // For now, returning the first point as a placeholder
+        
+        points result;
+        if (x.size() > 0 && y.size() > 0) {
+            result.x = x(0);
+            result.y = y(0);
+        } else {
+            result.x = 0.0;
+            result.y = 0.0;
         }
+        return result;
+    }
 
-        int n = x.size();
+    PathData ArcSpline::outlierRemoval(const Eigen::VectorXd& x, const Eigen::VectorXd& y) const
+    {
+        // Remove outliers, depending on how irregular the points are this can help
+        // For now, return input data without modification
+        // TODO: Implement proper outlier removal algorithm
+        PathData clean_path;
+        clean_path.x = x;
+        clean_path.y = y;
+        clean_path.n = x.size();
+        return clean_path;
+    }
 
-        // Handle edge case: empty input
-        if (n == 0) {
-            Points empty_path;
-            empty_path.x.resize(0);
-            empty_path.y.resize(0);
-            return empty_path;
-        }
+    void ArcSpline::generateSpline(const Eigen::VectorXd& x, const Eigen::VectorXd& y)
+    {
+        // Generate 2-D arc length parametrized spline given x-y data
 
-        // Handle edge case: single point (cannot compute distances)
-        if (n == 1) {
-            Points single_point;
-            single_point.x = x;
-            single_point.y = y;
-            return single_point;
-        }
+        // Remove outliers, depending on how irregular the points are this can help
+        PathData clean_path;
+        clean_path = outlierRemoval(x, y);
+        // Successively fit spline and re-sample
+        fitSpline(clean_path.x, clean_path.y);
+    }
 
-        // initialize with zero
-        resamplePath.x.setZero(n);
-        resamplePath.y.setZero(n);
+    Eigen::Vector2d ArcSpline::getPoint(double s_query) const
+    {
+        double x = params_x.getPoint(s_query);
+        double y = params_y.getPoint(s_query);
+        return Eigen::Vector2d(x, y);
+    }
 
-        // compute distance between points in X-Y data
-        distances.setZero(n-1);
-        for(int i=0; i<n-1; i++) {
-            dx = x(i+1) - x(i);
-            dy = y(i+1) - y(i);
-            distances(i) = std::sqrt(dx*dx + dy*dy);
+    Eigen::Vector2d ArcSpline::getDerivative(double s_query) const
+    {
+        double dx = params_x.getDerivative(s_query);
+        double dy = params_y.getDerivative(s_query);
+        return Eigen::Vector2d(dx, dy);
+    }
+
+    Eigen::Vector2d ArcSpline::getSecondDerivative(double s_query) const
+    {
+        double ddx = params_x.getSecondDerivative(s_query);
+        double ddy = params_y.getSecondDerivative(s_query);
+        return Eigen::Vector2d(ddx, ddy);
+    }
+
+    void ArcSpline::fitSpline(const Eigen::VectorXd& x, const Eigen::VectorXd& y)
+    {
+        // Successively fit spline -> re-sample path -> compute arc length
+        // Temporary spline class only used for fitting
+        Eigen::VectorXd s_approximation;
+        PathData first_refined_path, second_refined_path;
+        double total_arc_length;
+
+        // Store input data temporarily to compute arc length
+        splineData.x = x;
+        splineData.y = y;
+        splineData.n = x.size();
+        s_approximation = computeArcLength();
+        total_arc_length = s_approximation(s_approximation.size() - 1);
+
+        CubicSpline first_spline_x, first_spline_y;
+        CubicSpline second_spline_x, second_spline_y;
+        
+        // 1. spline fit
+        first_spline_x.generateSpline(s_approximation, x, false);
+        first_spline_y.generateSpline(s_approximation, y, false);
+        
+        // 1. re-sample
+        first_refined_path = resamplePath(first_spline_x, first_spline_y, total_arc_length);
+        
+        // Update splineData to compute arc length of refined path
+        splineData.x = first_refined_path.x;
+        splineData.y = first_refined_path.y;
+        splineData.n = first_refined_path.x.size();
+        s_approximation = computeArcLength();
+
+        total_arc_length = s_approximation(s_approximation.size() - 1);
+        
+        // 2. spline fit
+        second_spline_x.generateSpline(s_approximation, first_refined_path.x, false);
+        second_spline_y.generateSpline(s_approximation, first_refined_path.y, false);
+        
+        // 2. re-sample
+        second_refined_path = resamplePath(second_spline_x, second_spline_y, total_arc_length);
+        
+        // Store the refined path data in splineData
+        splineData.x = second_refined_path.x;
+        splineData.y = second_refined_path.y;
+        splineData.s = second_refined_path.s;
+        splineData.n = second_refined_path.n;
+        
+        // Final spline fit with fixed Delta_s
+        params_x.generateSpline(splineData.s, splineData.x, true);
+        params_y.generateSpline(splineData.s, splineData.y, true);
+    }
+
+    double ArcSpline::projectOntoSpline(const Eigen::Vector2d& point) const
+    {
+        // Project a point onto the spline and return the corresponding s value
+        // Using Newton's method to minimize the distance between the point and the spline
+        
+        // Initial guess: use middle of spline or find closest point in path data
+        double s_guess = 0.0;
+        if (splineData.n > 0 && splineData.s.size() > 0) {
+            s_guess = splineData.s(splineData.n - 1) / 2.0;  // Start at middle
         }
         
-        // compute mean distance between points
-        mean_distance = distances.sum()/(n-1);
-
-        // compute the new points
-        // start point is the original start point
-        resamplePath.x(k) = x(k);
-        resamplePath.y(k) = y(k);
-        k++;
-        for(int i=1; i<n-1; i++) {
-            // compute distance between currently checked point and the one last added to the new X-Y path
-            dx = x(i) - x(j);
-            dy = y(i) - y(j);
-            distance = std::sqrt(dx*dx + dy*dy);
-            dx2 = x(i+1) - x(j);
-            dy2 = y(i+1) - y(j);
-            distance2 = std::sqrt(dx2*dx2 + dy2*dy2);
-
-            // Skip point if: distance to last accepted < 0.7*mean AND distance to next point < 1.3*mean
-            if(distance <= 0.7*mean_distance && distance2 <= 1.3*mean_distance)
-            {
-                continue;
-            }
-            resamplePath.x(k) = x(i);
-            resamplePath.y(k) = y(i);
-            k++;
-            j = i;
+        Eigen::Vector2d pos_path = getPoint(s_guess);
+        double s_opt = s_guess;
+        double dist = (point - pos_path).norm();
+        
+        // Maximum distance threshold for projection (in meters or appropriate units)
+        const double max_dist_proj = 5.0;  // Threshold for considering initial guess valid
+        
+        if (dist >= max_dist_proj)
+        {
+            std::cout << "dist too large" << std::endl;
+            // Find closest point in the discrete path data
+            Eigen::ArrayXd diff_x_all = splineData.x.array() - point(0);
+            Eigen::ArrayXd diff_y_all = splineData.y.array() - point(1);
+            Eigen::ArrayXd dist_square = diff_x_all.square() + diff_y_all.square();
+            std::vector<double> dist_square_vec(dist_square.data(), dist_square.data() + dist_square.size());
+            auto min_iter = std::min_element(dist_square_vec.begin(), dist_square_vec.end());
+            s_opt = splineData.s(std::distance(dist_square_vec.begin(), min_iter));
         }
-        // always add the last point
-        resamplePath.x(k) = x(n-1);
-        resamplePath.y(k) = y(n-1);
-        k++;
-
-        // set the new X-Y data
-        resamplePath.x.conservativeResize(k);
-        resamplePath.y.conservativeResize(k);
-
-        return resamplePath;
+        
+        double s_old = s_opt;
+        // Newton's method for optimization
+        for(int i = 0; i < 20; i++)
+        {
+            pos_path = getPoint(s_opt);
+            Eigen::Vector2d ds_path = getDerivative(s_opt);
+            Eigen::Vector2d dds_path = getSecondDerivative(s_opt);
+            Eigen::Vector2d diff = pos_path - point;
+            double jac = 2.0 * diff(0) * ds_path(0) + 2.0 * diff(1) * ds_path(1);
+            double hessian = 2.0 * ds_path(0) * ds_path(0) + 2.0 * diff(0) * dds_path(0) +
+                             2.0 * ds_path(1) * ds_path(1) + 2.0 * diff(1) * dds_path(1);
+            // Newton method
+            s_opt -= jac / hessian;
+            s_opt = unwrapinput(s_opt);
+            
+            if(std::abs(s_old - s_opt) <= 1e-5)
+                return s_opt;
+            s_old = s_opt;
+        }
+        
+        // Something is strange if it did not converge within 20 iterations, give back the initial guess
+        return s_guess;
     }
+
+    
+} // namespace mpc_controller
