@@ -76,43 +76,93 @@ namespace mpc_controller{
 
     Points ArcSpline::outlierDetection(const Eigen::VectorXd& x, const Eigen::VectorXd& y) const
     {
-        double dx, dy;
-        Eigen::VectorXd distances;
-        double mean_distance;
-        double distance;
+        // remove points which are not at all equally spaced, to avoid fitting problems
+
+        // compute mean distance between points and then process the points such that points
+        // are not closer than 0.75 the mean distance
+
+        double dx, dy, dx2, dy2;       // difference between points in x and y
+        Eigen::VectorXd distances;     // vector with all the distances
+        double mean_distance;          // mean distance
+        double distance, distance2;    // temp variable for distance
         Points resamplePath;
-        int k = 0; 
+        int k = 0;                     // indices
         int j = 0;
 
-        if (x.size() != y.size()) 
-        {
-            // TODO throw an exception or return an empty vector
-            std::cout << "Input vectors x and y must have the same size." << std::endl;
-            //throw std::invalid_argument("Input vectors x and y must have the same size.");
+        // Validate input sizes match
+        if (x.size() != y.size()) {
+            std::cerr << "Error: X and Y arrays must have same size in outlierDetection" << std::endl;
+            Points empty_path;
+            empty_path.x.resize(0);
+            empty_path.y.resize(0);
+            return empty_path;
         }
 
         int n = x.size();
 
+        // Handle edge case: empty input
+        if (n == 0) {
+            Points empty_path;
+            empty_path.x.resize(0);
+            empty_path.y.resize(0);
+            return empty_path;
+        }
+
+        // Handle edge case: single point (cannot compute distances)
+        if (n == 1) {
+            Points single_point;
+            single_point.x = x;
+            single_point.y = y;
+            return single_point;
+        }
+
+        // initialize with zero
         resamplePath.x.setZero(n);
         resamplePath.y.setZero(n);
-        distances.setZero(n);
 
-        for (int i=0; i < n; i++)
-        {
+        // compute distance between points in X-Y data
+        distances.setZero(n-1);
+        for(int i=0; i<n-1; i++) {
             dx = x(i+1) - x(i);
             dy = y(i+1) - y(i);
-            // distance = std::sqrt(dx * dx + dy * dy);
-            distances(i) = std::sqrt(dx * dx + dy * dy);
+            distances(i) = std::sqrt(dx*dx + dy*dy);
         }
-        // find if the mean function is faster than if i use a for loop to compute the mean distance
-        mean_distance = distances.mean();
         
+        // compute mean distance between points
+        mean_distance = distances.sum()/(n-1);
+
         // compute the new points
-        // the start point is the original start point
-        // TODO dive deep more into how this works
+        // start point is the original start point
         resamplePath.x(k) = x(k);
         resamplePath.y(k) = y(k);
         k++;
+        for(int i=1; i<n-1; i++) {
+            // compute distance between currently checked point and the one last added to the new X-Y path
+            dx = x(i) - x(j);
+            dy = y(i) - y(j);
+            distance = std::sqrt(dx*dx + dy*dy);
+            dx2 = x(i+1) - x(j);
+            dy2 = y(i+1) - y(j);
+            distance2 = std::sqrt(dx2*dx2 + dy2*dy2);
 
+            // Skip point if: distance to last accepted < 0.7*mean AND distance to next point < 1.3*mean
+            if(distance <= 0.7*mean_distance && distance2 <= 1.3*mean_distance)
+            {
+                continue;
+            }
+            resamplePath.x(k) = x(i);
+            resamplePath.y(k) = y(i);
+            k++;
+            j = i;
+        }
+        // always add the last point
+        resamplePath.x(k) = x(n-1);
+        resamplePath.y(k) = y(n-1);
+        k++;
 
+        // set the new X-Y data
+        resamplePath.x.conservativeResize(k);
+        resamplePath.y.conservativeResize(k);
+
+        return resamplePath;
     }
