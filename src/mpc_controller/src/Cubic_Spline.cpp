@@ -196,4 +196,5 @@ namespace mpc_controller{
         double dx = x_unwrapped - splineData.x(segment);
         return 2.0 * params_.c(segment) + 6.0 * params_.d(segment) * dx;
     }
+    } // namespace mpc_controller)
         
