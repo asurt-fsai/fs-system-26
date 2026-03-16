@@ -1,6 +1,5 @@
 
 from supervisor.helpers.Module.ModuleState import ModuleState
-from threading import Lock
 import time
  
 class Module:
@@ -12,7 +11,6 @@ class Module:
         communication,
         launcher,
         heartbeat_timeout: float = 5.0,
-        max_restart_attempts: int = 3,
     ):
         self.pkg = pkg
         self.launchFile = launch_file
@@ -22,25 +20,15 @@ class Module:
 
         self.state = ModuleState.Shutdown
         self.process = None
-        self.launcherProcess = None  # ← add this
 
         self.lastHeartbeatTime = 0.0
         self.heartbeatTimeout = heartbeat_timeout
-
-        self.restartAttempts = 0
-        self.maxRestartAttempts = max_restart_attempts
 
         self.lastRestartTime = 0.0
         self.restartCooldown = 3.0
 
         # Register to communication layer
         self.communication.registerModule(self)
-
-        self._lock = Lock()
-
-    # ==================================================
-    # Lifecycle
-    # ==================================================
 
     def launch(self):
         """
@@ -57,7 +45,6 @@ class Module:
         print(f"[MODULE] Launching {self.pkg}")
 
         # Reset tracking only on intentional manual launch
-        self.restartAttempts = 0
         self.lastHeartbeatTime = time.time()  
         return self.launcher.launch(self)
 
@@ -88,23 +75,16 @@ class Module:
             """
 
             now = time.time()
-
-            # Check max attempts
-            if self.restartAttempts >= self.maxRestartAttempts:
-                print(f"[MODULE] {self.pkg} reached max restart attempts ({self.maxRestartAttempts}).")
-                self.state = ModuleState.Error
-                return False
-
+            
             # Check cooldown
             if now - self.lastRestartTime < self.restartCooldown:
                 print(f"[MODULE] {self.pkg} in cooldown. Restart delayed.")
                 return False
 
             # Update tracking BEFORE restart attempt
-            self.restartAttempts += 1
             self.lastRestartTime = now
 
-            print(f"[MODULE] Restarting {self.pkg} (Attempt {self.restartAttempts}/{self.maxRestartAttempts})...")
+            print(f"[MODULE] Restarting {self.pkg} ")
 
             time.sleep(0.5)
             # Delegate execution to launcher ,just execution
@@ -127,7 +107,3 @@ class Module:
         logic: Returns current state of the module.
         """
         return self.state
-    
-
-
-    
