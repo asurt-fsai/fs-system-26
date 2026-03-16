@@ -11,7 +11,6 @@ from rclpy.node import Node
 from std_msgs.msg import String
 import threading
 
-
 from supervisor.helpers.Module.LocalLuncher import LocalLauncher
 from supervisor.helpers.Module.Module import Module
 from supervisor.helpers.Module.ModuleState import ModuleState
@@ -40,7 +39,7 @@ class SimpleCommunication:
         if self.module:
             self.module.on_heartbeat()
 
-    def register_module(self, module):
+    def registerModule(self, module):
         self.module = module
         print("✓ Module registered")
 
@@ -54,13 +53,13 @@ comm = SimpleCommunication()
 launcher = LocalLauncher()
 
 
-# If you created your own package, change these values
+
 module = Module(
     pkg="test_node",  
     launch_file="test_launch.py",  
     communication=comm,
     launcher=launcher,
-    heartbeat_timeout=3.0  # 3 second timeout for faster testing
+    heartbeat_timeout=3.0  
 )
 
 print(f"\n1. Launching module...")

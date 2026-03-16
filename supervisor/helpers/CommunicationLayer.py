@@ -89,8 +89,7 @@ class CommunicationLayer(Node):
             self.activeMission = mission
 
     def registerModule(self, module):
-        with self.state_lock:
-            self.registeredModules.append(module)
+        self.registeredModules.append(module)
 
     # ==================================================
     # CALLBACKS
@@ -114,9 +113,7 @@ class CommunicationLayer(Node):
             supervisor.issueCommand(msg.data)
 
     def on_heartbeat(self, msg):
-        with self.state_lock:
-            modules_copy = list(self.registeredModules)
-
+        modules_copy = list(self.registeredModules)
         for module in modules_copy:
             if module.pkg == msg.data:
                 module.on_heartbeat()

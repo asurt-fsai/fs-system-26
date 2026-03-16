@@ -22,6 +22,7 @@ class Module:
 
         self.state = ModuleState.Shutdown
         self.process = None
+        self.launcherProcess = None  # ← add this
 
         self.lastHeartbeatTime = 0.0
         self.heartbeatTimeout = heartbeat_timeout
@@ -33,7 +34,7 @@ class Module:
         self.restartCooldown = 3.0
 
         # Register to communication layer
-        self.communication.register_module(self)
+        self.communication.registerModule(self)
 
         self._lock = Lock()
 
@@ -42,6 +43,14 @@ class Module:
     # ==================================================
 
     def launch(self):
+        """
+        Input  : None
+        Output : bool — True if launch succeeded
+        Logic  : Guard against launching from invalid state.
+                 Reset restartAttempts and lastHeartbeatTime.
+                 Delegate to launcher.launch(self).
+        """
+
         if self.state == ModuleState.Running:
             return False
 
@@ -53,6 +62,13 @@ class Module:
         return self.launcher.launch(self)
 
     def shutdown(self):
+        """
+        Input  : None
+        Output : None
+        Logic  : Delegate to launcher.shutdown(self).
+                 Set process = None.
+                 Update state based on shutdown success/failure.
+        """
         print(f"[MODULE] Shutting down {self.pkg}")
 
         success=self.launcher.shutdown(self)
@@ -60,8 +76,17 @@ class Module:
         self.process = None
         self.state = ModuleState.Shutdown if success else ModuleState.Error
 
-    def restart(self):
-            """ALL restart logic is here"""
+    def restart(self):  
+            """
+            Input  : None
+            Output : bool — True if restart was initiated successfully
+            Logic  : Check max restart attempts — if exceeded set state=Error and return False.
+                        Check cooldown — if too soon return False.
+                        Increment restartAttempts, update lastRestartTime.
+                        Delegate execution to launcher.restart(self).
+                        Set state=Starting on success, Error on failure.
+            """
+
             now = time.time()
 
             # Check max attempts
@@ -103,38 +128,18 @@ class Module:
         Called by CommunicationLayer when heartbeat message arrives.
         """
         self.lastHeartbeatTime = time.time()
-        self.state = ModuleState.Running
-
-    # ==================================================
-    # Health Monitoring
-    # ==================================================
-
-    def check_health(self):
+        # Only mark Running if we have an associated process (avoid stray heartbeats)
+        if self.process:
+            self.state = ModuleState.Running
     
-        # 1  If Docker launcher
-        if hasattr(self.launcher, "is_running"):
-            if self.process and not self.launcher.is_running(self):
-                print(f"[MODULE] {self.pkg} container stopped.")
-                self.state = ModuleState.Unresponsive
-                self.restart()
-                return
-        # If Local launcher    
-        # 2 If process crashed
-        else:
-            if self.process and self.process.poll() is not None:
-                print(f"[MODULE] {self.pkg} process died.")
-                self.state = ModuleState.Unresponsive
-                self.restart()
-                return
+    def getState(self) -> ModuleState:
+        """
+        input: None
+        output: ModuleState
+        logic: Returns current state of the module.
+        """
+        return self.state
+    
 
-        # Heartbeat timeout
-        if self.state == ModuleState.Running:
-            if time.time() - self.lastHeartbeatTime > self.heartbeatTimeout:
-                print(f"[MODULE] {self.pkg} heartbeat timeout.")
-                self.state = ModuleState.Unresponsive
-                self.restart()
-        # heartbeats trigger a restart even if the process hasn't exited.
-        if self.lastHeartbeatTime and (time.time() - self.lastHeartbeatTime > self.heartbeatTimeout):
-            print(f"[MODULE] {self.pkg} heartbeat timeout.")
-            self.state = ModuleState.Unresponsive
-            self.restart()
+
+    

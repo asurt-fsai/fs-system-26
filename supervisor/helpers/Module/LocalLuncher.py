@@ -11,6 +11,7 @@ import os
 from supervisor.helpers.Module.ProcessLauncher import ProcessLauncher
 from supervisor.helpers.Module.ModuleState import ModuleState
 from supervisor.helpers.Module.Module import Module
+import threading
 
 
 
@@ -21,40 +22,61 @@ class LocalLauncher(ProcessLauncher):
     # Launch Process
     # --------------------------------------------------
     def launch(self, module) -> bool:
-        """
-        Launch the ROS module using ros2 launch.
-        """
-        # Prevent invalid state launch
-        if module.state not in [
-            ModuleState.Shutdown,
-            ModuleState.Error,
-            ModuleState.Unresponsive,
-        ]:
+        if module.process and module.state == ModuleState.Running:
             print(f"[MODULE] Cannot launch from state {module.state}")
             return False
 
         try:
             print(f"[MODULE] Launching {module.pkg}/{module.launchFile} ...")
-            
             module.state = ModuleState.Starting
-            
-            # Just try to launch - let ros2 handle the path resolution
-            module.process = subprocess.Popen(
+
+            launcher_process = subprocess.Popen(
                 ["ros2", "launch", module.pkg, module.launchFile],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
             )
-            
-            print(f"[MODULE] Process started with PID: {module.process.pid}")
+
+            def drain(pipe):
+                try:
+                    for _ in pipe:
+                        pass
+                except Exception:
+                    pass
+
+            threading.Thread(target=drain, args=(launcher_process.stdout,), daemon=True).start()
+            threading.Thread(target=drain, args=(launcher_process.stderr,), daemon=True).start()
+
+            # Wait for child node process to spawn
+            deadline = time.time() + 5.0
+            child = None
+            while time.time() < deadline:
+                time.sleep(0.3)
+                try:
+                    children = psutil.Process(launcher_process.pid).children(recursive=True)
+                    if children:
+                        child = children[-1]
+                        break
+                except Exception:
+                    break
+
+            if child:
+                module.process = child
+                print(f"[MODULE] Actual node PID: {module.process.pid}")
+            else:
+                module.process = launcher_process
+                print(f"[MODULE] Warning: no child found, tracking launcher PID")
+
+            module.lastHeartbeatTime = time.time()
+            module.restartAttempts = 0
             return True
-            
+
         except Exception as e:
             print(f"[MODULE] Launch failed: {e}")
             module.state = ModuleState.Error
             module.process = None
             return False
-    
-    def shutdown(self, module):
+        
+    def shutdown(self, module) -> bool:
         """
         Robust shutdown:
         - Kill child processes
@@ -65,7 +87,8 @@ class LocalLauncher(ProcessLauncher):
         print(f"[LocalLauncher] Shutting down {module.pkg}")
 
         if not module.process:
-            return
+            module.state = ModuleState.Shutdown
+            return True
 
         try:
             # Get parent process
@@ -89,15 +112,21 @@ class LocalLauncher(ProcessLauncher):
             psutil.wait_procs([parent] + children, timeout=5)
 
             module.state = ModuleState.Shutdown
+            module.process = None
+            return True
+
+        except psutil.NoSuchProcess:
+            pid = getattr(module.process, 'pid', None)
+            print(f"[LocalLauncher] Shutdown warning: process PID not found (pid={pid})")
+            module.process = None
+            module.state = ModuleState.Shutdown
+            return True
 
         except Exception as e:
             print(f"[LocalLauncher] Shutdown error: {e}")
-            #module.state = ModuleState.Error
+            module.process = None
+            module.state = ModuleState.Error
             return False
-
-        #finally:
-        #    module.process = None
-        return True
         
 
     def restart(self, module) -> bool:
