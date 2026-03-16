@@ -42,7 +42,7 @@ class Module:
         if self.state == ModuleState.Running:
             return False
 
-        print(f"[MODULE] Launching {self.pkg}")
+        self.logger.info(f"[MODULE] Launching {self.pkg}")
 
         # Reset tracking only on intentional manual launch
         self.lastHeartbeatTime = time.time()  
@@ -56,7 +56,7 @@ class Module:
                  Set process = None.
                  Update state based on shutdown success/failure.
         """
-        print(f"[MODULE] Shutting down {self.pkg}")
+        self.logger.info(f"[MODULE] Shutting down {self.pkg}")
 
         success=self.launcher.shutdown(self)
         #self.state = ModuleState.Shutdown
@@ -75,16 +75,16 @@ class Module:
             """
 
             now = time.time()
-            
+
             # Check cooldown
             if now - self.lastRestartTime < self.restartCooldown:
-                print(f"[MODULE] {self.pkg} in cooldown. Restart delayed.")
+                self.logger.info(f"[MODULE] {self.pkg} in cooldown. Restart delayed.")
                 return False
 
             # Update tracking BEFORE restart attempt
             self.lastRestartTime = now
 
-            print(f"[MODULE] Restarting {self.pkg} ")
+            self.logger.info(f"[MODULE] Restarting {self.pkg} ")
 
             time.sleep(0.5)
             # Delegate execution to launcher ,just execution
@@ -92,10 +92,10 @@ class Module:
             success = self.launcher.restart(self)
 
             if success:
-                print(f"[MODULE] {self.pkg} restart initiated successfully.")
+                self.logger.info(f"[MODULE] {self.pkg} restart initiated successfully.")
                 self.state = ModuleState.Starting  # wait for heartbeat to confirm Running
             else:
-                print(f"[MODULE] {self.pkg} restart failed.")
+                self.logger.error(f"[MODULE] {self.pkg} restart failed.")
                 self.state = ModuleState.Error
 
             return success

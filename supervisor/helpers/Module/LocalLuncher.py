@@ -28,11 +28,11 @@ class LocalLauncher(ProcessLauncher):
                  Return True on success, False on failure.
         """
         if module.process and module.state == ModuleState.Running:
-            print(f"[MODULE] Cannot launch from state {module.state}")
+            self.logger.info(f"[MODULE] Cannot launch from state {module.state}")
             return False
 
         try:
-            print(f"[MODULE] Launching {module.pkg}/{module.launchFile} ...")
+            self.logger.info(f"[MODULE] Launching {module.pkg}/{module.launchFile} ...")
             module.state = ModuleState.Starting
 
             launcher_process = subprocess.Popen(
@@ -46,7 +46,7 @@ class LocalLauncher(ProcessLauncher):
             return True
 
         except Exception as e:
-            print(f"[MODULE] Launch failed: {e}")
+            self.logger.error(f"[MODULE] Launch failed: {e}")
             module.state = ModuleState.Error
             module.process = None
             return False
@@ -65,7 +65,7 @@ class LocalLauncher(ProcessLauncher):
                  Handle NoSuchProcess and other exceptions gracefully.
         """
 
-        print(f"[LocalLauncher] Shutting down {module.pkg}")
+        self.logger.info(f"[LocalLauncher] Shutting down {module.pkg}")
 
         if not module.process:
             module.state = ModuleState.Shutdown
@@ -78,7 +78,7 @@ class LocalLauncher(ProcessLauncher):
             # Get all children recursively
             children = parent.children(recursive=True)
 
-            print(f"[LocalLauncher] Killing {len(children)} child processes")
+            self.logger.info(f"[LocalLauncher] Killing {len(children)} child processes")
 
             for child in children:
                 try:
@@ -98,13 +98,13 @@ class LocalLauncher(ProcessLauncher):
 
         except psutil.NoSuchProcess:
             pid = getattr(module.process, 'pid', None)
-            print(f"[LocalLauncher] Shutdown warning: process PID not found (pid={pid})")
+            self.logger.info(f"[LocalLauncher] Shutdown warning: process PID not found (pid={pid})")
             module.process = None
             module.state = ModuleState.Shutdown
             return True
 
         except Exception as e:
-            print(f"[LocalLauncher] Shutdown error: {e}")
+            self.logger.error(f"[LocalLauncher] Shutdown error: {e}")
             module.process = None
             module.state = ModuleState.Error
             return False

@@ -32,12 +32,12 @@ class DockerLauncher(ProcessLauncher):
             ModuleState.Error,
             ModuleState.Unresponsive,
         ]:
-            print(f"[DockerLauncher] Cannot launch {module.pkg} from state {module.state}")
+            self.logger.info(f"[DockerLauncher] Cannot launch {module.pkg} from state {module.state}")
             return False
 
         container_name = f"{module.pkg}_container"
 
-        print(f"[DockerLauncher] Launching {container_name}")
+        self.logger.info(f"[DockerLauncher] Launching {container_name}")
 
         try:
             module.state = ModuleState.Starting
@@ -57,14 +57,14 @@ class DockerLauncher(ProcessLauncher):
             )
 
             if result.returncode != 0:
-                print(f"[DockerLauncher] Launch failed: {result.stderr}")
+                self.logger.info(f"[DockerLauncher] Launch failed: {result.stderr}")
                 module.state = ModuleState.Error
                 module.process = None
                 return False  
 
             container_id = result.stdout.strip()
 
-            print(f"[DockerLauncher] Container started ID={container_id}")
+            self.logger.info(f"[DockerLauncher] Container started ID={container_id}")
 
             # We store container name instead of ID for easier control
             module.process = container_name
@@ -74,7 +74,7 @@ class DockerLauncher(ProcessLauncher):
             return True  
 
         except Exception as e:
-            print(f"[DockerLauncher] Launch exception: {e}")
+            self.logger.info(f"[DockerLauncher] Launch exception: {e}")
             module.state = ModuleState.Error
             module.process = None
             return False  
@@ -100,7 +100,7 @@ class DockerLauncher(ProcessLauncher):
 
         container_name = module.process
 
-        print(f"[DockerLauncher] Stopping {container_name}")
+        self.logger.info(f"[DockerLauncher] Stopping {container_name}")
 
         try:
             result = subprocess.run(
@@ -114,13 +114,13 @@ class DockerLauncher(ProcessLauncher):
                 module.process = None
                 return True
             else:
-                print(f"[DockerLauncher] Shutdown warning: {result.stderr}")
+                self.logger.info(f"[DockerLauncher] Shutdown warning: {result.stderr}")
                 module.state = ModuleState.Error
                 module.process = None
                 return False
 
         except Exception as e:
-            print(f"[DockerLauncher] Shutdown error: {e}")
+            self.logger.info(f"[DockerLauncher] Shutdown error: {e}")
             module.state = ModuleState.Error
             module.process = None
             return False
@@ -168,5 +168,5 @@ class DockerLauncher(ProcessLauncher):
             )
             return result.stdout.strip() == "true"
         except Exception as e:
-            print(f"[DockerLauncher] Health check failed: {e}")
+            self.logger.info(f"[DockerLauncher] Health check failed: {e}")
             return False
