@@ -4,6 +4,19 @@ from supervisor.helpers.Missions.MissionFinishing import MissionFinishing
 from enum import Enum
 
 
+class MissionType(Enum):
+    """
+    Input  : None
+    Output : None
+    Logic  : Defines the possible mission types.
+             Derived from amiState received from CAN bus via Supervisor.
+             Used by MissionManager to create correct MissionFinishing subclass
+             and resolve correct module list from missionModuleMap.
+    """
+    ACCELERATION = 1
+    SKIDPAD      = 2
+    AUTOCROSS    = 3
+    TRACKDRIVE   = 4
 
 class MissionManager:
 
@@ -55,16 +68,6 @@ class MissionManager:
         """
         pass
 
-    def stopMission(self):
-        """
-        Input  : None
-        Output : None
-        Logic  : Stop the active mission.
-                 Call moduleManager.shutdownAll().
-                 Set activeMission = None.
-        """
-        pass
-
     def resolveModules(self, missionType) -> list:
         """
         Input  : missionType (MissionType) — mission type to resolve modules for
@@ -79,13 +82,5 @@ class MissionManager:
         Input  : modules (list[Module]) — modules to register with manager
         Output : None
         Logic  : Call moduleManager.registerModules(modules).
-        """
-        pass
-
-    def getModuleManager(self):
-        """
-        Input  : None
-        Output : ModuleManager — the module manager instance
-        Logic  : Return self.moduleManager.
         """
         pass

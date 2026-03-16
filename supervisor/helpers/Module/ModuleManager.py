@@ -75,16 +75,6 @@ class ModuleManager:
 
         return failed
 
-## leh??
-    def getUnresponsiveModules(self) -> list:
-        """
-        Input  : None
-        Output : list — modules currently in Unresponsive state
-        Logic  : Filter self.modules by state == Unresponsive.
-                 Return filtered list.
-        """
-        pass
-
     def getModule(self, pkg: str):
         """
         Input  : pkg (str) — package name to look up

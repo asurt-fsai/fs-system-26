@@ -1,7 +1,9 @@
 # Directory-local ignore rules (paths are relative to this directory)
 build/
 helpers/Module/__pycache__/
+helpers/__pycache__/
 install/
 log/
 test_node/
 Testing/
+

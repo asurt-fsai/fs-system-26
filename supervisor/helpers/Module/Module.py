@@ -119,18 +119,6 @@ class Module:
                 self.state = ModuleState.Error
 
             return success
-    # ==================================================
-    # Heartbeat Handling
-    # ==================================================
-
-    def on_heartbeat(self):
-        """
-        Called by CommunicationLayer when heartbeat message arrives.
-        """
-        self.lastHeartbeatTime = time.time()
-        # Only mark Running if we have an associated process (avoid stray heartbeats)
-        if self.process:
-            self.state = ModuleState.Running
     
     def getState(self) -> ModuleState:
         """

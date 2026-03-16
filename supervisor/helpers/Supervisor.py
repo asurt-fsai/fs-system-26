@@ -76,6 +76,7 @@ class Supervisor:
         """
         pass
 
+## if supervisor receives heartbeat in threads so no need for these function
     def startHeartbeatMonitor(self):
         """
         Input  : None
@@ -104,7 +105,7 @@ class Supervisor:
                  Catch and log any exceptions to keep thread alive.
         """
         pass
-
+#####
     def onMissionFinished(self, result):
         """
         Input  : result — mission result data
