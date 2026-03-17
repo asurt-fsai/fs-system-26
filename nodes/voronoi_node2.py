@@ -13,6 +13,8 @@ from geometry_msgs.msg import Pose, PoseStamped
 import numpy as np
 from tf_transformations import euler_from_quaternion
 from tf_helper.StatusPublisher import StatusPublisher
+import matplotlib
+matplotlib.use('TkAgg')  # Use TkAgg backend for better non-blocking behavior
 import matplotlib.pyplot as plt
 
 from path_planning.modules.planner import PathPlanner
@@ -128,6 +130,7 @@ class VoronoiPlanningNode(Node):
         self.ax.set_title('Voronoi Path Planning Visualization')
         self.ax.grid(True, alpha=0.3)
         self.fig.tight_layout()
+        plt.show(block=False)  # Show the window without blocking
 
     def updatePlot(self) -> None:
         """
