@@ -13,6 +13,7 @@ from geometry_msgs.msg import Pose, PoseStamped
 import numpy as np
 from tf_transformations import euler_from_quaternion
 from tf_helper.StatusPublisher import StatusPublisher
+import matplotlib.pyplot as plt
 
 from path_planning.modules.planner import PathPlanner
 
@@ -38,6 +39,12 @@ class VoronoiPlanningNode(Node):
         self.cone_data = []
         self.carPosition = np.array([0.0, 0.0])
         self.carDirection = np.float_(0.0)
+
+        # Threading lock for thread-safe plot updates
+        self.plot_lock = threading.Lock()
+
+        # Initialize matplotlib visualization
+        self.initializePlot()
 
         self.declareParameters()
         self.setParameters()
@@ -109,6 +116,84 @@ class VoronoiPlanningNode(Node):
             Odometry, odometryTopic, self.receiveFromLocalization, 10
         )
 
+    def initializePlot(self) -> None:
+        """
+        Initialize the matplotlib figure and axes for real-time visualization.
+        """
+        plt.ion()  # Turn on interactive mode
+        self.fig, self.ax = plt.subplots(figsize=(10, 10))
+        self.ax.set_aspect('equal')
+        self.ax.set_xlabel('X (m)')
+        self.ax.set_ylabel('Y (m)')
+        self.ax.set_title('Voronoi Path Planning Visualization')
+        self.ax.grid(True, alpha=0.3)
+        self.fig.tight_layout()
+
+    def updatePlot(self) -> None:
+        """
+        Update the matplotlib visualization with current cone positions and path.
+        This is called after each planning cycle.
+        """
+        with self.plot_lock:
+            self.ax.clear()
+            self.ax.set_aspect('equal')
+            self.ax.set_xlabel('X (m)')
+            self.ax.set_ylabel('Y (m)')
+            self.ax.set_title('Voronoi Path Planning Visualization')
+            self.ax.grid(True, alpha=0.3)
+
+            # Plot yellow cones
+            yellow_cones = [cone for cone in self.cone_data if cone[2] == 'y']
+            if yellow_cones:
+                yellow_x = [cone[0] for cone in yellow_cones]
+                yellow_y = [cone[1] for cone in yellow_cones]
+                self.ax.scatter(yellow_x, yellow_y, c='yellow', s=100,
+                               edgecolors='orange', linewidth=2, label='Yellow Cones')
+
+            # Plot blue cones
+            blue_cones = [cone for cone in self.cone_data if cone[2] == 'b']
+            if blue_cones:
+                blue_x = [cone[0] for cone in blue_cones]
+                blue_y = [cone[1] for cone in blue_cones]
+                self.ax.scatter(blue_x, blue_y, c='blue', s=100,
+                               edgecolors='darkblue', linewidth=2, label='Blue Cones')
+
+            # Plot car position
+            self.ax.scatter(self.carPosition[0], self.carPosition[1], c='red',
+                           s=200, marker='^', label='Car Position', zorder=5)
+
+            # Plot car direction arrow
+            arrow_length = 1.0
+            dx = arrow_length * np.cos(self.carDirection)
+            dy = arrow_length * np.sin(self.carDirection)
+            self.ax.arrow(self.carPosition[0], self.carPosition[1], dx, dy,
+                         head_width=0.3, head_length=0.2, fc='red', ec='red')
+
+            # Plot path
+            if self.path:
+                path_x = [point[0] for point in self.path]
+                path_y = [point[1] for point in self.path]
+                self.ax.plot(path_x, path_y, 'g-', linewidth=2.5, label='Planned Path')
+                self.ax.scatter(path_x[-1], path_y[-1], c='green', s=100,
+                               marker='s', label='Path Goal', zorder=5)
+
+            # Set axis limits with margins
+            all_x = [cone[0] for cone in self.cone_data] + [self.carPosition[0]]
+            all_y = [cone[1] for cone in self.cone_data] + [self.carPosition[1]]
+            if self.path:
+                all_x.extend([point[0] for point in self.path])
+                all_y.extend([point[1] for point in self.path])
+
+            if all_x and all_y:
+                x_margin = max(abs(max(all_x) - min(all_x)) * 0.1, 2)
+                y_margin = max(abs(max(all_y) - min(all_y)) * 0.1, 2)
+                self.ax.set_xlim(min(all_x) - x_margin, max(all_x) + x_margin)
+                self.ax.set_ylim(min(all_y) - y_margin, max(all_y) + y_margin)
+
+            self.ax.legend(loc='upper right')
+            self.fig.canvas.draw_idle()
+            self.fig.canvas.flush_events()
+
     def receiveFromPerception(self, msg: MarkerArray) -> None:
         """
         Receives cone data from perception as a MarkerArray and converts it
@@ -166,6 +251,9 @@ class VoronoiPlanningNode(Node):
 
         car_data = [(self.carPosition[0], self.carPosition[1], self.carDirection)]
         self.path = self.pathPlanner.execute_cycle(self.cone_data, car_data)
+
+        # Update visualization
+        self.updatePlot()
 
         if self.path:
             timestamp = self.get_clock().now().to_msg()
