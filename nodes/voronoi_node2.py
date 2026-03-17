@@ -14,7 +14,7 @@ import numpy as np
 from tf_transformations import euler_from_quaternion
 from tf_helper.StatusPublisher import StatusPublisher
 import matplotlib
-matplotlib.use('TkAgg')  # Use TkAgg backend for better non-blocking behavior
+matplotlib.use('Qt5Agg')  # Use Qt5Agg for better window management
 import matplotlib.pyplot as plt
 
 from path_planning.modules.planner import PathPlanner
@@ -123,14 +123,24 @@ class VoronoiPlanningNode(Node):
         Initialize the matplotlib figure and axes for real-time visualization.
         """
         plt.ion()  # Turn on interactive mode
-        self.fig, self.ax = plt.subplots(figsize=(10, 10))
+        self.fig, self.ax = plt.subplots(figsize=(12, 10))
+        self.fig.suptitle('Voronoi Path Planning Visualization', fontsize=14, fontweight='bold')
         self.ax.set_aspect('equal')
-        self.ax.set_xlabel('X (m)')
-        self.ax.set_ylabel('Y (m)')
-        self.ax.set_title('Voronoi Path Planning Visualization')
+        self.ax.set_xlabel('X (m)', fontsize=12)
+        self.ax.set_ylabel('Y (m)', fontsize=12)
         self.ax.grid(True, alpha=0.3)
         self.fig.tight_layout()
-        plt.show(block=False)  # Show the window without blocking
+        
+        # Show the window explicitly
+        self.fig.show()
+        plt.pause(0.001)  # Allow the window to render
+        
+        # Raise the window to the front
+        try:
+            self.fig.canvas.window.raise_()
+            self.fig.canvas.window.activateWindow()
+        except:
+            pass  # Window manager might not support this
 
     def updatePlot(self) -> None:
         """
@@ -140,9 +150,8 @@ class VoronoiPlanningNode(Node):
         with self.plot_lock:
             self.ax.clear()
             self.ax.set_aspect('equal')
-            self.ax.set_xlabel('X (m)')
-            self.ax.set_ylabel('Y (m)')
-            self.ax.set_title('Voronoi Path Planning Visualization')
+            self.ax.set_xlabel('X (m)', fontsize=11)
+            self.ax.set_ylabel('Y (m)', fontsize=11)
             self.ax.grid(True, alpha=0.3)
 
             # Plot yellow cones
@@ -193,9 +202,9 @@ class VoronoiPlanningNode(Node):
                 self.ax.set_xlim(min(all_x) - x_margin, max(all_x) + x_margin)
                 self.ax.set_ylim(min(all_y) - y_margin, max(all_y) + y_margin)
 
-            self.ax.legend(loc='upper right')
+            self.ax.legend(loc='upper right', fontsize=10)
             self.fig.canvas.draw_idle()
-            self.fig.canvas.flush_events()
+            plt.pause(0.001)  # Allow the window to respond to user input
 
     def receiveFromPerception(self, msg: MarkerArray) -> None:
         """
