@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Eigen/Dense>
-#include "config.h"
+#include "Params/config.h"
 #include "integration_methods.h"
 
 /**

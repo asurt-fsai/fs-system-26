@@ -114,7 +114,7 @@ namespace mpc_controller{
         fitSpline(clean_path.x, clean_path.y);
     }
 
-    Eigen::Vector2d ArcSpline::getPoint(double s_query) const
+    Eigen::Vector2d ArcSpline::getPosition(double s_query) const
     {
         double x = params_x.getPoint(s_query);
         double y = params_y.getPoint(s_query);
@@ -197,7 +197,7 @@ namespace mpc_controller{
             s_guess = splineData.s(splineData.n - 1) / 2.0;  // Start at middle
         }
         
-        Eigen::Vector2d pos_path = getPoint(s_guess);
+        Eigen::Vector2d pos_path = getPosition(s_guess);
         double s_opt = s_guess;
         double dist = (point - pos_path).norm();
         
@@ -220,7 +220,7 @@ namespace mpc_controller{
         // Newton's method for optimization
         for(int i = 0; i < 20; i++)
         {
-            pos_path = getPoint(s_opt);
+            pos_path = getPosition(s_opt);
             Eigen::Vector2d ds_path = getDerivative(s_opt);
             Eigen::Vector2d dds_path = getSecondDerivative(s_opt);
             Eigen::Vector2d diff = pos_path - point;

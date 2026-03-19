@@ -1,186 +1,55 @@
 #include "Cost.h"
-#include "utils.h"
-#include <cmath>
-#include <stdexcept>
 
-Cost::Cost(const MPCConfig& config) : config_(config) {
-    // Initialize with default weight matrices from config
-    Q_ = config_.Q;
-    R_ = config_.R;
-    Q_terminal_ = config_.Q_terminal;
+namespace mpc_controller{
+Cost::Cost()
+{
+    std::cout << "Cost object created with default configuration." << std::endl;
 }
 
-double Cost::stageCost(const Eigen::VectorXd& state,
-                       const Eigen::VectorXd& reference_state,
-                       const Eigen::Vector2d& control) const {
-    
-    if (state.size() < STATE_DIM || reference_state.size() < STATE_DIM) {
-        throw std::invalid_argument("State vector must have at least 4 elements");
+//Cost::Cost
+
+TrackPoint Cost::getRefPoint(const mpc_controller::ArcSpline &track, const mpc_controller::state &x) const
+{
+    // Get the reference point on the track corresponding to the current state x
+    //double s = track.projectOntoSpline(x.head(2)); // project current position onto track to get arc length s
+    const double s = x.s;
+    Eigen::Vector2d pos_ref = track.getPosition(s);
+    Eigen::Vector2d d_pos_ref = track.getDerivative(s);
+    double theta_ref = std::atan2(d_pos_ref(1), d_pos_ref(0));
+    Eigen::Vector2d d2_pos_ref = track.getSecondDerivative(s);
+    double dtheta_ref_nominator = d_pos_ref(0) * d2_pos_ref(1) - d_pos_ref(1) * d2_pos_ref(0);
+    double dtheta_ref_denominator = std::pow(d_pos_ref.squaredNorm(), 1.5);
+    if (dtheta_ref_denominator < 1e-6) {
+        dtheta_ref_denominator = 1e-6; // prevent division by zero, set a minimum value
     }
-    
-    // Compute state error with angle wrapping
-    Eigen::VectorXd error = stateError(state, reference_state);
-    
-    // State tracking cost: (x - x_ref)^T * Q * (x - x_ref)
-    double state_cost = error.head(STATE_DIM).transpose() * Q_ * error.head(STATE_DIM);
-    
-    // Control effort cost: u^T * R * u
-    double control_cost = control.transpose() * R_ * control;
-    
-    return state_cost + control_cost;
+    if (std::abs(dtheta_ref_nominator) < 1e-6) {
+        dtheta_ref_nominator = 0.0; // if the nominator is very small, set it to zero to avoid numerical issues
+    }
+    double dtheta_ref = dtheta_ref_nominator / dtheta_ref_denominator;
+    return {pos_ref(0), pos_ref(1), d_pos_ref(0), d_pos_ref(1), theta_ref, dtheta_ref};
 }
 
-double Cost::terminalCost(const Eigen::VectorXd& final_state,
-                          const Eigen::VectorXd& reference_state) const {
+ErrorInfo Cost::getErrorInfo(const mpc_controller::ArcSpline &track, const mpc_controller::state &x) const
+{
+    // compute the error between the refrence and the x-y coridinates of the current state
+    TrackPoint ref_point = getRefPoint(track, x);
+    Eigen::Vector2d error(ref_point.x_ref - x.x, ref_point.y_ref - x.y);
+    // contouring error
+    Eigen::Matrix<double,1,2> contouring_error;
+    contouring_error(0) = -std::sin(ref_point.theta_ref) * error(0) + std::cos(ref_point.theta_ref) * error(1);
+    // lag error
+    contouring_error(1) = std::cos(ref_point.theta_ref) * error(0) + std::sin(ref_point.theta_ref) * error(1);
+    // compute the Jacobian of the error with respect to the state variables
+    const double dContouringError = - ref_point.dtheta_ref * std::cos(ref_point.theta_ref) * error(0)
+                                    - ref_point.dtheta_ref * std::sin(ref_point.theta_ref) * error(1)
+                                    - ref_point.dx_ref * std::sin(ref_point.theta_ref)
+                                    + ref_point.dy_ref * std::cos(ref_point.theta_ref);
     
-    if (final_state.size() < STATE_DIM || reference_state.size() < STATE_DIM) {
-        throw std::invalid_argument("State vector must have at least 4 elements");
-    }
-    
-    // Compute state error with angle wrapping
-    Eigen::VectorXd error = stateError(final_state, reference_state);
-    
-    // Terminal cost: (x_N - x_ref_N)^T * Q_terminal * (x_N - x_ref_N)
-    double terminal_cost = error.head(STATE_DIM).transpose() * Q_terminal_ * error.head(STATE_DIM);
-    
-    return terminal_cost;
-}
+    const double dLagError        = - ref_point.dtheta_ref * std::sin(ref_point.theta_ref) * error(0)
+                                    + ref_point.dtheta_ref * std::cos(ref_point.theta_ref) * error(1)
+                                    + ref_point.dx_ref * std::cos(ref_point.theta_ref)
+                                    + ref_point.dy_ref * std::sin(ref_point.theta_ref);
 
-double Cost::trajectoryCost(const Eigen::MatrixXd& trajectory,
-                            const Eigen::MatrixXd& controls,
-                            const Eigen::MatrixXd& reference_trajectory) const {
-    
-    if (trajectory.rows() != reference_trajectory.rows()) {
-        throw std::invalid_argument("Trajectory and reference must have same number of rows");
-    }
-    
-    if (controls.rows() != trajectory.rows() - 1) {
-        throw std::invalid_argument("Controls must have horizon length rows");
-    }
-    
-    double total_cost = 0.0;
-    int horizon = controls.rows();
-    
-    // Sum stage costs
-    for (int i = 0; i < horizon; ++i) {
-        Eigen::VectorXd state = trajectory.row(i).transpose();
-        Eigen::VectorXd reference = reference_trajectory.row(i).transpose();
-        Eigen::Vector2d control = controls.row(i).transpose();
-        
-        total_cost += stageCost(state, reference, control);
-    }
-    
-    // Add terminal cost
-    Eigen::VectorXd final_state = trajectory.row(horizon).transpose();
-    Eigen::VectorXd final_reference = reference_trajectory.row(horizon).transpose();
-    total_cost += terminalCost(final_state, final_reference);
-    
-    return total_cost;
+    Eigen::Matrix<double,2,Nx> d_error = Eigen::Matrix<double,2,NX>::Zero();
 }
-
-double Cost::trackingCost(const Eigen::MatrixXd& trajectory,
-                         const Eigen::MatrixXd& reference_trajectory) const {
-    
-    if (trajectory.rows() != reference_trajectory.rows()) {
-        throw std::invalid_argument("Trajectory and reference must have same number of rows");
-    }
-    
-    double total_cost = 0.0;
-    int horizon = trajectory.rows() - 1;
-    
-    // Sum stage tracking costs (excluding control cost)
-    for (int i = 0; i < horizon; ++i) {
-        Eigen::VectorXd state = trajectory.row(i).transpose();
-        Eigen::VectorXd reference = reference_trajectory.row(i).transpose();
-        
-        Eigen::VectorXd error = stateError(state, reference);
-        total_cost += error.head(STATE_DIM).transpose() * Q_ * error.head(STATE_DIM);
-    }
-    
-    // Add terminal tracking cost
-    Eigen::VectorXd final_state = trajectory.row(horizon).transpose();
-    Eigen::VectorXd final_reference = reference_trajectory.row(horizon).transpose();
-    Eigen::VectorXd final_error = stateError(final_state, final_reference);
-    total_cost += final_error.head(STATE_DIM).transpose() * Q_terminal_ * final_error.head(STATE_DIM);
-    
-    return total_cost;
-}
-
-double Cost::controlCost(const Eigen::MatrixXd& controls) const {
-    
-    double total_cost = 0.0;
-    
-    for (int i = 0; i < controls.rows(); ++i) {
-        Eigen::Vector2d control = controls.row(i).transpose();
-        total_cost += control.transpose() * R_ * control;
-    }
-    
-    return total_cost;
-}
-
-Eigen::VectorXd Cost::stateError(const Eigen::VectorXd& state,
-                                const Eigen::VectorXd& reference_state) const {
-    
-    if (state.size() < STATE_DIM || reference_state.size() < STATE_DIM) {
-        throw std::invalid_argument("State vectors must have at least 4 elements");
-    }
-    
-    Eigen::VectorXd error = state.head(STATE_DIM) - reference_state.head(STATE_DIM);
-    
-    // Wrap angle error to [-π, π] (theta is at index 2)
-    // error(2) = theta_error
-    error(2) = mpc_utils::wrapAngle(error(2));
-    
-    return error;
-}
-
-void Cost::setWeights(const Eigen::Matrix4d& Q,
-                     const Eigen::Matrix2d& R,
-                     const Eigen::Matrix4d& Q_terminal) {
-    
-    Q_ = Q;
-    R_ = R;
-    Q_terminal_ = Q_terminal;
-}
-
-void Cost::getCostBreakdown(const Eigen::MatrixXd& trajectory,
-                           const Eigen::MatrixXd& controls,
-                           const Eigen::MatrixXd& reference_trajectory,
-                           double& tracking_cost,
-                           double& control_cost,
-                           double& terminal_cost) const {
-    
-    if (trajectory.rows() != reference_trajectory.rows()) {
-        throw std::invalid_argument("Trajectory and reference must have same number of rows");
-    }
-    
-    if (controls.rows() != trajectory.rows() - 1) {
-        throw std::invalid_argument("Controls must have horizon length rows");
-    }
-    
-    tracking_cost = 0.0;
-    control_cost = 0.0;
-    terminal_cost = 0.0;
-    
-    int horizon = controls.rows();
-    
-    // Accumulate stage costs
-    for (int i = 0; i < horizon; ++i) {
-        Eigen::VectorXd state = trajectory.row(i).transpose();
-        Eigen::VectorXd reference = reference_trajectory.row(i).transpose();
-        Eigen::Vector2d ctrl = controls.row(i).transpose();
-        
-        // Tracking component
-        Eigen::VectorXd error = stateError(state, reference);
-        tracking_cost += error.head(STATE_DIM).transpose() * Q_ * error.head(STATE_DIM);
-        
-        // Control component
-        control_cost += ctrl.transpose() * R_ * ctrl;
-    }
-    
-    // Terminal cost
-    Eigen::VectorXd final_state = trajectory.row(horizon).transpose();
-    Eigen::VectorXd final_reference = reference_trajectory.row(horizon).transpose();
-    Eigen::VectorXd final_error = stateError(final_state, final_reference);
-    terminal_cost = final_error.head(STATE_DIM).transpose() * Q_terminal_ * final_error.head(STATE_DIM);
-}
+} // namespace mpc_controller

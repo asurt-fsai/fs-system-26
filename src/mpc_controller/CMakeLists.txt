@@ -26,7 +26,7 @@ include_directories(
 
 # Create library
 add_library(mpc_lib
-  src/config.cpp
+  src/Params/config.cpp
   src/bicycle_model.cpp
   src/mpc_solver.cpp
   src/constraints.cpp

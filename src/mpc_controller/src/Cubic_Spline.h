@@ -3,8 +3,8 @@
 #ifndef MPC_CONTROLLER_CUBIC_SPLINE_H
 #define MPC_CONTROLLER_CUBIC_SPLINE_H
 
-#include "config.h"
-
+#include <Eigen/Dense>
+#include <vector>
 
 namespace mpc_controller{
     // Cubic Spline Interpolation Parameters and Data Structures y  = a + b dx + c dx^2 + d dx^3

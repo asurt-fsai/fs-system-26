@@ -1,6 +1,6 @@
-#include "mpc_controller/mpc_solver.h"
-#include "mpc_controller/utils.h"
-#include "mpc_controller/constraints.h"
+#include "mpc_solver.h"
+#include "utils.h"
+#include "constraints.h"
 #include <iostream>
 #include <algorithm>
 #include <casadi/casadi.hpp>

@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <math.h>
+#include "../types.h"
 
 /**
  * @brief MPC Configuration Parameters
@@ -33,7 +34,7 @@ public:
     Eigen::MatrixXd Q_terminal;
     
     // Maximum velocity in m/s
-    double v_max = 2.0;
+    double v_max = 5.0;
     
     // Minimum velocity in m/s
     double v_min = 0;

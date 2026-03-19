@@ -16,7 +16,7 @@ namespace mpc_controller{
 
     class ArcSpline{
         public:
-            Eigen::Vector2d getPoint(double s_query) const;
+            Eigen::Vector2d getPosition(double s_query) const;
             Eigen::Vector2d getDerivative(double s_query) const;
             Eigen::Vector2d getSecondDerivative(double s_query) const;
             void generateSpline(const Eigen::VectorXd& x, const Eigen::VectorXd& y);
