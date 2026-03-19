@@ -1,0 +1,10 @@
+{
+
+    "dt": 0.02,
+
+    "model_path": "params/model.json",
+    "bounds_path": "params/bounds.json",
+    "costs_path": "params/costs.json"
+
+
+}

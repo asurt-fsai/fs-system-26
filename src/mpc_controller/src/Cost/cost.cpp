@@ -35,21 +35,33 @@ ErrorInfo Cost::getErrorInfo(const mpc_controller::ArcSpline &track, const mpc_c
     TrackPoint ref_point = getRefPoint(track, x);
     Eigen::Vector2d error(ref_point.x_ref - x.x, ref_point.y_ref - x.y);
     // contouring error
-    Eigen::Matrix<double,1,2> contouring_error;
-    contouring_error(0) = -std::sin(ref_point.theta_ref) * error(0) + std::cos(ref_point.theta_ref) * error(1);
+    // contouring error = -dx * sin(theta_ref) + dy * cos(theta_ref)
+    // ghost error is the error between the car and the reference point in the Frenet frame, it is used to compute the contouring error and the lag error
+    Eigen::Matrix<double,1,2> ghost_error;
+    ghost_error(0) = -std::sin(ref_point.theta_ref) * error(0) + std::cos(ref_point.theta_ref) * error(1);
     // lag error
-    contouring_error(1) = std::cos(ref_point.theta_ref) * error(0) + std::sin(ref_point.theta_ref) * error(1);
+    // lag error = dx * cos(theta_ref) + dy * sin(theta_ref)
+    ghost_error(1) = std::cos(ref_point.theta_ref) * error(0) + std::sin(ref_point.theta_ref) * error(1);
     // compute the Jacobian of the error with respect to the state variables
+    // d_contouring_error/dx = -dtheta_ref * cos(theta_ref) * dx 
+                            // - dtheta_ref * sin(theta_ref) * dy 
+                            // - dx_ref * sin(theta_ref) 
+                            // + dy_ref * cos(theta_ref)
     const double dContouringError = - ref_point.dtheta_ref * std::cos(ref_point.theta_ref) * error(0)
                                     - ref_point.dtheta_ref * std::sin(ref_point.theta_ref) * error(1)
                                     - ref_point.dx_ref * std::sin(ref_point.theta_ref)
                                     + ref_point.dy_ref * std::cos(ref_point.theta_ref);
-    
+    // d_lag_error/dx = -dtheta_ref * sin(theta_ref) * dx 
+                    // + dtheta_ref * cos(theta_ref) * dy 
+                    // + dx_ref * cos(theta_ref) 
+                    // + dy_ref * sin(theta_ref)
     const double dLagError        = - ref_point.dtheta_ref * std::sin(ref_point.theta_ref) * error(0)
                                     + ref_point.dtheta_ref * std::cos(ref_point.theta_ref) * error(1)
                                     + ref_point.dx_ref * std::cos(ref_point.theta_ref)
                                     + ref_point.dy_ref * std::sin(ref_point.theta_ref);
 
-    Eigen::Matrix<double,2,Nx> d_error = Eigen::Matrix<double,2,NX>::Zero();
+    
+    Eigen::Matrix<double,2,NX> d_error = Eigen::Matrix<double,2,NX>::Zero();
+    // compute the Jacobian of the error with respect to the state variables
 }
 } // namespace mpc_controller

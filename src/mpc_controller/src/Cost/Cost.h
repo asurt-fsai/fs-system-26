@@ -2,8 +2,9 @@
 #define COST_H
 
 #include <Eigen/Dense>
-#include "Params/config.h"
-#include "Arc_Spline.h"
+#include "../config.h"
+#include "../Params/params.h"
+#include "../Spline/Arc_Spline.h"
 
 namespace mpc_controller {
 

@@ -1,9 +1,13 @@
 #pragma once
 
 #include <Eigen/Dense>
-#include "Params/config.h"
-#include "integration_methods.h"
+#include <cmath>
+#include "../config.h"
+#include "../Integrator/integration_methods.h"
+#include "../Params/params.h"
+#include "../types.h"
 
+namespace mpc_controller {
 /**
  * @file bicycle_model.h
  * @brief Kinematic Bicycle Model for Vehicle Dynamics
@@ -26,38 +30,23 @@
  */
 class BicycleModel {
 public:
-    explicit BicycleModel(const MPCConfig& config);
+    BicycleModel();
+    BicycleModel(const PathToJson& path);
+
+    Eigen::VectorXd dynamics(const state& X,const control& U) const;
+    Eigen::VectorXd step(const state& X, const control& U, double dt = -1.0) const;
+    Eigen::VectorXd stepEulerForward(const state& X, const control& U, double dt = -1.0) const;
+    Eigen::MatrixXd predictTrajectory(const state& X0, const Eigen::MatrixXd& controls) const;
     
-    Eigen::VectorXd dynamics(const Eigen::VectorXd& state, 
-                             const Eigen::Vector2d& control) const;
-    
-    Eigen::VectorXd step(const Eigen::VectorXd& state,
-                        const Eigen::Vector2d& control,
-                        double dt = -1.0) const;
-    
-    Eigen::VectorXd stepEulerForward(const Eigen::VectorXd& state,
-                                     const Eigen::Vector2d& control,
-                                     double dt = -1.0) const;
-    
-    Eigen::MatrixXd predictTrajectory(const Eigen::VectorXd& x0,
-                                      const Eigen::MatrixXd& controls) const;
-    
-    void linearize(const Eigen::VectorXd& state,
-                   const Eigen::Vector2d& control,
-                   Eigen::MatrixXd& A,
-                   Eigen::MatrixXd& B) const;
-    
+    void linearize(const state& X,const control& U, Eigen::MatrixXd& A, Eigen::MatrixXd& B) const;
     /// Convert throttle to acceleration: a = throttle * (1.25 + 0.2*v - 0.01*v²)
     double throttleToAcceleration(double throttle, double current_velocity) const;
-    
     /// Validate steering angle (clamp to ±35°)
     double validateSteeringAngle(double steering_angle_rad) const;
-    
     /// Validate throttle command (clamp to ±1.0)
     double validateThrottle(double throttle) const;
 
 private:
-    const MPCConfig& config_;
     
     static constexpr double LINEARIZE_EPS = 1e-6;
     
@@ -69,4 +58,8 @@ private:
     static constexpr double THROTTLE_BASE_COEFF = 1.25;
     static constexpr double THROTTLE_LINEAR_SPEED_COEFF = 0.2;
     static constexpr double THROTTLE_QUAD_SPEED_COEFF = 0.01;
+
+    Params    params_;
+    MPCConfig mpcconfig_;
 };
+} // namespace mpc_controller
