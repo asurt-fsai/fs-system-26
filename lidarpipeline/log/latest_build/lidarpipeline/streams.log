@@ -1,0 +1,26 @@
+[0.400s] Invoking command in '/home/spacecraft/fs-system-25/lidarpipeline/build/lidarpipeline': PYTHONPATH=/home/spacecraft/fs-system-25/lidarpipeline/build/lidarpipeline/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/spacecraft/fs-system-25/lidarpipeline/install/lidarpipeline/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/spacecraft/fs-system-25/lidarpipeline/build/lidarpipeline/build --no-deps symlink_data
+[0.554s] running develop
+[0.645s] running egg_info
+[0.645s] creating lidarpipeline.egg-info
+[0.645s] writing lidarpipeline.egg-info/PKG-INFO
+[0.645s] writing dependency_links to lidarpipeline.egg-info/dependency_links.txt
+[0.645s] writing entry points to lidarpipeline.egg-info/entry_points.txt
+[0.645s] writing requirements to lidarpipeline.egg-info/requires.txt
+[0.645s] writing top-level names to lidarpipeline.egg-info/top_level.txt
+[0.645s] writing manifest file 'lidarpipeline.egg-info/SOURCES.txt'
+[0.646s] reading manifest file 'lidarpipeline.egg-info/SOURCES.txt'
+[0.647s] writing manifest file 'lidarpipeline.egg-info/SOURCES.txt'
+[0.679s] running build_ext
+[0.679s] Creating /home/spacecraft/fs-system-25/lidarpipeline/install/lidarpipeline/lib/python3.10/site-packages/lidarpipeline.egg-link (link to .)
+[0.679s] Installing lidar_processor_node script to /home/spacecraft/fs-system-25/lidarpipeline/install/lidarpipeline/lib/lidarpipeline
+[0.680s] 
+[0.680s] Installed /home/spacecraft/fs-system-25/lidarpipeline/build/lidarpipeline
+[0.680s] running symlink_data
+[0.680s] creating /home/spacecraft/fs-system-25/lidarpipeline/install/lidarpipeline/share/ament_index
+[0.680s] creating /home/spacecraft/fs-system-25/lidarpipeline/install/lidarpipeline/share/ament_index/resource_index
+[0.680s] creating /home/spacecraft/fs-system-25/lidarpipeline/install/lidarpipeline/share/ament_index/resource_index/packages
+[0.680s] symbolically linking /home/spacecraft/fs-system-25/lidarpipeline/build/lidarpipeline/resource/lidarpipeline -> /home/spacecraft/fs-system-25/lidarpipeline/install/lidarpipeline/share/ament_index/resource_index/packages
+[0.680s] symbolically linking /home/spacecraft/fs-system-25/lidarpipeline/build/lidarpipeline/package.xml -> /home/spacecraft/fs-system-25/lidarpipeline/install/lidarpipeline/share/lidarpipeline
+[0.680s] creating /home/spacecraft/fs-system-25/lidarpipeline/install/lidarpipeline/share/lidarpipeline/launch
+[0.680s] symbolically linking /home/spacecraft/fs-system-25/lidarpipeline/build/lidarpipeline/launch/filter.launch.py -> /home/spacecraft/fs-system-25/lidarpipeline/install/lidarpipeline/share/lidarpipeline/launch
+[0.696s] Invoked command in '/home/spacecraft/fs-system-25/lidarpipeline/build/lidarpipeline' returned '0': PYTHONPATH=/home/spacecraft/fs-system-25/lidarpipeline/build/lidarpipeline/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/spacecraft/fs-system-25/lidarpipeline/install/lidarpipeline/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/spacecraft/fs-system-25/lidarpipeline/build/lidarpipeline/build --no-deps symlink_data

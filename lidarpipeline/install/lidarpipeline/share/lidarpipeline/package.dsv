@@ -1,0 +1,9 @@
+source;share/lidarpipeline/hook/pythonpath.ps1
+source;share/lidarpipeline/hook/pythonpath.dsv
+source;share/lidarpipeline/hook/pythonpath.sh
+source;share/lidarpipeline/hook/ament_prefix_path.ps1
+source;share/lidarpipeline/hook/ament_prefix_path.dsv
+source;share/lidarpipeline/hook/ament_prefix_path.sh
+source;../../build/lidarpipeline/share/lidarpipeline/hook/pythonpath_develop.ps1
+source;../../build/lidarpipeline/share/lidarpipeline/hook/pythonpath_develop.dsv
+source;../../build/lidarpipeline/share/lidarpipeline/hook/pythonpath_develop.sh
