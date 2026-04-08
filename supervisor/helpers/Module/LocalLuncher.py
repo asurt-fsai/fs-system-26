@@ -16,18 +16,23 @@ import threading
 
 
 class LocalLauncher(ProcessLauncher):    
-    
-    
-    # --------------------------------------------------
-    # Launch Process
-    # --------------------------------------------------
+
     def launch(self, module) -> bool:
+        """
+        Input  : module (Module) — module to launch
+        Output : bool — True if launch successful, False otherwise
+        Logic  : Check if module is not already running.
+                 Launch module using ros2 launch with subprocess.
+                 Initialize lastHeartbeatTime and restartAttempts.
+                 Set module state to Starting.
+                 Return True on success, False on failure.
+        """
         if module.process and module.state == ModuleState.Running:
-            print(f"[MODULE] Cannot launch from state {module.state}")
+            self.logger.info(f"[MODULE] Cannot launch from state {module.state}")
             return False
 
         try:
-            print(f"[MODULE] Launching {module.pkg}/{module.launchFile} ...")
+            self.logger.info(f"[MODULE] Launching {module.pkg}/{module.launchFile} ...")
             module.state = ModuleState.Starting
 
             launcher_process = subprocess.Popen(
@@ -36,55 +41,31 @@ class LocalLauncher(ProcessLauncher):
                 stderr=subprocess.PIPE,
             )
 
-            def drain(pipe):
-                try:
-                    for _ in pipe:
-                        pass
-                except Exception:
-                    pass
-
-            threading.Thread(target=drain, args=(launcher_process.stdout,), daemon=True).start()
-            threading.Thread(target=drain, args=(launcher_process.stderr,), daemon=True).start()
-
-            # Wait for child node process to spawn
-            deadline = time.time() + 5.0
-            child = None
-            while time.time() < deadline:
-                time.sleep(0.3)
-                try:
-                    children = psutil.Process(launcher_process.pid).children(recursive=True)
-                    if children:
-                        child = children[-1]
-                        break
-                except Exception:
-                    break
-
-            if child:
-                module.process = child
-                print(f"[MODULE] Actual node PID: {module.process.pid}")
-            else:
-                module.process = launcher_process
-                print(f"[MODULE] Warning: no child found, tracking launcher PID")
-
             module.lastHeartbeatTime = time.time()
             module.restartAttempts = 0
             return True
 
         except Exception as e:
-            print(f"[MODULE] Launch failed: {e}")
+            self.logger.error(f"[MODULE] Launch failed: {e}")
             module.state = ModuleState.Error
             module.process = None
             return False
         
     def shutdown(self, module) -> bool:
         """
-        Robust shutdown:
-        - Kill child processes
-        - Kill parent process
-        - Wait safely
+        Input  : module (Module) — module to shutdown
+        Output : bool — True if shutdown successful, False otherwise
+        Logic  : Check if module process exists, return if not.
+                 Get parent and all child processes recursively.
+                 Terminate all child processes first.
+                 Terminate parent process.
+                 Wait up to 5 seconds for all processes to exit.
+                 Set module state to Shutdown and clear process reference.
+                 Return True on success, False on critical errors.
+                 Handle NoSuchProcess and other exceptions gracefully.
         """
 
-        print(f"[LocalLauncher] Shutting down {module.pkg}")
+        self.logger.info(f"[LocalLauncher] Shutting down {module.pkg}")
 
         if not module.process:
             module.state = ModuleState.Shutdown
@@ -97,7 +78,7 @@ class LocalLauncher(ProcessLauncher):
             # Get all children recursively
             children = parent.children(recursive=True)
 
-            print(f"[LocalLauncher] Killing {len(children)} child processes")
+            self.logger.info(f"[LocalLauncher] Killing {len(children)} child processes")
 
             for child in children:
                 try:
@@ -117,20 +98,27 @@ class LocalLauncher(ProcessLauncher):
 
         except psutil.NoSuchProcess:
             pid = getattr(module.process, 'pid', None)
-            print(f"[LocalLauncher] Shutdown warning: process PID not found (pid={pid})")
+            self.logger.info(f"[LocalLauncher] Shutdown warning: process PID not found (pid={pid})")
             module.process = None
             module.state = ModuleState.Shutdown
             return True
 
         except Exception as e:
-            print(f"[LocalLauncher] Shutdown error: {e}")
+            self.logger.error(f"[LocalLauncher] Shutdown error: {e}")
             module.process = None
             module.state = ModuleState.Error
             return False
         
 
     def restart(self, module) -> bool:
-        #just execute shutdown + launch
+        """
+        Input  : module (Module) — module to restart
+        Output : bool — True if restart successful, False otherwise
+        Logic  : Call shutdown(module) to gracefully stop the process.
+                 Wait 2 seconds for system to settle.
+                 Call launch(module) to start the process again.
+                 Return True only if launch succeeds.
+        """
         self.shutdown(module)
         time.sleep(2)  # Small cooldown between shutdown and launch
         return self.launch(module)

@@ -29,7 +29,7 @@ class ModuleManager:
         # Replace module list
         self.modules = list(modules)
 
-        print(f"[ModuleManager] Registered {len(self.modules)} modules for new mission")
+        self.logger.info(f"[ModuleManager] Registered {len(self.modules)} modules for new mission")
 
 
     def launchAll(self):
@@ -39,7 +39,7 @@ class ModuleManager:
         Output : list — modules that failed to launch
         Logic  : Launch all module in order, with a short delay between launches.
         """
-        print("[ModuleManager] Launching mission modules...")
+        self.logger.info("[ModuleManager] Launching mission modules...")
 
         failed = []
 
@@ -50,7 +50,7 @@ class ModuleManager:
                     
                     time.sleep(0.5)
             except Exception as e:
-                print(f"[ModuleManager] Failed to launch {module.pkg}: {e}")
+                self.logger.info(f"[ModuleManager] Failed to launch {module.pkg}: {e}")
                 failed.append(module)
 
         return failed
@@ -62,7 +62,7 @@ class ModuleManager:
         Logic  : Iterate all modules and call module.shutdown().
                  Collect and return any modules that raised exceptions.
         """
-        print("[ModuleManager] Shutting down mission modules...")
+        self.logger.info("[ModuleManager] Shutting down mission modules...")
 
         failed = []
 
@@ -70,7 +70,7 @@ class ModuleManager:
             try:
                 module.shutdown()
             except Exception as e:
-                print(f"[ModuleManager] Failed to shutdown {module.pkg}: {e}")
+                self.logger.info(f"[ModuleManager] Failed to shutdown {module.pkg}: {e}")
                 failed.append(module)
 
         return failed
