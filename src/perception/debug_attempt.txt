@@ -1,0 +1,512 @@
+
+
+
+ 26-01-2026 06:59:15 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-26 18:59:17 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-26 18:59:17 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-26 18:59:17 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-26 18:59:17 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-26 18:59:17 UTC][ZED][INFO] [Init]  Depth mode: NEURAL LIGHT
+[2026-01-26 18:59:17 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-26 18:59:20 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 26-01-2026 07:00:03 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-26 19:00:04 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-26 19:00:04 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-26 19:00:04 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-26 19:00:04 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-26 19:00:04 UTC][ZED][INFO] [Init]  Depth mode: NEURAL LIGHT
+[2026-01-26 19:00:05 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-26 19:00:08 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 26-01-2026 07:01:14 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-26 19:01:16 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-26 19:01:16 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-26 19:01:16 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-26 19:01:16 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-26 19:01:16 UTC][ZED][INFO] [Init]  Depth mode: NEURAL LIGHT
+[2026-01-26 19:01:16 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-26 19:01:19 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 26-01-2026 07:19:29 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-26 19:19:30 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-26 19:19:30 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-26 19:19:30 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-26 19:19:30 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-26 19:19:30 UTC][ZED][INFO] [Init]  Depth mode: NONE
+[2026-01-26 19:19:30 UTC][ZED][INFO] [Init]  Health check functionality is limited when DEPTH_MODE::NONE is enabled, as it relies on the depth pipeline for image processing.
+
+
+
+ 26-01-2026 07:20:22 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-26 19:20:23 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-26 19:20:23 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-26 19:20:23 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-26 19:20:23 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-26 19:20:23 UTC][ZED][WARNING] [Init]  PERFORMANCE is deprecated; consider updating to a NEURAL instead.
+[2026-01-26 19:20:23 UTC][ZED][WARNING] [Init]  Requested depth_minimum_distance: 0.01METER is too close, clamped to 0.2METER.
+[2026-01-26 19:20:27 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 26-01-2026 07:21:30 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-26 19:21:31 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-26 19:21:31 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-26 19:21:31 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-26 19:21:31 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-26 19:21:31 UTC][ZED][WARNING] [Init]  QUALITY is deprecated; consider updating to a NEURAL instead.
+[2026-01-26 19:21:31 UTC][ZED][WARNING] [Init]  Requested depth_minimum_distance: 0.01METER is too close, clamped to 0.2METER.
+[2026-01-26 19:21:35 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 26-01-2026 07:23:44 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-26 19:23:45 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-26 19:23:45 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-26 19:23:45 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-26 19:23:45 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-26 19:23:45 UTC][ZED][WARNING] [Init]  ULTRA is deprecated; consider updating to a NEURAL instead.
+[2026-01-26 19:23:45 UTC][ZED][WARNING] [Init]  Requested depth_minimum_distance: 0.01METER is too close, clamped to 0.2METER.
+[2026-01-26 19:23:45 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-26 19:23:48 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 26-01-2026 07:24:11 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-26 19:24:12 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-26 19:24:12 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-26 19:24:12 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-26 19:24:12 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-26 19:24:12 UTC][ZED][WARNING] [Init]  ULTRA is deprecated; consider updating to a NEURAL instead.
+[2026-01-26 19:24:12 UTC][ZED][WARNING] [Init]  Requested depth_minimum_distance: 0.01METER is too close, clamped to 0.2METER.
+[2026-01-26 19:24:16 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 26-01-2026 07:25:36 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-26 19:25:38 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-26 19:25:38 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-26 19:25:38 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-26 19:25:38 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-26 19:25:38 UTC][ZED][INFO] [Init]  Depth mode: NEURAL
+[2026-01-26 19:25:41 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 26-01-2026 07:26:11 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-26 19:26:17 UTC][ZED][ERROR] [ZED] A ZED camera has been detected but the sensors device has failed to open. Please try to unplug/plug the camera again.
+[2026-01-26 19:26:17 UTC][ZED][INFO] [Init]  Failed to open camera. Trying to re-open for 5 seconds.
+[2026-01-26 19:26:17 UTC][ZED][INFO] [Init]  Random wait interval before consecutive openings: [250], [1500] msec.
+[2026-01-26 19:26:17 UTC][ZED][INFO] [Init]  Waiting 1443 msec before next opening attempt.
+[2026-01-26 19:26:19 UTC][ZED][INFO] [Init]  Trying to force a device reboot to recover the video module.
+[2026-01-26 19:26:21 UTC][ZED][INFO] [Init]  Camera opening timeout reached.
+[2026-01-26 19:26:21 UTC][ZED][ERROR] CAMERA MOTION SENSORS NOT DETECTED in sl::ERROR_CODE sl::Camera::open(sl::InitParameters)
+[2026-01-26 19:26:27 UTC][ZED][INFO] Logging level INFO
+
+
+
+ 26-01-2026 07:26:27 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-26 19:26:28 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-26 19:26:28 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-26 19:26:28 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-26 19:26:28 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-26 19:26:28 UTC][ZED][INFO] [Init]  Depth mode: NEURAL
+[2026-01-26 19:26:29 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+
+
+
+ 26-01-2026 07:26:58 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-26 19:27:00 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-26 19:27:00 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-26 19:27:00 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-26 19:27:00 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-26 19:27:00 UTC][ZED][INFO] [Init]  Depth mode: NEURAL
+[2026-01-26 19:27:00 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-26 19:27:03 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 26-01-2026 07:27:20 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-26 19:27:21 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-26 19:27:21 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-26 19:27:21 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-26 19:27:21 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-26 19:27:21 UTC][ZED][INFO] [Init]  Depth mode: NEURAL
+[2026-01-26 19:27:22 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-26 19:27:25 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 26-01-2026 07:27:57 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-26 19:27:58 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-26 19:27:58 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-26 19:27:58 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-26 19:27:58 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-26 19:27:58 UTC][ZED][INFO] [Init]  Depth mode: NEURAL
+[2026-01-26 19:28:02 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 26-01-2026 07:29:12 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-26 19:29:13 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-26 19:29:13 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-26 19:29:13 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-26 19:29:13 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-26 19:29:13 UTC][ZED][INFO] [Init]  Depth mode: NEURAL PLUS
+[2026-01-26 19:29:17 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 26-01-2026 07:29:59 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-26 19:30:00 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-26 19:30:00 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-26 19:30:00 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-26 19:30:00 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-26 19:30:00 UTC][ZED][INFO] [Init]  Depth mode: NEURAL PLUS
+[2026-01-26 19:30:04 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 11:47:52 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 11:47:54 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 11:47:54 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 11:47:54 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 11:47:54 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 11:47:54 UTC][ZED][INFO] [Init]  Depth mode: NEURAL PLUS
+[2026-01-27 11:47:54 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 11:47:58 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 11:48:18 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 11:48:19 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 11:48:19 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 11:48:19 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 11:48:19 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 11:48:19 UTC][ZED][INFO] [Init]  Depth mode: NEURAL PLUS
+[2026-01-27 11:48:20 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 11:48:23 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 11:51:15 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 11:51:16 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 11:51:16 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 11:51:16 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 11:51:16 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 11:51:16 UTC][ZED][INFO] [Init]  Depth mode: NEURAL PLUS
+[2026-01-27 11:51:20 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 11:53:29 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 11:53:31 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 11:53:31 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 11:53:31 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 11:53:31 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 11:53:31 UTC][ZED][INFO] [Init]  Depth mode: NEURAL PLUS
+[2026-01-27 11:53:34 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 11:54:25 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 11:54:27 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 11:54:27 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 11:54:27 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 11:54:27 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 11:54:27 UTC][ZED][INFO] [Init]  Depth mode: NEURAL PLUS
+[2026-01-27 11:54:30 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 12:02:15 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:02:16 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:02:16 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:02:16 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:02:16 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:02:16 UTC][ZED][INFO] [Init]  Depth mode: NEURAL LIGHT
+[2026-01-27 12:02:17 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 12:02:19 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 12:02:42 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:02:44 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:02:44 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:02:44 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:02:44 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:02:44 UTC][ZED][INFO] [Init]  Depth mode: NEURAL LIGHT
+[2026-01-27 12:02:44 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 12:02:46 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 12:05:18 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:05:20 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:05:20 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:05:20 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:05:20 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:05:20 UTC][ZED][WARNING] [Init]  ULTRA is deprecated; consider updating to a NEURAL instead.
+[2026-01-27 12:05:20 UTC][ZED][WARNING] [Init]  Requested depth_minimum_distance: 0.01METER is too close, clamped to 0.2METER.
+[2026-01-27 12:05:20 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 12:05:23 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 12:06:35 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:06:36 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:06:36 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:06:36 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:06:36 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:06:36 UTC][ZED][INFO] [Init]  Depth mode: NEURAL PLUS
+[2026-01-27 12:06:36 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 12:06:39 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 12:07:32 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:07:34 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:07:34 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:07:34 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:07:34 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:07:34 UTC][ZED][INFO] [Init]  Depth mode: NEURAL PLUS
+[2026-01-27 12:07:35 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 12:07:37 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 12:09:06 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:09:08 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:09:08 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:09:08 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:09:08 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:09:08 UTC][ZED][WARNING] [Init]  ULTRA is deprecated; consider updating to a NEURAL instead.
+[2026-01-27 12:09:08 UTC][ZED][WARNING] [Init]  Requested depth_minimum_distance: 0.01METER is too close, clamped to 0.2METER.
+[2026-01-27 12:09:08 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 12:09:10 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 12:10:09 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:10:16 UTC][ZED][ERROR] [ZED] A ZED camera has been detected but the sensors device has failed to open. Please try to unplug/plug the camera again.
+[2026-01-27 12:10:16 UTC][ZED][INFO] [Init]  Failed to open camera. Trying to re-open for 5 seconds.
+[2026-01-27 12:10:16 UTC][ZED][INFO] [Init]  Random wait interval before consecutive openings: [250], [1500] msec.
+[2026-01-27 12:10:16 UTC][ZED][INFO] [Init]  Waiting 769 msec before next opening attempt.
+[2026-01-27 12:10:17 UTC][ZED][INFO] [Init]  Trying to force a device reboot to recover the video module.
+[2026-01-27 12:10:19 UTC][ZED][INFO] [Init]  Camera opening timeout reached.
+[2026-01-27 12:10:19 UTC][ZED][ERROR] CAMERA MOTION SENSORS NOT DETECTED in sl::ERROR_CODE sl::Camera::open(sl::InitParameters)
+[2026-01-27 12:10:25 UTC][ZED][INFO] Logging level INFO
+
+
+
+ 27-01-2026 12:10:25 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:10:26 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:10:26 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:10:26 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:10:26 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:10:26 UTC][ZED][INFO] [Init]  Depth mode: NEURAL LIGHT
+[2026-01-27 12:10:27 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+
+
+
+ 27-01-2026 12:10:40 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:10:42 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:10:42 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:10:42 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:10:42 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:10:42 UTC][ZED][INFO] [Init]  Depth mode: NEURAL LIGHT
+[2026-01-27 12:10:42 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 12:10:45 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 12:12:19 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:12:20 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:12:20 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:12:20 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:12:20 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:12:20 UTC][ZED][INFO] [Init]  Depth mode: NEURAL LIGHT
+[2026-01-27 12:12:21 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 12:12:23 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 12:13:31 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:13:32 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:13:32 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:13:32 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:13:32 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:13:32 UTC][ZED][WARNING] [Init]  ULTRA is deprecated; consider updating to a NEURAL instead.
+[2026-01-27 12:13:32 UTC][ZED][WARNING] [Init]  Requested depth_minimum_distance: 0.01METER is too close, clamped to 0.2METER.
+[2026-01-27 12:13:32 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 12:13:35 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 12:15:38 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:15:39 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:15:39 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:15:39 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:15:39 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:15:39 UTC][ZED][INFO] [Init]  Depth mode: NEURAL LIGHT
+[2026-01-27 12:15:39 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 12:15:42 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 12:17:10 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:17:17 UTC][ZED][ERROR] [ZED] A ZED camera has been detected but the sensors device has failed to open. Please try to unplug/plug the camera again.
+[2026-01-27 12:17:17 UTC][ZED][INFO] [Init]  Failed to open camera. Trying to re-open for 5 seconds.
+[2026-01-27 12:17:17 UTC][ZED][INFO] [Init]  Random wait interval before consecutive openings: [250], [1500] msec.
+[2026-01-27 12:17:17 UTC][ZED][INFO] [Init]  Waiting 1190 msec before next opening attempt.
+[2026-01-27 12:17:18 UTC][ZED][INFO] [Init]  Trying to force a device reboot to recover the video module.
+[2026-01-27 12:17:21 UTC][ZED][INFO] [Init]  Camera opening timeout reached.
+[2026-01-27 12:17:21 UTC][ZED][ERROR] CAMERA MOTION SENSORS NOT DETECTED in sl::ERROR_CODE sl::Camera::open(sl::InitParameters)
+[2026-01-27 12:17:26 UTC][ZED][INFO] Logging level INFO
+
+
+
+ 27-01-2026 12:17:26 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:17:27 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:17:27 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:17:27 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:17:27 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:17:27 UTC][ZED][INFO] [Init]  Depth mode: NEURAL LIGHT
+[2026-01-27 12:17:28 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+
+
+
+ 27-01-2026 12:17:36 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:17:38 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:17:38 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:17:38 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:17:38 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:17:38 UTC][ZED][INFO] [Init]  Depth mode: NEURAL LIGHT
+[2026-01-27 12:17:38 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 12:17:40 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 12:18:38 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:18:39 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:18:39 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:18:39 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:18:39 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:18:39 UTC][ZED][INFO] [Init]  Depth mode: NEURAL LIGHT
+[2026-01-27 12:18:39 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 12:18:42 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 12:20:38 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:20:40 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:20:40 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:20:40 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:20:40 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:20:40 UTC][ZED][INFO] [Init]  Depth mode: NEURAL LIGHT
+[2026-01-27 12:20:40 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 12:20:42 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 12:21:42 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:21:44 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:21:44 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:21:44 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:21:44 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:21:44 UTC][ZED][INFO] [Init]  Depth mode: NEURAL LIGHT
+[2026-01-27 12:21:44 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 12:21:47 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 12:23:01 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:23:02 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:23:02 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:23:02 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:23:02 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:23:02 UTC][ZED][INFO] [Init]  Depth mode: NEURAL LIGHT
+[2026-01-27 12:23:02 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 12:23:05 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 12:24:01 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:24:03 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:24:03 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:24:03 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:24:03 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:24:03 UTC][ZED][INFO] [Init]  Depth mode: NEURAL LIGHT
+[2026-01-27 12:24:03 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 12:24:05 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 12:25:51 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:25:52 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:25:52 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:25:52 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:25:52 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:25:52 UTC][ZED][INFO] [Init]  Depth mode: NEURAL LIGHT
+[2026-01-27 12:25:53 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 12:25:55 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
+
+
+
+ 27-01-2026 12:26:57 : /opt/ros/humble/lib/rclcpp_components/component_container_isolated 
+-- ZED SDK v5.1.1 --
+[2026-01-27 12:26:58 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[2026-01-27 12:26:58 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[2026-01-27 12:26:58 UTC][ZED][INFO] [Init]  Video mode: HD1080@15
+[2026-01-27 12:26:58 UTC][ZED][INFO] [Init]  Serial Number: S/N 34039419
+[2026-01-27 12:26:58 UTC][ZED][INFO] [Init]  Depth mode: NEURAL LIGHT
+[2026-01-27 12:26:58 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture.
+[2026-01-27 12:27:01 UTC][ZED][WARNING] Gravity misalignment detected. Recomputing alignment...
