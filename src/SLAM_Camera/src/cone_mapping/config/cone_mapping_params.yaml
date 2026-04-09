@@ -1,0 +1,81 @@
+# Cone Mapping Node Configuration
+# ROS2 parameter file for runtime configuration
+
+cone_mapping_node:
+  ros__parameters:
+    
+    # ====================================================================
+    # Topics and Communication
+    # ====================================================================
+    perception_topic: "/perception/lidar_landmarks"
+    odom_topic: "/aft_mapped_to_init"
+
+    # ====================================================================
+    # Distance and Spatial Gating
+    # ====================================================================
+    max_detection_range: 100.0  # meters (r_max)
+    max_cone_height_deviation: 2.0  # Maximum deviation from expected cone height (meters)
+    
+    # ====================================================================
+    # Data Association Parameters
+    # ====================================================================
+    association_gate_radius: 2.0  # meters (d_gate)
+    mahalanobis_threshold: 5.991  # Chi-squared 95% confidence, 2 DOF
+    
+    # ====================================================================
+    # Measurement Noise Model
+    # ====================================================================
+    # R(d) = σ₀² + k·d²
+    sigma_0_squared: 0.01  # Base measurement noise (m²)
+    noise_scale_factor: 0.02  # Distance-dependent scaling factor
+    
+    # ====================================================================
+    # Process Noise (Kalman Filter)
+    # ====================================================================
+    process_noise_q: 0.001  # Static landmark model covariance
+    
+    # ====================================================================
+    # Lifecycle Management
+    # ====================================================================
+    observations_for_confirmation: 1  # Required observations before CONFIRMED
+    covariance_threshold_confirmation: 0.5  # Maximum trace(P) for confirmation (m²)
+    frames_until_lost: 10  # Consecutive frames before CONFIRMED → LOST
+    timeout_until_deleted: 5.0  # Seconds before LOST → DELETED
+    
+    # ====================================================================
+    # Map Maintenance
+    # ====================================================================
+    merge_distance_threshold: 0.5  # Meters for landmark merging
+    merge_check_interval: 1.0  # Seconds between merge operations
+    
+    # ====================================================================
+    # Initialization
+    # ====================================================================
+    initial_covariance: 10.0  # Initial uncertainty for new landmarks (m²)
+    
+    # ====================================================================
+    # Publishing Rates
+    # ====================================================================
+    map_publish_rate: 10.0  # Hz (planner update frequency)
+    maintenance_rate: 1.0  # Hz (map maintenance frequency)
+    
+    # ====================================================================
+    # Frame IDs
+    # ====================================================================
+    map_frame: "map"
+    odom_frame: "odom"
+    base_link_frame: "base_link"
+    sensor_frame: "velodyne"
+    
+    # ====================================================================
+    # Message Filter Synchronization
+    # ====================================================================
+    sync_queue_size: 10
+    sync_slop: 0.1  # Seconds (tolerance for approximate time sync)
+    
+    # ====================================================================
+    # Debug and Logging
+    # ====================================================================
+    enable_debug_visualization: false  # Publish debug markers
+    log_association_details: false  # Verbose association logging
+    log_lifecycle_transitions: true  # Log state machine transitions

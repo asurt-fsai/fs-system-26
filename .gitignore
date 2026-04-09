@@ -1,0 +1,50 @@
+# ROS 2 Workspace Directories
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.pt
+*.onnx
+env/
+venv/
+.env/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# ROS Bag files and data
+
+*.bag
+*.mcap
+*.db3
+/Straight_Path
+/Circular_Path
+/testing_conemapping
+/lidaaarrrrr
+/Lidar Bag
+/lidar_bag_plus_mapping
+/cone_mapping_data
+/slam_dl
+
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
