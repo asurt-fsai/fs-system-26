@@ -1,6 +1,6 @@
 Panels:
   - Class: rviz_common/Displays
-    Help Height: 78
+    Help Height: 138
     Name: Displays
     Property Tree Widget:
       Expanded:
@@ -9,7 +9,7 @@ Panels:
         - /MarkerArray1
         - /Pose1
       Splitter Ratio: 0.5
-    Tree Height: 549
+    Tree Height: 396
   - Class: rviz_common/Selection
     Name: Selection
   - Class: rviz_common/Tool Properties
@@ -53,7 +53,7 @@ Visualization Manager:
       Enabled: true
       Name: MarkerArray
       Namespaces:
-        {}
+        global_cones: true
       Topic:
         Depth: 5
         Durability Policy: Volatile
@@ -61,7 +61,8 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /map/global_cones_markers
       Value: true
-    - Axes Length: 1
+    - Alpha: 1
+      Axes Length: 1
       Axes Radius: 0.10000000149011612
       Class: rviz_default_plugins/Pose
       Color: 255; 25; 0
@@ -75,9 +76,34 @@ Visualization Manager:
       Topic:
         Depth: 5
         Durability Policy: Volatile
+        Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /zed/zed_node/pose
+      Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: MarkerArray
+      Namespaces:
+        global_cones: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /map/global_cones_markers
+      Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: MarkerArray
+      Namespaces:
+        "": true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /perception_markers
       Value: true
   Enabled: true
   Global Options:
@@ -118,12 +144,19 @@ Visualization Manager:
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /clicked_point
+  Transformation:
+    Current:
+      Class: rviz_default_plugins/TF
   Value: true
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
       Distance: 10
-      Enable Focus: false
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
       Focal Point:
         X: 0
         Y: 0
@@ -141,10 +174,10 @@ Visualization Manager:
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 800
+  Height: 2032
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 
+  QMainWindow State: 000000ff00000000fd0000000100000000000007300000075efc0200000005fb000000100044006900730070006c00610079007301000000690000027a0000017800fffffffb0000001200530065006c0065006300740069006f006e01000002ef00000120000000ab00fffffffb0000001e0054006f006f006c002000500072006f0070006500720074006900650073010000041b00000121000000ab00fffffffb0000000a005600690065007700730100000548000001ea0000012300fffffffb0000000800540069006d0065010000073e000000890000005100ffffff000000440000075e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -153,6 +186,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: false
-  Width: 1200
-  X: 100
-  Y: 100
+  Width: 1920
+  X: 1920
+  Y: 54

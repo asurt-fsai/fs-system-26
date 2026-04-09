@@ -25,7 +25,9 @@ from enum import Enum
 from geometry_msgs.msg import PoseStamped, TransformStamped, Point
 from std_msgs.msg import Header
 from nav_msgs.msg import Path  # [NEW] For corrected trajectory
+from nav_msgs.msg import Odometry  # [NEW] For Lidar Odometry
 from tf2_ros import Buffer, TransformListener
+from tf2_ros.static_transform_broadcaster import StaticTransformBroadcaster
 from std_msgs.msg import Bool
 import tf2_geometry_msgs
 import message_filters
@@ -296,6 +298,10 @@ class KalmanLandmark:
         if self.lifecycle_state == LandmarkState.TENTATIVE:
             # Allow type changes in tentative state
             return True
+            
+        # [NEW] Color-Agnostic Association support
+        if observed_type == ConeType.UNKNOWN:
+            return True
         
         if observed_type == self.assigned_type:
             return True
@@ -316,7 +322,12 @@ class KalmanLandmark:
             if (self.observation_count >= MappingConstants.OBSERVATIONS_FOR_CONFIRMATION and
                 np.trace(self.covariance) < MappingConstants.COVARIANCE_THRESHOLD_CONFIRMATION):
                 self.lifecycle_state = LandmarkState.CONFIRMED
-                self.assigned_type = self.cone_type  # Lock type
+                
+                # If the cone type is unknown (e.g., from Lidar), default it to a constant color
+                if self.cone_type == ConeType.UNKNOWN:
+                    self.assigned_type = ConeType.YELLOW
+                else:
+                    self.assigned_type = self.cone_type  # Lock type
                 
                 # [NEW] Graph-SLAM Anchoring Logic
                 if Tpose is not None:
@@ -355,34 +366,38 @@ class CoordinateTransformer:
     Transform chain: p_cone_map = T_map_base · T_base_camera · p_cone_camera
     """
     
-    def __init__(self, tf_buffer, logger):
+    def __init__(self, tf_buffer, logger, sensor_frame='zed_camera'):
         """
         Args:
             tf_buffer: tf2_ros.Buffer
             logger: rclpy logger
+            sensor_frame: str, frame ID of incoming detections
         """
         self.tf_buffer = tf_buffer
         self.logger = logger
-        self.T_base_camera = None  # Cached static transform
+        self.sensor_frame = sensor_frame
+        self.T_base_sensor = None  # Cached static transform
         
     def lookup_static_transform(self):
         """
-        Look up static transform from zed_camera to base_link.
+        Look up static transform from sensor_frame to base_link.
         This should be called once during initialization.
         """
         try:
             transform = self.tf_buffer.lookup_transform(
                 'base_link',
-                'zed_camera',
+                self.sensor_frame,
                 rclpy.time.Time(),
                 timeout=rclpy.duration.Duration(seconds=5.0)
             )
-            self.T_base_camera = self._transform_to_matrix(transform.transform)
-            self.logger.info("Static transform zed_camera -> base_link acquired")
+            self.T_base_sensor = self._transform_to_matrix(transform.transform)
+            self.logger.info(f"Static transform {self.sensor_frame} -> base_link acquired")
             return True
         except Exception as e:
-            self.logger.error(f"Failed to lookup static transform: {e}")
-            return False
+            self.logger.warn(f"Failed to lookup static transform {self.sensor_frame} -> base_link: {e}")
+            self.logger.warn("Assuming base_link and sensor frame are coincident (Identity Transform)")
+            self.T_base_sensor = np.eye(4)
+            return True
     
     def _transform_to_matrix(self, transform):
         """
@@ -450,38 +465,75 @@ class CoordinateTransformer:
         
         return T
     
-    def transform_and_gate(self, landmarks_camera, pose_map_base):
+    def get_T_map_sensor(self, pose_map_base, global_frame_id):
+        # Base representation of the vehicle path
+        T_camera_init_camera = self._pose_to_matrix(pose_map_base)
+        
+        if global_frame_id == 'camera_init':
+            # LeGO-LOAM mapping
+            # Convert velodyne (X-fwd, Y-left, Z-up) to camera (Z-fwd, X-left, Y-up)
+            T_camera_velodyne = np.array([
+                [0, 1, 0, 0],
+                [0, 0, 1, 0],
+                [1, 0, 0, 0],
+                [0, 0, 0, 1]
+            ], dtype=np.float64)
+            
+            # Convert camera_init (Z-fwd, X-left, Y-up) to standard map (X-fwd, Y-left, Z-up)
+            T_map_camera_init = np.array([
+                [0, 0, 1, 0],
+                [1, 0, 0, 0],
+                [0, 1, 0, 0],
+                [0, 0, 0, 1]
+            ], dtype=np.float64)
+            
+            return T_map_camera_init @ T_camera_init_camera @ T_camera_velodyne
+        else:
+            if self.T_base_sensor is None:
+                return None
+            return T_camera_init_camera @ self.T_base_sensor
+
+    def get_T_map_base(self, pose_map_base, global_frame_id):
+        T_camera_init_camera = self._pose_to_matrix(pose_map_base)
+        if global_frame_id == 'camera_init':
+            T_map_camera_init = np.array([
+                [0, 0, 1, 0],
+                [1, 0, 0, 0],
+                [0, 1, 0, 0],
+                [0, 0, 0, 1]
+            ], dtype=np.float64)
+            return T_map_camera_init @ T_camera_init_camera
+        else:
+            return T_camera_init_camera
+
+    def transform_and_gate(self, landmarks_sensor, pose_map_base, global_frame_id):
         """
-        Transform cone detections from camera frame to map frame and apply gating.
+        Transform cone detections from sensor frame to map frame and apply gating.
         
         Args:
-            landmarks_camera: List of Landmark objects in camera frame
+            landmarks_sensor: List of Landmark objects in sensor frame
             pose_map_base: geometry_msgs.msg.Pose (vehicle pose in map)
+            global_frame_id: string of the frame the odometry arrived in
             
         Returns:
             List of dicts: [{'position': np.array([x,y]), 'type': int, 'distance': float, 'probability': float}, ...]
         """
-        if self.T_base_camera is None:
+        T_map_sensor = self.get_T_map_sensor(pose_map_base, global_frame_id)
+        if T_map_sensor is None:
             self.logger.warn("Static transform not available")
             return []
         
-        # Get T_map_base
-        T_map_base = self._pose_to_matrix(pose_map_base)
-        
-        # Complete transformation: T_map_camera = T_map_base · T_base_camera
-        T_map_camera = T_map_base @ self.T_base_camera
-        
         validated_detections = []
         
-        for landmark in landmarks_camera:
-            # Position in camera frame (homogeneous coordinates)
-            p_camera = np.array([landmark.position.x,
+        for landmark in landmarks_sensor:
+            # Position in sensor frame (homogeneous coordinates)
+            p_sensor = np.array([landmark.position.x,
                                landmark.position.y,
                                landmark.position.z,
                                1.0])
             
             # Transform to map frame
-            p_map_homo = T_map_camera @ p_camera
+            p_map_homo = T_map_sensor @ p_sensor
             p_map = p_map_homo[:3]  # [x, y, z] in map frame
             
             # Apply gating filters
@@ -693,7 +745,7 @@ class MapMaintenance:
                     
                 dist = np.linalg.norm(current.state - confirmed[j].state)
                 # Ensure they are the exact same color before merging
-                if dist < MappingConstants.MERGE_DISTANCE_THRESHOLD and current.cone_type == confirmed[j].cone_type:
+                if dist < MappingConstants.MERGE_DISTANCE_THRESHOLD and current.assigned_type == confirmed[j].assigned_type:
                     merge_candidates.append(j)
             
             # If only one landmark, keep as is
@@ -704,7 +756,7 @@ class MapMaintenance:
             # Merge multiple landmarks
             P_inv_sum = np.zeros((2, 2))
             P_inv_x_sum = np.zeros(2)
-            merged_type = current.cone_type
+            merged_type = current.assigned_type
             total_observations = 0
             
             for idx in merge_candidates:
@@ -781,18 +833,28 @@ class ConeMappingNode(Node):
         super().__init__('cone_mapping_node')
         
         # Declare and load parameters from YAML
-        self.declare_parameter('max_detection_range', 500.0)
-        print("CONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEMAAAAAAAAAAAAAAAAAAAP")
-        self.declare_parameter('max_cone_height_deviation', 1.0)
+        self.declare_parameter('max_detection_range', 100.0)
+        self.declare_parameter('max_cone_height_deviation', 2.0)
         self.declare_parameter('association_gate_radius', 2.0)
         self.declare_parameter('mahalanobis_threshold', 5.991)
         self.declare_parameter('sigma_0_squared', 0.01)
         self.declare_parameter('noise_scale_factor', 0.02)
         self.declare_parameter('process_noise_q', 0.001)
-        self.declare_parameter('observations_for_confirmation', 3)
+        self.declare_parameter('observations_for_confirmation', 1)
         self.declare_parameter('covariance_threshold_confirmation', 0.5)
         self.declare_parameter('frames_until_lost', 10)
         self.declare_parameter('timeout_until_deleted', 5.0)
+        self.declare_parameter('merge_distance_threshold', 0.5)
+        self.declare_parameter('merge_check_interval', 1.0)
+        self.declare_parameter('initial_covariance', 10.0)
+        self.declare_parameter('map_publish_rate', 10.0)
+        self.declare_parameter('maintenance_rate', 1.0)
+        self.declare_parameter('perception_topic', '/perception/lidar_landmarks')
+        self.declare_parameter('sensor_frame', 'velodyne')
+        self.declare_parameter('odom_topic', '/aft_mapped_to_init')
+        self.declare_parameter('map_frame', 'map')
+        self.declare_parameter('sync_queue_size', 10)
+        self.declare_parameter('sync_slop', 0.1)
         
         # Override MappingConstants with loaded parameters
         MappingConstants.MAX_DETECTION_RANGE = self.get_parameter('max_detection_range').value
@@ -806,6 +868,9 @@ class ConeMappingNode(Node):
         MappingConstants.COVARIANCE_THRESHOLD_CONFIRMATION = self.get_parameter('covariance_threshold_confirmation').value
         MappingConstants.FRAMES_UNTIL_LOST = self.get_parameter('frames_until_lost').value
         MappingConstants.TIMEOUT_UNTIL_DELETED = self.get_parameter('timeout_until_deleted').value
+        MappingConstants.MERGE_DISTANCE_THRESHOLD = self.get_parameter('merge_distance_threshold').value
+        MappingConstants.MERGE_CHECK_INTERVAL = self.get_parameter('merge_check_interval').value
+        MappingConstants.INITIAL_COVARIANCE = self.get_parameter('initial_covariance').value
         
         self.get_logger().info(f"Loaded parameters: height_dev={MappingConstants.MAX_CONE_HEIGHT_DEVIATION}m, "
                               f"range={MappingConstants.MAX_DETECTION_RANGE}m")
@@ -813,9 +878,14 @@ class ConeMappingNode(Node):
         # Initialize TF2
         self.tf_buffer = Buffer()
         self.tf_listener = TransformListener(self.tf_buffer, self)
+        self.static_broadcaster = StaticTransformBroadcaster(self)
+        self.publish_loam_map_tf()
+        
+        perception_topic = self.get_parameter('perception_topic').value
+        sensor_frame = self.get_parameter('sensor_frame').value
         
         # Initialize subsystems
-        self.transformer = CoordinateTransformer(self.tf_buffer, self.get_logger())
+        self.transformer = CoordinateTransformer(self.tf_buffer, self.get_logger(), sensor_frame)
         self.associator = DataAssociator(self.get_logger())
         self.maintenance = MapMaintenance(self.get_logger())
         
@@ -831,28 +901,26 @@ class ConeMappingNode(Node):
         self.pose_msg_count = 0
         self.sync_callback_count = 0
         
-        # Subscribers with message filters for synchronization
-        self.landmark_sub = message_filters.Subscriber(
-            self,
+        self.landmark_sub = self.create_subscription(
             LandmarkArray,
-            '/perception/landmarks'
+            perception_topic,
+            self.landmark_callback,
+            10
         )
         
-        self.pose_sub = message_filters.Subscriber(
-            self,
-            PoseStamped,
-            '/zed/zed_node/pose'
+        odom_topic = self.get_parameter('odom_topic').value
+        self.pose_sub = self.create_subscription(
+            Odometry,
+            odom_topic,
+            self.odom_callback,
+            10
         )
         
-        # Time synchronizer
-        self.sync = message_filters.ApproximateTimeSynchronizer(
-            [self.landmark_sub, self.pose_sub],
-            queue_size=10,
-            slop=0.1  # 100ms tolerance
-        )
-        self.sync.registerCallback(self.synchronized_callback)
+        # State variables for async processing
+        self.latest_odom = None
+        self.global_frame_id = self.get_parameter('map_frame').value  # Default, gets overwritten by ODometry message
         
-        self.get_logger().info("Message synchronizer configured (slop=0.1s)")
+        self.get_logger().info("Subscribers configured (Asynchronous Processing)")
         
         self.map_pub = self.create_publisher(
             LandmarkArray,
@@ -871,8 +939,10 @@ class ConeMappingNode(Node):
         self.published_marker_ids = set()
         
         # Map publication timer
-        self.create_timer(1.0, self.maintenance_callback)  # 1 Hz map maintenance
-        self.create_timer(0.1, self.publish_map)  # 10 Hz map publishing
+        maintenance_rate = self.get_parameter('maintenance_rate').value
+        map_publish_rate = self.get_parameter('map_publish_rate').value
+        self.create_timer(1.0 / maintenance_rate, self.maintenance_callback)
+        self.create_timer(1.0 / map_publish_rate, self.publish_map)
         
         # [NEW] Subscriber for SLAM corrected trajectory
         self.trajectory_sub = self.create_subscription(
@@ -883,7 +953,8 @@ class ConeMappingNode(Node):
         )
 
         # Wait for static transform
-        self.get_logger().info("Waiting for static transform zed_camera -> base_link...")
+        sensor_frame = self.get_parameter('sensor_frame').value
+        self.get_logger().info(f"Waiting for static transform {sensor_frame} -> base_link...")
         self.create_timer(0.5, self.init_static_transform)
         
         self.get_logger().info("Cone Mapping Node initialized")
@@ -893,33 +964,57 @@ class ConeMappingNode(Node):
     
     def init_static_transform(self):
         """Initialize static transform (called periodically until successful)"""
-        if self.transformer.T_base_camera is None:
+        if self.transformer.T_base_sensor is None:
             self.transformer.lookup_static_transform()
+            
+    def publish_loam_map_tf(self):
+        """Broadcasts static TF from standard 'map' to 'camera_init'"""
+        t = TransformStamped()
+        t.header.stamp = self.get_clock().now().to_msg()
+        t.header.frame_id = self.get_parameter('map_frame').value
+        t.child_frame_id = 'camera_init'
+        t.transform.translation.x = 0.0
+        t.transform.translation.y = 0.0
+        t.transform.translation.z = 0.0
+        t.transform.rotation.x = 0.5
+        t.transform.rotation.y = 0.5
+        t.transform.rotation.z = 0.5
+        t.transform.rotation.w = 0.5
+        self.static_broadcaster.sendTransform(t)
     
-    def synchronized_callback(self, landmarks_msg, pose_msg):
-        """
-        Main processing callback for synchronized perception and pose data.
+    def odom_callback(self, msg):
+        """Cache the latest odometry pose"""
+        self.latest_odom = msg
+        self.global_frame_id = msg.header.frame_id  # Extract the correct fixed frame
         
-        Args:
-            landmarks_msg: LandmarkArray in zed_camera frame
-            pose_msg: PoseStamped (vehicle pose in map frame)
+    def landmark_callback(self, landmarks_msg):
         """
+        Main processing callback for async perception data.
+        Uses the latest cached odometry to plot the cones.
+        """
+        if self.latest_odom is None:
+            # Drop frames until we get at least one odometry pose
+            return
+            
+        odom_msg = self.latest_odom
+        
         self.sync_callback_count += 1
         
         if self.sync_callback_count == 1:
-            self.get_logger().info("✓ Synchronized callback triggered! Processing started.")
+            self.get_logger().info("✓ First Landmark message processed!")
         
         if self.sync_callback_count % 10 == 0:
             self.get_logger().info(f"Processed {self.sync_callback_count} synchronized message pairs")
         
-        if self.transformer.T_base_camera is None:
+        if self.transformer.T_base_sensor is None:
             self.get_logger().warn("Static transform not ready, skipping frame")
             return  # Static transform not ready
         
         # PHASE 1: Transform and gate detections
         detections = self.transformer.transform_and_gate(
             landmarks_msg.landmarks,
-            pose_msg.pose
+            odom_msg.pose.pose,
+            self.global_frame_id
         )
         
         if self.sync_callback_count <= 5 or self.sync_callback_count % 100 == 0:
@@ -932,7 +1027,7 @@ class ConeMappingNode(Node):
             # No valid detections, update lifecycle
             with self.map_lock:
                 # [NEW] Calculate T_map_base for lifecycle updates
-                T_map_base = self.transformer._pose_to_matrix(pose_msg.pose)
+                T_map_base = self.transformer.get_T_map_base(odom_msg.pose.pose, self.global_frame_id)
                 for lm in self.landmarks:
                     lm.predict(self.Q)  # Predict state uncertainty forward even when no detections
                     lm.frames_not_seen += 1
@@ -1004,7 +1099,7 @@ class ConeMappingNode(Node):
             # Update all lifecycle states
             current_time = self.get_clock().now()
             # [NEW] Calculate T_map_base for anchoring logic
-            T_map_base = self.transformer._pose_to_matrix(pose_msg.pose)
+            T_map_base = self.transformer.get_T_map_base(odom_msg.pose.pose, self.global_frame_id)
             for lm in self.landmarks:
                 lm.update_lifecycle(current_time, T_map_base)
     
@@ -1058,7 +1153,7 @@ class ConeMappingNode(Node):
                             
                     if best_pose is not None:
                         # Extract the new pose
-                        Tpose_new = self.transformer._pose_to_matrix(best_pose.pose)
+                        Tpose_new = self.transformer.get_T_map_base(best_pose.pose, best_pose.header.frame_id)
                         
                         # Recalculate global position from relative state
                         p_map_new = Tpose_new @ lm.relative_state
@@ -1074,7 +1169,7 @@ class ConeMappingNode(Node):
         """
         msg = LandmarkArray()
         msg.header.stamp = self.get_clock().now().to_msg()
-        msg.header.frame_id = 'map'
+        msg.header.frame_id = self.get_parameter('map_frame').value  # Use configured map frame
         
         marker_array_msg = MarkerArray()
         active_marker_ids = set()
