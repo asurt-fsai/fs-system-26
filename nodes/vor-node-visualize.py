@@ -13,9 +13,6 @@ from geometry_msgs.msg import Pose, PoseStamped
 import numpy as np
 from tf_transformations import euler_from_quaternion
 from tf_helper.StatusPublisher import StatusPublisher
-import matplotlib
-matplotlib.use('Qt5Agg')  # Use Qt5Agg for better window management
-import matplotlib.pyplot as plt
 
 from path_planning.modules.planner import PathPlanner
 
@@ -42,12 +39,6 @@ class VoronoiPlanningNode(Node):
         self.carPosition = np.array([0.0, 0.0])
         self.carDirection = np.float_(0.0)
 
-        # Threading lock for thread-safe plot updates
-        self.plot_lock = threading.Lock()
-
-        # Initialize matplotlib visualization
-        self.initializePlot()
-
         self.declareParameters()
         self.setParameters()
         self.initPubAndSub()
@@ -55,7 +46,11 @@ class VoronoiPlanningNode(Node):
     def declareParameters(self) -> None:
         """
         Declare the ROS2 parameters for the Voronoi planning node.
+        Robot_radius =0.7
+        Safety_margin=0.4
+        max_edge_len=8.0
         """
+
         self.declare_parameter("planning.voronoi.robot_radius", 0.7)
         self.declare_parameter("planning.voronoi.safety_margin", 0.4)
         self.declare_parameter("planning.voronoi.max_edge_len", 8.0)
@@ -82,6 +77,8 @@ class VoronoiPlanningNode(Node):
             .get_parameter_value().double_value
         )
 
+
+
         self.pathPlanner = PathPlanner(
             robot_radius=robot_radius,
             safety_margin=safety_margin,
@@ -96,6 +93,8 @@ class VoronoiPlanningNode(Node):
     def initPubAndSub(self) -> None:
         """
         Initialize publishers and subscribers.
+        1 publisher ---> sens path to control
+        2 subscribers ---> one for cones, one for odometry
         """
         pathTopic = (
             self.get_parameter("planning.topics.pathTopic")
@@ -117,94 +116,6 @@ class VoronoiPlanningNode(Node):
         self.subscriber2 = self.create_subscription(
             Odometry, odometryTopic, self.receiveFromLocalization, 10
         )
-
-    def initializePlot(self) -> None:
-        """
-        Initialize the matplotlib figure and axes for real-time visualization.
-        """
-        plt.ion()  # Turn on interactive mode
-        self.fig, self.ax = plt.subplots(figsize=(12, 10))
-        self.fig.suptitle('Voronoi Path Planning Visualization', fontsize=14, fontweight='bold')
-        self.ax.set_aspect('equal')
-        self.ax.set_xlabel('X (m)', fontsize=12)
-        self.ax.set_ylabel('Y (m)', fontsize=12)
-        self.ax.grid(True, alpha=0.3)
-        self.fig.tight_layout()
-        
-        # Show the window explicitly
-        self.fig.show()
-        plt.pause(0.001)  # Allow the window to render
-        
-        # Raise the window to the front
-        try:
-            self.fig.canvas.window.raise_()
-            self.fig.canvas.window.activateWindow()
-        except:
-            pass  # Window manager might not support this
-
-    def updatePlot(self) -> None:
-        """
-        Update the matplotlib visualization with current cone positions and path.
-        This is called after each planning cycle.
-        """
-        with self.plot_lock:
-            self.ax.clear()
-            self.ax.set_aspect('equal')
-            self.ax.set_xlabel('X (m)', fontsize=11)
-            self.ax.set_ylabel('Y (m)', fontsize=11)
-            self.ax.grid(True, alpha=0.3)
-
-            # Plot yellow cones
-            yellow_cones = [cone for cone in self.cone_data if cone[2] == 'y']
-            if yellow_cones:
-                yellow_x = [cone[0] for cone in yellow_cones]
-                yellow_y = [cone[1] for cone in yellow_cones]
-                self.ax.scatter(yellow_x, yellow_y, c='yellow', s=100,
-                               edgecolors='orange', linewidth=2, label='Yellow Cones')
-
-            # Plot blue cones
-            blue_cones = [cone for cone in self.cone_data if cone[2] == 'b']
-            if blue_cones:
-                blue_x = [cone[0] for cone in blue_cones]
-                blue_y = [cone[1] for cone in blue_cones]
-                self.ax.scatter(blue_x, blue_y, c='blue', s=100,
-                               edgecolors='darkblue', linewidth=2, label='Blue Cones')
-
-            # Plot car position
-            self.ax.scatter(self.carPosition[0], self.carPosition[1], c='red',
-                           s=200, marker='^', label='Car Position', zorder=5)
-
-            # Plot car direction arrow
-            arrow_length = 1.0
-            dx = arrow_length * np.cos(self.carDirection)
-            dy = arrow_length * np.sin(self.carDirection)
-            self.ax.arrow(self.carPosition[0], self.carPosition[1], dx, dy,
-                         head_width=0.3, head_length=0.2, fc='red', ec='red')
-
-            # Plot path
-            if self.path:
-                path_x = [point[0] for point in self.path]
-                path_y = [point[1] for point in self.path]
-                self.ax.plot(path_x, path_y, 'g-', linewidth=2.5, label='Planned Path')
-                self.ax.scatter(path_x[-1], path_y[-1], c='green', s=100,
-                               marker='s', label='Path Goal', zorder=5)
-
-            # Set axis limits with margins
-            all_x = [cone[0] for cone in self.cone_data] + [self.carPosition[0]]
-            all_y = [cone[1] for cone in self.cone_data] + [self.carPosition[1]]
-            if self.path:
-                all_x.extend([point[0] for point in self.path])
-                all_y.extend([point[1] for point in self.path])
-
-            if all_x and all_y:
-                x_margin = max(abs(max(all_x) - min(all_x)) * 0.1, 2)
-                y_margin = max(abs(max(all_y) - min(all_y)) * 0.1, 2)
-                self.ax.set_xlim(min(all_x) - x_margin, max(all_x) + x_margin)
-                self.ax.set_ylim(min(all_y) - y_margin, max(all_y) + y_margin)
-
-            self.ax.legend(loc='upper right', fontsize=10)
-            self.fig.canvas.draw_idle()
-            plt.pause(0.001)  # Allow the window to respond to user input
 
     def receiveFromPerception(self, msg: MarkerArray) -> None:
         """
@@ -264,9 +175,6 @@ class VoronoiPlanningNode(Node):
         car_data = [(self.carPosition[0], self.carPosition[1], self.carDirection)]
         self.path = self.pathPlanner.execute_cycle(self.cone_data, car_data)
 
-        # Update visualization
-        self.updatePlot()
-
         if self.path:
             timestamp = self.get_clock().now().to_msg()
             path_msg = Path()
@@ -286,6 +194,48 @@ class VoronoiPlanningNode(Node):
                 path_msg.poses.append(poseStamped)
 
             self.publisher.publish(path_msg)
+        self.visualize();
+
+    def visualize(self) -> None:
+        """Plots the global map state."""
+        self.ax.clear()
+        self.ax.set_title("Global Path Planning Visualization")
+        self.ax.set_xlabel("X (m) [World]")
+        self.ax.set_ylabel("Y (m) [World]")
+        self.ax.grid(True)
+
+        # Plot converted Global Cones
+        blue_cones = self.filtered_global_cones[ConeTypes.BLUE]
+        yellow_cones = self.filtered_global_cones[ConeTypes.YELLOW]
+        if blue_cones.shape[0] > 0:
+            self.ax.plot(blue_cones[:, 0], blue_cones[:, 1], 'bo', label='SLAM Blue Cones', markersize=3)
+        if yellow_cones.shape[0] > 0:
+            self.ax.plot(yellow_cones[:, 0], yellow_cones[:, 1], 'yo', label='SLAM Yellow Cones', markersize=3)
+
+        # Plot Global Path
+        if self.path is not None and self.path.shape[0] > 0:
+            self.ax.plot(self.path[:, 0], self.path[:, 1], 'r-', label='Global Path')
+
+        # Plot Global Car Pose
+        self.ax.plot(self.carPosition[0], self.carPosition[1], 'ko', label='Car Position')
+        # Tiny arrow to denote direction
+        dx = np.cos(self.carDirection) * 0.5
+        dy = np.sin(self.carDirection) * 0.5
+        self.ax.arrow(self.carPosition[0], self.carPosition[1], dx, dy, head_width=0.4, head_length=0.4, fc='k', ec='k')
+
+        handles, labels = self.ax.get_legend_handles_labels()
+        if labels:
+            self.ax.legend()
+
+        self.ax.relim()
+        self.ax.autoscale_view()
+        self.fig.canvas.draw()
+        self.fig.canvas.flush_events()
+        plt.pause(0.001)
+
+        import os
+        self.fig.savefig(os.path.join(self.frames_dir, f"frame_{self.frame_counter:04d}.png"))
+        self.frame_counter += 1
 
 
 def main() -> None:
