@@ -1,3 +1,12 @@
+import json
+import os
+import logging
+from enum import Enum
+from typing import Optional
+import rclpy.node
+logger = logging.getLogger(__name__)
+
+from supervisor.helpers.Module.Module import Module
 from supervisor.helpers.Module.ModuleManager import ModuleManager
 from supervisor.helpers.CommunicationLayer import CommunicationLayer
 from supervisor.helpers.Missions.MissionFinishing import MissionFinishing
@@ -6,243 +15,358 @@ from supervisor.helpers.Missions.SkidpadMission import SkidpadMission
 from supervisor.helpers.Missions.AutocrossMission import AutocrossMission
 from supervisor.helpers.Missions.TrackdriveMission import TrackdriveMission
 from supervisor.helpers.Missions.MissionStatus import MissionStatus
-from enum import Enum
 
+
+# ======================================================
+# Mission Type Enum
+# ======================================================
 
 class MissionType(Enum):
     """
-    Defines the possible mission types.
-
-    These are derived from the amiState received by the Supervisor
-    from the CAN bus.
-
-    MissionManager uses this enum to:
-        - create the correct MissionFinishing subclass
-        - resolve the correct module dependencies
+    Defines possible mission types.
+    Derived from Supervisor's amiState (CAN signal).
+    Used by MissionManager to create the correct MissionFinishing
+    subclass and load the correct module list from JSON.
     """
-
     ACCELERATION = 1
-    SKIDPAD = 2
-    AUTOCROSS = 3
-    TRACKDRIVE = 4
+    SKIDPAD      = 2
+    AUTOCROSS    = 3
+    TRACKDRIVE   = 4
 
+
+# ======================================================
+# MissionManager
+# ======================================================
 
 class MissionManager:
     """
-    MissionManager
+    Singleton orchestrator responsible for mission lifecycle
+    and module dispatch.
 
-    Responsibilities:
-        - Create mission objects
-        - Resolve mission module dependencies
-        - Send modules to ModuleManager
-        - Request module launch
-        - Set mission state to RUNNING
+    Responsibilities
+    ----------------
+    - Create the correct MissionFinishing subclass from MissionType
+    - Load required modules from JSON config per mission type
+    - Dispatch modules to ModuleManager before launch
+    - Track active mission status
 
+    Flow
+    ----
+    Supervisor issues StartMissionCommand
+        --> createMission(missionType)
+                --> instantiates MissionFinishing subclass
+                --> registers mission with CommunicationLayer
+        --> startMission()
+                --> resolveModules(missionType)     [reads JSON]
+                --> dispatchModulesToManager(modules)
+                --> moduleManager.launchAll()
+                --> sets mission status RUNNING
 
+    Supervisor issues StopMissionCommand
+        --> stopMission()
+                --> moduleManager.shutdownAll()
+                --> sets mission status FINISHED
+                --> deregisters mission from CommunicationLayer
+
+    JSON path
+    ---------
+    Modules are loaded from:
+        <package_root>/json/{missionType}.json
+    Resolved relative to this file so it works on any machine.
     """
 
-    _instance = None
+    _instance  = None
+    _initialised = False
 
-    # ======================================================
-    # Singleton Access
-    # ======================================================
+    # Path resolved relative to this file — works on any machine
+    JSON_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "json")
 
-    @classmethod
-    def getInstance(cls, communication=None, moduleManager=None):
-        """
-        Input:
-            communication (CommunicationLayer)
-            moduleManager (ModuleManager)
+    # ------------------------------------------------------------------
+    # Singleton
+    # ------------------------------------------------------------------
 
-        Output:
-            MissionManager singleton instance
-
-        Logic:
-            If instance does not exist → create it.
-            Otherwise return the existing instance.
-        """
-
+    def __new__(cls, *args, **kwargs):
         if cls._instance is None:
-
-            if communication is None or moduleManager is None:
-                raise Exception(
-                    "MissionManager requires CommunicationLayer and ModuleManager"
-                )
-
-            cls._instance = MissionManager(communication, moduleManager)
-
+            cls._initialised = False
+            cls._instance = super().__new__(cls)
         return cls._instance
 
-    # ======================================================
+    @staticmethod
+    def getInstance() -> "MissionManager":
+        """
+        Input  : None
+        Output : MissionManager — the singleton instance
+        Logic  : Create instance if not exists, return existing otherwise.
+        """
+        if MissionManager._instance is None:
+            MissionManager._instance = MissionManager()
+        return MissionManager._instance
+
+    # ------------------------------------------------------------------
     # Constructor
-    # ======================================================
+    # ------------------------------------------------------------------
 
-    def __init__(self, communication, moduleManager):
+    def __init__(self):
         """
-        Input:
-            communication (CommunicationLayer)
-            moduleManager (ModuleManager)
-
-        Output:
-            None
-
-        Logic:
-            Store references and initialize active mission.
+        Input  : None
+        Output : None
+        Logic  : Initialise state. ModuleManager injected via setModuleManager().
         """
+        if MissionManager._initialised:
+            return
+        MissionManager._initialised = True
 
-        self.communication = communication
-        self.moduleManager = moduleManager
+        self.activeMission: Optional[MissionFinishing] = None
+        self.moduleManager: Optional[ModuleManager]    = None
 
-        # Currently active mission
-        self.activeMission = None
-
-        # Mapping mission type → module list
-        # (can later be replaced by JSON loading)
-        self.missionModuleMap = {
-            MissionType.ACCELERATION: [],
-            MissionType.SKIDPAD: [],
-            MissionType.AUTOCROSS: [],
-            MissionType.TRACKDRIVE: [],
+        self._missionFactory = {
+            MissionType.ACCELERATION : AccelerationMission,
+            MissionType.SKIDPAD      : SkidpadMission,
+            MissionType.AUTOCROSS    : AutocrossMission,
+            MissionType.TRACKDRIVE   : TrackdriveMission,
         }
 
-    # ======================================================
+        logger.info("[MissionManager] Initialised")
+
+    # ------------------------------------------------------------------
+    # Dependency Injection
+    # ------------------------------------------------------------------
+
+    def setModuleManager(self, moduleManager: ModuleManager) -> None:
+        """
+        Input  : moduleManager (ModuleManager)
+        Output : None
+        Logic  : Inject ModuleManager after construction.
+        """
+        self.moduleManager = moduleManager
+        logger.info("[MissionManager] ModuleManager injected")
+
+    # ------------------------------------------------------------------
     # Create Mission
-    # ======================================================
+    # ------------------------------------------------------------------
 
-    def createMission(self, missionType):
+    def createMission(self, missionType: MissionType) -> MissionFinishing:
         """
-        Input:
-            missionType (MissionType)
-
-        Output:
-            MissionFinishing instance
-
-        Logic:
-            Instantiate the correct MissionFinishing subclass,
-            store it as activeMission, and register it with
-            CommunicationLayer so it receives events.
+        Input  : missionType (MissionType) — derived from Supervisor.amiState
+        Output : MissionFinishing — the created mission instance
+        Logic  :
+            - Instantiate correct MissionFinishing subclass via factory
+            - Set status IDLE
+            - Store as activeMission
+            - Register with CommunicationLayer so callbacks route correctly
         """
+        missionClass = self._missionFactory.get(missionType)
 
-        if missionType == MissionType.ACCELERATION:
-            mission = AccelerationMission()
+        if missionClass is None:
+            logger.error(
+                f"[MissionManager] Unknown missionType={missionType} — "
+                f"valid: {list(self._missionFactory.keys())}"
+            )
+            raise ValueError(f"[MissionManager] Unknown missionType: {missionType}")
 
-        elif missionType == MissionType.SKIDPAD:
-            mission = SkidpadMission()
-
-        elif missionType == MissionType.AUTOCROSS:
-            mission = AutocrossMission()
-
-        elif missionType == MissionType.TRACKDRIVE:
-            mission = TrackdriveMission()
-
-        else:
-            raise ValueError("Unknown mission type")
-
-        # Store mission
-        self.activeMission = mission
-
-        # Initialize status
+        self.activeMission = missionClass()
         self.activeMission.missionStatus = MissionStatus.IDLE
 
-        # Register mission with communication layer
-        self.communication.registerMission(self.activeMission)
+        CommunicationLayer.getInstance().registerMission(self.activeMission)
 
-        return mission
-
-    # ======================================================
-    # Start Mission
-    # ======================================================
-
-    def startMission(self):
-        """
-        Input:
-            None (uses self.activeMission)
-
-        Output:
-            None
-
-        Logic:
-            Resolve required modules,
-            send them to ModuleManager,
-            request module launch,
-            update mission status.
-        """
-
-        if self.activeMission is None:
-            raise Exception("No mission created")
-
-        missionType = self.activeMission.missionType
-
-        # Resolve required modules
-        modules = self.resolveModules(missionType)
-
-        # Send modules to ModuleManager
-        self.dispatchModulesToManager(modules)
-
-        # Ask ModuleManager to launch modules
-        self.moduleManager.launchAll()
-
-        # Update mission state
-        self.activeMission.missionStatus = MissionStatus.RUNNING
-
-    # ======================================================
-    # Resolve Modules
-    # ======================================================
-
-    def resolveModules(self, missionType) -> list:
-        """
-        Input:
-            missionType (MissionType)
-
-        Output:
-            list[Module]
-
-        Logic:
-            Look up missionModuleMap and return
-            modules required for that mission.
-        """
-
-        if missionType not in self.missionModuleMap:
-            raise Exception("Mission type not defined in module map")
-
-        return self.missionModuleMap[missionType]
-
-    # ======================================================
-    # Dispatch Modules
-    # ======================================================
-
-    def dispatchModulesToManager(self, modules: list):
-        """
-        Input:
-            modules (list[Module])
-
-        Output:
-            None
-
-        Logic:
-            Forward module list to ModuleManager.
-        """
-
-        self.moduleManager.registerModules(modules)
-
-    # ======================================================
-    # Get Active Mission
-    # ======================================================
-
-    def getActiveMission(self):
-        """
-        Returns the currently active mission.
-        """
+        logger.info(
+            f"[MissionManager] Mission created — "
+            f"class={missionClass.__name__} type={missionType.name}"
+        )
 
         return self.activeMission
 
-    # ======================================================
-    # Get ModuleManager
-    # ======================================================
+    # ------------------------------------------------------------------
+    # Start Mission
+    # ------------------------------------------------------------------
 
-    def getModuleManager(self):
+    def startMission(self) -> None:
         """
-        Returns the module manager reference.
+        Input  : None — uses self.activeMission set by createMission()
+        Output : None
+        Logic  :
+            - Guard: ModuleManager must be injected
+            - Guard: activeMission must exist
+            - Guard: prevent double start if already RUNNING
+            - Resolve modules from JSON for this mission type
+            - Dispatch modules to ModuleManager
+            - Launch all modules
+            - Set mission status RUNNING
         """
+        if self.moduleManager is None:
+            logger.error("[MissionManager] ModuleManager not set — call setModuleManager() first")
+            raise Exception("[MissionManager] ModuleManager not set")
 
-        return self.moduleManager
+        if self.activeMission is None:
+            logger.error("[MissionManager] No active mission — call createMission() first")
+            raise Exception("[MissionManager] No active mission")
+
+        if self.activeMission.missionStatus == MissionStatus.RUNNING:
+            logger.warning(
+                f"[MissionManager] Mission already RUNNING — ignoring startMission()"
+            )
+            return
+
+        missionType = self.activeMission.missionType
+
+        logger.info(f"[MissionManager] Starting mission — type={missionType}")
+
+        # Resolve modules from JSON
+        modules = self.resolveModules(missionType)
+
+        # Dispatch to ModuleManager
+        self.dispatchModulesToManager(modules)
+
+        # Launch
+        failed = self.moduleManager.launchAll()
+
+        # Set status based on launch result
+        if failed:
+            failed_names = [m.pkg for m in failed]
+            self.activeMission.missionStatus = MissionStatus.FAILED
+            logger.error(
+                f"[MissionManager] Mission FAILED — "
+                f"{len(failed)} module(s) failed to launch: {failed_names}"
+            )
+            return
+
+        self.activeMission.missionStatus = MissionStatus.RUNNING
+        logger.info(
+            f"[MissionManager] Mission RUNNING — "
+            f"type={missionType} modules={len(modules)}"
+        )
+
+    # ------------------------------------------------------------------
+    # Stop Mission
+    # ------------------------------------------------------------------
+
+    def stopMission(self) -> None:
+        """
+        Input  : None
+        Output : None
+        Logic  :
+            - Guard: no active mission
+            - Shutdown all modules via ModuleManager
+            - Log any modules that failed to shut down
+            - Set mission status FINISHED
+            - Deregister mission from CommunicationLayer
+            - Clear activeMission reference
+        """
+        if self.activeMission is None:
+            logger.warning("[MissionManager] stopMission called but no active mission — ignoring")
+            return
+
+        mission_name = type(self.activeMission).__name__
+
+        logger.info(f"[MissionManager] Stopping mission={mission_name}")
+
+        failed = self.moduleManager.shutdownAll()
+
+        if failed:
+            failed_names = [m.pkg for m in failed]
+            logger.warning(
+                f"[MissionManager] {len(failed)} module(s) failed to shut down: {failed_names}"
+            )
+        else:
+            logger.info("[MissionManager] All modules shut down cleanly")
+
+        self.activeMission.missionStatus = MissionStatus.FINISHED
+
+        CommunicationLayer.getInstance().registerMission(None)
+
+        self.activeMission = None
+
+        logger.info(f"[MissionManager] Mission={mission_name} stopped")
+
+    # ------------------------------------------------------------------
+    # JSON Loader
+    # ------------------------------------------------------------------
+
+    def loadModulesFromJSON(self, missionType) -> list:
+        """
+        Input  : missionType (MissionType or str)
+        Output : list[Module]
+        Logic  :
+            - Resolve JSON path relative to package root
+            - Open and parse JSON file
+            - Construct Module object for each entry
+            - Return module list
+        """
+        # Accept both MissionType enum and plain string
+        type_str = missionType.name.lower() if isinstance(missionType, MissionType) else missionType
+
+        filePath = os.path.join(self.JSON_DIR, f"{type_str}.json")
+
+        logger.debug(f"[MissionManager] Loading modules from path={filePath}")
+
+        if not os.path.exists(filePath):
+            logger.error(f"[MissionManager] Config not found — path={filePath}")
+            raise FileNotFoundError(f"[MissionManager] Missing config: {filePath}")
+
+        with open(filePath, "r") as file:
+            config = json.load(file)
+
+        modules = []
+
+        for entry in config.get("modules", []):
+            module = Module(
+                entry["pkg"],
+                entry["launch_file"],
+                entry["heartbeats_topic"],
+                bool(entry["is_node_msg"])
+            )
+            modules.append(module)
+            logger.debug(
+                f"[MissionManager] Module loaded — "
+                f"pkg={entry['pkg']} "
+                f"heartbeats_topic={entry['heartbeats_topic']} "
+                f"is_node_msg={entry['is_node_msg']}"
+            )
+
+        logger.info(
+            f"[MissionManager] Loaded {len(modules)} modules for missionType={type_str}"
+        )
+
+        return modules
+
+    # ------------------------------------------------------------------
+    # Resolve Modules
+    # ------------------------------------------------------------------
+
+    def resolveModules(self, missionType) -> list:
+        """
+        Input  : missionType (MissionType or str)
+        Output : list[Module]
+        Logic  : Load modules from JSON for the given mission type.
+        """
+        logger.debug(f"[MissionManager] resolveModules — missionType={missionType}")
+        return self.loadModulesFromJSON(missionType)
+
+    # ------------------------------------------------------------------
+    # Dispatch Modules to ModuleManager
+    # ------------------------------------------------------------------
+
+    def dispatchModulesToManager(self, modules: list) -> None:
+        """
+        Input  : modules (list[Module])
+        Output : None
+        Logic  :
+            - Call moduleManager.registerModules(modules)
+            - ModuleManager shuts down previous modules before loading new ones
+        """
+        logger.info(
+            f"[MissionManager] Dispatching {len(modules)} modules to ModuleManager — "
+            f"pkgs={[m.pkg for m in modules]}"
+        )
+        self.moduleManager.registerModules(modules)
+
+    # ------------------------------------------------------------------
+    # Getter
+    # ------------------------------------------------------------------
+
+    def getActiveMission(self) -> Optional[MissionFinishing]:
+        """
+        Input  : None
+        Output : MissionFinishing or None — the currently active mission
+        """
+        return self.activeMission
