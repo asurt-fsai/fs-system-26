@@ -2,12 +2,14 @@ import subprocess
 import time
 from supervisor.helpers.Module.ModuleState import ModuleState
 from supervisor.helpers.Module.ProcessLauncher import ProcessLauncher
+import logging
 
 
 class DockerLauncher(ProcessLauncher):  
 
     def __init__(self, image_name: str):
         self.image_name = image_name
+        self.logger = logging.getLogger(__name__)
 
     # ==================================================
     # Launch
@@ -51,6 +53,7 @@ class DockerLauncher(ProcessLauncher):
                     "--name",
                     container_name,
                     self.image_name,
+                    module.launchFile
                 ],
                 capture_output=True,
                 text=True,
@@ -68,9 +71,6 @@ class DockerLauncher(ProcessLauncher):
 
             # We store container name instead of ID for easier control
             module.process = container_name
-            module.lastHeartbeatTime = time.time()  # Initialize heartbeat timing
-            module.restartAttempts = 0  # Reset restart attempts
-
             return True  
 
         except Exception as e:

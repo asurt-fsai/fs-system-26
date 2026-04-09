@@ -1,23 +1,42 @@
 from supervisor.helpers.Missions.MissionFinishing import MissionFinishing
+from supervisor.helpers.Missions.MissionStatus import MissionStatus
+from supervisor.helpers.Missions.MissionManager import MissionType
 
 class SkidpadMission(MissionFinishing):
-
-    def __init__(self, communication):
+    MissionType=MissionType.SKIDPAD
+    
+    def __init__(self, communication, supervisor):
         """
         Input  : communication (CommunicationLayer) — event bus
         Output : None
         Logic  : Initialize skidpadFinished = False.
         """
-        pass
+        super().__init__(communication, supervisor)
+        self.skidpadFinished = False
 
     def onLoopClosure(self, data):
         """
-        Input  : data (str) — loop closure data from ROS topic
+        Input  : data — loop closure data from ROS topic
         Output : None
         Logic  : Mark skidpadFinished = True.
                  Call checkFinish().
         """
-        pass
+        if data:
+            self.logger.info("[SKIDPAD] Loop closure detected")
+            self.skidpadFinished = True
+            self.checkFinish()
+
+    def onConeDetected(self, data):
+        """
+        Input  : data — orange cone detection data from ROS topic
+        Output : None
+        Logic  : Mark skidpadFinished = True.
+                 Call checkFinish().
+        """
+        if data:
+            self.logger.info("[SKIDPAD] Orange cone detected")
+            self.skidpadFinished = True
+            self.checkFinish()
 
     def checkFinish(self):
         """
@@ -26,4 +45,9 @@ class SkidpadMission(MissionFinishing):
         Logic  : If skidpadFinished is True
                  call notifyMissionFinished().
         """
-        pass
+        if self.missionStatus == MissionStatus.FINISHED:
+            return
+
+        if self.skidpadFinished:
+            self.logger.info("[SKIDPAD] 🏁 Skidpad mission finished")
+            self.notifyMissionFinished()

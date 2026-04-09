@@ -2,12 +2,15 @@ from supervisor.helpers.Module.ModuleState import ModuleState
 from supervisor.helpers.CommunicationLayer import CommunicationLayer
 from supervisor.helpers.Module.Module import Module
 import time
+import logging
 
 
 class ModuleManager:
 
     def __init__(self):
         self.modules = []
+        self.logger = logging.getLogger(__name__)
+
 
     # ==================================================
     # Registration From MissionManager
@@ -45,10 +48,14 @@ class ModuleManager:
 
         for i, module in enumerate(self.modules):
             try:
-                module.launch()
+                success= module.launch()
+                if not success:
+                    self.logger.error(f"[ModuleManager] Launch returned False for {module.pkg}")
+                    failed.append(module)
+
                 if i < len(self.modules) - 1:  # Add delay between launches except after last
-                    
                     time.sleep(0.5)
+                    
             except Exception as e:
                 self.logger.info(f"[ModuleManager] Failed to launch {module.pkg}: {e}")
                 failed.append(module)

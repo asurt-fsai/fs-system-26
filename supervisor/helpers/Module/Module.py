@@ -1,6 +1,6 @@
-
 from supervisor.helpers.Module.ModuleState import ModuleState
 import time
+import logging
  
 class Module:
 
@@ -26,9 +26,8 @@ class Module:
 
         self.lastRestartTime = 0.0
         self.restartCooldown = 3.0
+        self.logger = logging.getLogger(__name__)
 
-        # Register to communication layer
-        self.communication.registerModule(self)
 
     def launch(self):
         """
@@ -45,8 +44,10 @@ class Module:
         self.logger.info(f"[MODULE] Launching {self.pkg}")
 
         # Reset tracking only on intentional manual launch
-        self.lastHeartbeatTime = time.time()  
-        return self.launcher.launch(self)
+        success = self.launcher.launch(self)
+        if success:
+            self.lastHeartbeatTime = time.time()
+        return success
 
     def shutdown(self):
         """
@@ -60,7 +61,7 @@ class Module:
 
         success=self.launcher.shutdown(self)
         #self.state = ModuleState.Shutdown
-        self.process = None
+
         self.state = ModuleState.Shutdown if success else ModuleState.Error
 
     def restart(self):  

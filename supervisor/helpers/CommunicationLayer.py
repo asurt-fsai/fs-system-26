@@ -32,7 +32,9 @@ from typing import Optional
 import rclpy
 from rclpy.node import Node
 from rclpy.executors import MultiThreadedExecutor
-from std_msgs.msg import String
+from std_msgs.msg import String, Bool, Float64
+from eufs_msgs.msg import CanState
+
 
 
 class CommunicationLayer(Node):
@@ -299,25 +301,33 @@ class CommunicationLayer(Node):
         distance
         """
 
-        topics = [
+        # CAN state — uses CanState message type
+        self.create_subscription(
+            CanState,
+            '/ros_can/state',
+            self.onCANState,
+            10
+        )
 
-            ("can_state", self.onCANState),
-            ("velocity", self.onVelocity),
-            ("control", self.onControl),
-            ("heartbeat", self.onHeartbeat),
-            ("cone_detection", self.onConeDetection),
-            ("loop_closure", self.onLoopClosure),
-            ("distance", self.onDistance),
+        # String topics
+        string_topics = [
+            ("velocity",    self.onVelocity),
+            ("control",     self.onControl),
+            ("heartbeat",   self.onHeartbeat),
         ]
+        for topic, callback in string_topics:
+            self.create_subscription(String, topic, callback, 10)
 
-        for topic, callback in topics:
+        # Bool topics
+        bool_topics = [
+            ("/perception/cone_detection", self.onConeDetection),
+            ("/slam/loop_closure",         self.onLoopClosure),
+        ]
+        for topic, callback in bool_topics:
+            self.create_subscription(Bool, topic, callback, 10)
 
-            self.create_subscription(
-                String,
-                topic,
-                callback,
-                10
-            )
+        # Float64 topics
+        self.create_subscription(Float64, "/slam/distance", self.onDistance, 10)
 
     # ---------------------------------------------------------
     # ROS Executor
@@ -412,7 +422,7 @@ class CommunicationLayer(Node):
         INFO log of received state.
         """
 
-        self._log_topic("can_state", msg.data)
+        self._log_topic("/ros_can/state", msg.data)
 
         if self._supervisor:
             self._supervisor.onCANState(msg.data)
@@ -492,7 +502,7 @@ class CommunicationLayer(Node):
         msg.data : cone detection info
         """
 
-        self._log_topic("cone_detection", msg.data)
+        self._log_topic("/perception/cone_detection", msg.data)
 
         if self._activeMission:
             self._activeMission.onConeDetected(msg.data)
@@ -503,7 +513,7 @@ class CommunicationLayer(Node):
         Routes loop closure events to mission logic.
         """
 
-        self._log_topic("loop_closure", msg.data)
+        self._log_topic("/slam/loop_closure", msg.data)
 
         if self._activeMission:
             self._activeMission.onLoopClosure(msg.data)
@@ -522,7 +532,7 @@ class CommunicationLayer(Node):
         Mission checks if finishing condition is met.
         """
 
-        self._log_topic("distance", msg.data)
+        self._log_topic("/slam/distance", msg.data)
 
         if self._activeMission:
             self._activeMission.onDistance(msg.data)

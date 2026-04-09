@@ -118,6 +118,7 @@ class MissionManager:
 
         self.activeMission: Optional[MissionFinishing] = None
         self.moduleManager: Optional[ModuleManager]    = None
+        self.supervisor = None
 
         self._missionFactory = {
             MissionType.ACCELERATION : AccelerationMission,
@@ -141,6 +142,11 @@ class MissionManager:
         self.moduleManager = moduleManager
         logger.info("[MissionManager] ModuleManager injected")
 
+    def setSupervisor(self, supervisor) -> None:
+        """Inject Supervisor reference."""
+        self.supervisor = supervisor
+        logger.info("[MissionManager] Supervisor injected")
+        
     # ------------------------------------------------------------------
     # Create Mission
     # ------------------------------------------------------------------
@@ -163,16 +169,19 @@ class MissionManager:
                 f"valid: {list(self._missionFactory.keys())}"
             )
             raise ValueError(f"[MissionManager] Unknown missionType: {missionType}")
-
-        self.activeMission = missionClass()
+        communication = CommunicationLayer.getInstance()
+        self.activeMission = missionClass(communication ,self.supervisor)
         self.activeMission.missionStatus = MissionStatus.IDLE
 
-        CommunicationLayer.getInstance().registerMission(self.activeMission)
+
+        communication.registerMission(self.activeMission)
 
         logger.info(
             f"[MissionManager] Mission created — "
             f"class={missionClass.__name__} type={missionType.name}"
+            f"with state = {self.activeMission.missionStatus.name}"
         )
+
 
         return self.activeMission
 

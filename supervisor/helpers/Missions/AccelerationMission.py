@@ -1,10 +1,11 @@
+from supervisor.helpers.Missions.MissionStatus import MissionStatus
 from supervisor.helpers.Missions.MissionFinishing import MissionFinishing
 from supervisor.helpers.CommunicationLayer import CommunicationLayer
-
+from supervisor.helpers.Missions.MissionManager import MissionType
 
 class AccelerationMission(MissionFinishing):
-
-    def __init__(self, communication):
+    missionType = MissionType.ACCELERATION
+    def __init__(self, communication,supervisor):
         """
         Input  : communication (CommunicationLayer) — event bus
         Output : None
@@ -12,7 +13,9 @@ class AccelerationMission(MissionFinishing):
                  Initialize targetDistance (hardcoded).
                  Initialize currentDistance = 0.0.
         """
-        pass
+        super().__init__(communication,supervisor)
+        self.targetDistance = 75.0
+        self.currentDistance = 0.0
 
     def onDistance(self, data):
         """
@@ -21,7 +24,16 @@ class AccelerationMission(MissionFinishing):
         Logic  : Parse data and update currentDistance.
                  Call checkFinish() to evaluate completion.
         """
-        pass
+        try:
+            self.currentDistance = float(data)
+
+            self.logger.info(f"Distance = {self.currentDistance}")
+
+            self.checkFinish()
+
+        except Exception as e:
+            self.logger.info("Invalid distance ignored")
+            return
 
     def checkFinish(self):
         """
@@ -30,4 +42,8 @@ class AccelerationMission(MissionFinishing):
         Logic  : If currentDistance >= targetDistance
                  call notifyMissionFinished().
         """
-        pass
+        if self.missionStatus != MissionStatus.FINISHED:
+            if self.currentDistance >= self.targetDistance:
+                self.logger.info("🏁 distance reached in acceleration mission")
+                self.notifyMissionFinished()
+

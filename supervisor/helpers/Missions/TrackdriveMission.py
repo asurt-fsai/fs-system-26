@@ -1,9 +1,11 @@
 from supervisor.helpers.Missions.MissionFinishing import MissionFinishing
-
+from supervisor.helpers.Missions.MissionStatus import MissionStatus
+from supervisor.helpers.Missions.MissionManager import MissionType
 
 class TrackdriveMission(MissionFinishing):
+    missionType = MissionType.TRACKDRIVE
 
-    def __init__(self, communication):
+    def __init__(self, communication,supervisor):
         """
         Input  : communication (CommunicationLayer) — event bus
         Output : None
@@ -12,7 +14,12 @@ class TrackdriveMission(MissionFinishing):
                  Initialize orangeConeCount = 0.
                  Define required loop closures and orange cone thresholds (hardcoded).
         """
-        pass
+        super().__init__(communication,supervisor)
+        self.loopClosureCount = 0
+        self.orangeConeCount = 0
+        self.requiredLoopClosures = 10
+        self.requiredOrangeCones = 10
+
 
     def onLoopClosure(self, data):
         """
@@ -21,7 +28,10 @@ class TrackdriveMission(MissionFinishing):
         Logic  : Increment loopClosureCount.
                  Call checkFinish().
         """
-        pass
+        if data:
+            self.loopClosureCount += 1
+            self.logger.info(f"[TRACKDRIVE] Loop closure count: {self.loopClosureCount}/{self.requiredLoopClosures}")
+            self.checkFinish()
 
     def onConeDetected(self, data):
         """
@@ -30,7 +40,10 @@ class TrackdriveMission(MissionFinishing):
         Logic  : Increment orangeConeCount.
                  Call checkFinish().
         """
-        pass
+        if data:
+            self.orangeConeCount += 1
+            self.logger.info(f"[TRACKDRIVE] Orange cone count: {self.orangeConeCount}/{self.requiredOrangeCones}")
+            self.checkFinish()
 
     def checkFinish(self):
         """
@@ -40,4 +53,10 @@ class TrackdriveMission(MissionFinishing):
                  AND orangeConeCount >= required threshold
                  call notifyMissionFinished().
         """
-        pass
+        if self.missionStatus == MissionStatus.FINISHED:
+            return
+
+        if (self.loopClosureCount >= self.requiredLoopClosures and
+                self.orangeConeCount >= self.requiredOrangeCones):
+            self.logger.info("🏁 Trackdrive mission complete!")
+            self.notifyMissionFinished()

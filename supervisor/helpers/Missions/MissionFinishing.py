@@ -1,18 +1,26 @@
+import logging
 from supervisor.helpers.CommunicationLayer import CommunicationLayer
+from supervisor.helpers.Missions.MissionStatus import MissionStatus
+from supervisor.helpers.Missions.MissionManager import MissionType
+from abc import ABC, abstractmethod
+from rclpy.node import Node
+import logging
 
 
+class MissionFinishing(ABC):
 
-class MissionFinishing:
-
-    def __init__(self, communication):
+    def __init__(self, communication,supervisor):
         """
         Input  : communication (CommunicationLayer) — event bus
         Output : None
         Logic  : Store communication reference.
                  Initialize missionStatus = IDLE.
         """
-        pass
+        self.communication = communication
+        self.supervisor = supervisor
+        self.logger = logging.getLogger(__name__)
 
+    @abstractmethod
     def checkFinish(self):
         """
         Input  : None
@@ -29,7 +37,6 @@ class MissionFinishing:
         Input  : data (str) — cone detection data from ROS topic
         Output : None
         Logic  : Handle cone detection event.
-                 Update relevant mission state.
                  Implemented by subclasses that need it.
         """
         pass
@@ -39,7 +46,6 @@ class MissionFinishing:
         Input  : data (str) — loop closure data from ROS topic
         Output : None
         Logic  : Handle loop closure event.
-                 Update relevant mission state.
                  Implemented by subclasses that need it.
         """
         pass
@@ -49,7 +55,6 @@ class MissionFinishing:
         Input  : data (str) — distance data from ROS topic
         Output : None
         Logic  : Handle distance update event.
-                 Update relevant mission state.
                  Implemented by subclasses that need it.
         """
         pass
@@ -59,15 +64,29 @@ class MissionFinishing:
         Input  : None
         Output : None
         Logic  : Set missionStatus = FINISHED.
-                 Notify Supervisor via communication layer.
+                 Notify Supervisor 
         """
-        pass
+
+        if self.missionStatus == MissionStatus.FAILED:
+            return
+        
+        self.missionStatus = MissionStatus.FINISHED
+        if self.supervisor:
+            self.supervisor.onMissionFinished(self.missionStatus)
+            self.logger.info(f"Mission finished with status: {self.missionStatus}")
 
     def notifyMissionFailed(self, reason: str):
         """
         Input  : reason (str) — description of why mission failed
         Output : None
         Logic  : Set missionStatus = FAILED.
-                 Notify Supervisor via communication layer with reason.
+                 Notify Supervisor with reason.
         """
-        pass
+        if self.missionStatus == MissionStatus.FAILED:
+            return
+        
+        
+        self.missionStatus = MissionStatus.FAILED
+        if self.supervisor:
+            self.supervisor.onMissionFailed(reason)
+            self.logger.info(f"Mission failed : {self.missionStatus} Reason: {reason}")

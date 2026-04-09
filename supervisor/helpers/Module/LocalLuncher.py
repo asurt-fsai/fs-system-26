@@ -7,15 +7,17 @@ Used for launching ROS2 modules locally.
 import subprocess
 import time
 import psutil
-import os
 from supervisor.helpers.Module.ProcessLauncher import ProcessLauncher
 from supervisor.helpers.Module.ModuleState import ModuleState
 from supervisor.helpers.Module.Module import Module
-import threading
+import logging
 
 
 
 class LocalLauncher(ProcessLauncher):    
+
+    def __init__(self):
+        self.logger= logging.getLogger(__name__)
 
     def launch(self, module) -> bool:
         """
@@ -35,14 +37,13 @@ class LocalLauncher(ProcessLauncher):
             self.logger.info(f"[MODULE] Launching {module.pkg}/{module.launchFile} ...")
             module.state = ModuleState.Starting
 
-            launcher_process = subprocess.Popen(
+            module.process = subprocess.Popen(
                 ["ros2", "launch", module.pkg, module.launchFile],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
             )
 
             module.lastHeartbeatTime = time.time()
-            module.restartAttempts = 0
             return True
 
         except Exception as e:
