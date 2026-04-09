@@ -1,17 +1,12 @@
-class ShutdownModulesCommand:
+from supervisor.helpers.Commands import Command
+
+class ShutdownModulesCommand(Command):
 
     def __init__(self, moduleManager):
-        """
-        Input  : moduleManager (ModuleManager)
-        Output : None
-        Logic  : Store reference.
-        """
-        pass
+        self.moduleManager = moduleManager
 
     def execute(self):
-        """
-        Input  : None
-        Output : None
-        Logic  : Call moduleManager.shutdownAll().
-        """
-        pass
+
+        print("[Command] Shutdown all modules")
+
+        self.moduleManager.shutdownAllModules()
