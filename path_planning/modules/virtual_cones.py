@@ -237,7 +237,7 @@ class VirtualCones:
             midpoint = tuple((p_curr + v_pos) / 2.0)
 
             return virtual_cone, midpoint
-
+        
         return None, None
 
 

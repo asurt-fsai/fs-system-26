@@ -39,6 +39,7 @@ class PathPlanner:
         car_yaw = car_data[0][2]
 
         # 2. Check for Low Cones (Startup / Fallback Mode)
+        print ("iam seeing now " + str(len(cone_data)) + " cones")
         if len(cone_data) < 3:
             self.last_balanced_cones = cone_data
             self.last_virtual_cones = []

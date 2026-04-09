@@ -1,7 +1,7 @@
 import networkx as nx
 import numpy as np
 
-def is_edge_safe(p1, p2, cone_data, safe_dist=1.5):
+def is_edge_safe(p1, p2, cone_data, safe_dist=0.5):
     """
     Checks if a line segment between p1 and p2 passes too close to any cone.
     """
@@ -22,6 +22,7 @@ def is_edge_safe(p1, p2, cone_data, safe_dist=1.5):
         # Distance from cone to the closest point on the segment
         dist_to_cone = np.linalg.norm(c_pos - projection)
         if dist_to_cone < safe_dist:
+            print(f"[SAFETY CHECK] Edge from {p1} to {p2} is too close to cone at {c_pos} (distance {dist_to_cone:.2f} < {safe_dist})")
             return False
     return True
 
@@ -76,8 +77,8 @@ def remove_ghost_cones(
             # diff color being too close gives higher penalty
             else:
                 if d < diff_color_min_dist:
-                    pot_ghost[i] += 2.0
-                    pot_ghost[j] += 2.0
+                    pot_ghost[i] += 1.0
+                    pot_ghost[j] += 1.0
 
             checks[i] += 1
             checks[j] += 1
@@ -130,6 +131,10 @@ def build_safe_graph(vor, colors, midpoint_nodes, cone_data, max_edge_len):
         # Standard Finite Ridges
         p1, p2 = vor.vertices[v1_idx], vor.vertices[v2_idx]
         dist = np.linalg.norm(p1 - p2)
+        if dist > max_edge_len:
+            print(f"[GRAPH DEBUG] Rejecting Voronoi Edge: Distance {dist:.2f} > max_edge_len {max_edge_len}")
+        elif not is_edge_safe(p1, p2, cone_data):
+            print(f"[GRAPH DEBUG] Rejecting Voronoi Edge: Collision detected with nearby cone.")
         if dist <= max_edge_len and is_edge_safe(p1, p2, cone_data):
             G.add_node(v1_idx, pos=p1)
             G.add_node(v2_idx, pos=p2)
@@ -140,6 +145,7 @@ def build_safe_graph(vor, colors, midpoint_nodes, cone_data, max_edge_len):
         node_id = f"mid_{i}"
         mp_pos = np.array(mp)
         G.add_node(node_id, pos=mp_pos)
+        print(f"[MIDPOINT TRACE] Processing midpoint {node_id} at position {mp}")
         
         for v_idx in G.nodes:
             if isinstance(v_idx, str) and "mid" in v_idx: continue
@@ -148,5 +154,8 @@ def build_safe_graph(vor, colors, midpoint_nodes, cone_data, max_edge_len):
             # Only connect if the edge doesn't cross a cone
             if dist < max_edge_len and is_edge_safe(mp_pos, v_pos, cone_data):
                 G.add_edge(node_id, v_idx, weight=dist)
+                print(f"[MIDPOINT TRACE] Connected midpoint {node_id} to node {v_idx} (dist: {dist:.2f})")
+            elif dist < max_edge_len: # It was short enough but failed safety
+                 print(f"[GRAPH DEBUG] Midpoint {node_id} failed safety check to node {v_idx}")
                 
     return G

@@ -1,7 +1,8 @@
-import networkx as nx
+import networkx as nx   
 import numpy as np
 
 def find_optimal_path(graph, car_pos, car_orientation):
+    print(f"[SEARCH DEBUG] Graph initialized with {len(graph.nodes)} nodes and {len(graph.edges)} edges.")
     if len(graph.nodes) == 0:
         print("[SEARCH FAIL] Graph is empty. No nodes survive filtering.")
         return []
@@ -25,6 +26,8 @@ def find_optimal_path(graph, car_pos, car_orientation):
     try:
         # 2. Check for Reachability
         path_lengths = nx.single_source_dijkstra_path_length(graph, start_node)
+
+        print(f"[SEARCH DEBUG] Reachable nodes from car: {len(path_lengths)} / Total nodes: {len(graph.nodes)}")
         
         if len(path_lengths) <= 1:
             print(f"[SEARCH FAIL] Start node {start_node} has NO neighbors. Check max_edge_len.")
@@ -38,6 +41,7 @@ def find_optimal_path(graph, car_pos, car_orientation):
         
         # Return path starting from car position
         final_path = [tuple(car_pos)] + [tuple(graph.nodes[i]['pos']) for i in path_indices]
+        
         return final_path
 
     except nx.NetworkXNoPath:
