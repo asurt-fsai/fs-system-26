@@ -879,7 +879,7 @@ class ConeMappingNode(Node):
         # [NEW] Phase 6: Subscriber for SLAM corrected trajectory
         self.trajectory_sub = self.create_subscription(
             Path,
-            '/slam/corrected_trajectory',
+            '/zed/zed_node/path_map',
             self.trajectory_update_callback,
             10
         )
@@ -1040,6 +1040,11 @@ class ConeMappingNode(Node):
         [NEW] Phase 6: Global Warp / Loop Closure Correction
         Adjust anchored landmarks when the historical trajectory shifts.
         """
+        # Time tolerance for matching poses (0.1 seconds = 1e8 nanoseconds)
+        MAX_DT_NS = 1e8 
+        # Minimum shift distance to trigger an update (meters)
+        MIN_SHIFT_DIST = 0.05
+        
         with self.map_lock:
             for lm in self.landmarks:
                 if (lm.lifecycle_state == LandmarkState.CONFIRMED and 
@@ -1058,16 +1063,26 @@ class ConeMappingNode(Node):
                             min_dt = dt
                             best_pose = pose_stamped
                             
-                    if best_pose is not None:
-                        # [NEW] Extract the new, corrected pose and convert it to a 4x4 matrix (Tpose_new)
+                    # 1. TIME THRESHOLD: Check if the matched pose is close enough in time
+                    if best_pose is not None and min_dt < MAX_DT_NS:
+                        # Extract the new, corrected pose and convert it to a 4x4 matrix (Tpose_new)
                         Tpose_new = self.transformer._pose_to_matrix(best_pose.pose)
                         
-                        # [NEW] Recalculate global position from relative state: p_map_new = T_pose_new * p_relative
-                        p_map_new = Tpose_new @ lm.relative_state
+                        # 2. JITTER PREVENTION: Only warp if the trajectory actually shifted significantly
+                        old_pos = lm.anchor_pose[:3, 3]
+                        new_pos = Tpose_new[:3, 3]
+                        shift_dist = float(np.linalg.norm(new_pos - old_pos))
                         
-                        # [NEW] Overwrite the mapped state and save new anchor
-                        lm.state = np.array([p_map_new[0], p_map_new[1]])
-                        lm.anchor_pose = Tpose_new
+                        if shift_dist >= MIN_SHIFT_DIST:
+                            # Recalculate global position from relative state: p_map_new = T_pose_new * p_relative
+                            p_map_new = Tpose_new @ lm.relative_state
+                            
+                            # Overwrite the mapped state and save new anchor
+                            lm.state = np.array([p_map_new[0], p_map_new[1]])
+                            lm.anchor_pose = Tpose_new
+                            
+                            # 3. KALMAN FILTER BLENDING: Inflate covariance due to sudden map jump
+                            lm.covariance += np.eye(2) * (shift_dist * 0.1)
     
     def publish_map(self):
         """
