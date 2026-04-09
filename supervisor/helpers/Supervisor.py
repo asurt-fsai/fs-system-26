@@ -4,6 +4,7 @@ import logging
 from enum import Enum
 from supervisor.helpers.Module.ModuleState import ModuleState
 from supervisor.helpers.Commands import ShutdownModulesCommand,StartMissionCommand,EmergencyStopCommand,RestartModuleCommand
+from supervisor.helpers.Missions.MissionManager import MissionType
 
 
 class SuperState(Enum):
@@ -18,6 +19,26 @@ class SuperState(Enum):
     FINISHED = 5
 
 class Supervisor:
+        
+    """
+    Central orchestrator for the autonomous system.
+    
+    Responsibilities
+    ----------------
+    - State machine management (WAITING → LAUNCHING → READY → RUNNING → STOPPING → FINISHED)
+    - Mission lifecycle coordination via MissionManager
+    - Module health monitoring via ModuleManager
+    - CAN state processing and mission type mapping
+    
+    Flow
+    ----
+    1. WAITING: Wait for AMI state (mission selection)
+    2. LAUNCHING: Create mission, load and launch modules
+    3. READY: Wait for AS_READY state (vehicle ready)
+    4. RUNNING: Mission executing
+    5. STOPPING: Mission finished, vehicle slowing down
+    6. FINISHED: Shutdown modules, reset to WAITING
+    """
 
     def __init__(self, communication, missionManager, moduleManager, heartbeat_timeout=5.0):
         """
@@ -51,8 +72,12 @@ class Supervisor:
         self.monitor_thread = threading.Thread(target=self._heartbeat_monitor_loop, daemon=True)
         self.monitor_thread.start()
 
-        # Register self with communication layer
+        # Register with managers
         self.communication.registerSupervisor(self)
+        self.missionManager.setSupervisor(self)
+        self.moduleManager.setSupervisor(self)  # If ModuleManager needs it
+        self.logger.info("[Supervisor] Initialized in WAITING state")
+
 
     def issueCommand(self, cmd):
         """
@@ -61,9 +86,13 @@ class Supervisor:
         Logic  : Call cmd.execute().
         """
         try:
+            cmd_name = type(cmd).__name__
+            self.logger.info(f"[Supervisor] Issuing command: {cmd_name}")
             cmd.execute()
+            self.logger.info(f"[Supervisor] Command executed: {cmd_name}")
         except Exception as e:
-            self.logger.error(f"Failed to execute command {cmd}: {e}")
+            self.logger.error(f"[Supervisor] Failed to execute command {type(cmd).__name__}: {e}", exc_info=True)
+
 
 
     # ========================
