@@ -92,6 +92,26 @@ namespace mpc_controller{
         int horizon;                              // Prediction horizon [steps]
 
         ///////////////////////////////////////////////////////////////////////////
+        // Normalization Factors (for numerical stability) ///////////////////////
+        ///////////////////////////////////////////////////////////////////////////
+        // State normalization factors
+        double norm_x;                            // Normalization factor for X position
+        double norm_y;                            // Normalization factor for Y position
+        double norm_theta;                        // Normalization factor for heading angle
+        double norm_delta;                        // Normalization factor for steering angle
+        double norm_v;                            // Normalization factor for velocity
+        
+        // Control normalization factors
+        double norm_a;                            // Normalization factor for acceleration
+        double norm_delta_dot;                    // Normalization factor for steering rate
+        
+        // Reference normalization factors
+        double norm_vx;                           // Normalization factor for reference Vx
+        double norm_vy;                           // Normalization factor for reference Vy
+        double norm_r;                            // Normalization factor for reference r
+        double norm_s;                            // Normalization factor for reference s
+
+        ///////////////////////////////////////////////////////////////////////////
         // State and Control Vectors (MPC Dimensions) ///////////////////////////
         ///////////////////////////////////////////////////////////////////////////
         Eigen::Matrix<double, NX, 1> state_vec;     // 5D state vector [x, y, theta, delta, v]
@@ -105,12 +125,24 @@ namespace mpc_controller{
         ///////////////////////////////////////////////////////////////////////////
         // Parameter Loading Methods /////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////
-        void loadVehicleParams(std::string file);
-        void loadCostParams(std::string file);
-        void loadConstraints(std::string file);        // Load ALL box constraints from JSON
-        void loadMPCConfig(std::string file);
-        void loadAll(std::string vehicle_file, std::string cost_file, 
-                    std::string constraints_file, std::string mpc_file);
+        /// Load vehicle geometry, motor model parameters, and MPC config (dt, horizon)
+        void loadVehicleParams(std::string vehicle_and_model_file);
+        
+        /// Load cost function weights and reference trajectory values
+        void loadCostParams(std::string cost_parameters_file);
+        
+        /// Load all state and control bounds/constraints from JSON
+        void loadConstraints(std::string bounds_and_constraints_file);
+        
+        /// Load separate MPC config file (optional, if dt/horizon differ from model file)
+        void loadMPCConfig(std::string mpc_config_file);
+        
+        /// Load normalization factors for numerical stability from JSON
+        void loadNormalization(std::string normalization_file);
+        
+        /// Load all parameters from four separate JSON files (dt and horizon from vehicle file only)
+        void loadAll(std::string vehicle_and_model_file, std::string cost_parameters_file, 
+                    std::string bounds_and_constraints_file, std::string normalization_file);
         
         ///////////////////////////////////////////////////////////////////////////
         // Utility Methods ///////////////////////////////////////////////////////

@@ -36,7 +36,11 @@ Params::Params()
       throttle_max(0),
       linearize_eps(0), dt(0), horizon(0),
       state_vec(Eigen::Matrix<double, NX, 1>::Zero()),
-      control_vec(Eigen::Matrix<double, NU, 1>::Zero()) {
+      control_vec(Eigen::Matrix<double, NU, 1>::Zero()),
+      // Initialize normalization to identity (no scaling)
+      norm_x(1.0), norm_y(1.0), norm_theta(1.0), norm_delta(1.0), norm_v(1.0),
+      norm_a(1.0), norm_delta_dot(1.0),
+      norm_vx(1.0), norm_vy(1.0), norm_r(1.0), norm_s(1.0) {
     
     std::cout << "Params initialized (all values must be loaded from JSON files)" << std::endl;
     std::cout << "  - State vector (NX=" << NX << "D) initialized to zero" << std::endl;
@@ -44,166 +48,216 @@ Params::Params()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-// Load Vehicle Parameters from JSON File ////////////////////////////////////
+// Load Vehicle & Model Parameters from JSON File ////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
-void Params::loadVehicleParams(std::string file) {
-    std::ifstream config_file(file);
-    if (!config_file.is_open()) {
-        std::cerr << "Error: Could not open vehicle params file: " << file << std::endl;
+void Params::loadVehicleParams(std::string vehicle_and_model_file) {
+    std::ifstream vehicle_file(vehicle_and_model_file);
+    if (!vehicle_file.is_open()) {
+        std::cerr << "Error: Could not open vehicle and model parameters file: " << vehicle_and_model_file << std::endl;
         return;
     }
     
     try {
         json j;
-        config_file >> j;
+        vehicle_file >> j;
         
-        // Geometric parameters
+        // ===== MOTOR MODEL PARAMETERS =====
         if (j.contains("Bm1")) Bm1 = j["Bm1"];
         if (j.contains("Bm2")) Bm2 = j["Bm2"];
         if (j.contains("Bm3")) Bm3 = j["Bm3"];
         
+        // ===== GEOMETRIC PARAMETERS =====
         if (j.contains("Lf")) Lf = j["Lf"];
         if (j.contains("Lr")) Lr = j["Lr"];
         if (j.contains("wheelbase")) wheelbase = j["wheelbase"];
         if (j.contains("L")) L = j["L"];
         
-        // Track parameters
+        // ===== TRACK PARAMETERS =====
         if (j.contains("r_inner")) r_inner = j["r_inner"];
         if (j.contains("r_outer")) r_outer = j["r_outer"];
         
-        // Physical constants
+        // ===== PHYSICAL CONSTANTS =====
         if (j.contains("g")) g = j["g"];
         
-        // Motor model constants (Bm1, Bm2, Bm3) for throttle to acceleration mapping are loaded above
-        // These same values are used in the bicycle model dynamics
+        // ===== MOTOR & LINEARIZATION CONSTANTS =====
         if (j.contains("throttle_max")) throttle_max = j["throttle_max"];
-        
-        // Linearization constant
         if (j.contains("linearize_eps")) linearize_eps = j["linearize_eps"];
         
-        std::cout << "Loaded vehicle parameters from: " << file << std::endl;
+        // ===== MPC CONFIGURATION PARAMETERS =====
+        if (j.contains("dt")) dt = j["dt"];
+        if (j.contains("horizon")) horizon = j["horizon"];
+        
+        std::cout << "Loaded vehicle and model parameters from: " << vehicle_and_model_file << std::endl;
         
     } catch (const std::exception& e) {
-        std::cerr << "Error parsing vehicle params file: " << e.what() << std::endl;
+        std::cerr << "Error parsing vehicle and model parameters file: " << e.what() << std::endl;
     }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 // Load Cost Parameters from JSON File ///////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
-void Params::loadCostParams(std::string file) {
-    std::ifstream config_file(file);
-    if (!config_file.is_open()) {
-        std::cerr << "Error: Could not open cost params file: " << file << std::endl;
+void Params::loadCostParams(std::string cost_file) {
+    std::ifstream input_file(cost_file);
+    if (!input_file.is_open()) {
+        std::cerr << "Error: Could not open cost parameters file: " << cost_file << std::endl;
         return;
     }
     
     try {
         json j;
-        config_file >> j;
+        input_file >> j;
         
-        // Cost function weights
+        // ===== COST FUNCTION WEIGHTS =====
         if (j.contains("weight_state")) weight_state = j["weight_state"];
         if (j.contains("weight_control")) weight_control = j["weight_control"];
         if (j.contains("weight_slack")) weight_slack = j["weight_slack"];
         
-        // Reference trajectory values
+        // ===== REFERENCE TRAJECTORY VALUES =====
         if (j.contains("ref_velocity")) ref_velocity = j["ref_velocity"];
         if (j.contains("ref_x")) ref_x = j["ref_x"];
         if (j.contains("ref_y")) ref_y = j["ref_y"];
         
-        std::cout << "Loaded cost parameters from: " << file << std::endl;
+        std::cout << "Loaded cost parameters from: " << cost_file << std::endl;
         
     } catch (const std::exception& e) {
-        std::cerr << "Error parsing cost params file: " << e.what() << std::endl;
+        std::cerr << "Error parsing cost parameters file: " << e.what() << std::endl;
     }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-// Load All Constraints from JSON File ///////////////////////////////////////
+// Load All Constraints (Bounds) from JSON File ///////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
-void Params::loadConstraints(std::string file) {
-    std::ifstream config_file(file);
-    if (!config_file.is_open()) {
-        std::cerr << "Error: Could not open constraints file: " << file << std::endl;
+void Params::loadConstraints(std::string bounds_file) {
+    std::ifstream input_file(bounds_file);
+    if (!input_file.is_open()) {
+        std::cerr << "Error: Could not open bounds/constraints file: " << bounds_file << std::endl;
         return;
     }
     
     try {
         json j;
-        config_file >> j;
+        input_file >> j;
         
-        // ===== STATE BOX CONSTRAINTS (ALL from JSON) =====
+        // ===== STATE BOX CONSTRAINTS - POSITION BOUNDS =====
         if (j.contains("x_min")) x_min = j["x_min"];
         if (j.contains("x_max")) x_max = j["x_max"];
         if (j.contains("y_min")) y_min = j["y_min"];
         if (j.contains("y_max")) y_max = j["y_max"];
+        
+        // ===== STATE BOX CONSTRAINTS - HEADING ANGLE BOUNDS =====
         if (j.contains("theta_min")) theta_min = j["theta_min"];
         if (j.contains("theta_max")) theta_max = j["theta_max"];
         
-        // CRITICAL: Velocity bounds (speed, NOT acceleration)
+        // ===== STATE BOX CONSTRAINTS - VELOCITY BOUNDS (Speed, NOT acceleration) =====
         if (j.contains("v_min")) v_min = j["v_min"];
         if (j.contains("v_max")) v_max = j["v_max"];
         
+        // ===== STATE BOX CONSTRAINTS - STEERING ANGLE BOUNDS =====
         if (j.contains("delta_min")) delta_min = j["delta_min"];
         if (j.contains("delta_max")) delta_max = j["delta_max"];
         
-        // ===== CONTROL BOX CONSTRAINTS (ALL from JSON) =====
-        if (j.contains("a_min")) a_min = j["a_min"];           // Acceleration min
-        if (j.contains("a_max")) a_max = j["a_max"];           // Acceleration max
+        // ===== CONTROL BOX CONSTRAINTS - ACCELERATION BOUNDS =====
+        if (j.contains("a_min")) a_min = j["a_min"];
+        if (j.contains("a_max")) a_max = j["a_max"];
+        
+        // ===== CONTROL BOX CONSTRAINTS - STEERING RATE BOUNDS =====
         if (j.contains("delta_dot_min")) delta_dot_min = j["delta_dot_min"];
         if (j.contains("delta_dot_max")) delta_dot_max = j["delta_dot_max"];
         
-        std::cout << "Loaded all box constraints from: " << file << std::endl;
+        std::cout << "Loaded all bounds/constraints from: " << bounds_file << std::endl;
         
     } catch (const std::exception& e) {
-        std::cerr << "Error parsing constraints file: " << e.what() << std::endl;
+        std::cerr << "Error parsing bounds/constraints file: " << e.what() << std::endl;
     }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-// Load MPC Config from JSON File ////////////////////////////////////////////
+// Load Normalization Factors from JSON File /////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
-void Params::loadMPCConfig(std::string file) {
-    std::ifstream config_file(file);
-    if (!config_file.is_open()) {
-        std::cerr << "Error: Could not open MPC config file: " << file << std::endl;
+void Params::loadNormalization(std::string normalization_file) {
+    std::ifstream input_file(normalization_file);
+    if (!input_file.is_open()) {
+        std::cerr << "Warning: Could not open normalization file: " << normalization_file << std::endl;
+        std::cerr << "Using default normalization factors (1.0 = no scaling)" << std::endl;
         return;
     }
     
     try {
         json j;
-        config_file >> j;
+        input_file >> j;
         
-        // MPC algorithm parameters only
-        if (j.contains("dt")) dt = j["dt"];
-        if (j.contains("horizon")) horizon = j["horizon"];
+        // Initialize all normalization factors to 1.0 (identity - no scaling)
+        // This provides safe defaults in case any key is missing from the JSON file
+        norm_x = 1.0; norm_y = 1.0; norm_theta = 1.0; norm_delta = 1.0; norm_v = 1.0;
+        norm_a = 1.0; norm_delta_dot = 1.0;
+        norm_vx = 1.0; norm_vy = 1.0; norm_r = 1.0; norm_s = 1.0;
         
-        std::cout << "Loaded MPC configuration from: " << file << std::endl;
+        // ===== STATE NORMALIZATION FACTORS =====
+        if (j.contains("state_normalization")) {
+            auto& state_norm = j["state_normalization"];
+            if (state_norm.contains("X")) norm_x = state_norm["X"];
+            if (state_norm.contains("Y")) norm_y = state_norm["Y"];
+            if (state_norm.contains("theta")) norm_theta = state_norm["theta"];
+            if (state_norm.contains("delta")) norm_delta = state_norm["delta"];
+            if (state_norm.contains("v")) norm_v = state_norm["v"];
+        }
+        
+        // ===== CONTROL NORMALIZATION FACTORS =====
+        if (j.contains("control_normalization")) {
+            auto& control_norm = j["control_normalization"];
+            if (control_norm.contains("a")) norm_a = control_norm["a"];
+            if (control_norm.contains("delta_dot")) norm_delta_dot = control_norm["delta_dot"];
+        }
+        
+        // ===== REFERENCE NORMALIZATION FACTORS =====
+        if (j.contains("reference_normalization")) {
+            auto& ref_norm = j["reference_normalization"];
+            if (ref_norm.contains("Vx")) norm_vx = ref_norm["Vx"];
+            if (ref_norm.contains("Vy")) norm_vy = ref_norm["Vy"];
+            if (ref_norm.contains("r")) norm_r = ref_norm["r"];
+            if (ref_norm.contains("s")) norm_s = ref_norm["s"];
+        }
+        
+        std::cout << "Loaded normalization factors from: " << normalization_file << std::endl;
         
     } catch (const std::exception& e) {
-        std::cerr << "Error parsing MPC config file: " << e.what() << std::endl;
+        std::cerr << "Error parsing normalization file: " << e.what() << std::endl;
     }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 // Load All Parameters from Multiple JSON Files //////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
-void Params::loadAll(std::string vehicle_file, std::string cost_file, 
-                     std::string constraints_file, std::string mpc_file) {
-    std::cout << "\n========== LOADING ALL PARAMETERS FROM JSON FILES (ONCE ONLY) ==========" << std::endl;
-    loadVehicleParams(vehicle_file);      // Loads geometry + motor coefficients + throttle_max + linearize_eps
-    loadCostParams(cost_file);            // Loads cost function weights
-    loadConstraints(constraints_file);    // Loads ALL box constraints
-    loadMPCConfig(mpc_file);              // Loads dt and horizon
+void Params::loadAll(std::string vehicle_and_model_file, std::string cost_parameters_file, 
+                     std::string bounds_and_constraints_file, std::string normalization_file) {
+    std::cout << "\n========== LOADING ALL PARAMETERS FROM JSON FILES (ONCE ONLY) ===========" << std::endl;
+    
+    // Step 1: Load vehicle geometry, motor model, and MPC config (dt, horizon) from model file
+    loadVehicleParams(vehicle_and_model_file);
+    
+    // Step 2: Load cost function weights and reference values
+    loadCostParams(cost_parameters_file);
+    
+    // Step 3: Load all state and control bounds/constraints
+    loadConstraints(bounds_and_constraints_file);
+    
+    // Step 4: Load normalization factors for numerical stability
+    loadNormalization(normalization_file);
+    
     std::cout << "========== ALL PARAMETERS LOADED SUCCESSFULLY ===========\n" << std::endl;
+    std::cout << "Summary:" << std::endl;
+    std::cout << "  - Vehicle/Model: " << vehicle_and_model_file << " (includes dt=" << dt << ", horizon=" << horizon << ")" << std::endl;
+    std::cout << "  - Cost Parameters: " << cost_parameters_file << std::endl;
+    std::cout << "  - Bounds/Constraints: " << bounds_and_constraints_file << std::endl;
+    std::cout << "  - Normalization: " << normalization_file << std::endl;
 }
 
-///////////////////////////////////////////////////////////////////////////////
+/*///////////////////////////////////////////////////////////////////////////////
 // Utility Methods ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 int Params::getPredictionSize() const {
     return horizon;
-}
+}*/
 
 }  // namespace mpc_controller

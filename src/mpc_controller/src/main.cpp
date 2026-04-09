@@ -26,12 +26,11 @@ int main(){
         json config_json;
         config_file >> config_json;
         
-        // Extract all 5 file paths from config.json
-        std::string vehicle_file = config_json["vehicle_file"];
-        std::string cost_file = config_json["cost_file"];
-        std::string constraints_file = config_json["constraints_file"];
-        std::string motor_file = config_json["motor_file"];
-        std::string mpc_file = config_json["mpc_file"];
+        // Extract file paths from config.json
+        std::string vehicle_and_model_file = config_json["vehicle_file"];
+        std::string cost_parameters_file = config_json["cost_file"];
+        std::string bounds_and_constraints_file = config_json["constraints_file"];
+        std::string normalization_file = config_json["normalization_file"];
         
         std::cout << "Configuration loaded successfully" << std::endl;
         
@@ -41,7 +40,8 @@ int main(){
         std::cout << "Initializing parameters..." << std::endl;
         
         Params params;
-        params.loadAll(vehicle_file, cost_file, constraints_file, mpc_file);
+        params.loadAll(vehicle_and_model_file, cost_parameters_file, 
+                       bounds_and_constraints_file, normalization_file);
         
         std::cout << "Parameters initialized successfully" << std::endl;
         

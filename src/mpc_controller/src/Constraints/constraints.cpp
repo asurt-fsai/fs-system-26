@@ -72,9 +72,9 @@ std::pair<Eigen::MatrixXd, Eigen::MatrixXd> ConstraintSet::getInputBounds() cons
     
     return {lower, upper};
 }
-
+    // make the bounds in a matrix and repeat for the horizon as the solver needs matrices of bounds for each time step. This is just a convenience method to create those matrices from the vector bounds.
 std::pair<Eigen::MatrixXd, Eigen::MatrixXd> ConstraintSet::getStateBounds() const {
-    int horizon = params_.getPredictionSize();
+    int horizon = params_.horizon;
     
     Eigen::MatrixXd lower = Eigen::MatrixXd::Zero(horizon, 4);
     Eigen::MatrixXd upper = Eigen::MatrixXd::Zero(horizon, 4);
@@ -94,6 +94,7 @@ std::pair<Eigen::MatrixXd, Eigen::MatrixXd> ConstraintSet::getStateBounds() cons
 ///////////////////////////////////////////////////////////////////////////////
 // FEASIBILITY CHECK
 ///////////////////////////////////////////////////////////////////////////////
+// needed by the solver to check if the initial state and input are within the constraints before starting the optimization. This is a simple check that compares the given state and control against the bounds defined in the Params struct. If any of the state or control variables are outside their respective bounds, the function returns false, indicating that the problem is infeasible with the given initial conditions. Otherwise, it returns true.
 bool ConstraintSet::checkFeasibility(const Eigen::Vector4d& state,
                                      const Eigen::Vector2d& control) const {
     // Get explicit bounds
