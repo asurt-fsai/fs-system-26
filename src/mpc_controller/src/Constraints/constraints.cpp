@@ -1,6 +1,8 @@
 #include "constraints.h"
 #include <cmath>
 
+// TODO: implement the box constrainsts in another file to make the code cleaner and more modular. This file should only contain the constraint definitions and checks, not the loading of parameters from JSON (which should be in params.cpp). The constraints should directly use the parameters from the Params struct, which is passed in via the constructor of ConstraintSet. This way, we can keep the constraint logic separate from the parameter loading logic, and we can easily test the constraints with different parameter sets without needing to load from JSON each time.
+
 namespace mpc_controller {
 
 ///////////////////////////////////////////////////////////////////////////////
