@@ -3,7 +3,6 @@ import os
 import logging
 from enum import Enum
 from typing import Optional
-import rclpy.node
 logger = logging.getLogger(__name__)
 
 from supervisor.helpers.Module.Module import Module
@@ -249,44 +248,44 @@ class MissionManager:
     # Stop Mission
     # ------------------------------------------------------------------
 
-    def stopMission(self) -> None:
-        """
-        Input  : None
-        Output : None
-        Logic  :
-            - Guard: no active mission
-            - Shutdown all modules via ModuleManager
-            - Log any modules that failed to shut down
-            - Set mission status FINISHED
-            - Deregister mission from CommunicationLayer
-            - Clear activeMission reference
-        """
-        if self.activeMission is None:
-            logger.warning("[MissionManager] stopMission called but no active mission — ignoring")
-            return
-
-        mission_name = type(self.activeMission).__name__
-
-        logger.info(f"[MissionManager] Stopping mission={mission_name}")
-
-        failed = self.moduleManager.shutdownAll()
-
-        if failed:
-            failed_names = [m.pkg for m in failed]
-            logger.warning(
-                f"[MissionManager] {len(failed)} module(s) failed to shut down: {failed_names}"
-            )
-        else:
-            logger.info("[MissionManager] All modules shut down cleanly")
-
-        self.activeMission.missionStatus = MissionStatus.FINISHED
-
-        CommunicationLayer.getInstance().registerMission(None)
-
-        self.activeMission = None
-
-        logger.info(f"[MissionManager] Mission={mission_name} stopped")
-
+    #def stopMission(self) -> None:
+    #    """
+    #    Input  : None
+    #    Output : None
+    #    Logic  :
+    #        - Guard: no active mission
+    #        - Shutdown all modules via ModuleManager
+    #        - Log any modules that failed to shut down
+    #        - Set mission status FINISHED
+    #        - Deregister mission from CommunicationLayer
+    #        - Clear activeMission reference
+    #    """
+    #       
+    #     if self.activeMission is None:
+    #         logger.warning("[MissionManager] stopMission called but no active mission — ignoring")
+    #         return
+    #
+    #     mission_name = type(self.activeMission).__name__
+    #
+    #     logger.info(f"[MissionManager] Stopping mission={mission_name}")
+    #
+    #     failed = self.moduleManager.shutdownAll()
+    #
+    #     if failed:
+    #         failed_names = [m.pkg for m in failed]
+    #         logger.warning(
+    #             f"[MissionManager] {len(failed)} module(s) failed to shut down: {failed_names}"
+    #         )
+    #     else:
+    #         logger.info("[MissionManager] All modules shut down cleanly")
+    #
+    #     self.activeMission.missionStatus = MissionStatus.FINISHED
+    #
+    #     CommunicationLayer.getInstance().registerMission(None)
+    #
+    #     self.activeMission = None
+    #
+    #     logger.info(f"[MissionManager] Mission={mission_name} stopped")
     # ------------------------------------------------------------------
     # JSON Loader
     # ------------------------------------------------------------------

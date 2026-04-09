@@ -15,5 +15,6 @@ class EmergencyStopCommand:
         Output : None
         Logic  : 
                  Shutdown all modules via moduleManager.shutdownAll().
+                 Stop mission via MissionManager.stopMission()
         """
         pass

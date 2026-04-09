@@ -4,7 +4,6 @@ from supervisor.helpers.Missions.MissionStatus import MissionStatus
 from supervisor.helpers.Missions.MissionManager import MissionType
 from abc import ABC, abstractmethod
 from rclpy.node import Node
-import logging
 
 
 class MissionFinishing(ABC):
@@ -18,6 +17,7 @@ class MissionFinishing(ABC):
         """
         self.communication = communication
         self.supervisor = supervisor
+        self.missionStatus = MissionStatus.IDLE
         self.logger = logging.getLogger(__name__)
 
     @abstractmethod
