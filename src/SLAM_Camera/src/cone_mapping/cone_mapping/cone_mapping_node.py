@@ -103,7 +103,7 @@ class MappingConstants:
     MAX_DETECTION_RANGE = 500.0  # meters (r_max)
     
     # Height validation
-    MAX_CONE_HEIGHT_DEVIATION = 1.0  # meters, increased to handle floating cones (camera z=0 issue)
+    MAX_CONE_HEIGHT_DEVIATION = 2.0  # meters, increased to handle floating cones (camera z=0 issue)
     
     # Data association
     ASSOCIATION_GATE_RADIUS = 2.0  # meters (d_gate)
@@ -111,14 +111,14 @@ class MappingConstants:
     
     # Measurement noise model: σ²(d) = σ₀² + k·d²
     SIGMA_0_SQUARED = 0.01  # Base measurement noise (m²)
-    NOISE_SCALE_FACTOR = 0.02  # Distance-dependent scaling
+    NOISE_SCALE_FACTOR = 0.02 # Distance-dependent scaling
     
     # Process noise
     PROCESS_NOISE_Q = 0.001  # Static landmark model
     
     # Lifecycle thresholds
-    OBSERVATIONS_FOR_CONFIRMATION = 3
-    COVARIANCE_THRESHOLD_CONFIRMATION = 0.5  # meters²
+    OBSERVATIONS_FOR_CONFIRMATION = 20
+    COVARIANCE_THRESHOLD_CONFIRMATION = 0.1 # meters²
     FRAMES_UNTIL_LOST = 10
     TIMEOUT_UNTIL_DELETED = 5.0  # seconds
     
@@ -318,12 +318,14 @@ class KalmanLandmark:
                 self.lifecycle_state = LandmarkState.CONFIRMED
                 self.assigned_type = self.cone_type  # Lock type
                 
-                # [NEW] Graph-SLAM Anchoring Logic
+                # [NEW] Phase 4: Graph-SLAM Anchoring Logic
                 if Tpose is not None:
                     self.anchor_timestamp = current_time
                     self.anchor_pose = Tpose
+                    # Convert Kalman filter's self.state [x, y] into a homogeneous point p_map = [x, y, 0.0, 1.0]
                     p_map = np.array([self.state[0], self.state[1], 0.0, 1.0])
                     try:
+                        # Compute the relative position: p_relative = inverse(T_pose) * p_map
                         self.relative_state = np.linalg.inv(Tpose) @ p_map
                     except np.linalg.LinAlgError:
                         self.relative_state = None  # Failed to compute relative state
@@ -874,7 +876,7 @@ class ConeMappingNode(Node):
         self.create_timer(1.0, self.maintenance_callback)  # 1 Hz map maintenance
         self.create_timer(0.1, self.publish_map)  # 10 Hz map publishing
         
-        # [NEW] Subscriber for SLAM corrected trajectory
+        # [NEW] Phase 6: Subscriber for SLAM corrected trajectory
         self.trajectory_sub = self.create_subscription(
             Path,
             '/slam/corrected_trajectory',
@@ -1057,13 +1059,13 @@ class ConeMappingNode(Node):
                             best_pose = pose_stamped
                             
                     if best_pose is not None:
-                        # Extract the new pose
+                        # [NEW] Extract the new, corrected pose and convert it to a 4x4 matrix (Tpose_new)
                         Tpose_new = self.transformer._pose_to_matrix(best_pose.pose)
                         
-                        # Recalculate global position from relative state
+                        # [NEW] Recalculate global position from relative state: p_map_new = T_pose_new * p_relative
                         p_map_new = Tpose_new @ lm.relative_state
                         
-                        # Overwrite the mapped state and save new anchor
+                        # [NEW] Overwrite the mapped state and save new anchor
                         lm.state = np.array([p_map_new[0], p_map_new[1]])
                         lm.anchor_pose = Tpose_new
     

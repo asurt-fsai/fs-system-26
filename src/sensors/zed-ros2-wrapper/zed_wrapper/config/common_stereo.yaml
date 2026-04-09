@@ -124,7 +124,7 @@
             reset_pose_with_svo_loop: true # Reset the camera pose the `initial_base_pose` when the SVO loop is enabled and the SVO playback reaches the end of the file.
             publish_odom_pose: true # Advertise the odometry and pose topics that are published only if a node subscribes to them
             publish_pose_cov: false # Advertise the pose with covariance topic that is published only if a node subscribes to it
-            publish_cam_path: false # Advertise the camera odometry and pose path topics that are published only if a node subscribes to them
+            publish_cam_path: true # Advertise the camera odometry and pose path topics that are published only if a node subscribes to them
 
         gnss_fusion:
             gnss_fusion_enabled: false # fuse 'sensor_msg/NavSatFix' message information into pose data

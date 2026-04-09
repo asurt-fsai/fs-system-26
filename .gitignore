@@ -35,7 +35,7 @@ pip-delete-this-directory.txt
 /testing_conemapping
 /Mar_4_bags
 /slam_dl
-
+/Path_map_bags
 # OS generated files
 .DS_Store
 .DS_Store?
