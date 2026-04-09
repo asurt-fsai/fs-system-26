@@ -33,12 +33,8 @@ pip-delete-this-directory.txt
 /Straight_Path
 /Circular_Path
 /testing_conemapping
-/lidaaarrrrr
-/Lidar Bag
-/lidar_bag_plus_mapping
-/cone_mapping_data
+/Mar_4_bags
 /slam_dl
-
 
 # OS generated files
 .DS_Store
