@@ -1,6 +1,21 @@
 import time
 import threading
+import logging
+from enum import Enum
 from supervisor.helpers.Module.ModuleState import ModuleState
+from supervisor.helpers.Commands import ShutdownModulesCommand,StartMissionCommand,EmergencyStopCommand,RestartModuleCommand
+
+
+class SuperState(Enum):
+    """
+    Enum class for the supervisor's state
+    """
+    WAITING = 0
+    LAUNCHING = 1
+    READY = 2
+    RUNNING = 3
+    STOPPING = 4
+    FINISHED = 5
 
 class Supervisor:
 
@@ -16,7 +31,28 @@ class Supervisor:
                  Initialize monitor thread references.
                  Register self with communication layer.
         """
-        pass
+        self.communication = communication
+        self.missionManager = missionManager
+        self.moduleManager = moduleManager
+        self.heartbeat_timeout = heartbeat_timeout
+
+        self.currentState = SuperState.WAITING
+        self.logger = logging.getLogger(__name__)
+
+        # State variables
+        self.asState = None
+        self.amiState = None
+        self.isFinished = False
+        self.currentVel = 0.0
+        self.maxStopVelTh = 0.1
+
+        # Heartbeat tracking
+        self.module_last_heartbeat = {}
+        self.monitor_thread = threading.Thread(target=self._heartbeat_monitor_loop, daemon=True)
+        self.monitor_thread.start()
+
+        # Register self with communication layer
+        self.communication.registerSupervisor(self)
 
     def issueCommand(self, cmd):
         """
@@ -24,8 +60,15 @@ class Supervisor:
         Output : None
         Logic  : Call cmd.execute().
         """
-        pass
+        try:
+            cmd.execute()
+        except Exception as e:
+            self.logger.error(f"Failed to execute command {cmd}: {e}")
 
+
+    # ========================
+    # STATE TRANSITIONS
+    # ========================
     def transitionState(self, newState):
         """
         Input  : newState (SupervisorState) — state to transition to
@@ -35,7 +78,42 @@ class Supervisor:
                  Log the transition.
                  this is the same function in old system called 'run'
         """
-        pass
+        # Auto transition if newState is None
+        state = newState if newState else self.currentState
+
+        if state == SuperState.WAITING:
+            if self.amiState not in (None, 0):  # AMI selected
+                self.currentState = SuperState.LAUNCHING
+                self.logger.info("Transition to LAUNCHING")
+                self.issueCommand(StartMissionCommand(self.missionManager, self.amiState))
+
+        elif state == SuperState.LAUNCHING:
+            self.currentState = SuperState.READY
+            self.logger.info("Transition to READY")
+
+        elif state == SuperState.READY:
+            if self.asState == 2:  # Vehicle ready to run
+                self.currentState = SuperState.RUNNING
+                self.logger.info("Transition to RUNNING")
+
+        elif state == SuperState.RUNNING:
+            if self.isFinished:
+                self.currentState = SuperState.STOPPING
+                self.logger.info("Transition to STOPPING")
+
+        elif state == SuperState.STOPPING:
+            if self.currentVel < self.maxStopVelTh:
+                self.currentState = SuperState.FINISHED
+                self.logger.info("Transition to FINISHED")
+
+        elif state == SuperState.FINISHED:
+            self.issueCommand(ShutdownModulesCommand(self.moduleManager))
+            self.logger.info("Mission finished. Modules shutting down.")
+            time.sleep(2)  # short delay before restarting
+            self.currentState = SuperState.WAITING
+            self.amiState = None
+            self.isFinished = False
+            self.logger.info("Supervisor reset to WAITING")
 
     def onCANState(self, data):
         """
@@ -44,7 +122,9 @@ class Supervisor:
         Logic  : Update internal asState or amiState.
                  Trigger state transitions if conditions are met.
         """
-        pass
+        self.asState = data.as_state
+        self.amiState = data.ami_state
+        self.transitionState()  # auto-transition based on new CAN info
 
     def onVelocity(self, data):
         """
@@ -53,7 +133,11 @@ class Supervisor:
         Logic  : Process velocity update.
                  Used for mission monitoring or safety checks.
         """
-        pass
+        self.currentVel = data
+        # Could also check stopping conditions in STOPPING
+        if self.currentState == SuperState.STOPPING:
+            self.transitionState()
+
 
     def onHeartbeat(self, pkg: str):
         """
@@ -76,36 +160,9 @@ class Supervisor:
         """
         pass
 
-## if supervisor receives heartbeat in threads so no need for these function
-    def startHeartbeatMonitor(self):
-        """
-        Input  : None
-        Output : None
-        Logic  : Start background daemon thread running _heartbeatMonitorLoop.
-                 Set _monitorRunning = True.
-                 Guard against starting twice.
-        """
-        pass
-
-    def stopHeartbeatMonitor(self):
-        """
-        Input  : None
-        Output : None
-        Logic  : Set _monitorRunning = False.
-                 Join the monitor thread with timeout.
-        """
-        pass
-
-    def _heartbeatMonitorLoop(self):
-        """
-        Input  : None
-        Output : None
-        Logic  : Loop while _monitorRunning is True.
-                 Call checkHeartbeat() every 1 second.
-                 Catch and log any exceptions to keep thread alive.
-        """
-        pass
-#####
+    # ========================
+    # MISSION CALLBACKS
+    # ========================
     def onMissionFinished(self, result):
         """
         Input  : result — mission result data
@@ -113,7 +170,9 @@ class Supervisor:
         Logic  : Transition state to FINISHED.
                  Issue ShutdownModulesCommand.
         """
-        pass
+        self.isFinished = True
+        self.issueCommand(ShutdownModulesCommand(self.moduleManager))
+        self.transitionState(SuperState.FINISHED)
 
     def onMissionFailed(self, reason: str):
         """
@@ -123,4 +182,6 @@ class Supervisor:
                  Issue EmergencyStopCommand.
                  Log the failure reason.
         """
-        pass
+        self.logger.error(f"Mission failed: {reason}")
+        self.currentState = SuperState.STOPPING
+        self.issueCommand(EmergencyStopCommand(self.moduleManager))
