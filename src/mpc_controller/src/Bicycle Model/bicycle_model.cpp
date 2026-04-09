@@ -12,14 +12,8 @@
  */
 namespace mpc_controller {
 
-BicycleModel::BicycleModel()
-{
-    std::cout << "default constructor, not everything is initialized properly" << std::endl;
-}
-
-BicycleModel::BicycleModel(const PathToJson& path)
-    : params_(Params(path.model_path)),
-      mpcconfig_(MPCConfig(path.model_path))
+BicycleModel::BicycleModel(const Params& config)
+    : params_(config)
 {
 }
 
@@ -48,7 +42,7 @@ Eigen::VectorXd BicycleModel::step(const state& X,
                                    const control& U,
                                    double dt) const {
     if (dt < 0) {
-        dt = mpcconfig_.dt;
+        dt = params_.dt;
     }
 
     // Convert state/control structs to plain Eigen vectors for the integrator
@@ -71,7 +65,7 @@ Eigen::VectorXd BicycleModel::stepEulerForward(const state& X,
                                                const control& U,
                                                double dt) const {
     if (dt < 0) {
-        dt = mpcconfig_.dt;
+        dt = params_.dt;
     }
 
     // Convert state/control structs to plain Eigen vectors for the integrator
@@ -104,7 +98,7 @@ Eigen::MatrixXd BicycleModel::predictTrajectory(const state& X0,
     };
 
     // Use RK4 integration (use_rk4=true) for better MPC prediction accuracy
-    return integration::predictTrajectory(x0_vec, controls, dynamics_fn, mpcconfig_.dt, true);
+    return integration::predictTrajectory(x0_vec, controls, dynamics_fn, params_.dt, true);
 }
 
 void BicycleModel::linearize(const state& X,
@@ -130,68 +124,71 @@ void BicycleModel::linearize(const state& X,
 
     Eigen::VectorXd x_dot_nom = dynamics(toState(x_vec), toControl(u_vec));
 
-    // A matrix: ∂x_dot/∂state (5x5)
+    // A matrix: ∂x_dot/∂state (5x5) - use perturbation from Params
     A = Eigen::MatrixXd::Zero(5, 5);
     for (int i = 0; i < 5; ++i) {
         Eigen::VectorXd x_pert = x_vec;
-        x_pert(i) += LINEARIZE_EPS;
+        x_pert(i) += params_.linearize_eps;     // From Params (motor_model.json)!
         Eigen::VectorXd x_dot_pert = dynamics(toState(x_pert), toControl(u_vec));
-        A.col(i) = (x_dot_pert - x_dot_nom) / LINEARIZE_EPS;
+        A.col(i) = (x_dot_pert - x_dot_nom) / params_.linearize_eps;  // From Params!
     }
 
-    // B matrix: ∂x_dot/∂control (5x2)
+    // B matrix: ∂x_dot/∂control (5x2) - use perturbation from Params
     B = Eigen::MatrixXd::Zero(5, 2);
     for (int i = 0; i < 2; ++i) {
         Eigen::VectorXd u_pert = u_vec;
-        u_pert(i) += LINEARIZE_EPS;
+        u_pert(i) += params_.linearize_eps;     // From Params (motor_model.json)!
         Eigen::VectorXd x_dot_pert = dynamics(toState(x_vec), toControl(u_pert));
-        B.col(i) = (x_dot_pert - x_dot_nom) / LINEARIZE_EPS;
+        B.col(i) = (x_dot_pert - x_dot_nom) / params_.linearize_eps;  // From Params!
     }
 
     // Discrete time Jacobians (zero-order hold)
-    A = Eigen::MatrixXd::Identity(5, 5) + A * mpcconfig_.dt;
-    B = B * mpcconfig_.dt;
+    A = Eigen::MatrixXd::Identity(5, 5) + A * params_.dt;
+    B = B * params_.dt;
 }
 
 double BicycleModel::throttleToAcceleration(double throttle, double current_velocity) const {
-    // REFERENCE: From kinematic_bicycle/bicycle_model.py Python implementation
-    // Line: a = msg.data*(1.25 + 0.2*self.u[0] - 0.01*(self.u[0]**2))
+    // Motor dynamics model (formula from Params - ALL constants from JSON files)
+    // a = throttle * (Bm1 + Bm2*v - Bm3*v²)
     // 
     // This maps throttle command to realistic acceleration using motor dynamics model
     // that captures speed-dependent effects.
+    //
+    // Key insight for Formula Student:
+    // - At v=0: a = throttle * Bm1  (maximum acceleration)
+    // - As v increases: linear term (Bm2*v) reduces effect, quadratic term kills acceleration
+    // - Captures realistic throttle response at different speeds
     
-    // Clamp throttle to valid range
+    // Clamp throttle to valid range (from Params)
     double throttle_valid = validateThrottle(throttle);
     
-    // Apply throttle dynamics formula:
-    // a = throttle * (1.25 + 0.2*v - 0.01*v²)
+    // Apply throttle-to-acceleration formula using ONLY Params constants
     double v = current_velocity;
     double acceleration = throttle_valid * (
-        THROTTLE_BASE_COEFF + 
-        THROTTLE_LINEAR_SPEED_COEFF * v - 
-        THROTTLE_QUAD_SPEED_COEFF * v * v
+        params_.Bm1 +                    // Base coefficient from Params (vehicle parameters)
+        params_.Bm2 * v -                // Linear speed coefficient from Params (vehicle parameters)
+        params_.Bm3 * v * v              // Quadratic speed coefficient from Params (vehicle parameters)
     );
     
     return acceleration;
 }
 
 double BicycleModel::validateSteeringAngle(double steering_angle_rad) const {
-    // REFERENCE: From kinematic_bicycle/bicycle_model.py
-    // Lines: if (abs(msg.data) > 35): ... self.destroy_node()
-    // 
-    // FSAI 2026 control constraint: Steering limited to ±35 degrees
+    // Validate against steering limit from Params
+    // All constraint values come from JSON files (constraints.json)
     
     double clamped_angle = steering_angle_rad;
     
-    if (std::abs(clamped_angle) > MAX_STEERING_ANGLE_RAD) {
-        // Log warning (in actual ROS context, would use node logger)
-        // logger.warning(f"Steering angle {clamped_angle*180/pi}° exceeds ±35°, clamping")
+    if (std::abs(clamped_angle) > params_.delta_max) {    // From Params (constraints.json)!
+        std::cerr << "WARNING: Steering angle " << clamped_angle * 180.0 / M_PI 
+                  << "° exceeds ±" << params_.delta_max * 180.0 / M_PI 
+                  << "°, clamping to limit" << std::endl;
         
-        // Clamp to valid range
-        if (clamped_angle > MAX_STEERING_ANGLE_RAD) {
-            clamped_angle = MAX_STEERING_ANGLE_RAD;
-        } else if (clamped_angle < -MAX_STEERING_ANGLE_RAD) {
-            clamped_angle = -MAX_STEERING_ANGLE_RAD;
+        // Clamp to valid range (from Params)
+        if (clamped_angle > params_.delta_max) {         // From Params (constraints.json)!
+            clamped_angle = params_.delta_max;
+        } else if (clamped_angle < -params_.delta_max) { // From Params (constraints.json)!
+            clamped_angle = -params_.delta_max;
         }
     }
     
@@ -199,23 +196,21 @@ double BicycleModel::validateSteeringAngle(double steering_angle_rad) const {
 }
 
 double BicycleModel::validateThrottle(double throttle) const {
-    // REFERENCE: From kinematic_bicycle/bicycle_model.py
-    // Ask Maros to confirm this line, but it looks like if the throttle command exceeds ±1.0, the node is destroyed (emergency stop)
-    // Lines: if (abs(msg.data) > 1.0): ... self.destroy_node()
-    // 
-    // FSAI 2026 control constraint: Throttle limited to [-1.0, 1.0]
+    // Validate against throttle limit from Params
+    // All constraint values come from JSON files (motor_model.json)
     
     double clamped_throttle = throttle;
     
-    if (std::abs(clamped_throttle) > MAX_THROTTLE) {
-        // Log warning (in actual ROS context, would use node logger)
-        // logger.warning(f"Throttle {clamped_throttle} exceeds ±1.0, clamping")
+    if (std::abs(clamped_throttle) > params_.throttle_max) {  // From Params (motor_model.json)!
+        std::cerr << "WARNING: Throttle " << clamped_throttle 
+                  << " exceeds ±" << params_.throttle_max   // From Params (motor_model.json)!
+                  << ", clamping to limit" << std::endl;
         
-        // Clamp to valid range
-        if (clamped_throttle > MAX_THROTTLE) {
-            clamped_throttle = MAX_THROTTLE;
-        } else if (clamped_throttle < -MAX_THROTTLE) {
-            clamped_throttle = -MAX_THROTTLE;
+        // Clamp to valid range (from Params)
+        if (clamped_throttle > params_.throttle_max) {        // From Params (motor_model.json)!
+            clamped_throttle = params_.throttle_max;
+        } else if (clamped_throttle < -params_.throttle_max) {  // From Params (motor_model.json)!
+            clamped_throttle = -params_.throttle_max;
         }
     }
     

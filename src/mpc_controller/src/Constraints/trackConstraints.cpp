@@ -8,7 +8,7 @@ TrackConstraints::TrackConstraints()
 }
 
 TrackConstraints::TrackConstraints(const PathToJson& path)
-    : params_(Params(path.model_path))
+    : params_(Params())
 {
 }
 

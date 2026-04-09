@@ -1,3 +1,9 @@
 {
-    
+  "description": "MPC cost function weights and reference trajectories",
+  "weight_state": 1.0,
+  "weight_control": 1.0,
+  "weight_slack": 1e9,
+  "ref_velocity": 10.0,
+  "ref_x": 0.0,
+  "ref_y": 0.0
 }

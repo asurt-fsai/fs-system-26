@@ -3,17 +3,27 @@
 
 #include "config.h"
 namespace mpc_controller{
+    /**
+     * @brief Vehicle state (5D Kinematic Bicycle Model)
+     * 
+     * Used by MPC: [x, y, theta, delta, v]
+     * Indices match config.h::StateInputIndexes
+     */
     struct state{
-        double x; // Global X position (meters)
-        double y; // Global Y position (meters)
-        double vx; // Longitudinal velocity (m/s)
-        double vy; // Lateral velocity (m/s)
-        double theta; // Heading/yaw angle (radians)
-        double r; // Yaw rate (rad/s)
-        double delta; // Steering angle of front wheel (radians)
-        double v; // Longitudinal velocity (m/s)
-        double Throttle; // The pedal position, which is used to limit the jerk of the acceleration, it is not directly used in the dynamics but it is used to compute the acceleration using the throttleToAcceleration function in the BicycleModel class
-        double s; // arc length along the track
+        // ===== KINEMATIC STATE (Used by MPC) =====
+        double x;          // Global X position [m]
+        double y;          // Global Y position [m]
+        double theta;      // Heading angle [rad], normalized to [-π, π]
+        double delta;      // Steering angle [rad], constrained to ±0.6109 (±35°)
+        double v;          // Forward velocity [m/s], constrained to [0, 25] for FSAI
+
+        // ===== AUXILIARY FIELDS (Not used in MPC dynamics, kept for compatibility) =====
+        // These are used by other parts of the system (path tracking, visualization, etc.)
+        double vx;         // Longitudinal velocity (body frame) - NOT used in MPC
+        double vy;         // Lateral velocity (body frame) - NOT used in MPC
+        double r;          // Yaw rate [rad/s] - NOT used in MPC (use dtheta/dt instead)
+        double s;          // Arc length along track - for path projection only
+        double Throttle;   // Throttle command [-1, 1] - auxiliary, not a dynamics state
 
         void setZero(){
             x = 0.0;
@@ -25,6 +35,7 @@ namespace mpc_controller{
             delta = 0.0;
             v = 0.0;
             s = 0.0;
+            Throttle = 0.0;
         }
         void unwrapTheta(){
             if (theta > M_PI) {
@@ -42,10 +53,17 @@ namespace mpc_controller{
         }
     };
 
+    /**
+     * @brief Vehicle control input (2D)
+     * 
+     * Control semantics: ACCELERATION-BASED
+     * MPC directly commands acceleration (m/s²)
+     * Constraints: -5.0 ≤ a ≤ 5.0 m/s²
+     */
     struct control{
-        double D_dot; // Delta Throttle of perssing the pedal (m/s²)
-        double delta_dot; // steering angle rate
-        double dV_ghost; // Ghost velocity rate, used to compute the ghost error in the cost function, it is not directly used in the dynamics but it is used to compute the ghost error using the getErrorInfo function in the Cost class
+        double D_dot;      // Acceleration [m/s²] (CLARIFIED: NOT velocity, NOT throttle)
+        double delta_dot;  // Steering angle rate [rad/s]
+        double dV_ghost;   // Ghost velocity rate (auxiliary, not dynamics state)
 
         void setZero(){
             D_dot = 0.0;
@@ -66,6 +84,9 @@ namespace mpc_controller{
     typedef Eigen::Matrix<double, 9, 1> StateVector;
     typedef Eigen::Matrix<double, 3, 1> ControlVector;
 
+    typedef Eigen::Matrix<double, NX, 1> state_Bounds;
+    typedef Eigen::Matrix<double, NU, 1> control_Bounds;
+
     StateVector StateToVector(const state& X);
     ControlVector ControlToVector(const control& U);
 
@@ -73,4 +94,4 @@ namespace mpc_controller{
     control VectorToControl(const ControlVector& U_vec);
 
 }
-#endif //MPC_Types_H
+#endif //MPC_TYPES_H

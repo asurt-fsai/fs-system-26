@@ -4,7 +4,8 @@
 
     "model_path": "params/model.json",
     "bounds_path": "params/bounds.json",
-    "costs_path": "params/costs.json"
+    "costs_path": "params/costs.json",
+    "normalization_path": "normalization.json"
 
 
 }

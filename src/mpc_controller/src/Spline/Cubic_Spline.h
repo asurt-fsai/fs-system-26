@@ -5,7 +5,7 @@
 
 #include <Eigen/Dense>
 #include <vector>
-#include <config.h>
+#include "../config.h"
 
 namespace mpc_controller{
     // Cubic Spline Interpolation Parameters and Data Structures y  = a + b dx + c dx^2 + d dx^3

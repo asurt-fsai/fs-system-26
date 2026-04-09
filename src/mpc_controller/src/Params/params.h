@@ -1,77 +1,121 @@
+///////////////////////////////////////////////////////////////////////////////
+// Copyright 2026 FSAI Control Systems
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
 #ifndef MPC_PARAMS_H
 #define MPC_PARAMS_H
-
 
 #include "../config.h"
 #include "../types.h"
 #include "nlohmann/json.hpp"
 using json = nlohmann::json;
+
 namespace mpc_controller{
+    
     class Params {
     public:
-        double Bm1; //motor model parameter 1
-        double Bm2; //motor model parameter 2
-        double Bm3; //motor model parameter 3
+        ///////////////////////////////////////////////////////////////////////////
+        // Vehicle Physical Parameters ///////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////
+        double Bm1;          // Motor model parameter 1
+        double Bm2;          // Motor model parameter 2
+        double Bm3;          // Motor model parameter 3
+        double Lf;           // Distance from center of mass to front axle [m]
+        double Lr;           // Distance from center of mass to rear axle [m]
+        double wheelbase;    // Wheelbase of the vehicle [m]
+        double L;            // Length of the vehicle [m]
+        double r_inner;      // Inner radius of the track [m]
+        double r_outer;      // Outer radius of the track [m]
+        double g;            // Gravitational acceleration [m/s^2]
 
-        //double m; //mass of the vehicle
-        // mass is not used in the kinematic bicycle model, but we can include it for potential future use in dynamic models or for reference in throttle mapping
+        ///////////////////////////////////////////////////////////////////////////
+        // Cost Function Parameters //////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////
+        double weight_state;     // Weight for state tracking error
+        double weight_control;   // Weight for control effort
+        double weight_slack;     // Weight for slack variables
+        double ref_velocity;     // Reference velocity [m/s]
+        double ref_x;            // Reference x position [m]
+        double ref_y;            // Reference y position [m]
 
-        double Lf; //distance from center of mass to front axle
-        double Lr; //distance from center of mass to rear axle
-
-        double wheelbase; //wheelbase of the vehicle
-        double L; //length of the vehicle
-
-        double r_inner; //inner radius of the track
-        double r_outer; //outer radius of the track
-
-        double g; //gravitational acceleration
+        ///////////////////////////////////////////////////////////////////////////
+        // Box Constraints - State Bounds ////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////
+        // Position bounds
+        double x_min, x_max;                      // Position X bounds [m]
+        double y_min, y_max;                      // Position Y bounds [m]
         
+        // Heading angle bounds
+        double theta_min, theta_max;              // Heading angle bounds [rad]
+        
+        // Velocity bounds (not acceleration!) - CRITICAL
+        double v_min, v_max;                      // Forward velocity bounds [m/s]
+        
+        // Steering angle bounds
+        double delta_min, delta_max;              // Steering angle bounds [rad]
+
+        ///////////////////////////////////////////////////////////////////////////
+        // Box Constraints - Control Input Bounds ///////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////
+        double a_min, a_max;                      // Acceleration bounds [m/s²]
+        double delta_dot_min, delta_dot_max;      // Steering rate bounds [rad/s]
+        
+        ///////////////////////////////////////////////////////////////////////////
+        // Motor Model Constants /////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////
+        // Motor coefficients for throttle-to-acceleration: a = throttle * (Bm1 + Bm2*v - Bm3*v²)
+        // Note: Bm1, Bm2, Bm3 are defined above in Vehicle Physical Parameters
+        double throttle_max;                      // Maximum throttle magnitude [-1, 1]
+        
+        ///////////////////////////////////////////////////////////////////////////
+        // Linearization Constants ///////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////
+        double linearize_eps;                     // Perturbation for numerical differentiation
+
+        ///////////////////////////////////////////////////////////////////////////
+        // MPC Algorithm Parameters //////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////
+        double dt;                                // Time step for discretization [s]
+        int horizon;                              // Prediction horizon [steps]
+
+        ///////////////////////////////////////////////////////////////////////////
+        // State and Control Vectors (MPC Dimensions) ///////////////////////////
+        ///////////////////////////////////////////////////////////////////////////
+        Eigen::Matrix<double, NX, 1> state_vec;     // 5D state vector [x, y, theta, delta, v]
+        Eigen::Matrix<double, NU, 1> control_vec;   // 2D control vector [a, delta_dot]
+        
+        ///////////////////////////////////////////////////////////////////////////
+        // Constructors //////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////
         Params();
-        Params(std::string file);
-    };
-
-    class CostParams {
-    public:
-        // put here the parameters related to the cost function, such as weights for different terms in the cost function, reference velocity, etc.
-        CostParams();
-        CostParams(std::string file);
-    };
-
-    class Bounds {
-    public:
-        struct LowerStateBounds     
-        {
-            /* data */
-        };
-        struct UpperStateBounds
-        {
-            /* data */
-        };
-        struct LowerControlBounds
-        {
-            /* data */
-        };
-        struct UpperControlBounds
-        {
-            /* data */
-        };
-
-        LowerStateBounds lower_state_bounds;
-        UpperStateBounds upper_state_bounds;
-        LowerControlBounds lower_control_bounds;
-        UpperControlBounds upper_control_bounds;
-
-        Bounds();
-        Bounds(std::string file);
-    };
-
-    class MPCConfig {
-    public:
-        double dt; //time step duration (seconds)
-
-    MPCConfig();
-    MPCConfig(std::string file);
+        
+        ///////////////////////////////////////////////////////////////////////////
+        // Parameter Loading Methods /////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////
+        void loadVehicleParams(std::string file);
+        void loadCostParams(std::string file);
+        void loadConstraints(std::string file);        // Load ALL box constraints from JSON
+        void loadMPCConfig(std::string file);
+        void loadAll(std::string vehicle_file, std::string cost_file, 
+                    std::string constraints_file, std::string mpc_file);
+        
+        ///////////////////////////////////////////////////////////////////////////
+        // Utility Methods ///////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////
+        int getPredictionSize() const;
     };
         
 }

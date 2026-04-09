@@ -26,12 +26,18 @@ include_directories(
 
 # Create library
 add_library(mpc_lib
-  src/Params/config.cpp
-  src/bicycle_model.cpp
-  src/mpc_solver.cpp
-  src/constraints.cpp
-  src/utils.cpp
-  src/cost.cpp
+  src/Params/params.cpp
+  src/config.cpp
+  src/types.cpp
+  "src/Bicycle Model/bicycle_model.cpp"
+  src/MPC/mpc_solver.cpp
+  src/Constraints/constraints.cpp
+  src/Constraints/trackConstraints.cpp
+  src/Constraints/boxConstraints.cpp
+  src/Integrator/integration_methods.cpp
+  src/Cost/cost.cpp
+  src/Spline/Arc_Spline.cpp
+  src/Spline/Cubic_Spline.cpp
 )
 
 target_link_libraries(mpc_lib
@@ -41,7 +47,7 @@ target_link_libraries(mpc_lib
 
 # Create ROS 2 node
 add_executable(mpc_controller_node
-  src/mpc_controller_node.cpp
+  "src/IPG Node/mpc_controller_node.cpp"
 )
 
 target_link_libraries(mpc_controller_node

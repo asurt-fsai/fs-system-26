@@ -1,8 +1,9 @@
 #pragma once
 
 #include <Eigen/Dense>
-#include "config.h"
-#include "bicycle_model.h"
+#include "../config.h"
+#include "../Bicycle Model/bicycle_model.h"
+#include "../Params/params.h"
 
 /**
  * @brief MPC Solver - Model Predictive Controller
@@ -21,7 +22,7 @@ public:
         std::string message;
     };
     
-    explicit MPCSolver(const MPCConfig& config);
+    explicit MPCSolver(const Params& config);
     
     /**
      * @brief Solve MPC optimization problem
@@ -73,7 +74,7 @@ public:
     const SolveInfo& getLastSolveInfo() const { return last_solve_info_; }
 
 private:
-    MPCConfig config_;
+    const Params& config_;
     BicycleModel model_;
     
     // Warm-start storage

@@ -1,19 +1,17 @@
 {
-    "Bm1": 1.25,
-    "Bm2": 0.2,
-    "Bm3": 0.01,
-
-    "m": 10.0,
-
-    "Lf": 1.5,
-    "Lr": 1.5,
-
-    "wheelbase": 3.0,
-    "L": 4.0,
-
-    "r_inner": 1.5,
-    "r_outer": 1.5,
-    
-    "g": 9.81
-
+  "description": "Bicycle model physical parameters, motor model, and MPC settings",
+  "Bm1": 1.25,
+  "Bm2": 0.2,
+  "Bm3": 0.01,
+  "Lf": 0.8,
+  "Lr": 0.775,
+  "wheelbase": 1.575,
+  "L": 1.8,
+  "r_inner": 10.0,
+  "r_outer": 15.0,
+  "g": 9.81,
+  "throttle_max": 1.0,
+  "linearize_eps": 1e-6,
+  "dt": 0.05,
+  "horizon": 20
 }

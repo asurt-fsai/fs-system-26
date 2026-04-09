@@ -1,23 +1,22 @@
 #include "config.h"
 
+///////////////////////////////////////////////////////////////////////////////
+// Initialization Helper for StaticConstants
+///////////////////////////////////////////////////////////////////////////////
+// This module provides utility initialization functions for MPC configuration
 
+namespace mpc_controller {
+// Note: Application configuration is now handled entirely by the Params class
+// in src/Params/params.h and src/Params/params.cpp
+//
+// All MPC parameters (costs, bounds, vehicle dynamics) are loaded from JSON files
+// and consolidated into a single Params object that is passed to all components
+// (BicycleModel, ConstraintSet, Cost).
+//
+// This design pattern ensures:
+// - Single source of truth for all parameters
+// - No duplicate file reads (read once in main.cpp)
+// - Easy parameter updates without code changes
+// - Type-safe parameter access
 
-// Initialize MPC cost function weight matrices
-void MPCConfig::initializeDefaults() {
-    // Q matrix: state tracking weights [x, y, theta, delta]
-    Q = Eigen::MatrixXd::Zero(4, 4);
-    // just some inital values to start with, these will be tuned based on performance on the track
-    Q(0, 0) = 1.0;   // X position error (lane keeping)
-    Q(1, 1) = 1.0;   // Y position error (distance along track)
-    Q(2, 2) = 10.0;  // Heading angle error (most critical)
-    Q(3, 3) = 0.1;   // Steering angle error (least critical)
-    
-    // R matrix: control effort weights [velocity_change, steering_rate]
-    R = Eigen::Matrix2d::Zero();
-    
-    R(0, 0) = 0.1;   // Velocity change penalty
-    R(1, 1) = 0.5;   // Steering rate penalty (5x heavier than velocity)
-    
-    // Terminal cost: additional penalty at end of prediction horizon
-    Q_terminal = Q * 2.0;
-}
+} // namespace mpc_controller

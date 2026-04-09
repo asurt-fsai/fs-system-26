@@ -6,12 +6,14 @@
 #include <iostream>
 #include <fstream>
 #include <math.h>
+
+// Define NX and NU BEFORE including types.h (they're needed by types.h)
+#define NX 5 // Number of states: [x, y, theta, delta, v] - Kinematic bicycle model
+#define NU 2 // Number of control inputs: [acceleration, steering_rate]
+
 #include "types.h"
 
 namespace mpc_controller{
-
-    #define NX 7 // Number of states: [x, y, vx, vy, theta, delta, v]
-    #define NU 2 // Number of control inputs: [acceleration, steering rate]
 
     #define NB 10 // Max Number of Bounds
     #define NPC 3 // Number of Polytopic Constraints
@@ -23,18 +25,16 @@ namespace mpc_controller{
     static constexpr double N_MAX = 20; // Maximum number of MPC iterations
 
     struct StateInputIndexes{
-        int x = 0;
-        int y = 1;
-        int vx = 2;
-        int vy = 3;
-        int theta = 4;
-        int delta = 5;
-        int v = 6;
-        int s = 7;
+        // 5D Kinematic State Indices
+        int x = 0;           // Global X position [m]
+        int y = 1;           // Global Y position [m]
+        int theta = 2;       // Heading angle [rad]
+        int delta = 3;       // Steering angle [rad]
+        int v = 4;           // Forward velocity [m/s]
 
-        int a = 0; // control input: acceleration
-        int delta_dot = 1; // control input: steering angle rate
-
+        // 2D Control Input Indices
+        int a = 0;           // Acceleration [m/s²]
+        int delta_dot = 1;   // Steering angle rate [rad/s]
     };
 
     static const StateInputIndexes state_input_indexes; // Global instance for easy access to state/input indexes

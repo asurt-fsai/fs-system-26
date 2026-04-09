@@ -36,8 +36,7 @@ class Cost {
 public:
     CostMatrix getCost(const mpc_controller::ArcSpline &track, const Eigen::VectorXd &x, int k) const;
 
-    Cost(const MPCConfig &config);
-    Cost();
+    Cost(const Params &config);
 
 private:
     TrackPoint getRefPoint(const mpc_controller::ArcSpline &track, const mpc_controller::state &x) const;
@@ -50,7 +49,7 @@ private:
     CostMatrix getBetaKinCost(const mpc_controller::state &x) const;
     CostMatrix getSoftConstraintCost() const;
 
-    MPCConfig config_;
+    const Params& config_;
 };
 
 } // namespace mpc_controller

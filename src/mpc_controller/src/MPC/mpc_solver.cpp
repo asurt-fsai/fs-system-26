@@ -1,13 +1,13 @@
 #include "mpc_solver.h"
-#include "utils.h"
-#include "constraints.h"
+#include "../Constraints/constraints.h"
 #include <iostream>
 #include <algorithm>
 #include <casadi/casadi.hpp>
 
-MPCSolver::MPCSolver(const MPCConfig& config)
+MPCSolver::MPCSolver(const Params& config)
     : config_(config), model_(config) {
-    config_.initializeDefaults();
+    // Initialize MPC parameters from the provided Params object
+    // All configuration is loaded from JSON files via Params::loadAll()
     last_control_sequence_ = Eigen::MatrixXd::Zero(config_.horizon, 2);
 }
 

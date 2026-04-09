@@ -1,12 +1,10 @@
 #include "Cost.h"
 
 namespace mpc_controller{
-Cost::Cost()
-{
-    std::cout << "Cost object created with default configuration." << std::endl;
-}
 
-//Cost::Cost
+Cost::Cost(const Params& config) : config_(config) {
+    std::cout << "Cost object created with loaded parameters." << std::endl;
+}
 
 TrackPoint Cost::getRefPoint(const mpc_controller::ArcSpline &track, const mpc_controller::state &x) const
 {
@@ -62,6 +60,20 @@ ErrorInfo Cost::getErrorInfo(const mpc_controller::ArcSpline &track, const mpc_c
 
     
     Eigen::Matrix<double,2,NX> d_error = Eigen::Matrix<double,2,NX>::Zero();
-    // compute the Jacobian of the error with respect to the state variables
-}
+    // Populate the Jacobian of the error with respect to the state variables
+    // Row 0: derivatives of contouring error w.r.t. [x, y, theta, delta, v]
+    d_error(0, 0) = -std::sin(ref_point.theta_ref);
+    d_error(0, 1) = std::cos(ref_point.theta_ref);
+    d_error(0, 2) = dContouringError;
+    d_error(0, 3) = 0.0;  // Contouring error doesn't depend on delta directly
+    d_error(0, 4) = 0.0;  // Contouring error doesn't depend on velocity directly
+    
+    // Row 1: derivatives of lag error w.r.t. [x, y, theta, delta, v]
+    d_error(1, 0) = std::cos(ref_point.theta_ref);
+    d_error(1, 1) = std::sin(ref_point.theta_ref);
+    d_error(1, 2) = dLagError;
+    d_error(1, 3) = 0.0;  // Lag error doesn't depend on delta directly
+    d_error(1, 4) = 0.0;  // Lag error doesn't depend on velocity directly
+    
+    return {error, d_error};
 } // namespace mpc_controller
