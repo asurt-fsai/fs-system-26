@@ -9,7 +9,7 @@ Implements a robust, landmark-based cone mapping pipeline with:
 - Kalman filtering for landmark state estimation
 - Lifecycle management for output stability
 """
-
+import pyzed as sl
 import rclpy
 from rclpy.node import Node
 from rclpy.time import Time
@@ -30,6 +30,12 @@ from std_msgs.msg import Bool
 import tf2_geometry_msgs
 import message_filters
 from visualization_msgs.msg import Marker, MarkerArray
+
+try:
+    from zed_msgs.msg import PosTrackStatus
+except ImportError:
+    print("Warning: Could not import zed_msgs.msg.PosTrackStatus")
+    PosTrackStatus = None
 
 # Custom message types
 try:
@@ -883,6 +889,18 @@ class ConeMappingNode(Node):
             self.trajectory_update_callback,
             10
         )
+        
+        # Subscriber for ZED Positional Tracking Status to detect loop closures
+        self.spatial_memory_status = 0 # Default state
+        if PosTrackStatus is not None:
+            self.status_sub = self.create_subscription(
+                PosTrackStatus,
+                '/zed/zed_node/pose/status',
+                self.pose_status_callback,
+                10
+            )
+        else:
+            self.get_logger().warn("PosTrackStatus not available. Cannot subscribe to spatial memory status.")
 
         # Wait for static transform
         self.get_logger().info("Waiting for static transform zed_camera -> base_link...")
@@ -897,6 +915,18 @@ class ConeMappingNode(Node):
         """Initialize static transform (called periodically until successful)"""
         if self.transformer.T_base_camera is None:
             self.transformer.lookup_static_transform()
+            
+    def pose_status_callback(self, msg):
+        """
+        Callback to track the ZED positional tracking status.
+        Specifically looking for spatial_memory_status (e.g. LOOP_CLOSED)
+        """
+        if self.spatial_memory_status != msg.spatial_memory_status:
+            self.spatial_memory_status = msg.spatial_memory_status
+            if self.spatial_memory_status == 1: # 1 == LOOP_CLOSED
+                self.get_logger().info("LOOP_CLOSED: Loop closure detected and drift corrected (from ZED SDK status)!")
+            elif self.spatial_memory_status == 2: # 2 == SEARCHING
+                self.get_logger().info("SEARCHING: ZED SDK spatial memory is searching for relocation...")
     
     def synchronized_callback(self, landmarks_msg, pose_msg):
         """
@@ -1044,9 +1074,17 @@ class ConeMappingNode(Node):
         MAX_DT_NS = 1e8 
         # Minimum shift distance to trigger an update (meters)
         MIN_SHIFT_DIST = 0.05
+        count = 0
+        loop_closure_triggered = False
+        updated_landmarks_count = 0
+        
+        print(f"[Phase 6] Starting trajectory update check. ZED Spatial Memory Status: {self.spatial_memory_status}")
         
         with self.map_lock:
             for lm in self.landmarks:
+                count += 1
+                print(f"Checking landmark {lm.id} for trajectory update...")
+                
                 if (lm.lifecycle_state == LandmarkState.CONFIRMED and 
                     lm.anchor_timestamp is not None and 
                     lm.relative_state is not None):
@@ -1074,6 +1112,10 @@ class ConeMappingNode(Node):
                         shift_dist = float(np.linalg.norm(new_pos - old_pos))
                         
                         if shift_dist >= MIN_SHIFT_DIST:
+                            loop_closure_triggered = True
+                            updated_landmarks_count += 1
+                            print(f"[Phase 6] Loop closure trigger detected on landmark {lm.id}! Shift: {shift_dist:.3f}m")
+                            
                             # Recalculate global position from relative state: p_map_new = T_pose_new * p_relative
                             p_map_new = Tpose_new @ lm.relative_state
                             
@@ -1083,6 +1125,11 @@ class ConeMappingNode(Node):
                             
                             # 3. KALMAN FILTER BLENDING: Inflate covariance due to sudden map jump
                             lm.covariance += np.eye(2) * (shift_dist * 0.1)
+            
+            if loop_closure_triggered:
+                print(f"[Phase 6] Spatial Memory Status Update: Loop closure applied. {updated_landmarks_count} landmarks updated out of {len(self.landmarks)} total landmarks in spatial memory.")
+                
+            print(f"Total landmarks checked for trajectory update: {count}")
     
     def publish_map(self):
         """
