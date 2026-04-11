@@ -1,19 +1,17 @@
-class StartMissionCommand:
+from supervisor.helpers.Commands import Command
+from supervisor.helpers.Missions.MissionFinishing import MissionFinishing
 
-    def __init__(self, missionManager, missionType):
-        """
-        Input  : missionManager (MissionManager) — manages missions
-                 missionType (MissionType) — type of mission to start
-        Output : None
-        Logic  : Store references.
-        """
-        pass
+from supervisor.helpers.Missions.MissionManager  import MissionManager
+
+
+class StartMissionCommand(Command):
+
+    def __init__(self, missionManager, logger):
+        self.missionManager = missionManager
+        self.logger = logger
 
     def execute(self):
-        """
-        Input  : None
-        Output : None
-        Logic  : Call missionManager.createMission(missionType).
-                 Call missionManager.startMission().
-        """
-        pass
+
+        self.logger.info("Executing StartMissionCommand")
+
+        self.missionManager.startMission()
