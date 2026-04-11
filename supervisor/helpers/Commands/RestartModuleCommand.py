@@ -1,19 +1,19 @@
-class RestartModuleCommand:
+from supervisor.helpers.Commands import Command
+from supervisor.helpers.Commands import Command
+from supervisor.helpers.Missions.MissionManager import MissionManager
+from supervisor.helpers.Module import ModuleManager
 
-    def __init__(self, moduleManager, targetModule):
-        """
-        Input  : moduleManager (ModuleManager) — manager that owns the module
-                 targetModule (Module) — the module to restart
-        Output : None
-        Logic  : Store references.
-        """
-        pass
+
+
+class RestartModuleCommand(Command):
+
+    def __init__(self, moduleManager, targetModule, logger):
+        self.moduleManager = moduleManager
+        self.targetModule = targetModule
+        self.logger = logger
 
     def execute(self):
-        """
-        Input  : None
-        Output : None
-        Logic  : Look up targetModule by pkg name in moduleManager.
-                 Call module.restart().
-        """
-        pass
+
+        self.logger.info(f"Restarting module: {self.targetModule}")
+
+        self.moduleManager.restartModule(self.targetModule)
