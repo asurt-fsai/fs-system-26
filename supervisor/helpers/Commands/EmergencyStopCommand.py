@@ -1,20 +1,18 @@
-class EmergencyStopCommand:
+from supervisor.helpers.Commands import Command
+from supervisor.helpers.Missions.MissionManager import MissionManager
+from supervisor.helpers.Module import ModuleManager
 
-    def __init__(self, missionManager, moduleManager):
-        """
-        Input  : missionManager (MissionManager)
-                 moduleManager (ModuleManager)
-        Output : None
-        Logic  : Store references.
-        """
-        pass
+
+class EmergencyStopCommand(Command):
+
+    def __init__(self, missionManager, moduleManager, logger):
+        self.missionManager = missionManager
+        self.moduleManager = moduleManager
+        self.logger = logger
 
     def execute(self):
-        """
-        Input  : None
-        Output : None
-        Logic  : 
-                 Shutdown all modules via moduleManager.shutdownAll().
-                 Stop mission via MissionManager.stopMission()
-        """
-        pass
+
+        self.logger.critical("EMERGENCY STOP triggered")
+
+        self.missionManager.stopMission()
+        self.moduleManager.shutdownAllModules()
