@@ -2,11 +2,12 @@ from supervisor.helpers.Commands import Command
 
 class ShutdownModulesCommand(Command):
 
-    def __init__(self, moduleManager):
+    def __init__(self, moduleManager, logger):
         self.moduleManager = moduleManager
+        self.logger = logger
 
     def execute(self):
 
-        print("[Command] Shutdown all modules")
+        self.logger.warning("Shutting down all modules")
 
         self.moduleManager.shutdownAllModules()
