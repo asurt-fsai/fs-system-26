@@ -1,0 +1,3 @@
+[submodule "src/mpc_controller/src/hpipm"]
+	path = src/mpc_controller/src/hpipm
+	url = https://github.com/giaf/hpipm.git

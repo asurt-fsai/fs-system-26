@@ -20,8 +20,8 @@
 
 #include "../config.h"
 #include "../types.h"
-#include "nlohmann/json.hpp"
-using json = nlohmann::json;
+// nlohmann/json.hpp is included directly in params.cpp to avoid
+// the #define N 20 macro conflicting with json's template<unsigned N>.
 
 namespace mpc_controller{
     

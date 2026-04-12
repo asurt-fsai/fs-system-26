@@ -1,193 +1,155 @@
-#include "mpc_controller/mpc_controller_node.h"
+#include "mpc_controller_node.h"
 #include "tf2/LinearMath/Quaternion.h"
 #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
-#include <geometry_msgs/msg/quaternion.hpp>
+#include <geometry_msgs/msg/pose_stamped.hpp>
+
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+// Default JSON parameter-file paths (override via ROS2 node parameters)
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+static const char* DFL_MODEL  = "params/model.json";
+static const char* DFL_COSTS  = "params/cost.json";
+static const char* DFL_BOUNDS = "params/bounds.json";
+static const char* DFL_NORM   = "params/normalization.json";
 
 MPCControllerNode::MPCControllerNode()
     : Node("mpc_controller"),
-      reference_index_(0),
-      has_reference_path_(false) {
-    
-    RCLCPP_INFO(this->get_logger(), "MPC Controller Node initialized");
-    
-    // Initialize config
-    config_.horizon = 10;
-    config_.dt = 0.1;
-    config_.wheelbase = 2.5;
-    config_.initializeDefaults();
-    
-    // Initialize solver
-    mpc_solver_ = std::make_unique<MPCSolver>(config_);
-    
-    // Initialize state
-    current_state_ = Eigen::Vector4d::Zero();
-    
-    // Create publishers
-    cmd_vel_pub_ = this->create_publisher<geometry_msgs::msg::Twist>(
-        "/cmd_vel", rclcpp::QoS(10)
-    );
-    predicted_path_pub_ = this->create_publisher<nav_msgs::msg::Path>(
-        "/mpc/predicted_path", rclcpp::QoS(10)
-    );
-    debug_pub_ = this->create_publisher<std_msgs::msg::Float32MultiArray>(
-        "/mpc/debug", rclcpp::QoS(10)
-    );
-    
-    // Create subscribers
-    odom_sub_ = this->create_subscription<nav_msgs::msg::Odometry>(
+      has_reference_path_(false),
+      track_set_(false),
+      control_dt_(0.05)   // 20 Hz
+{
+    // ─── ROS2 parameters ────────────────────────────────────────────────
+    declare_parameter("model_path",  DFL_MODEL);
+    declare_parameter("costs_path",  DFL_COSTS);
+    declare_parameter("bounds_path", DFL_BOUNDS);
+    declare_parameter("norm_path",   DFL_NORM);
+    declare_parameter("control_dt",  control_dt_);
+
+    mpc_controller::PathToJson paths{
+        get_parameter("model_path").as_string(),
+        get_parameter("bounds_path").as_string(),
+        get_parameter("costs_path").as_string(),
+        get_parameter("norm_path").as_string()
+    };
+    control_dt_ = get_parameter("control_dt").as_double();
+
+    // ─── MPC solver (1 SQP iter, reset after 5 consecutive failures) ────
+    mpc_ = std::make_unique<mpc_controller::MPC>(
+        1 /*n_sqp*/, 5 /*n_reset*/, 1.0 /*sqp_mix*/, control_dt_, paths);
+
+    current_state_.setZero();
+
+    // ─── Publishers ─────────────────────────────────────────────────────
+    cmd_vel_pub_ = create_publisher<geometry_msgs::msg::Twist>(
+        "/cmd_vel", rclcpp::QoS(10));
+    predicted_path_pub_ = create_publisher<nav_msgs::msg::Path>(
+        "/mpc/predicted_path", rclcpp::QoS(10));
+    debug_pub_ = create_publisher<std_msgs::msg::Float32MultiArray>(
+        "/mpc/debug", rclcpp::QoS(10));
+
+    // ─── Subscribers ────────────────────────────────────────────────────
+    odom_sub_ = create_subscription<nav_msgs::msg::Odometry>(
         "/odom", rclcpp::QoS(10),
-        std::bind(&MPCControllerNode::odomCallback, this, std::placeholders::_1)
-    );
-    
-    reference_path_sub_ = this->create_subscription<nav_msgs::msg::Path>(
+        std::bind(&MPCControllerNode::odomCallback, this, std::placeholders::_1));
+
+    reference_path_sub_ = create_subscription<nav_msgs::msg::Path>(
         "/reference_path", rclcpp::QoS(10),
-        std::bind(&MPCControllerNode::pathCallback, this, std::placeholders::_1)
-    );
-    
-    // Create control loop timer
-    control_timer_ = this->create_wall_timer(
-        std::chrono::milliseconds(static_cast<int>(config_.dt * 1000)),
-        std::bind(&MPCControllerNode::controlLoop, this)
-    );
+        std::bind(&MPCControllerNode::pathCallback, this, std::placeholders::_1));
+
+    // ─── Control-loop timer ─────────────────────────────────────────────
+    using ns = std::chrono::nanoseconds;
+    control_timer_ = create_wall_timer(
+        std::chrono::duration_cast<ns>(std::chrono::duration<double>(control_dt_)),
+        std::bind(&MPCControllerNode::controlLoop, this));
+
+    RCLCPP_INFO(get_logger(), "MPC Controller started (dt=%.3fs)", control_dt_);
 }
 
-void MPCControllerNode::odomCallback(const nav_msgs::msg::Odometry::SharedPtr msg) {
+void MPCControllerNode::odomCallback(const nav_msgs::msg::Odometry::SharedPtr msg)
+{
     const auto& pos = msg->pose.pose.position;
     const auto& ori = msg->pose.pose.orientation;
-    
-    // Extract heading from quaternion
-    tf2::Quaternion quat(ori.x, ori.y, ori.z, ori.w);
-    tf2::Matrix3x3 m(quat);
+
+    tf2::Quaternion q(ori.x, ori.y, ori.z, ori.w);
     double roll, pitch, yaw;
-    m.getRPY(roll, pitch, yaw);
-    
-    // State: [x, y, theta, delta] (delta=0 for now)
-    current_state_ << pos.x, pos.y, yaw, 0.0;
+    tf2::Matrix3x3(q).getRPY(roll, pitch, yaw);
+
+    current_state_.x     = pos.x;
+    current_state_.y     = pos.y;
+    current_state_.theta = yaw;
+    current_state_.v     = msg->twist.twist.linear.x;
+    // delta is not directly observable; it is maintained by the solver.
 }
 
-void MPCControllerNode::pathCallback(const nav_msgs::msg::Path::SharedPtr msg) {
-    if (msg->poses.size() > 0) {
-        reference_path_ = *msg;
-        reference_index_ = 0;
-        has_reference_path_ = true;
-    }
+void MPCControllerNode::pathCallback(const nav_msgs::msg::Path::SharedPtr msg)
+{
+    if (msg->poses.empty()) return;
+    reference_path_ = *msg;
+    has_reference_path_ = true;
+    track_set_ = false;  // Trigger spline re-fit on next control cycle
 }
 
-Eigen::MatrixXd MPCControllerNode::getReferenceTrajectory() const {
-    if (!has_reference_path_) {
-        // Default: stay at current position
-        return Eigen::MatrixXd::Zero(config_.horizon + 1, 4)
-            .rowwise() + current_state_.transpose();
-    }
-    
-    Eigen::MatrixXd reference_traj(config_.horizon + 1, 4);
-    
-    for (int i = 0; i <= config_.horizon; ++i) {
-        size_t idx = std::min(
-            reference_index_ + i,
-            reference_path_.poses.size() - 1
-        );
-        
-        const auto& pose = reference_path_.poses[idx].pose;
-        const auto& pos = pose.position;
-        const auto& ori = pose.orientation;
-        
-        // Extract heading
-        tf2::Quaternion quat(ori.x, ori.y, ori.z, ori.w);
-        tf2::Matrix3x3 m(quat);
-        double roll, pitch, yaw;
-        m.getRPY(roll, pitch, yaw);
-        
-        reference_traj(i, 0) = pos.x;
-        reference_traj(i, 1) = pos.y;
-        reference_traj(i, 2) = yaw;
-        reference_traj(i, 3) = 0.0;
-    }
-    
-    return reference_traj;
-}
+void MPCControllerNode::controlLoop()
+{
+    if (!has_reference_path_) return;
 
-void MPCControllerNode::controlLoop() {
-    if (!has_reference_path_) {
-        return;
-    }
-    
-    // Get reference trajectory
-    Eigen::MatrixXd reference_traj = getReferenceTrajectory();
-    
-    // Solve MPC
-    try {
-        Eigen::MatrixXd optimal_controls;
-        Eigen::MatrixXd predicted_traj;
-        
-        auto info = mpc_solver_->solve(
-            current_state_,
-            reference_traj,
-            optimal_controls,
-            predicted_traj
-        );
-        
-        // Get first control
-        Eigen::Vector2d control = optimal_controls.row(0).transpose();
-        double v = control(0);
-        double delta_dot = control(1);
-        
-        // Publish control
-        geometry_msgs::msg::Twist twist;
-        twist.linear.x = v;
-        twist.angular.z = delta_dot;
-        cmd_vel_pub_->publish(twist);
-        
-        // Publish predicted trajectory
-        publishPredictedPath(predicted_traj);
-        
-        // Publish debug info
-        publishDebugInfo(info);
-        
-        // Update reference index
-        if (reference_index_ < reference_path_.poses.size() - 1) {
-            reference_index_++;
+    // Upload track spline once per new path
+    if (!track_set_) {
+        const size_t n = reference_path_.poses.size();
+        Eigen::VectorXd X(n), Y(n);
+        for (size_t i = 0; i < n; ++i) {
+            X(i) = reference_path_.poses[i].pose.position.x;
+            Y(i) = reference_path_.poses[i].pose.position.y;
         }
-        
+        mpc_->setTrack(X, Y);
+        track_set_ = true;
+    }
+
+    try {
+        mpc_controller::state x0 = current_state_;
+        mpc_controller::MPCReturn result = mpc_->runMPC(x0);
+
+        // Publish first optimal control: acceleration + steering rate
+        geometry_msgs::msg::Twist twist;
+        twist.linear.x  = result.u0.D_dot;
+        twist.angular.z = result.u0.delta_dot;
+        cmd_vel_pub_->publish(twist);
+
+        // Publish full MPC horizon path
+        publishPredictedPath(result.mpc_horizon);
+
+        // Publish compute time for monitoring
+        std_msgs::msg::Float32MultiArray dbg;
+        dbg.data = {static_cast<float>(result.time_total)};
+        debug_pub_->publish(dbg);
+
     } catch (const std::exception& e) {
-        RCLCPP_ERROR(this->get_logger(), "MPC solve failed: %s", e.what());
+        RCLCPP_ERROR(get_logger(), "MPC solve error: %s", e.what());
     }
 }
 
-void MPCControllerNode::publishPredictedPath(const Eigen::MatrixXd& trajectory) {
+void MPCControllerNode::publishPredictedPath(
+    const std::array<mpc_controller::OptVariables, N+1>& horizon)
+{
     nav_msgs::msg::Path path_msg;
     path_msg.header.frame_id = "map";
-    path_msg.header.stamp = this->now();
-    
-    for (int i = 0; i < trajectory.rows(); ++i) {
-        geometry_msgs::msg::PoseStamped pose_stamped;
-        pose_stamped.header = path_msg.header;
-        
-        pose_stamped.pose.position.x = trajectory(i, 0);
-        pose_stamped.pose.position.y = trajectory(i, 1);
-        
-        // Convert heading to quaternion
-        tf2::Quaternion quat;
-        quat.setRPY(0, 0, trajectory(i, 2));
-        pose_stamped.pose.orientation = tf2::toMsg(quat);
-        
-        path_msg.poses.push_back(pose_stamped);
+    path_msg.header.stamp    = now();
+
+    for (int i = 0; i <= N; ++i) {
+        geometry_msgs::msg::PoseStamped ps;
+        ps.header = path_msg.header;
+        ps.pose.position.x = horizon[i].xk.x;
+        ps.pose.position.y = horizon[i].xk.y;
+
+        tf2::Quaternion q;
+        q.setRPY(0, 0, horizon[i].xk.theta);
+        ps.pose.orientation = tf2::toMsg(q);
+        path_msg.poses.push_back(ps);
     }
-    
     predicted_path_pub_->publish(path_msg);
 }
 
-void MPCControllerNode::publishDebugInfo(const MPCSolver::SolveInfo& info) {
-    std_msgs::msg::Float32MultiArray debug_msg;
-    debug_msg.data = {
-        static_cast<float>(info.cost),
-        static_cast<float>(info.iterations),
-        info.success ? 1.0f : 0.0f
-    };
-    debug_pub_->publish(debug_msg);
-}
-
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[])
+{
     rclcpp::init(argc, argv);
     rclcpp::spin(std::make_shared<MPCControllerNode>());
     rclcpp::shutdown();

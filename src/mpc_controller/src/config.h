@@ -8,8 +8,9 @@
 #include <math.h>
 
 // Define NX and NU BEFORE including types.h (they're needed by types.h)
-#define NX 5 // Number of states: [x, y, theta, delta, v] - Kinematic bicycle model
-#define NU 2 // Number of control inputs: [acceleration, steering_rate]
+#define NX 5  // Number of states: [x, y, theta, delta, v] - Kinematic bicycle model
+#define NU 2  // Number of control inputs: [acceleration, steering_rate]
+#define N  20 // Prediction horizon length (compile-time constant for fixed-size arrays)
 
 #include "types.h"
 

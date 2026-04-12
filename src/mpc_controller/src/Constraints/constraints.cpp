@@ -40,7 +40,7 @@ Eigen::Vector2d ConstraintSet::getInputLowerBounds() const {
     // Return lower bounds for inputs: [v, delta_dot]
     return Eigen::Vector2d(
         params_.v_min,           // 0: velocity lower bound
-        -params_.delta_dot_max   // 1: steering rate lower bound (symmetric)
+        -params_.delta_dot_max   // -1: steering rate lower bound (symmetric)
     );
 }
 

@@ -52,7 +52,6 @@ d_ocp_qp_ipm_ws_wrapper::d_ocp_qp_ipm_ws_wrapper(d_ocp_qp_ipm_ws_wrapper&& other
   other.ocp_qp_ipm_ws_hpipm_.gamma = nullptr;
   other.ocp_qp_ipm_ws_hpipm_.tmp_nuxM = nullptr;
   other.ocp_qp_ipm_ws_hpipm_.tmp_nbgM = nullptr;
-  other.ocp_qp_ipm_ws_hpipm_.tmp_nsM = nullptr;
   other.ocp_qp_ipm_ws_hpipm_.Pb = nullptr;
   other.ocp_qp_ipm_ws_hpipm_.Zs_inv = nullptr;
   other.ocp_qp_ipm_ws_hpipm_.tmp_m = nullptr;
@@ -100,7 +99,6 @@ d_ocp_qp_ipm_ws_wrapper& d_ocp_qp_ipm_ws_wrapper::operator=(d_ocp_qp_ipm_ws_wrap
   other.ocp_qp_ipm_ws_hpipm_.gamma = nullptr;
   other.ocp_qp_ipm_ws_hpipm_.tmp_nuxM = nullptr;
   other.ocp_qp_ipm_ws_hpipm_.tmp_nbgM = nullptr;
-  other.ocp_qp_ipm_ws_hpipm_.tmp_nsM = nullptr;
   other.ocp_qp_ipm_ws_hpipm_.Pb = nullptr;
   other.ocp_qp_ipm_ws_hpipm_.Zs_inv = nullptr;
   other.ocp_qp_ipm_ws_hpipm_.tmp_m = nullptr;

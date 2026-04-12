@@ -31,7 +31,7 @@ namespace mpc_controller{
     class CubicSpline{    
         public:
             // Constructors and evaluation methods
-            CubicSpline() = default;
+            CubicSpline();
             CubicSpline(const Eigen::VectorXd& x, const Eigen::VectorXd& y, bool is_evenly_spaced = false);
             // Evaluate spline and its derivatives at a query point
             double getPoint(const double x_query) const;

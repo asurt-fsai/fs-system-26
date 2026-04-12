@@ -240,5 +240,10 @@ namespace mpc_controller{
         return s_guess;
     }
 
-    
+    double ArcSpline::unwrapinput(const double s_query) const {
+        double s_max = splineData.s(splineData.n - 1);
+        if (s_max <= 0.0) return s_query;
+        return s_query - s_max * std::floor(s_query / s_max);
+    }
+
 } // namespace mpc_controller

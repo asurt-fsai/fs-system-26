@@ -78,7 +78,7 @@ namespace mpc_controller{
         }
         
         // Set up the system of equations
-        Eigen::VectorXd alpha(n - 1);
+        // (alpha already declared and sized above via setZero)
         for (int i = 1; i < n - 1; ++i) {
             // calculate the alpha values based on the differences in y values and the spacing h
             alpha(i) = (3.0 / h(i)) * (params_.a(i + 1) - params_.a(i)) - (3.0 / h(i - 1)) * (params_.a(i) - params_.a(i - 1));

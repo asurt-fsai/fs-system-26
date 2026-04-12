@@ -1,3 +1,6 @@
+#ifndef MPC_CONTROLLER_TRACK_CONSTRAINTS_H
+#define MPC_CONTROLLER_TRACK_CONSTRAINTS_H
+
 #include "../types.h"
 #include "../Spline/Arc_Spline.h"
 #include "constraints.h"
@@ -21,3 +24,5 @@ namespace mpc_controller {
         Params params_;
     };
 }
+
+#endif // MPC_CONTROLLER_TRACK_CONSTRAINTS_H

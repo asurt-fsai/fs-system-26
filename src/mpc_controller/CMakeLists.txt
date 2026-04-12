@@ -16,7 +16,7 @@ find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(Eigen3 REQUIRED)
-find_package(casadi REQUIRED)
+# Note: casadi removed — MPC uses HPIPM/BLASFEO, not CasADi
 
 # Include directories
 include_directories(
@@ -24,26 +24,107 @@ include_directories(
   ${EIGEN3_INCLUDE_DIR}
 )
 
-# Create library
+# Locate pre-built BLASFEO (from build_solver.sh output or source build)
+set(BLASFEO_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/build_solver/blasfeo")
+set(BLASFEO_INSTALL   "${CMAKE_CURRENT_SOURCE_DIR}/src/install")
+if(EXISTS "${BLASFEO_INSTALL}/lib/libblasfeo.so")
+  set(BLASFEO_LIB       "${BLASFEO_INSTALL}/lib/libblasfeo.so")
+  set(BLASFEO_INCLUDE   "${BLASFEO_INSTALL}/include")
+elseif(EXISTS "${BLASFEO_BUILD_DIR}/libblasfeo.so")
+  set(BLASFEO_LIB       "${BLASFEO_BUILD_DIR}/libblasfeo.so")
+  set(BLASFEO_INCLUDE   "${CMAKE_CURRENT_SOURCE_DIR}/src/blasfeo/include")
+else()
+  set(BLASFEO_LIB       "")
+  set(BLASFEO_INCLUDE   "${CMAKE_CURRENT_SOURCE_DIR}/src/blasfeo/include")
+endif()
+
+# Locate HPIPM (optional)
+find_library(HPIPM_LIB hpipm
+    HINTS "${BLASFEO_INSTALL}/lib" /usr/local/lib /usr/lib
+    NO_DEFAULT_PATH)
+if(HPIPM_LIB)
+  set(HPIPM_INCLUDE "${BLASFEO_INSTALL}/include")
+  message(STATUS "HPIPM found at ${HPIPM_LIB}")
+  message(STATUS "HPIPM headers at ${HPIPM_INCLUDE}")
+else()
+  message(STATUS "HPIPM library not found - using stubs only")
+  set(HPIPM_INCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/src/hpipm_stubs")
+endif()
+
+# Include directories
+include_directories(
+  include
+  src
+  "src/IPG Node"
+  ${EIGEN3_INCLUDE_DIR}
+  ${BLASFEO_INCLUDE}
+  ${HPIPM_INCLUDE}
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/hpipm-cpp-main/include
+)
+
+# Create library — only list source files that exist
 add_library(mpc_lib
   src/Params/params.cpp
   src/config.cpp
   src/types.cpp
   "src/Bicycle Model/bicycle_model.cpp"
-  src/MPC/mpc_solver.cpp
+  src/MPC/mpc.cpp
   src/Constraints/constraints.cpp
   src/Constraints/trackConstraints.cpp
-  src/Constraints/boxConstraints.cpp
   src/Integrator/integration_methods.cpp
   src/Cost/cost.cpp
   src/Spline/Arc_Spline.cpp
   src/Spline/Cubic_Spline.cpp
+  src/Interfaces/solver_interface.cpp
+  src/Interfaces/hpipm_interface.cpp
 )
 
-target_link_libraries(mpc_lib
-  Eigen3::Eigen
-  casadi
-)
+set(MPC_LINK_LIBS Eigen3::Eigen)
+if(BLASFEO_LIB)
+  list(APPEND MPC_LINK_LIBS ${BLASFEO_LIB})
+  message(STATUS "Linking BLASFEO: ${BLASFEO_LIB}")
+endif()
+if(HPIPM_LIB)
+  list(APPEND MPC_LINK_LIBS ${HPIPM_LIB})
+  message(STATUS "Linking HPIPM: ${HPIPM_LIB}")
+
+  # Build hpipm-cpp C++ wrapper sources alongside mpc_lib when HPIPM is
+  # available.  The wrapper files must not see N/NX/NU macros from config.h,
+  # so they are compiled as a separate static library that is linked in.
+  set(HPIPM_CPP_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/hpipm-cpp-main/src")
+  add_library(hpipm_cpp_wrapper STATIC
+    ${HPIPM_CPP_SRC_DIR}/detail/d_ocp_qp_dim_wrapper.cpp
+    ${HPIPM_CPP_SRC_DIR}/detail/d_ocp_qp_wrapper.cpp
+    ${HPIPM_CPP_SRC_DIR}/detail/d_ocp_qp_sol_wrapper.cpp
+    ${HPIPM_CPP_SRC_DIR}/detail/d_ocp_qp_ipm_arg_wrapper.cpp
+    ${HPIPM_CPP_SRC_DIR}/detail/d_ocp_qp_ipm_ws_wrapper.cpp
+    ${HPIPM_CPP_SRC_DIR}/ocp_qp_dim.cpp
+    ${HPIPM_CPP_SRC_DIR}/ocp_qp_ipm_solver_settings.cpp
+    ${HPIPM_CPP_SRC_DIR}/ocp_qp_ipm_solver_statistics.cpp
+    ${HPIPM_CPP_SRC_DIR}/ocp_qp_ipm_solver.cpp
+  )
+  target_include_directories(hpipm_cpp_wrapper PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/hpipm-cpp-main/include
+    ${BLASFEO_INCLUDE}
+    ${HPIPM_INCLUDE}
+    ${EIGEN3_INCLUDE_DIR}
+  )
+  target_link_libraries(hpipm_cpp_wrapper
+    ${BLASFEO_LIB}
+    ${HPIPM_LIB}
+    Eigen3::Eigen
+  )
+  list(APPEND MPC_LINK_LIBS hpipm_cpp_wrapper)
+  message(STATUS "Building hpipm-cpp C++ wrapper library")
+endif()
+
+target_link_libraries(mpc_lib ${MPC_LINK_LIBS})
+
+# Add HPIPM compile definition if library found
+if(HPIPM_LIB)
+  target_compile_definitions(mpc_lib PRIVATE HPIPM_CPP_AVAILABLE)
+  message(STATUS "HPIPM_CPP_AVAILABLE enabled")
+endif()
 
 # Create ROS 2 node
 add_executable(mpc_controller_node
@@ -77,6 +158,6 @@ install(DIRECTORY include/
 # Export
 ament_export_include_directories(include)
 ament_export_libraries(mpc_lib)
-ament_export_dependencies(rclcpp std_msgs geometry_msgs nav_msgs tf2 tf2_ros Eigen3 casadi)
+ament_export_dependencies(rclcpp std_msgs geometry_msgs nav_msgs tf2 tf2_ros Eigen3)
 
 ament_package()
