@@ -121,7 +121,7 @@ static std::vector<hpipm::OcpQp> buildOcpQp(
 // ─── solveMPC ──────────────────────────────────────────────────────────────
 
 void HpipmInterface::setDynamics(std::array<Stage, N+1> &stages, const State &x0) {
-    b0_ = (stages[0].lin_model.A * stateToVector(x0) + stages[0].lin_model.g);
+    b0_ = (stages[0].lin_model.A * mpcc::stateToVector(x0) + stages[0].lin_model.g);
 
     for (int i = 0; i < N; ++i) {
         if (i == 0) {
@@ -285,7 +285,7 @@ std::array<OptVariables, N+1> HpipmInterface::solveMPC(
 {
 #ifdef HPIPM_CPP_AVAILABLE
     // ── Use hpipm-cpp C++ wrapper ─────────────────────────────────────────
-    Eigen::Matrix<double, NX, 1> x0_vec = stateToVector(x0);
+    Eigen::Matrix<double, NX, 1> x0_vec = mpcc::stateToVector(x0);
 
     std::vector<hpipm::OcpQp> ocp_qp = buildOcpQp(stages, x0_vec);
 

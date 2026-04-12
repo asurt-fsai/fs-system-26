@@ -74,6 +74,7 @@ ErrorInfo Cost::getErrorInfo(const mpc_controller::ArcSpline &track, const mpc_c
 CostMatrix Cost::getContouringCost(const mpc_controller::ArcSpline &track, const mpc_controller::state &x, int k) const
 {
     static const StateInputIndexes si_index;
+    #undef N  // Undefine the macro N from config.h to use local variable
     const int N = params_.horizon;
 
     // compute reference information
@@ -197,8 +198,6 @@ CostMatrix Cost::getCost(const mpc_controller::ArcSpline &track, const Eigen::Ve
 
     return {Q, R, S_MPC::Zero(), q, r, soft_con_cost.Z, soft_con_cost.z};
 }
-
-
 
 
 } // namespace mpc_controller

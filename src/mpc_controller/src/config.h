@@ -56,10 +56,6 @@ namespace mpc_controller{
     typedef Eigen::Matrix<double, NX, NU> S_MPC;       // Cross term cost matrix (NX x NU)
     typedef Eigen::Matrix<double, NS, NS> Z_MPC;       // Soft constraint cost matrix (NS x NS)
     typedef Eigen::Matrix<double, NS, 1> z_MPC;        // Soft constraint cost vector (NS x 1)
-
-    // ===== State Index Constants =====
-    static constexpr int STATE_INDEX_THETA = 2;        // Index of theta in state vector
-    static constexpr int STATE_INDEX_VELOCITY = 4;     // Index of v in state vector
 }
 
 

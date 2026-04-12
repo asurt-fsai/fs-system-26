@@ -80,9 +80,10 @@ namespace mpc_controller{
         const std::string normalization_path;
     };
 
-
-    typedef Eigen::Matrix<double, 9, 1> StateVector;
-    typedef Eigen::Matrix<double, 3, 1> ControlVector;
+    // StateVector: NX=5 states [x, y, theta, delta, v] (matches bicycle model)
+    typedef Eigen::Matrix<double, NX, 1> StateVector;
+    // ControlVector: NU=2 inputs [acceleration, steering_rate]
+    typedef Eigen::Matrix<double, NU, 1> ControlVector;
     typedef Eigen::Matrix<double, NX, 1> state_MPC;    // 5D MPC state vector [x, y, theta, delta, v]
 
     typedef Eigen::Matrix<double, NX, 1> state_Bounds;
