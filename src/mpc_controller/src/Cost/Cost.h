@@ -45,11 +45,9 @@ private:
     CostMatrix getContouringCost(const mpc_controller::ArcSpline &track, const mpc_controller::state &x, int k) const;
     CostMatrix getHeadingCost(const mpc_controller::ArcSpline &track, const mpc_controller::state &x, int k) const;
     CostMatrix getInputCost() const;
-    CostMatrix getBetaCost(const mpc_controller::state &x) const;
-    CostMatrix getBetaKinCost(const mpc_controller::state &x) const;
     CostMatrix getSoftConstraintCost() const;
 
-    const Params& config_;
+    const Params& params_;
 };
 
 } // namespace mpc_controller

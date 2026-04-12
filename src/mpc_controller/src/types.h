@@ -83,11 +83,28 @@ namespace mpc_controller{
 
     typedef Eigen::Matrix<double, 9, 1> StateVector;
     typedef Eigen::Matrix<double, 3, 1> ControlVector;
+    typedef Eigen::Matrix<double, NX, 1> state_MPC;    // 5D MPC state vector [x, y, theta, delta, v]
 
     typedef Eigen::Matrix<double, NX, 1> state_Bounds;
     typedef Eigen::Matrix<double, NU, 1> control_Bounds;
 
+    // ===== MPC Cost Matrix Type Definitions =====
+    typedef Eigen::Matrix<double, NX, NX> Q_MPC;       // State cost matrix (NX x NX)
+    typedef Eigen::Matrix<double, NX, 1> q_MPC;        // State cost vector (NX x 1)
+    typedef Eigen::Matrix<double, NU, NU> R_MPC;       // Control cost matrix (NU x NU)
+    typedef Eigen::Matrix<double, NU, 1> r_MPC;        // Control cost vector (NU x 1)
+    typedef Eigen::Matrix<double, NX, NU> S_MPC;       // Cross term cost matrix (NX x NU)
+
+    // ===== State Index Constants =====
+    static constexpr int STATE_INDEX_THETA = 2;        // Index of theta in state vector
+    static constexpr int STATE_INDEX_VELOCITY = 4;     // Index of v in state vector
+
     StateVector StateToVector(const state& X);
+    inline state_MPC stateToVector(const state& X) {
+        state_MPC vec;
+        vec << X.x, X.y, X.theta, X.delta, X.v;
+        return vec;
+    }
     ControlVector ControlToVector(const control& U);
 
     state VectorToState(const StateVector& X_vec);

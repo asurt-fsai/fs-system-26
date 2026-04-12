@@ -50,6 +50,21 @@ namespace mpc_controller{
         double ref_velocity;     // Reference velocity [m/s]
         double ref_x;            // Reference x position [m]
         double ref_y;            // Reference y position [m]
+        double q_c;              // Contouring error weight
+        double q_c_N_mult;       // Terminal contouring error multiplier (terminal weight = q_c * q_c_N_mult)
+        double q_l;              // Lag error weight
+        double q_r;              // Yaw rate regularization weight
+        double q_r_N_mult;       // Terminal yaw rate multiplier (terminal weight = q_r * q_r_N_mult)
+        double q_vs;             // Progress (virtual speed) weight
+        double q_mu;             // Heading alignment cost weight
+        // ===== Input Cost Weights =====
+        double r_delta;          // State penalty on steering angle delta
+        double r_vs;             // State penalty on velocity / virtual speed
+        double r_dD;             // Control penalty on acceleration (dD maps to a)
+        double r_dDelta;         // Control penalty on steering rate (dDelta maps to delta_dot)
+        // ===== Soft Constraint Weights =====
+        double sc_quad_track;    // Quadratic penalty for track boundary violation
+        double sc_lin_track;     // Linear penalty for track boundary violation
 
         ///////////////////////////////////////////////////////////////////////////
         // Box Constraints - State Bounds ////////////////////////////////////////

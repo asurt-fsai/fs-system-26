@@ -29,6 +29,9 @@ Params::Params()
       wheelbase(0), L(0), r_inner(0), r_outer(0), g(9.81),
       weight_state(0), weight_control(0), weight_slack(0),
       ref_velocity(0), ref_x(0), ref_y(0),
+      q_c(0), q_c_N_mult(1), q_l(0), q_r(0), q_r_N_mult(1), q_vs(0), q_mu(0),
+      r_delta(0), r_vs(0), r_dD(0), r_dDelta(0),
+      sc_quad_track(0), sc_lin_track(0),
       x_min(0), x_max(0), y_min(0), y_max(0),
       theta_min(0), theta_max(0),
       v_min(0), v_max(0), delta_min(0), delta_max(0),
@@ -117,6 +120,33 @@ void Params::loadCostParams(std::string cost_file) {
         if (j.contains("ref_velocity")) ref_velocity = j["ref_velocity"];
         if (j.contains("ref_x")) ref_x = j["ref_x"];
         if (j.contains("ref_y")) ref_y = j["ref_y"];
+        
+        // ===== CONTOURING ERROR WEIGHTS =====
+        if (j.contains("q_c")) q_c = j["q_c"];
+        if (j.contains("q_c_N_mult")) q_c_N_mult = j["q_c_N_mult"];
+        
+        // ===== LAG ERROR WEIGHT =====
+        if (j.contains("q_l")) q_l = j["q_l"];
+        
+        // ===== YAW RATE WEIGHTS =====
+        if (j.contains("q_r")) q_r = j["q_r"];
+        if (j.contains("q_r_N_mult")) q_r_N_mult = j["q_r_N_mult"];
+        
+        // ===== PROGRESS WEIGHT =====
+        if (j.contains("q_vs")) q_vs = j["q_vs"];
+
+        // ===== HEADING ALIGNMENT WEIGHT =====
+        if (j.contains("q_mu")) q_mu = j["q_mu"];
+
+        // ===== INPUT COST WEIGHTS =====
+        if (j.contains("r_delta")) r_delta = j["r_delta"];
+        if (j.contains("r_vs"))    r_vs    = j["r_vs"];
+        if (j.contains("r_dD"))    r_dD    = j["r_dD"];
+        if (j.contains("r_dDelta")) r_dDelta = j["r_dDelta"];
+
+        // ===== SOFT CONSTRAINT WEIGHTS =====
+        if (j.contains("sc_quad_track"))  sc_quad_track  = j["sc_quad_track"];
+        if (j.contains("sc_lin_track"))   sc_lin_track   = j["sc_lin_track"];
         
         std::cout << "Loaded cost parameters from: " << cost_file << std::endl;
         
