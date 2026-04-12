@@ -1,0 +1,39 @@
+[0;34m================================[0m
+[0;34mBLASFEO/HPIPM Solver Build System[0m
+[0;34m================================[0m
+
+[1;33m[*] Checking dependencies...[0m
+    [0;32m✓[0m cmake version 3.22.1
+    [0;32m✓[0m gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+    [0;32m✓[0m g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+    [0;32m✓[0m GNU Make 4.3
+[1;33m[*] Detecting CPU features...[0m
+    [0;32m✓ AVX2 detected[0m
+    [0;32m✓ AVX-512 detected[0m
+    [0;32m✓ FMA detected[0m
+    [0;32mTarget: AVX512[0m
+
+[0;34m========================================[0m
+[0;34mBuilding BLASFEO[0m
+[0;34m========================================[0m
+[1;33m[*] Configuring BLASFEO...[0m
+CMake Warning at cmake/TestSingleTarget.cmake:24 (message):
+  Unknown BLASFEO_TARGET: AVX512, using GENERIC
+Call Stack (most recent call first):
+  cmake/TestSingleTarget.cmake:50 (TestSingleTarget)
+  CMakeLists.txt:432 (include)
+
+
+CMake Error: File /home/kenzy-ahmed/fs-system-26/src/mpc_controller/src/blasfeo/blasfeo_target.h.in does not exist.
+CMake Error at CMakeLists.txt:470 (configure_file):
+  configure_file Problem configuring file
+
+
+CMake Error at CMakeLists.txt:1501 (add_subdirectory):
+  add_subdirectory given source "examples" which is not an existing
+  directory.
+
+
+See also "/home/kenzy-ahmed/fs-system-26/src/mpc_controller/src/build_solver/blasfeo/CMakeFiles/CMakeOutput.log".
+[1;33m[*] Building BLASFEO with 8 jobs...[0m
+make: *** No targets specified and no makefile found.  Stop.

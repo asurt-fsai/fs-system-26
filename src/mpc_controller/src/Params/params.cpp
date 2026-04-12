@@ -15,6 +15,11 @@
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
+// Must include json.hpp BEFORE params.h so that #define N 20 from config.h
+// is not yet in scope when json.hpp's template<unsigned N> is parsed.
+#include "nlohmann/json.hpp"
+using json = nlohmann::json;
+
 #include "params.h"
 #include <fstream>
 #include <iostream>

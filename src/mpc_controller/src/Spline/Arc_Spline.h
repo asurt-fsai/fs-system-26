@@ -1,3 +1,6 @@
+#ifndef MPC_CONTROLLER_ARC_SPLINE_H
+#define MPC_CONTROLLER_ARC_SPLINE_H
+
 #include "Cubic_Spline.h"
 
 namespace mpc_controller{
@@ -40,3 +43,5 @@ namespace mpc_controller{
     };
 
 }
+
+#endif // MPC_CONTROLLER_ARC_SPLINE_H
