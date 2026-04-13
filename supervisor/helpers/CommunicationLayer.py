@@ -34,6 +34,8 @@ from rclpy.node import Node
 from rclpy.executors import MultiThreadedExecutor
 from std_msgs.msg import String, Bool, Float64
 from eufs_msgs.msg import CanState
+from geometry_msgs.msg import TwistWithCovarianceStamped
+from ackermann_msgs.msg import AckermannDriveStamped
 
 
 
@@ -273,9 +275,25 @@ class CommunicationLayer(Node):
         /can_command
         """
 
-        self._drive_pub = self.create_publisher(
-            String, "drive_command", 10
+        
+        #  Ackermann drive command
+        self._cmd_pub = self.create_publisher(
+            AckermannDriveStamped, 
+            "/ros_can/cmd",  # Actual topic name
+            10
         )
+
+        # Driving flag (enables autonomous driving)
+        self._driving_flag_pub = self.create_publisher(
+            Bool,
+            "/ros_can/driving_flag",
+            10
+        )
+        # Mission finished flag
+        self._mission_flag_pub = self.create_publisher(
+        Bool,
+        "/ros_can/mission_flag",
+        10)
 
         self._can_pub = self.create_publisher(
             String, "can_command", 10
@@ -309,14 +327,20 @@ class CommunicationLayer(Node):
             10
         )
 
-        # String topics
-        string_topics = [
-            ("velocity",    self.onVelocity),
-            ("control",     self.onControl),
-            ("heartbeat",   self.onHeartbeat),
-        ]
-        for topic, callback in string_topics:
-            self.create_subscription(String, topic, callback, 10)
+        # Heartbeat as String
+        self.create_subscription(String, "heartbeat", self.onHeartbeat, 10)
+
+        self.create_subscription(
+            TwistWithCovarianceStamped,
+            '/current_velocity',  # Or whatever the actual topic name is
+            self.onVelocity,
+            10)
+        
+        self.create_subscription(
+        AckermannDriveStamped,
+        '/control',  # Or actual topic name
+        self.onControl,
+        10)
 
         # Bool topics
         bool_topics = [
@@ -422,10 +446,10 @@ class CommunicationLayer(Node):
         INFO log of received state.
         """
 
-        self._log_topic("/ros_can/state", msg.data)
-
+        self._log_topic("/ros_can/state", f"as_state={msg.as_state}, ami_state={msg.ami_state}")
+    
         if self._supervisor:
-            self._supervisor.onCANState(msg.data)
+            self._supervisor.onCANState(msg)  # Pass entire message object
 
     def onVelocity(self, msg):
 
@@ -434,17 +458,21 @@ class CommunicationLayer(Node):
 
         Input
         -----
-        msg : velocity value
+        msg :  msg (TwistWithCovarianceStamped) — velocity message
 
         Output
         ------
         Forwarded to Supervisor.
         """
 
-        self._log_topic("velocity", msg.data)
+        # Extract velocity from Twist message
+        velocity = msg.twist.twist.linear.x
+        
+        self._log_topic("/current_velocity", f"{velocity:.2f} m/s")
 
         if self._supervisor:
-            self._supervisor.onVelocity(msg.data)
+            self._supervisor.onVelocity(velocity)  # Pass the float value
+
 
     def onControl(self, msg):
 
@@ -453,17 +481,21 @@ class CommunicationLayer(Node):
 
         Input
         -----
-        msg : control data
+        msg : msg (AckermannDriveStamped) — control command
 
         Output
         ------
         Routed to Supervisor.
         """
 
-        self._log_topic("control", msg.data)
+        vel = msg.drive.speed
+        steer = msg.drive.steering_angle
+            
+        self._log_topic("/control", f"speed={vel:.2f}, steer={steer:.2f}")
 
         if self._supervisor and hasattr(self._supervisor, "onControl"):
-            self._supervisor.onControl(msg.data)
+            self._supervisor.onControl(msg)  # Pass entire message
+
 
     def onHeartbeat(self, msg):
 
@@ -541,26 +573,44 @@ class CommunicationLayer(Node):
     # Publish API
     # ---------------------------------------------------------
 
-    def publishDriveCommand(self, cmd):
+    def publishDriveCommand(self, cmd_msg):
 
         """
-        Publishes drive commands.
+        Publishes Ackermann drive commands.
 
         Input
         -----
-        cmd : string command
+        cmd : cmd_msg (AckermannDriveStamped) — drive command
 
         Output
         ------
         ROS message sent to /drive_command
         """
+        self._cmd_pub.publish(cmd_msg)
 
-        msg = String()
-        msg.data = cmd
+        self._log_publish("drive_command", f"speed={cmd_msg.drive.speed:.2f}, steer={cmd_msg.drive.steering_angle:.2f}")
 
-        self._drive_pub.publish(msg)
+    def publishDrivingFlag(self, flag: bool):
+        """
+        Publishes driving flag.
+        
+        Input : flag (bool) — True to enable autonomous driving
+        """
+        msg = Bool()
+        msg.data = flag
+        self._driving_flag_pub.publish(msg)
+        self._log_publish("driving_flag", flag) 
 
-        self._log_publish("drive_command", cmd)
+    def publishMissionFlag(self, flag: bool):
+        """
+        Publishes mission finished flag.
+        
+        Input : flag (bool) — True when mission is finished
+        """
+        msg = Bool()
+        msg.data = flag
+        self._mission_flag_pub.publish(msg)
+        self._log_publish("mission_flag", flag)   
 
     def publishCANCommand(self, state):
 

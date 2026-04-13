@@ -2,10 +2,11 @@ import time
 import threading
 import logging
 from enum import Enum
-from supervisor.helpers.Module.ModuleState import ModuleState
 from supervisor.helpers.Commands import ShutdownModulesCommand,StartMissionCommand,EmergencyStopCommand,RestartModuleCommand
-from supervisor.helpers.Missions.MissionManager import MissionType
-
+from supervisor.helpers.Module.ModuleState import ModuleState
+from eufs_msgs.msg import CanState
+from geometry_msgs.msg import TwistWithCovarianceStamped
+from ackermann_msgs.msg import AckermannDriveStamped
 
 class SuperState(Enum):
     """
@@ -61,15 +62,18 @@ class Supervisor:
         self.logger = logging.getLogger(__name__)
 
         # State variables
-        self.asState = None
-        self.amiState = None
+        self.asState = CanState.AS_OFF
+        self.amiState = CanState.AMI_NOT_SELECTED
         self.isFinished = False
         self.currentVel = 0.0
         self.maxStopVelTh = 0.1
+        self.vel= 0.0
+        self.steer =0.0
 
         # Heartbeat tracking
+        self._stop_monitor = threading.Event() # Add stop event for heartbeat monitor
         self.module_last_heartbeat = {}
-        self.monitor_thread = threading.Thread(target=self._heartbeat_monitor_loop, daemon=True)
+        self.monitor_thread = threading.Thread(target=self._heartbeat_monitor_loop, daemon=True, name="supervisor-heartbeat-monitor")
         self.monitor_thread.start()
 
         # Register with managers
@@ -113,36 +117,39 @@ class Supervisor:
         if state == SuperState.WAITING:
             if self.amiState not in (None, 0):  # AMI selected
                 self.currentState = SuperState.LAUNCHING
-                self.logger.info("Transition to LAUNCHING")
-                self.issueCommand(StartMissionCommand(self.missionManager, self.amiState))
+                self.logger.info("[Supervisor] State transition to LAUNCHING")
+                self.issueCommand(StartMissionCommand(self.missionManager, self.amiState)) #amiState is the target mission type, passed to StartMissionCommand
 
         elif state == SuperState.LAUNCHING:
+            self.isFinished=False
             self.currentState = SuperState.READY
-            self.logger.info("Transition to READY")
+            self.logger.info("[Supervisor] State transition to READY")
 
         elif state == SuperState.READY:
             if self.asState == 2:  # Vehicle ready to run
                 self.currentState = SuperState.RUNNING
-                self.logger.info("Transition to RUNNING")
+                self.logger.info("[Supervisor] State transition to RUNNING")
 
         elif state == SuperState.RUNNING:
             if self.isFinished:
                 self.currentState = SuperState.STOPPING
-                self.logger.info("Transition to STOPPING")
+                self.logger.info("[Supervisor] State transition to STOPPING")
 
         elif state == SuperState.STOPPING:
             if self.currentVel < self.maxStopVelTh:
                 self.currentState = SuperState.FINISHED
-                self.logger.info("Transition to FINISHED")
+                self.logger.info("[Supervisor] State transition to FINISHED")
 
         elif state == SuperState.FINISHED:
             self.issueCommand(ShutdownModulesCommand(self.moduleManager))
-            self.logger.info("Mission finished. Modules shutting down.")
+            self.logger.info("[Supervisor] Mission finished. Modules shutting down.")
             time.sleep(2)  # short delay before restarting
             self.currentState = SuperState.WAITING
-            self.amiState = None
+            self.amiState = CanState.AMI_NOT_SELECTED
             self.isFinished = False
-            self.logger.info("Supervisor reset to WAITING")
+            self.logger.info("[Supervisor] Supervisor reset to WAITING")
+
+
 
     def onCANState(self, data):
         """
@@ -151,13 +158,17 @@ class Supervisor:
         Logic  : Update internal asState or amiState.
                  Trigger state transitions if conditions are met.
         """
+        # Extract fields from the CanState message
         self.asState = data.as_state
         self.amiState = data.ami_state
-        self.transitionState()  # auto-transition based on new CAN info
+        
+        self.logger.debug(f"[Supervisor] CAN State - AS: {self.asState}, AMI: {self.amiState}")
+        
+        self.transitionState(None)  # auto-transition based on new CAN info
 
     def onVelocity(self, data):
         """
-        Input  : data (str) — velocity data from ROS topic
+        Input  : data (float) — velocity value in m/s
         Output : None
         Logic  : Process velocity update.
                  Used for mission monitoring or safety checks.
@@ -165,8 +176,16 @@ class Supervisor:
         self.currentVel = data
         # Could also check stopping conditions in STOPPING
         if self.currentState == SuperState.STOPPING:
-            self.transitionState()
+            self.transitionState(None) # Check if we can transition to FINISHED
 
+    def onControl(self, msg):
+        """
+        Input  : msg (AckermannDriveStamped) — control command
+        Output : None
+        Logic  : Extract velocity and steering for monitoring.
+        """
+        self.vel = msg.drive.speed
+        self.steer = msg.drive.steering_angle
 
     def onHeartbeat(self, pkg: str):
         """
@@ -176,7 +195,23 @@ class Supervisor:
                  Update module.lastHeartbeatTime = time.time().
                  Set module.state = Running.
         """
-        pass
+        current_time = time.time()
+        
+        # Update heartbeat timestamp
+        self.module_last_heartbeat[pkg] = current_time
+        
+        # Update module state in ModuleManager
+        module = self.moduleManager.getModule(pkg)
+        
+        if module:
+            if module.state != ModuleState.RUNNING:
+                module.state = ModuleState.RUNNING
+                self.logger.info(f"[Supervisor] Module {pkg} is now RUNNING (heartbeat received)")
+            
+            module.lastHeartbeatTime = current_time
+        else:
+            self.logger.warning(f"[Supervisor] Received heartbeat from unknown module: {pkg}")
+
 
     def checkHeartbeat(self):
         """
@@ -187,7 +222,49 @@ class Supervisor:
                  time.time() - lastHeartbeatTime > heartbeatTimeout.
                  If timeout exceeded issue RestartModuleCommand.
         """
-        pass
+        current_time = time.time()
+        modules = self.moduleManager.getModules()
+        
+        for pkg, module in modules.items():
+            # Only check modules that should be running
+            if module.state != ModuleState.RUNNING:
+                continue
+            
+            # Get last heartbeat time
+            last_heartbeat = self.module_last_heartbeat.get(pkg, 0)
+            
+            # Check timeout
+            time_since_heartbeat = current_time - last_heartbeat
+            
+            if time_since_heartbeat > self.heartbeat_timeout:
+                self.logger.warning(
+                    f"[Supervisor] Module {pkg} heartbeat timeout "
+                    f"({time_since_heartbeat:.1f}s > {self.heartbeat_timeout}s)"
+                )
+                
+                # Issue restart command
+                self.issueCommand(RestartModuleCommand(self.moduleManager, module))
+
+    def _heartbeat_monitor_loop(self):
+        """
+        Background thread that monitors module heartbeats.
+        
+        Logic : Every second, check all modules.
+                If a module hasn't sent heartbeat within timeout,
+                attempt to restart it.
+        """
+        self.logger.info("[Supervisor] Heartbeat monitor thread started")
+        
+        while not self._stop_monitor.is_set():
+            try:
+                self.checkHeartbeat()
+            except Exception as e:
+                self.logger.error(f"[Supervisor] Error in heartbeat monitor: {e}", exc_info=True)
+            
+            # Check every second
+            self._stop_monitor.wait(timeout=1.0)
+        
+        self.logger.info("[Supervisor] Heartbeat monitor thread stopped")
 
     # ========================
     # MISSION CALLBACKS
@@ -213,4 +290,4 @@ class Supervisor:
         """
         self.logger.error(f"Mission failed: {reason}")
         self.currentState = SuperState.STOPPING
-        self.issueCommand(EmergencyStopCommand(self.moduleManager))
+        self.issueCommand(EmergencyStopCommand(self.moduleManager,self.missionManager))
