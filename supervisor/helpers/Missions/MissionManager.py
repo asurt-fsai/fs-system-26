@@ -5,6 +5,7 @@ from enum import Enum
 from typing import Optional
 logger = logging.getLogger(__name__)
 
+from supervisor.helpers.Module.ModuleState import ModuleState
 from supervisor.helpers.Module.Module import Module
 from supervisor.helpers.Module.ModuleManager import ModuleManager
 from supervisor.helpers.CommunicationLayer import CommunicationLayer
@@ -367,6 +368,39 @@ class MissionManager:
             f"pkgs={[m.pkg for m in modules]}"
         )
         self.moduleManager.registerModules(modules)
+        
+    #=================================
+    # checking that mission is ready 
+    #=================================
+    def isReady(self) -> bool:
+        """
+        Returns True if mission is ready to run.
+
+        Logic:
+        - Active mission must exist
+        - Mission must be in RUNNING state (modules launched)
+        - All modules must be in RUNNING state (heartbeat received)
+        """
+
+        if self.activeMission is None:
+            return False
+
+        if self.activeMission.missionStatus != MissionStatus.RUNNING:
+            return False
+
+        if self.moduleManager is None:
+            return False
+
+        modules = self.moduleManager.getModules()
+
+        if not modules:
+            return False
+
+        for module in modules.values():
+            if module.state != ModuleState.RUNNING:
+                return False
+
+        return True    
 
     # ------------------------------------------------------------------
     # Getter

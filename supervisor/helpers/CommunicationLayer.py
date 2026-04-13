@@ -245,7 +245,7 @@ class CommunicationLayer(Node):
     def _init_ros(self):
 
         """
-        Initializes ROS publishers and subscribers.
+        Initializes ROS publishers , subscribers and timers.
 
         Input
         -----
@@ -259,6 +259,7 @@ class CommunicationLayer(Node):
 
         self._setup_publishers()
         self._setup_subscriptions()
+        self._setup_timers()
 
     # ---------------------------------------------------------
     # Publishers
@@ -294,11 +295,6 @@ class CommunicationLayer(Node):
         Bool,
         "/ros_can/mission_flag",
         10)
-
-        self._can_pub = self.create_publisher(
-            String, "can_command", 10
-        )
-
     # ---------------------------------------------------------
     # Subscriptions
     # ---------------------------------------------------------
@@ -332,7 +328,7 @@ class CommunicationLayer(Node):
 
         self.create_subscription(
             TwistWithCovarianceStamped,
-            '/current_velocity',  # Or whatever the actual topic name is
+            '/current_velocity',  # or actual topic name
             self.onVelocity,
             10)
         
@@ -353,6 +349,35 @@ class CommunicationLayer(Node):
         # Float64 topics
         self.create_subscription(Float64, "/slam/distance", self.onDistance, 10)
 
+    # ---------------------------------------------------------
+    # Timers
+    # ---------------------------------------------------------
+    def _setup_timers(self):
+        """
+        Creates periodic timers for system loops.
+        """
+
+        # Supervisor main loop (like old run())
+        self.create_timer(0.05, self._supervisor_loop)  # 20 Hz
+
+        #timer for heartbeat 
+        self.create_timer(1.0, self._heartbeat_monitor)  # 1 Hz
+
+
+
+    def _supervisor_loop(self):
+        if self._supervisor:
+            try:
+                self._supervisor.transitionState()
+            except Exception as e:
+                self.logger.error(f"[Supervisor Loop Error] {e}", exc_info=True)
+
+    def _heartbeat_monitor(self):
+        if self._supervisor:
+            try:
+                self._supervisor.checkHeartbeat()
+            except Exception as e:
+                self.logger.error(f"[Heartbeat Error] {e}", exc_info=True)
     # ---------------------------------------------------------
     # ROS Executor
     # ---------------------------------------------------------
@@ -611,23 +636,6 @@ class CommunicationLayer(Node):
         msg.data = flag
         self._mission_flag_pub.publish(msg)
         self._log_publish("mission_flag", flag)   
-
-    def publishCANCommand(self, state):
-
-        """
-        Publishes CAN commands.
-
-        Input
-        -----
-        state : CAN state command
-        """
-
-        msg = String()
-        msg.data = state
-
-        self._can_pub.publish(msg)
-
-        self._log_publish("can_command", state)
 
     # ---------------------------------------------------------
     # Logging Helpers

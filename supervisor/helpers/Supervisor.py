@@ -102,7 +102,7 @@ class Supervisor:
     # ========================
     # STATE TRANSITIONS
     # ========================
-    def transitionState(self, newState):
+    def transitionState(self):
         """
         Input  : newState (SupervisorState) — state to transition to
         Output : None
@@ -111,36 +111,34 @@ class Supervisor:
                  Log the transition.
                  this is the same function in old system called 'run'
         """
-        # Auto transition if newState is None
-        state = newState if newState else self.currentState
-
-        if state == SuperState.WAITING:
+        if self.currentState == SuperState.WAITING:
             if self.amiState not in (None, 0):  # AMI selected
                 self.currentState = SuperState.LAUNCHING
                 self.logger.info("[Supervisor] State transition to LAUNCHING")
                 self.issueCommand(StartMissionCommand(self.missionManager, self.amiState)) #amiState is the target mission type, passed to StartMissionCommand
 
-        elif state == SuperState.LAUNCHING:
+        elif self.currentState == SuperState.LAUNCHING:
             self.isFinished=False
-            self.currentState = SuperState.READY
-            self.logger.info("[Supervisor] State transition to READY")
+            if self.missionManager.isReady():
+                self.currentState = SuperState.READY
+                self.logger.info("[Supervisor] State transition to READY")
 
-        elif state == SuperState.READY:
+        elif self.currentState == SuperState.READY:
             if self.asState == 2:  # Vehicle ready to run
                 self.currentState = SuperState.RUNNING
                 self.logger.info("[Supervisor] State transition to RUNNING")
 
-        elif state == SuperState.RUNNING:
+        elif self.currentState == SuperState.RUNNING:
             if self.isFinished:
                 self.currentState = SuperState.STOPPING
                 self.logger.info("[Supervisor] State transition to STOPPING")
 
-        elif state == SuperState.STOPPING:
+        elif self.currentState == SuperState.STOPPING:
             if self.currentVel < self.maxStopVelTh:
                 self.currentState = SuperState.FINISHED
                 self.logger.info("[Supervisor] State transition to FINISHED")
 
-        elif state == SuperState.FINISHED:
+        elif self.currentState == SuperState.FINISHED:
             self.issueCommand(ShutdownModulesCommand(self.moduleManager))
             self.logger.info("[Supervisor] Mission finished. Modules shutting down.")
             time.sleep(2)  # short delay before restarting
@@ -149,7 +147,71 @@ class Supervisor:
             self.isFinished = False
             self.logger.info("[Supervisor] Supervisor reset to WAITING")
 
+        #Publish commands after any state transition
+        self.publishRosCanMessages()
 
+    #===============================
+    # publishing commands to the car
+    #================================
+    def publishRosCanMessages(self):
+        """
+        Publishes control flags and commands based on current state.
+        Called periodically or after state transitions.
+        """
+        # Publish mission and driving flags
+        if self.currentState in (SuperState.WAITING, SuperState.LAUNCHING, SuperState.READY):
+            self.communication.publishMissionFlag(False)
+            self.communication.publishDrivingFlag(False)
+        
+        elif self.currentState in (SuperState.RUNNING, SuperState.STOPPING) and self.asState == 2:
+            self.communication.publishMissionFlag(False)
+            self.communication.publishDrivingFlag(True)
+        
+        elif self.currentState == SuperState.FINISHED:
+            self.communication.publishMissionFlag(True)
+            self.communication.publishDrivingFlag(False)
+        
+        # Publish drive command
+        cmd_msg = self.getCmdMessage()
+        self.communication.publishDriveCommand(cmd_msg)
+
+    def getCmdMessage(self):
+        """
+        Generates AckermannDriveStamped command based on current state.
+        
+        Returns : AckermannDriveStamped message
+        """
+        from ackermann_msgs.msg import AckermannDriveStamped
+        
+        cmdMsg = AckermannDriveStamped()
+        
+        if self.currentState in (
+            SuperState.WAITING,
+            SuperState.LAUNCHING,
+            SuperState.READY,
+            SuperState.FINISHED,
+        ):
+            cmdMsg.drive.speed = 0.0
+            cmdMsg.drive.steering_angle = 0.0
+        
+        elif self.currentState == SuperState.RUNNING:
+            cmdMsg.drive.speed = self.vel
+            cmdMsg.drive.steering_angle = self.steer
+        
+        elif self.currentState == SuperState.STOPPING:
+            cmdMsg.drive.steering_angle = self.steer
+            if self.currentVel > 0.1:
+                targetVel = 0.5 * self.currentVel
+            else:
+                targetVel = 0.0
+            cmdMsg.drive.speed = targetVel
+
+        cmdMsg.header.stamp = self.communication.get_clock().now().to_msg()
+        return cmdMsg
+
+    # ========================
+    # ROS CALLBACKS
+    # ========================
 
     def onCANState(self, data):
         """
@@ -164,7 +226,6 @@ class Supervisor:
         
         self.logger.debug(f"[Supervisor] CAN State - AS: {self.asState}, AMI: {self.amiState}")
         
-        self.transitionState(None)  # auto-transition based on new CAN info
 
     def onVelocity(self, data):
         """
@@ -174,9 +235,7 @@ class Supervisor:
                  Used for mission monitoring or safety checks.
         """
         self.currentVel = data
-        # Could also check stopping conditions in STOPPING
-        if self.currentState == SuperState.STOPPING:
-            self.transitionState(None) # Check if we can transition to FINISHED
+        
 
     def onControl(self, msg):
         """
@@ -186,6 +245,10 @@ class Supervisor:
         """
         self.vel = msg.drive.speed
         self.steer = msg.drive.steering_angle
+
+    # ========================
+    # Heartbeat Monitoring
+    # ========================  
 
     def onHeartbeat(self, pkg: str):
         """
@@ -245,27 +308,6 @@ class Supervisor:
                 # Issue restart command
                 self.issueCommand(RestartModuleCommand(self.moduleManager, module))
 
-    def _heartbeat_monitor_loop(self):
-        """
-        Background thread that monitors module heartbeats.
-        
-        Logic : Every second, check all modules.
-                If a module hasn't sent heartbeat within timeout,
-                attempt to restart it.
-        """
-        self.logger.info("[Supervisor] Heartbeat monitor thread started")
-        
-        while not self._stop_monitor.is_set():
-            try:
-                self.checkHeartbeat()
-            except Exception as e:
-                self.logger.error(f"[Supervisor] Error in heartbeat monitor: {e}", exc_info=True)
-            
-            # Check every second
-            self._stop_monitor.wait(timeout=1.0)
-        
-        self.logger.info("[Supervisor] Heartbeat monitor thread stopped")
-
     # ========================
     # MISSION CALLBACKS
     # ========================
@@ -274,11 +316,11 @@ class Supervisor:
         Input  : result — mission result data
         Output : None
         Logic  : Transition state to FINISHED.
-                 Issue ShutdownModulesCommand.
         """
         self.isFinished = True
-        self.issueCommand(ShutdownModulesCommand(self.moduleManager))
-        self.transitionState(SuperState.FINISHED)
+        self.currentState = SuperState.STOPPING
+        self.logger.info(f"Mission finished with result: {result}")
+
 
     def onMissionFailed(self, reason: str):
         """
