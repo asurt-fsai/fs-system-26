@@ -150,7 +150,7 @@ class LidarNode(Node):
 
 
         redper= 100.0 * (1- after_ground_count/after_car_count)  if initial_count > 0 else 0
-        self.reduction_percentages.append(redper)
+        
 
 
         if after_voxel_count > 0:
