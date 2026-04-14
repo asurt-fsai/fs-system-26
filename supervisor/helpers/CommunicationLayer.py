@@ -29,10 +29,12 @@ import threading
 from threading import Thread, Event
 from typing import Optional
 
+from ackermann_msgs import msg
+from build.asurt_msgs.rosidl_generator_py.asurt_msgs.msg._node_status import NodeStatus
 import rclpy
 from rclpy.node import Node
 from rclpy.executors import MultiThreadedExecutor
-from std_msgs.msg import String, Bool, Float64
+from std_msgs.msg import Int16, String, Bool, Float64
 from eufs_msgs.msg import CanState
 from geometry_msgs.msg import TwistWithCovarianceStamped
 from ackermann_msgs.msg import AckermannDriveStamped
@@ -274,27 +276,17 @@ class CommunicationLayer(Node):
         ------
         /drive_command
         /can_command
+        /driving_flag
+        /mission_flag
         """
-
-        
         #  Ackermann drive command
-        self._cmd_pub = self.create_publisher(
-            AckermannDriveStamped, 
-            "/ros_can/cmd",  # Actual topic name
-            10
-        )
+        self._cmd_pub = self.create_publisher( AckermannDriveStamped, "/ros_can/cmd", 10)
 
         # Driving flag (enables autonomous driving)
-        self._driving_flag_pub = self.create_publisher(
-            Bool,
-            "/ros_can/driving_flag",
-            10
-        )
+        self._driving_flag_pub = self.create_publisher(Bool,"/ros_can/driving_flag",10)
         # Mission finished flag
-        self._mission_flag_pub = self.create_publisher(
-        Bool,
-        "/ros_can/mission_flag",
-        10)
+        self._mission_flag_pub = self.create_publisher(Bool,"/ros_can/mission_flag",10)
+
     # ---------------------------------------------------------
     # Subscriptions
     # ---------------------------------------------------------
@@ -313,31 +305,17 @@ class CommunicationLayer(Node):
         cone detection
         loop closure
         distance
+        loop closure count
         """
 
         # CAN state — uses CanState message type
-        self.create_subscription(
-            CanState,
-            '/ros_can/state',
-            self.onCANState,
-            10
-        )
+        self.create_subscription(CanState,'/ros_can/state',self.onCANState,10)
 
-        # Heartbeat as String
-        self.create_subscription(String, "heartbeat", self.onHeartbeat, 10)
+        self.create_subscription(NodeStatus, "/module_heartbeat", self.onHeartbeat, 10)
 
-        self.create_subscription(
-            TwistWithCovarianceStamped,
-            '/current_velocity',  # or actual topic name
-            self.onVelocity,
-            10)
+        self.create_subscription(TwistWithCovarianceStamped,'/current_velocity', self.onVelocity,10)
         
-        self.create_subscription(
-        AckermannDriveStamped,
-        '/control',  # Or actual topic name
-        self.onControl,
-        10)
-
+        self.create_subscription(AckermannDriveStamped,'/control', self.onControl,10)
         # Bool topics
         bool_topics = [
             ("/perception/cone_detection", self.onConeDetection),
@@ -348,6 +326,8 @@ class CommunicationLayer(Node):
 
         # Float64 topics
         self.create_subscription(Float64, "/slam/distance", self.onDistance, 10)
+           
+        self.create_subscription(Int16, "/slam/loop_closure_count",self.onLoopClosureCount,10)
 
     # ---------------------------------------------------------
     # Timers
@@ -358,7 +338,7 @@ class CommunicationLayer(Node):
         """
 
         # Supervisor main loop (like old run())
-        self.create_timer(0.05, self._supervisor_loop)  # 20 Hz
+        self.create_timer(0.1, self._supervisor_loop)  # 10 Hz
 
         #timer for heartbeat 
         self.create_timer(1.0, self._heartbeat_monitor)  # 1 Hz
@@ -366,18 +346,22 @@ class CommunicationLayer(Node):
 
 
     def _supervisor_loop(self):
-        if self._supervisor:
+        supervisor = self._supervisor
+        if supervisor:
             try:
-                self._supervisor.transitionState()
+                self._supervisor.run() # Call the supervisor's main loop method
             except Exception as e:
                 self.logger.error(f"[Supervisor Loop Error] {e}", exc_info=True)
 
     def _heartbeat_monitor(self):
-        if self._supervisor:
-            try:
-                self._supervisor.checkHeartbeat()
-            except Exception as e:
-                self.logger.error(f"[Heartbeat Error] {e}", exc_info=True)
+        supervisor = self._supervisor
+        if not supervisor:
+            return
+        try:
+            supervisor.checkHeartbeat()
+        except Exception as e:
+            self.logger.error(f"[Heartbeat Error] {e}", exc_info=True)
+
     # ---------------------------------------------------------
     # ROS Executor
     # ---------------------------------------------------------
@@ -529,7 +513,7 @@ class CommunicationLayer(Node):
 
         Input
         -----
-        msg.data : module name
+        msg (NodeStatus) — heartbeat status message
 
         Output
         ------
@@ -537,10 +521,10 @@ class CommunicationLayer(Node):
 
         Supervisor will update ModuleManager heartbeat state.
         """
+        module_name = msg.node_name 
+        status = msg.status
 
-        module_name = msg.data
-
-        self._log_topic("heartbeat", module_name)
+        self._log_topic("/module_heartbeat", f"{module_name} - {status}")
 
         if self._supervisor:
             self._supervisor.onHeartbeat(module_name)
@@ -574,6 +558,17 @@ class CommunicationLayer(Node):
 
         if self._activeMission:
             self._activeMission.onLoopClosure(msg.data)
+
+    def onLoopClosureCount(self, msg):
+        """
+        Handles loop closure count for Trackdrive mission.
+        
+        Input : msg (Int16) — loop closure count
+        """
+        self._log_topic("/slam/loop_closure_count", msg.data)
+        
+        if self._activeMission and hasattr(self._activeMission, 'onLoopClosureCount'):
+            self._activeMission.onLoopClosureCount(msg.data)
 
     def onDistance(self, msg):
 

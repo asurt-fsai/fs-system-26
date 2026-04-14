@@ -71,10 +71,7 @@ class Supervisor:
         self.steer =0.0
 
         # Heartbeat tracking
-        self._stop_monitor = threading.Event() # Add stop event for heartbeat monitor
         self.module_last_heartbeat = {}
-        self.monitor_thread = threading.Thread(target=self._heartbeat_monitor_loop, daemon=True, name="supervisor-heartbeat-monitor")
-        self.monitor_thread.start()
 
         # Register with managers
         self.communication.registerSupervisor(self)
@@ -98,7 +95,6 @@ class Supervisor:
             self.logger.error(f"[Supervisor] Failed to execute command {type(cmd).__name__}: {e}", exc_info=True)
 
 
-
     # ========================
     # STATE TRANSITIONS
     # ========================
@@ -112,7 +108,7 @@ class Supervisor:
                  this is the same function in old system called 'run'
         """
         if self.currentState == SuperState.WAITING:
-            if self.amiState not in (None, 0):  # AMI selected
+            if self.amiState != CanState.AMI_NOT_SELECTED:  
                 self.currentState = SuperState.LAUNCHING
                 self.logger.info("[Supervisor] State transition to LAUNCHING")
                 self.issueCommand(StartMissionCommand(self.missionManager, self.amiState)) #amiState is the target mission type, passed to StartMissionCommand
@@ -137,19 +133,27 @@ class Supervisor:
             if self.currentVel < self.maxStopVelTh:
                 self.currentState = SuperState.FINISHED
                 self.logger.info("[Supervisor] State transition to FINISHED")
+                
+## 3ashan n5ali el finished state yeb2a leeh timer 3ashan y3mel reset ba3d 5 seconds w ten2el lel waiting so publishing to the car the finishing state correctly 
+        elif self.currentState == SuperState.FINISHED: 
+            if not hasattr(self, "finished_time"):
+                self.finished_time = time.time()
+                self.issueCommand(ShutdownModulesCommand(self.moduleManager))
+                self.logger.info("[Supervisor] Entered FINISHED")
 
-        elif self.currentState == SuperState.FINISHED:
-            self.issueCommand(ShutdownModulesCommand(self.moduleManager))
-            self.logger.info("[Supervisor] Mission finished. Modules shutting down.")
-            time.sleep(2)  # short delay before restarting
-            self.currentState = SuperState.WAITING
-            self.amiState = CanState.AMI_NOT_SELECTED
-            self.isFinished = False
-            self.logger.info("[Supervisor] Supervisor reset to WAITING")
+            elif time.time() - self.finished_time > 5:
+                self.currentState = SuperState.WAITING
+                self.amiState = CanState.AMI_NOT_SELECTED
+                self.isFinished = False
+                del self.finished_time
+                self.logger.info("[Supervisor] Reset to WAITING")
+    
 
-        #Publish commands after any state transition
+    def run(self):
+        self.transitionState()
         self.publishRosCanMessages()
-
+            
+        
     #===============================
     # publishing commands to the car
     #================================
