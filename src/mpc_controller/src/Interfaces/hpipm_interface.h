@@ -11,8 +11,8 @@
 #include <array>
 #include <vector>
 
-#include "config.h"
-#include "types.h"
+#include "../config.h"
+#include "../types.h"
 #include "solver_interface.h"
 
 namespace mpcc {

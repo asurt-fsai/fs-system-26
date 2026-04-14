@@ -1,7 +1,7 @@
 #include "mpc_controller_node.h"
 #include "tf2/LinearMath/Quaternion.h"
 #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
-#include <geometry_msgs/msg/pose_stamped.hpp>
+#include <algorithm>
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // Default JSON parameter-file paths (override via ROS2 node parameters)
@@ -32,19 +32,15 @@ MPCControllerNode::MPCControllerNode()
     };
     control_dt_ = get_parameter("control_dt").as_double();
 
-    // ─── MPC solver (1 SQP iter, reset after 5 consecutive failures) ────
+    // ─── MPC solver (3 SQP iters, reset after 5 consecutive failures) ────
     mpc_ = std::make_unique<mpc_controller::MPC>(
-        1 /*n_sqp*/, 5 /*n_reset*/, 1.0 /*sqp_mix*/, control_dt_, paths);
+        3 /*n_sqp*/, 5 /*n_reset*/, 1.0 /*sqp_mix*/, control_dt_, paths);
 
     current_state_.setZero();
 
-    // ─── Publishers ─────────────────────────────────────────────────────
+    // ─── Publisher: acceleration + steering angle for IPG CarMaker ─────
     cmd_vel_pub_ = create_publisher<geometry_msgs::msg::Twist>(
         "/cmd_vel", rclcpp::QoS(10));
-    predicted_path_pub_ = create_publisher<nav_msgs::msg::Path>(
-        "/mpc/predicted_path", rclcpp::QoS(10));
-    debug_pub_ = create_publisher<std_msgs::msg::Float32MultiArray>(
-        "/mpc/debug", rclcpp::QoS(10));
 
     // ─── Subscribers ────────────────────────────────────────────────────
     odom_sub_ = create_subscription<nav_msgs::msg::Odometry>(
@@ -52,7 +48,7 @@ MPCControllerNode::MPCControllerNode()
         std::bind(&MPCControllerNode::odomCallback, this, std::placeholders::_1));
 
     reference_path_sub_ = create_subscription<nav_msgs::msg::Path>(
-        "/reference_path", rclcpp::QoS(10),
+        "/reference_path", rclcpp::QoS(10).transient_local(),
         std::bind(&MPCControllerNode::pathCallback, this, std::placeholders::_1));
 
     // ─── Control-loop timer ─────────────────────────────────────────────
@@ -77,7 +73,7 @@ void MPCControllerNode::odomCallback(const nav_msgs::msg::Odometry::SharedPtr ms
     current_state_.y     = pos.y;
     current_state_.theta = yaw;
     current_state_.v     = msg->twist.twist.linear.x;
-    // delta is not directly observable; it is maintained by the solver.
+    current_state_.delta = msg->twist.twist.linear.y;  // steering angle from simulator
 }
 
 void MPCControllerNode::pathCallback(const nav_msgs::msg::Path::SharedPtr msg)
@@ -86,11 +82,17 @@ void MPCControllerNode::pathCallback(const nav_msgs::msg::Path::SharedPtr msg)
     reference_path_ = *msg;
     has_reference_path_ = true;
     track_set_ = false;  // Trigger spline re-fit on next control cycle
+    RCLCPP_INFO(get_logger(), "Received reference path with %zu waypoints", msg->poses.size());
 }
 
 void MPCControllerNode::controlLoop()
 {
-    if (!has_reference_path_) return;
+    if (!has_reference_path_) {
+        static int warn_count = 0;
+        if (warn_count++ % 100 == 0)
+            RCLCPP_WARN(get_logger(), "Waiting for /reference_path...");
+        return;
+    }
 
     // Upload track spline once per new path
     if (!track_set_) {
@@ -102,50 +104,37 @@ void MPCControllerNode::controlLoop()
         }
         mpc_->setTrack(X, Y);
         track_set_ = true;
+        RCLCPP_INFO(get_logger(), "Track spline fit from %zu waypoints", n);
     }
 
     try {
         mpc_controller::state x0 = current_state_;
         mpc_controller::MPCReturn result = mpc_->runMPC(x0);
 
-        // Publish first optimal control: acceleration + steering rate
+        // Compute the target steering angle: current δ + δ̇ * dt
+        const double target_delta = std::clamp(
+            x0.delta + result.u0.delta_dot * control_dt_,
+            -0.6109, 0.6109);  // clamp to steering limits
+
+        // Publish: linear.x = acceleration [m/s²], angular.z = steering angle [rad]
         geometry_msgs::msg::Twist twist;
-        twist.linear.x  = result.u0.D_dot;
-        twist.angular.z = result.u0.delta_dot;
+        twist.linear.x  = result.u0.D_dot;   // acceleration
+        twist.angular.z = target_delta;       // steering angle
         cmd_vel_pub_->publish(twist);
 
-        // Publish full MPC horizon path
-        publishPredictedPath(result.mpc_horizon);
-
-        // Publish compute time for monitoring
-        std_msgs::msg::Float32MultiArray dbg;
-        dbg.data = {static_cast<float>(result.time_total)};
-        debug_pub_->publish(dbg);
+        // Log periodically (~1 Hz at 20 Hz control rate)
+        static int log_count = 0;
+        if (log_count++ % 20 == 0) {
+            RCLCPP_INFO(get_logger(),
+                "MPC: x0=(%.2f,%.2f) θ=%.2f δ=%.3f v=%.2f → a=%.3f δ_cmd=%.3f  err=%.2fm t=%.1fms",
+                x0.x, x0.y, x0.theta, x0.delta, x0.v,
+                result.u0.D_dot, target_delta,
+                result.lateral_error, result.time_total * 1000.0);
+        }
 
     } catch (const std::exception& e) {
         RCLCPP_ERROR(get_logger(), "MPC solve error: %s", e.what());
     }
-}
-
-void MPCControllerNode::publishPredictedPath(
-    const std::array<mpc_controller::OptVariables, N+1>& horizon)
-{
-    nav_msgs::msg::Path path_msg;
-    path_msg.header.frame_id = "map";
-    path_msg.header.stamp    = now();
-
-    for (int i = 0; i <= N; ++i) {
-        geometry_msgs::msg::PoseStamped ps;
-        ps.header = path_msg.header;
-        ps.pose.position.x = horizon[i].xk.x;
-        ps.pose.position.y = horizon[i].xk.y;
-
-        tf2::Quaternion q;
-        q.setRPY(0, 0, horizon[i].xk.theta);
-        ps.pose.orientation = tf2::toMsg(q);
-        path_msg.poses.push_back(ps);
-    }
-    predicted_path_pub_->publish(path_msg);
 }
 
 int main(int argc, char* argv[])

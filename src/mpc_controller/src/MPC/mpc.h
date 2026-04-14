@@ -53,6 +53,7 @@ struct MPCReturn {
     const control                      u0;           // First control to apply
     const std::array<OptVariables, N+1> mpc_horizon; // Full predicted horizon
     const double                        time_total;  // Computation time [s]
+    const double                        lateral_error; // Perpendicular distance to track [m]
 };
 
 // ─── MPC class ────────────────────────────────────────────────────────────────

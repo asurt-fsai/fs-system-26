@@ -35,6 +35,7 @@ Params::Params()
       weight_state(0), weight_control(0), weight_slack(0),
       ref_velocity(0), ref_x(0), ref_y(0),
       q_c(0), q_c_N_mult(1), q_l(0), q_r(0), q_r_N_mult(1), q_vs(0), q_mu(0),
+      a_lat_max(5.0),
       r_delta(0), r_vs(0), r_dD(0), r_dDelta(0),
       sc_quad_track(0), sc_lin_track(0),
       x_min(0), x_max(0), y_min(0), y_max(0),
@@ -142,6 +143,9 @@ void Params::loadCostParams(std::string cost_file) {
 
         // ===== HEADING ALIGNMENT WEIGHT =====
         if (j.contains("q_mu")) q_mu = j["q_mu"];
+
+        // ===== CURVATURE SPEED LIMIT =====
+        if (j.contains("a_lat_max")) a_lat_max = j["a_lat_max"];
 
         // ===== INPUT COST WEIGHTS =====
         if (j.contains("r_delta")) r_delta = j["r_delta"];

@@ -4,7 +4,6 @@
 #include <geometry_msgs/msg/twist.hpp>
 #include <nav_msgs/msg/odometry.hpp>
 #include <nav_msgs/msg/path.hpp>
-#include <std_msgs/msg/float32_multi_array.hpp>
 #include <Eigen/Dense>
 
 // MPC library headers
@@ -37,8 +36,6 @@ private:
 
     // ROS 2 interfaces
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr              cmd_vel_pub_;
-    rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr                   predicted_path_pub_;
-    rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr      debug_pub_;
 
     rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr   odom_sub_;
     rclcpp::Subscription<nav_msgs::msg::Path>::SharedPtr       reference_path_sub_;
@@ -49,7 +46,4 @@ private:
     void odomCallback(const nav_msgs::msg::Odometry::SharedPtr msg);
     void pathCallback(const nav_msgs::msg::Path::SharedPtr msg);
     void controlLoop();
-
-    // Helpers
-    void publishPredictedPath(const std::array<mpc_controller::OptVariables, N+1>& horizon);
 };

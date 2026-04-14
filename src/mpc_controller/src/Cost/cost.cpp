@@ -53,18 +53,20 @@ ErrorInfo Cost::getErrorInfo(const mpc_controller::ArcSpline &track, const mpc_c
 
     // Build 2×NX Jacobian matrix: rows = [contouring error, lag error], cols = [x, y, theta, delta, v]
     Eigen::Matrix<double,2,NX> d_error = Eigen::Matrix<double,2,NX>::Zero();
-    // Populate the Jacobian of the error with respect to the state variables
+    // error = (x_ref − x, y_ref − y), so ∂error/∂(x,y) = −I₂
+    // e_c = (−sinθ, cosθ)·error  →  ∂e_c/∂x = sinθ,  ∂e_c/∂y = −cosθ
+    // e_l = ( cosθ, sinθ)·error  →  ∂e_l/∂x = −cosθ, ∂e_l/∂y = −sinθ
     // Row 0: derivatives of contouring error w.r.t. [x, y, theta, delta, v]
-    d_error(0, 0) = -std::sin(ref_point.theta_ref);
-    d_error(0, 1) = std::cos(ref_point.theta_ref);
-    d_error(0, 2) = dContouringError;
+    d_error(0, 0) =  std::sin(ref_point.theta_ref);
+    d_error(0, 1) = -std::cos(ref_point.theta_ref);
+    d_error(0, 2) = 0.0;  // contouring error does not depend on car heading θ
     d_error(0, 3) = 0.0;  // Contouring error doesn't depend on delta directly
     d_error(0, 4) = 0.0;  // Contouring error doesn't depend on velocity directly
     
     // Row 1: derivatives of lag error w.r.t. [x, y, theta, delta, v]
-    d_error(1, 0) = std::cos(ref_point.theta_ref);
-    d_error(1, 1) = std::sin(ref_point.theta_ref);
-    d_error(1, 2) = dLagError;
+    d_error(1, 0) = -std::cos(ref_point.theta_ref);
+    d_error(1, 1) = -std::sin(ref_point.theta_ref);
+    d_error(1, 2) = 0.0;  // lag error does not depend on car heading θ
     d_error(1, 3) = 0.0;  // Lag error doesn't depend on delta directly
     d_error(1, 4) = 0.0;  // Lag error doesn't depend on velocity directly
     
@@ -74,41 +76,41 @@ ErrorInfo Cost::getErrorInfo(const mpc_controller::ArcSpline &track, const mpc_c
 CostMatrix Cost::getContouringCost(const mpc_controller::ArcSpline &track, const mpc_controller::state &x, int k) const
 {
     static const StateInputIndexes si_index;
-    #undef N  // Undefine the macro N from config.h to use local variable
-    const int N = params_.horizon;
+    const int horizon = params_.horizon;
 
-    // compute reference information
-    const state_MPC x_vec = stateToVector(x);
-    // compute error and jacobian of error
-    const ErrorInfo error_info = getErrorInfo(track, x);
+    // ── Direct position-tracking cost ─────────────────────────────────────
+    // Penalises: q_c * ((x − x_ref)² + (y − y_ref)²)
+    // This gives a clear, direct gradient for the QP optimizer — no
+    // contouring/lag rotation, no linearisation-induced sign/coupling issues.
+    const Eigen::Vector2d pos_ref = track.getPosition(x.s);
+    const double q_xy = k < horizon ? params_.q_c : params_.q_c_N_mult * params_.q_c;
 
-    // contouring cost weights (use terminal multiplier at end of horizon)
-    Eigen::Vector2d ContouringCost;
-    ContouringCost(0) = k < N ? params_.q_c : params_.q_c_N_mult * params_.q_c;
-    ContouringCost(1) = params_.q_l;
-
-    // contouring and lag error part
     Q_MPC Q_contouring_cost = Q_MPC::Zero();
     q_MPC q_contouring_cost = q_MPC::Zero();
 
-    const Eigen::Matrix<double,1,NX> d_contouring_error = error_info.d_error.row(0);
-    const double contouring_error_zero = error_info.error(0) - (d_contouring_error * x_vec)(0);
+    // Position tracking: 0.5 * x' * Q * x + q' * x  with Q pre-scaled by 2
+    Q_contouring_cost(si_index.x, si_index.x) = 2.0 * q_xy;
+    Q_contouring_cost(si_index.y, si_index.y) = 2.0 * q_xy;
+    q_contouring_cost(si_index.x) = -2.0 * q_xy * pos_ref(0);
+    q_contouring_cost(si_index.y) = -2.0 * q_xy * pos_ref(1);
 
-    const Eigen::Matrix<double,1,NX> d_lag_error = error_info.d_error.row(1);
-    const double lag_error_zero = error_info.error(1) - (d_lag_error * x_vec)(0);
+    // ── Velocity reference tracking ───────────────────────────────────────
+    //     Curvature-aware: v_ref = min(ref_velocity, sqrt(a_lat_max / |kappa|))
+    //     The car naturally slows in tight corners and goes full speed on straights.
+    const Eigen::Vector2d d_ref  = track.getDerivative(x.s);
+    const Eigen::Vector2d dd_ref = track.getSecondDerivative(x.s);
+    const double d_norm3 = std::pow(d_ref.norm(), 3.0);
+    const double kappa = std::abs(d_ref(0) * dd_ref(1) - d_ref(1) * dd_ref(0))
+                       / std::max(d_norm3, 1e-6);
 
-    Q_contouring_cost = ContouringCost(0) * d_contouring_error.transpose() * d_contouring_error +
-                        ContouringCost(1) * d_lag_error.transpose() * d_lag_error;
+    double v_ref = params_.ref_velocity;
+    if (kappa > 1e-4 && params_.a_lat_max > 0.0) {
+        v_ref = std::min(params_.ref_velocity, std::sqrt(params_.a_lat_max / kappa));
+        v_ref = std::max(v_ref, 1.0);  // floor at 1 m/s to avoid crawling
+    }
 
-    // regularization cost on yaw rate
-    Q_contouring_cost(si_index.r, si_index.r) = k < N ? params_.q_r : params_.q_r_N_mult * params_.q_r;
-    Q_contouring_cost = 2.0 * Q_contouring_cost;
-
-    q_contouring_cost = ContouringCost(0) * 2.0 * contouring_error_zero * d_contouring_error.transpose() +
-                        ContouringCost(1) * 2.0 * lag_error_zero * d_lag_error.transpose();
-
-    // progress maximization part
-    q_contouring_cost(si_index.vs) = -params_.q_vs;
+    Q_contouring_cost(si_index.vs, si_index.vs) = 2.0 * params_.q_vs;
+    q_contouring_cost(si_index.vs) = -2.0 * params_.q_vs * v_ref;
 
     // solver interface expects 0.5 x^T Q x + q^T x
     return {Q_contouring_cost, R_MPC::Zero(), S_MPC::Zero(), q_contouring_cost, r_MPC::Zero(), Z_MPC::Zero(), z_MPC::Zero()};
@@ -118,10 +120,12 @@ CostMatrix Cost::getHeadingCost(const mpc_controller::ArcSpline &track, const mp
 {
     static const StateInputIndexes si_index;
 
-    // Get track tangent direction at current arc length
+    // Get track tangent at the arc-length reference for this stage.
+    // With arc-length-advancing references (set in MPC::setMPCProblem),
+    // x.s already points to the correct future track section, so no
+    // separate lateral correction is needed — the position cost handles
+    // lateral approach and this cost just aligns heading with the track.
     const Eigen::Vector2d dpos_ref = track.getDerivative(x.s);
-
-    // Compute reference heading angle from track tangent
     double theta_ref = std::atan2(dpos_ref(1), dpos_ref(0));
 
     // Unwrap theta_ref to be closest to current heading — avoids discontinuity at ±π
@@ -177,12 +181,9 @@ CostMatrix Cost::getSoftConstraintCost() const
     return {Q_MPC::Zero(), R_MPC::Zero(), S_MPC::Zero(), q_MPC::Zero(), r_MPC::Zero(), Z_cost, z_cost};
 }
 
-CostMatrix Cost::getCost(const mpc_controller::ArcSpline &track, const Eigen::VectorXd &x_eig, int k) const
+CostMatrix Cost::getCost(const mpc_controller::ArcSpline &track, const mpc_controller::state &x, int k) const
 {
-    // Convert Eigen vector back to state struct for internal functions
-    mpc_controller::state x;
-    x.x = x_eig(0); x.y = x_eig(1); x.theta = x_eig(2); x.delta = x_eig(3); x.v = x_eig(4);
-
+    // State struct passed directly — preserves the s field for track projection
     const CostMatrix contouring_cost   = getContouringCost(track, x, k);
     const CostMatrix heading_cost      = getHeadingCost(track, x, k);
     const CostMatrix input_cost        = getInputCost();

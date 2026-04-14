@@ -105,46 +105,38 @@ void BicycleModel::linearize(const state& X,
                             const control& U,
                             Eigen::MatrixXd& A,
                             Eigen::MatrixXd& B) const {
-    // Pack state/control into plain vectors for numerical differentiation
-    Eigen::VectorXd x_vec(5);
-    x_vec << X.x, X.y, X.theta, X.delta, X.v;
-    Eigen::VectorXd u_vec(2);
-    u_vec << U.D_dot, U.delta_dot;
+    // Analytical Jacobians for the kinematic bicycle model
+    // Eliminates numerical differentiation (8 dynamics calls per stage)
+    // and ensures exact linearization consistent with Euler discretization.
+    const double theta = X.theta;
+    const double delta = X.delta;
+    const double v     = X.v;
+    const double L     = params_.wheelbase;
 
-    // Helper: convert 5-element vector → state struct
-    auto toState = [](const Eigen::VectorXd& xv) {
-        state Xs; Xs.x = xv(0); Xs.y = xv(1); Xs.theta = xv(2); Xs.delta = xv(3); Xs.v = xv(4);
-        return Xs;
-    };
-    // Helper: convert 2-element vector → control struct
-    auto toControl = [](const Eigen::VectorXd& uv) {
-        control Us; Us.D_dot = uv(0); Us.delta_dot = uv(1); Us.dV_ghost = 0.0;
-        return Us;
-    };
+    // Continuous-time state Jacobian A_c (5×5)
+    //   dx/dt = v*cos(θ)            → ∂/∂θ = -v*sin(θ),  ∂/∂v = cos(θ)
+    //   dy/dt = v*sin(θ)            → ∂/∂θ =  v*cos(θ),  ∂/∂v = sin(θ)
+    //   dθ/dt = (v/L)*tan(δ)       → ∂/∂δ = (v/L)*sec²(δ), ∂/∂v = tan(δ)/L
+    //   dδ/dt = δ_dot              → (no state dependence)
+    //   dv/dt = a                  → (no state dependence)
+    Eigen::MatrixXd Ac = Eigen::MatrixXd::Zero(5, 5);
+    Ac(0, 2) = -v * std::sin(theta);           // dx/dθ
+    Ac(0, 4) =  std::cos(theta);               // dx/dv
+    Ac(1, 2) =  v * std::cos(theta);           // dy/dθ
+    Ac(1, 4) =  std::sin(theta);               // dy/dv
+    const double sec_delta = 1.0 / std::cos(delta);
+    Ac(2, 3) = (v / L) * sec_delta * sec_delta; // dθ/dδ
+    Ac(2, 4) = std::tan(delta) / L;            // dθ/dv
 
-    Eigen::VectorXd x_dot_nom = dynamics(toState(x_vec), toControl(u_vec));
+    // Continuous-time input Jacobian B_c (5×2)
+    //   Only dδ/dt depends on δ_dot, dv/dt depends on a
+    Eigen::MatrixXd Bc = Eigen::MatrixXd::Zero(5, 2);
+    Bc(3, 1) = 1.0;  // dδ/d(δ_dot)
+    Bc(4, 0) = 1.0;  // dv/da
 
-    // A matrix: ∂x_dot/∂state (5x5) - use perturbation from Params
-    A = Eigen::MatrixXd::Zero(5, 5);
-    for (int i = 0; i < 5; ++i) {
-        Eigen::VectorXd x_pert = x_vec;
-        x_pert(i) += params_.linearize_eps;     // From Params (motor_model.json)!
-        Eigen::VectorXd x_dot_pert = dynamics(toState(x_pert), toControl(u_vec));
-        A.col(i) = (x_dot_pert - x_dot_nom) / params_.linearize_eps;  // From Params!
-    }
-
-    // B matrix: ∂x_dot/∂control (5x2) - use perturbation from Params
-    B = Eigen::MatrixXd::Zero(5, 2);
-    for (int i = 0; i < 2; ++i) {
-        Eigen::VectorXd u_pert = u_vec;
-        u_pert(i) += params_.linearize_eps;     // From Params (motor_model.json)!
-        Eigen::VectorXd x_dot_pert = dynamics(toState(x_vec), toControl(u_pert));
-        B.col(i) = (x_dot_pert - x_dot_nom) / params_.linearize_eps;  // From Params!
-    }
-
-    // Discrete time Jacobians (zero-order hold)
-    A = Eigen::MatrixXd::Identity(5, 5) + A * params_.dt;
-    B = B * params_.dt;
+    // Euler ZOH discretization: A_d = I + A_c*dt, B_d = B_c*dt
+    A = Eigen::MatrixXd::Identity(5, 5) + Ac * params_.dt;
+    B = Bc * params_.dt;
 }
 
 double BicycleModel::throttleToAcceleration(double throttle, double current_velocity) const {

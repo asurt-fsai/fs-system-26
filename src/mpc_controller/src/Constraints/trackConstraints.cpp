@@ -12,6 +12,11 @@ TrackConstraints::TrackConstraints(const PathToJson& path)
 {
 }
 
+TrackConstraints::TrackConstraints(const Params& params)
+    : params_(params)
+{
+}
+
 TrackConstraint TrackConstraints::getTrackConstraints(const ArcSpline& track, double s) const {
     // Get r_in and r_out from params_ member (loaded from JSON)
     double r_in = params_.r_inner;

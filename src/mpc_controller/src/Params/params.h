@@ -57,6 +57,7 @@ namespace mpc_controller{
         double q_r_N_mult;       // Terminal yaw rate multiplier (terminal weight = q_r * q_r_N_mult)
         double q_vs;             // Progress (virtual speed) weight
         double q_mu;             // Heading alignment cost weight
+        double a_lat_max;        // Max lateral acceleration for curvature speed limit [m/s²]
         // ===== Input Cost Weights =====
         double r_delta;          // State penalty on steering angle delta
         double r_vs;             // State penalty on velocity / virtual speed

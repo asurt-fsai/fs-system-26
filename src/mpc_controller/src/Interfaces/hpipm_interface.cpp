@@ -44,7 +44,7 @@ static std::vector<hpipm::OcpQp> buildOcpQp(
         // ── Cost ─────────────────────────────────────────────────────────────
         qp[i].Q = s.cost_mat.Q;
         qp[i].R = s.cost_mat.R;
-        qp[i].S = s.cost_mat.S;  // S is (NX×NU) cross-term; hpipm-cpp expects (NU×NX)
+        qp[i].S = s.cost_mat.S.transpose();  // mpcc stores NX×NU; hpipm-cpp needs NU×NX
         qp[i].q = s.cost_mat.q;
         qp[i].r = s.cost_mat.r;
 
@@ -107,12 +107,11 @@ static std::vector<hpipm::OcpQp> buildOcpQp(
         }
 
         // ── Soft constraint cost (slack penalty) ─────────────────────────────
-        if (s.ns > 0) {
-            qp[i].Zl = s.cost_mat.Z;
-            qp[i].Zu = s.cost_mat.Z;
-            qp[i].zl = s.cost_mat.z;
-            qp[i].zu = s.cost_mat.z;
-        }
+        // NOTE: hpipm-cpp wrapper only supports nsbx (soft state box constraints)
+        // via idxs, not nsg (soft polytopic). Setting Zl/Zu here would cause a
+        // dimension mismatch (nsg is always 0 in the wrapper). Track constraints
+        // remain as hard constraints; ensure track boundary is wide enough.
+        // Soft constraints on polytopic are handled by the raw-C path only.
     }
     return qp;
 }
@@ -302,7 +301,30 @@ std::array<OptVariables, N+1> HpipmInterface::solveMPC(
 
     std::vector<hpipm::OcpQpSolution> sol(N + 1);
     hpipm::HpipmStatus hs = solver.solve(x0_vec, ocp_qp, sol);
-    *status = (hs == hpipm::HpipmStatus::Success) ? 0 : 1;
+    // Accept Success and MinStep/MaxIter as usable (suboptimal) solutions
+    bool usable = (hs == hpipm::HpipmStatus::Success
+                || hs == hpipm::HpipmStatus::MinStepLengthReached
+                || hs == hpipm::HpipmStatus::MaxIterReached);
+    *status = usable ? 0 : 1;
+
+    static int hpipm_log = 0;
+    static hpipm::HpipmStatus last_status = hpipm::HpipmStatus::NaNDetected;
+    if (hpipm_log++ % 100 == 0 || hs != last_status) {
+        last_status = hs;
+        const char* status_str = "Unknown";
+        switch (hs) {
+            case hpipm::HpipmStatus::Success: status_str = "Success"; break;
+            case hpipm::HpipmStatus::MaxIterReached: status_str = "MaxIter"; break;
+            case hpipm::HpipmStatus::MinStepLengthReached: status_str = "MinStep"; break;
+            case hpipm::HpipmStatus::NaNDetected: status_str = "NaN"; break;
+            default: break;
+        }
+        printf("[HPIPM] status=%s  x0=(%.2f,%.2f) v=%.2f δ=%.3f\n",
+               status_str, x0.x, x0.y, x0.v, x0.delta);
+        if (sol[0].u.size() == NU) {
+            printf("[HPIPM] u0: a=%.4f δ̇=%.4f\n", sol[0].u(0), sol[0].u(1));
+        }
+    }
 
     std::array<OptVariables, N+1> result;
     // Stage 0: initial state is embedded — x size is 0 from solver

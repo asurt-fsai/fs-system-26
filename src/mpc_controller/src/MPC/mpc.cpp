@@ -43,6 +43,7 @@ MPC::MPC(int n_sqp, int n_reset, double sqp_mixing, double Ts,
     cost_         = std::make_unique<Cost>(params_);
     model_        = std::make_unique<BicycleModel>(params_);
     solver_       = std::make_unique<mpcc::HpipmInterface>();
+    track_constraints_ = TrackConstraints(params_);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -51,6 +52,23 @@ MPC::MPC(int n_sqp, int n_reset, double sqp_mixing, double Ts,
 
 void MPC::setMPCProblem()
 {
+    // ── Arc-length-advancing references ─────────────────────────────────
+    // Stage 0: closest-point projection (tells us where the car is on the track).
+    // Stages 1-N: advance along the track at the car's speed.  This gives a
+    // monotonically progressing sequence of reference points that the QP tracks
+    // like a pure-pursuit target.  Unlike independent closest-point projection,
+    // these references never "flip" when the car overshoots the track, which
+    // eliminates the oscillation that plagues closest-point tracking.
+    Eigen::Vector2d pos0(initial_guess_[0].xk.x, initial_guess_[0].xk.y);
+    const double s0 = track_.projectOntoSpline(pos0);
+    initial_guess_[0].xk.s = s0;
+
+    const double v_advance = std::max(std::abs(initial_guess_[0].xk.v), 1.0);
+    for (int i = 1; i <= N; i++) {
+        initial_guess_[i].xk.s = s0 + v_advance * Ts_ * i;
+    }
+
+    // ── Build QP stages ───────────────────────────────────────────────────
     for (int i = 0; i <= N; i++) {
         setStage(initial_guess_[i].xk,
                  initial_guess_[i].uk,
@@ -79,7 +97,7 @@ void MPC::setStage(const state &xk, const control &uk,
 
     // ── 2. Guard against near-zero velocity (numerical stability) ─────────
     state xk_nz  = xk;
-    if (std::abs(xk_nz.v) < 1e-3) xk_nz.v = 1e-3;
+    if (std::abs(xk_nz.v) < 0.1) xk_nz.v = 0.1;
 
     // ── 3. Linearise dynamics: x_{k+1} = A*x_k + B*u_k + g ──────────────
     // BicycleModel::linearize already returns discrete-time (A_d, B_d)
@@ -96,10 +114,8 @@ void MPC::setStage(const state &xk, const control &uk,
     stg.lin_model.g = xk1_vec - A_d * xk_vec - B_d * uk_vec;
 
     // ── 4. Cost matrices ──────────────────────────────────────────────────
-    // Cost::getCost(track, x_as_VectorXd, stage_index)
-    Eigen::VectorXd x_vec(NX);
-    x_vec << xk_nz.x, xk_nz.y, xk_nz.theta, xk_nz.delta, xk_nz.v;
-    mpc_controller::CostMatrix cm = cost_->getCost(track_, x_vec, time_step);
+    // Pass full state struct to preserve s field for track reference lookup
+    mpc_controller::CostMatrix cm = cost_->getCost(track_, xk_nz, time_step);
 
     stg.cost_mat.Q = cm.Q;
     stg.cost_mat.R = cm.R;
@@ -151,19 +167,26 @@ void MPC::setStage(const state &xk, const control &uk,
 
 void MPC::updateInitialGuess(const state &x0)
 {
-    for (int i = 1; i < N; i++) {
-        initial_guess_[i-1] = initial_guess_[i];
+    // Standard receding-horizon shift: move all N+1 entries left by one
+    for (int i = 0; i < N; i++) {
+        initial_guess_[i] = initial_guess_[i + 1];
     }
+    // Fix slot 0 to the current measured state
     initial_guess_[0].xk = x0;
     initial_guess_[0].uk.setZero();
 
-    initial_guess_[N-1].xk = initial_guess_[N-2].xk;
-    initial_guess_[N-1].uk.setZero();
-
-    Eigen::VectorXd x_next_vec = model_->step(
-        initial_guess_[N-1].xk, initial_guess_[N-1].uk, Ts_);
-    initial_guess_[N].xk = VectorToState(x_next_vec.head<NX>());
-    initial_guess_[N].uk.setZero();
+    // ── Dynamics-consistent forward propagation ───────────────────────────
+    // After shifting, stages 1-N may be inconsistent with stage 0 (e.g.
+    // stage 0 is off-track while stages 1-N are on-track from the old QP
+    // solution).  This causes the affine offset g in the QP dynamics to be
+    // unrealistically large, preventing the solver from correcting lateral
+    // errors.  Re-propagate the states forward using the warm-started
+    // controls so that g ≈ 0 and the cost linearisation is accurate.
+    for (int i = 0; i < N; i++) {
+        Eigen::VectorXd x_next = model_->step(
+            initial_guess_[i].xk, initial_guess_[i].uk, Ts_);
+        initial_guess_[i + 1].xk = VectorToState(x_next.head<NX>());
+    }
 
     unwrapInitialGuess();
 }
@@ -173,14 +196,18 @@ void MPC::generateNewInitialGuess(const state &x0)
     initial_guess_[0].xk = x0;
     initial_guess_[0].uk.setZero();
 
+    // Use actual velocity for realistic initial guess (not ref_velocity which may
+    // far exceed current speed and create ill-conditioned QP)
+    const double v_guess = std::max(x0.v, 1.0);
+
     for (int i = 1; i <= N; i++) {
         initial_guess_[i].xk.setZero();
         initial_guess_[i].uk.setZero();
 
         // Simple constant-velocity forward projection along arc-length
         initial_guess_[i].xk.s = initial_guess_[i-1].xk.s
-                                  + Ts_ * params_.ref_velocity;
-        initial_guess_[i].xk.v = params_.ref_velocity;
+                                  + Ts_ * v_guess;
+        initial_guess_[i].xk.v = v_guess;
 
         // Project onto 2-D track when spline is initialised
         if (params_.horizon > 0) {
@@ -274,15 +301,16 @@ MPCReturn MPC::runMPC(state &x0)
     for (int iter = 0; iter < n_sqp_; iter++) {
         setMPCProblem();
 
-        // Build the initial-state vector for the solver
-        StateVector x0_vec = StateToVector(x0);
-
         // Call solver
         std::array<mpcc::OptVariables, N+1> raw_sol =
             solver_->solveMPC(stages_, x0, &solver_status);
 
         if (solver_status != 0) {
             n_no_solves_sqp_++;
+            static int fail_log = 0;
+            if (fail_log++ % 20 == 0)
+                std::cerr << "[MPC] Solver failed (status=" << solver_status
+                          << ") fails=" << n_non_solves_ << "/" << n_reset_ << "\n";
         } else {
             // Unpack solver output into optimal_solution_
             optimal_solution_ = raw_sol;
@@ -318,7 +346,11 @@ MPCReturn MPC::runMPC(state &x0)
     auto t2 = std::chrono::high_resolution_clock::now();
     double time_mpc = std::chrono::duration<double>(t2 - t1).count();
 
-    return { initial_guess_[0].uk, initial_guess_, time_mpc };
+    // ── Lateral error for diagnostics ─────────────────────────────────────
+    Eigen::Vector2d ref_pos = track_.getPosition(x0.s);
+    double lat_err = (Eigen::Vector2d(x0.x, x0.y) - ref_pos).norm();
+
+    return { initial_guess_[0].uk, initial_guess_, time_mpc, lat_err };
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -328,6 +360,10 @@ MPCReturn MPC::runMPC(state &x0)
 void MPC::setTrack(const Eigen::VectorXd &X, const Eigen::VectorXd &Y)
 {
     track_.generateSpline(X, Y);
+    std::cout << "[MPC] Track spline generated: "
+              << X.size() << " pts, total_length="
+              << track_.getTotalLength() << " m, r_inner="
+              << params_.r_inner << " r_outer=" << params_.r_outer << "\n";
 }
 
 } // namespace mpc_controller

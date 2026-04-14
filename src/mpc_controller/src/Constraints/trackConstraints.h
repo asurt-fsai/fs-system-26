@@ -17,6 +17,7 @@ namespace mpc_controller {
     public:
         TrackConstraints();
         TrackConstraints(const PathToJson& path);
+        TrackConstraints(const Params& params);
         
         TrackConstraint getTrackConstraints(const ArcSpline& track, double s) const;
     

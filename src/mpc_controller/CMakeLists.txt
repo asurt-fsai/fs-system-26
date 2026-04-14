@@ -12,6 +12,7 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
+find_package(visualization_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
@@ -126,7 +127,7 @@ if(HPIPM_LIB)
   message(STATUS "HPIPM_CPP_AVAILABLE enabled")
 endif()
 
-# Create ROS 2 node
+# Create ROS 2 node — MPC Controller (IPG + RViz test)
 add_executable(mpc_controller_node
   "src/IPG Node/mpc_controller_node.cpp"
 )
@@ -146,8 +147,50 @@ ament_target_dependencies(mpc_controller_node
   tf2_geometry_msgs
 )
 
-# Install
-install(TARGETS mpc_controller_node
+# ── MPC Visualizer Node (shared by IPG and RViz test) ────────────────────
+add_executable(mpc_visualizer
+  "src/IPG Node/mpc_visualizer.cpp"
+  "src/IPG Node/mpc_visualizer_main.cpp"
+)
+
+target_link_libraries(mpc_visualizer
+  ${rclcpp_LIBRARIES}
+)
+
+ament_target_dependencies(mpc_visualizer
+  rclcpp
+  std_msgs
+  geometry_msgs
+  nav_msgs
+  visualization_msgs
+  tf2
+  tf2_ros
+  tf2_geometry_msgs
+)
+
+# ── Bicycle Simulator Node (RViz-only testing, no IPG dependency) ─────────
+add_executable(bicycle_simulator
+  "src/rviz test/bicycle_simulator.cpp"
+)
+
+target_link_libraries(bicycle_simulator
+  ${rclcpp_LIBRARIES}
+)
+
+ament_target_dependencies(bicycle_simulator
+  rclcpp
+  geometry_msgs
+  nav_msgs
+  tf2
+  tf2_ros
+  tf2_geometry_msgs
+)
+
+# ── Install targets ───────────────────────────────────────────────────────
+install(TARGETS
+  mpc_controller_node
+  mpc_visualizer
+  bicycle_simulator
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -155,9 +198,33 @@ install(DIRECTORY include/
   DESTINATION include
 )
 
+# Install launch files
+install(DIRECTORY launch/
+  DESTINATION share/${PROJECT_NAME}/launch
+)
+
+# Install config files (JSON params + RViz config)
+install(DIRECTORY config/
+  DESTINATION share/${PROJECT_NAME}/config
+)
+install(DIRECTORY src/Params/
+  DESTINATION share/${PROJECT_NAME}/config
+  FILES_MATCHING PATTERN "*.json"
+)
+
+# Install track.csv data file
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../../track.csv")
+  install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../../track.csv"
+    DESTINATION share/${PROJECT_NAME}/config
+  )
+  message(STATUS "track.csv found — will be installed to config/")
+else()
+  message(STATUS "track.csv not found at workspace root — skipping")
+endif()
+
 # Export
 ament_export_include_directories(include)
 ament_export_libraries(mpc_lib)
-ament_export_dependencies(rclcpp std_msgs geometry_msgs nav_msgs tf2 tf2_ros Eigen3)
+ament_export_dependencies(rclcpp std_msgs geometry_msgs nav_msgs visualization_msgs tf2 tf2_ros Eigen3)
 
 ament_package()

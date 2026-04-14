@@ -47,7 +47,7 @@ namespace mpc_controller{
         int n = splineData.x.size();
         Eigen::VectorXd s(n);
         s(0) = 0.0;
-        for(int i = 1; i < n - 1; ++i)
+        for(int i = 0; i < n - 1; ++i)
         {
             dx = splineData.x(i + 1) - splineData.x(i);
             dy = splineData.y(i + 1) - splineData.y(i);
@@ -206,8 +206,7 @@ namespace mpc_controller{
         
         if (dist >= max_dist_proj)
         {
-            std::cout << "dist too large" << std::endl;
-            // Find closest point in the discrete path data
+            // Brute-force search for closest spline point (car is far from initial guess)
             Eigen::ArrayXd diff_x_all = splineData.x.array() - point(0);
             Eigen::ArrayXd diff_y_all = splineData.y.array() - point(1);
             Eigen::ArrayXd dist_square = diff_x_all.square() + diff_y_all.square();

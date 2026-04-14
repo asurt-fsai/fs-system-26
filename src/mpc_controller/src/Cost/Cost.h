@@ -34,7 +34,7 @@ struct ErrorInfo{
 
 class Cost {
 public:
-    CostMatrix getCost(const mpc_controller::ArcSpline &track, const Eigen::VectorXd &x, int k) const;
+    CostMatrix getCost(const mpc_controller::ArcSpline &track, const mpc_controller::state &x, int k) const;
 
     Cost(const Params &config);
 

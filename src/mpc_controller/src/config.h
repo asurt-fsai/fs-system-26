@@ -7,23 +7,22 @@
 #include <fstream>
 #include <math.h>
 
-// Define NX and NU BEFORE including types.h (they're needed by types.h)
-#define NX 5  // Number of states: [x, y, theta, delta, v] - Kinematic bicycle model
-#define NU 2  // Number of control inputs: [acceleration, steering_rate]
-#define N  20 // Prediction horizon length (compile-time constant for fixed-size arrays)
+// Compile-time constants — constexpr avoids macro conflicts (e.g. nlohmann/json template<unsigned N>)
+static constexpr int NX  = 5;   // Number of states: [x, y, theta, delta, v]
+static constexpr int NU  = 2;   // Number of control inputs: [acceleration, steering_rate]
+static constexpr int N   = 40;  // Prediction horizon length (2s at dt=0.05)
+static constexpr int NB  = 10;  // Max Number of Bounds
+static constexpr int NPC = 1;   // Number of Polytopic Constraints (only track boundary active)
+static constexpr int NS  = 1;   // Number of Soft Constraints (kinematic model: track boundary only)
 
 #include "types.h"
 
 namespace mpc_controller{
 
-    #define NB 10 // Max Number of Bounds
-    #define NPC 3 // Number of Polytopic Constraints
-    #define NS 1 // Number of Soft Constraints (kinematic model: track boundary only)
-
     // static constexp is used so these values are compile-time constants and can be used in array sizes and other compile-time contexts
     static constexpr double N_Spline = 5000; // Number of points to resample the track spline to for accurate projection and reference generation
     static constexpr double LINEARIZE_EPS = 1e-5; // Perturbation size for numerical differentiation when linearizing dynamics
-    static constexpr double N_MAX = 20; // Maximum number of MPC iterations
+    static constexpr double N_MAX = 40; // Maximum number of MPC iterations
 
     struct StateInputIndexes{
         // 5D Kinematic State Indices
@@ -48,12 +47,7 @@ namespace mpc_controller{
 
     static const StateInputIndexes state_input_indexes; // Global instance for easy access to state/input indexes
 
-    // ===== MPC Cost Matrix Type Definitions =====
-    typedef Eigen::Matrix<double, NX, NX> Q_MPC;       // State cost matrix (NX x NX)
-    typedef Eigen::Matrix<double, NX, 1> q_MPC;        // State cost vector (NX x 1)
-    typedef Eigen::Matrix<double, NU, NU> R_MPC;       // Control cost matrix (NU x NU)
-    typedef Eigen::Matrix<double, NU, 1> r_MPC;        // Control cost vector (NU x 1)
-    typedef Eigen::Matrix<double, NX, NU> S_MPC;       // Cross term cost matrix (NX x NU)
+    // Z_MPC and z_MPC for soft constraints (Q_MPC, q_MPC, R_MPC, r_MPC, S_MPC are in types.h)
     typedef Eigen::Matrix<double, NS, NS> Z_MPC;       // Soft constraint cost matrix (NS x NS)
     typedef Eigen::Matrix<double, NS, 1> z_MPC;        // Soft constraint cost vector (NS x 1)
 }

@@ -10,6 +10,9 @@
  * Provides Euler Forward (EF) and Runge-Kutta 4th Order (RK4) integration.
  * - EF: O(dt²) error, simple and fast
  * - RK4: O(dt⁵) error, more accurate, ~3x computation overhead
+ * 
+ * DynamicsFn is a template parameter (zero-cost) to avoid std::function
+ * heap allocation in the hot MPC loop.
  */
 
 namespace integration {
@@ -18,18 +21,12 @@ namespace integration {
  * @brief Euler Forward integration step
  * 
  * Formula: x_{k+1} = x_k + f(x_k, u_k) * dt
- * 
- * @param state Current state vector
- * @param control Input vector
- * @param state_derivative_fn Dynamics function f(x, u)
- * @param dt Time step (seconds)
- * @return Next state
  */
-template <int STATE_DIM, int CONTROL_DIM>
+template <int STATE_DIM, int CONTROL_DIM, typename DynamicsFn>
 Eigen::VectorXd eulerForward(
     const Eigen::VectorXd& state,
     const Eigen::VectorXd& control,
-    std::function<Eigen::VectorXd(const Eigen::VectorXd&, const Eigen::VectorXd&)> state_derivative_fn,
+    DynamicsFn state_derivative_fn,
     double dt) {
     
     Eigen::VectorXd state_dot = state_derivative_fn(state, control);
@@ -45,18 +42,12 @@ Eigen::VectorXd eulerForward(
  *     k3 = f(x_k + 0.5*dt*k2, u_k)
  *     k4 = f(x_k + dt*k3, u_k)
  *     x_{k+1} = x_k + (dt/6) * (k1 + 2*k2 + 2*k3 + k4)
- * 
- * @param state Current state vector
- * @param control Input vector
- * @param state_derivative_fn Dynamics function f(x, u)
- * @param dt Time step (seconds)
- * @return Next state
  */
-template <int STATE_DIM, int CONTROL_DIM>
+template <int STATE_DIM, int CONTROL_DIM, typename DynamicsFn>
 Eigen::VectorXd rungeKutta4(
     const Eigen::VectorXd& state,
     const Eigen::VectorXd& control,
-    std::function<Eigen::VectorXd(const Eigen::VectorXd&, const Eigen::VectorXd&)> state_derivative_fn,
+    DynamicsFn state_derivative_fn,
     double dt) {
     
     Eigen::VectorXd k1 = state_derivative_fn(state, control);
