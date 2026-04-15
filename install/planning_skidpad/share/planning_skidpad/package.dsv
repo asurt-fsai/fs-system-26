@@ -1,0 +1,6 @@
+source;share/planning_skidpad/hook/pythonpath.ps1
+source;share/planning_skidpad/hook/pythonpath.dsv
+source;share/planning_skidpad/hook/pythonpath.sh
+source;share/planning_skidpad/hook/ament_prefix_path.ps1
+source;share/planning_skidpad/hook/ament_prefix_path.dsv
+source;share/planning_skidpad/hook/ament_prefix_path.sh

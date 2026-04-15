@@ -1,0 +1,5 @@
+skidPadPathPlannerNode:
+  ros__parameters:
+    pathTopic: "/path"
+    conesTopic: "/carmaker/ObjectList"
+    stateTopic: "/carmaker/Odometry"
