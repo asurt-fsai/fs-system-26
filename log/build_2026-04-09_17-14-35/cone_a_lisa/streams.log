@@ -1,0 +1,66 @@
+[0.549s] Invoking command in '/home/aly-sultan/Desktop/fs-system-25/SLAM/cone_a_lisa': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cone_a_lisa build --build-base /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build install --record /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/install.log --single-version-externally-managed install_data
+[0.724s] running egg_info
+[0.725s] creating ../build/cone_a_lisa/cone_a_lisa.egg-info
+[0.737s] writing ../build/cone_a_lisa/cone_a_lisa.egg-info/PKG-INFO
+[0.737s] writing dependency_links to ../build/cone_a_lisa/cone_a_lisa.egg-info/dependency_links.txt
+[0.737s] writing entry points to ../build/cone_a_lisa/cone_a_lisa.egg-info/entry_points.txt
+[0.737s] writing requirements to ../build/cone_a_lisa/cone_a_lisa.egg-info/requires.txt
+[0.737s] writing top-level names to ../build/cone_a_lisa/cone_a_lisa.egg-info/top_level.txt
+[0.738s] writing manifest file '../build/cone_a_lisa/cone_a_lisa.egg-info/SOURCES.txt'
+[0.762s] reading manifest file '../build/cone_a_lisa/cone_a_lisa.egg-info/SOURCES.txt'
+[0.763s] writing manifest file '../build/cone_a_lisa/cone_a_lisa.egg-info/SOURCES.txt'
+[0.763s] running build
+[0.763s] running build_py
+[0.763s] creating /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build
+[0.763s] creating /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib
+[0.763s] creating /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+[0.764s] copying cone_a_lisa/loop_closure.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+[0.764s] copying cone_a_lisa/landmark_to_marker.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+[0.764s] copying cone_a_lisa/cone_a_lisa.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+[0.764s] copying cone_a_lisa/tranformation.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+[0.764s] copying cone_a_lisa/__init__.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+[0.764s] copying cone_a_lisa/map_plot.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+[0.764s] copying cone_a_lisa/generated_cones.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+[0.764s] copying cone_a_lisa/node.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+[0.764s] copying cone_a_lisa/data.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+[0.764s] copying cone_a_lisa/filtered_cones.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+[0.764s] running install
+[0.768s] running install_lib
+[0.781s] creating /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+[0.781s] copying /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/loop_closure.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+[0.781s] copying /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/landmark_to_marker.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+[0.782s] copying /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/cone_a_lisa.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+[0.782s] copying /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/tranformation.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+[0.782s] copying /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/__init__.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+[0.782s] copying /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/map_plot.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+[0.782s] copying /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/generated_cones.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+[0.782s] copying /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/node.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+[0.782s] copying /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/data.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+[0.782s] copying /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/filtered_cones.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+[0.782s] byte-compiling /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/loop_closure.py to loop_closure.cpython-312.pyc
+[0.783s] byte-compiling /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/landmark_to_marker.py to landmark_to_marker.cpython-312.pyc
+[0.783s] byte-compiling /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/cone_a_lisa.py to cone_a_lisa.cpython-312.pyc
+[0.784s] byte-compiling /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/tranformation.py to tranformation.cpython-312.pyc
+[0.784s] byte-compiling /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/__init__.py to __init__.cpython-312.pyc
+[0.784s] byte-compiling /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/map_plot.py to map_plot.cpython-312.pyc
+[0.785s] byte-compiling /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/generated_cones.py to generated_cones.cpython-312.pyc
+[0.786s] byte-compiling /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/node.py to node.cpython-312.pyc
+[0.786s] byte-compiling /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/data.py to data.cpython-312.pyc
+[0.786s] byte-compiling /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/filtered_cones.py to filtered_cones.cpython-312.pyc
+[0.787s] running install_data
+[0.787s] creating /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/share/ament_index
+[0.787s] creating /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/share/ament_index/resource_index
+[0.787s] creating /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/share/ament_index/resource_index/packages
+[0.787s] copying resource/cone_a_lisa -> /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/share/ament_index/resource_index/packages
+[0.787s] copying package.xml -> /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/share/cone_a_lisa
+[0.787s] creating /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/share/cone_a_lisa/launch
+[0.787s] copying launch/cone_mapping.launch.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/share/cone_a_lisa/launch
+[0.787s] copying launch/dbscan_launch.py -> /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/share/cone_a_lisa/launch
+[0.788s] running install_egg_info
+[0.801s] Copying ../build/cone_a_lisa/cone_a_lisa.egg-info to /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa-0.0.0-py3.12.egg-info
+[0.801s] running install_scripts
+[0.885s] Installing cone_a_lisa script to /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/cone_a_lisa
+[0.885s] Installing landmark_to_marker script to /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/cone_a_lisa
+[0.885s] Installing map_plot script to /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/cone_a_lisa
+[0.885s] writing list of installed files to '/home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/install.log'
+[0.907s] Invoked command in '/home/aly-sultan/Desktop/fs-system-25/SLAM/cone_a_lisa' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cone_a_lisa build --build-base /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build install --record /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/install.log --single-version-externally-managed install_data

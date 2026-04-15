@@ -1,0 +1,6 @@
+source;share/cone_a_lisa/hook/pythonpath.ps1
+source;share/cone_a_lisa/hook/pythonpath.dsv
+source;share/cone_a_lisa/hook/pythonpath.sh
+source;share/cone_a_lisa/hook/ament_prefix_path.ps1
+source;share/cone_a_lisa/hook/ament_prefix_path.dsv
+source;share/cone_a_lisa/hook/ament_prefix_path.sh

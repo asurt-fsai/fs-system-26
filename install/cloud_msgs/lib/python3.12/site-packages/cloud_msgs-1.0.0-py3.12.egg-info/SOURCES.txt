@@ -1,0 +1,8 @@
+setup.py
+cloud_msgs/__init__.py
+cloud_msgs.egg-info/PKG-INFO
+cloud_msgs.egg-info/SOURCES.txt
+cloud_msgs.egg-info/dependency_links.txt
+cloud_msgs.egg-info/top_level.txt
+cloud_msgs/msg/__init__.py
+cloud_msgs/msg/_cloud_info.py

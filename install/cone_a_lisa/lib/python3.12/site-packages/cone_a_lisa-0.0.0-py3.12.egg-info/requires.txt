@@ -1,0 +1,5 @@
+geometry_msgs
+nav_msgs
+setuptools
+tf2_geometry_msgs
+tf2_ros

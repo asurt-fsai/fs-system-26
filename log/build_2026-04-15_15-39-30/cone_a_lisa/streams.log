@@ -1,0 +1,23 @@
+[1.145s] Invoking command in '/home/aly-sultan/Desktop/fs-system-25/SLAM/cone_a_lisa': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cone_a_lisa build --build-base /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build install --record /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/install.log --single-version-externally-managed install_data
+[1.456s] running egg_info
+[1.478s] writing ../build/cone_a_lisa/cone_a_lisa.egg-info/PKG-INFO
+[1.478s] writing dependency_links to ../build/cone_a_lisa/cone_a_lisa.egg-info/dependency_links.txt
+[1.478s] writing entry points to ../build/cone_a_lisa/cone_a_lisa.egg-info/entry_points.txt
+[1.478s] writing requirements to ../build/cone_a_lisa/cone_a_lisa.egg-info/requires.txt
+[1.478s] writing top-level names to ../build/cone_a_lisa/cone_a_lisa.egg-info/top_level.txt
+[1.524s] reading manifest file '../build/cone_a_lisa/cone_a_lisa.egg-info/SOURCES.txt'
+[1.525s] writing manifest file '../build/cone_a_lisa/cone_a_lisa.egg-info/SOURCES.txt'
+[1.525s] running build
+[1.525s] running build_py
+[1.526s] running install
+[1.533s] running install_lib
+[1.556s] running install_data
+[1.557s] running install_egg_info
+[1.580s] removing '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa-0.0.0-py3.12.egg-info' (and everything under it)
+[1.581s] Copying ../build/cone_a_lisa/cone_a_lisa.egg-info to /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa-0.0.0-py3.12.egg-info
+[1.581s] running install_scripts
+[1.730s] Installing cone_a_lisa script to /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/cone_a_lisa
+[1.730s] Installing landmark_to_marker script to /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/cone_a_lisa
+[1.730s] Installing map_plot script to /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/cone_a_lisa
+[1.730s] writing list of installed files to '/home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/install.log'
+[1.765s] Invoked command in '/home/aly-sultan/Desktop/fs-system-25/SLAM/cone_a_lisa' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cone_a_lisa build --build-base /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/build install --record /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cone_a_lisa/install.log --single-version-externally-managed install_data

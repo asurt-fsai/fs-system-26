@@ -1,0 +1,8 @@
+source;share/lego_loam_sr/hook/cmake_prefix_path.ps1
+source;share/lego_loam_sr/hook/cmake_prefix_path.dsv
+source;share/lego_loam_sr/hook/cmake_prefix_path.sh
+source;share/lego_loam_sr/local_setup.bash
+source;share/lego_loam_sr/local_setup.dsv
+source;share/lego_loam_sr/local_setup.ps1
+source;share/lego_loam_sr/local_setup.sh
+source;share/lego_loam_sr/local_setup.zsh

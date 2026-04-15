@@ -1,0 +1,4 @@
+[console_scripts]
+cone_a_lisa = cone_a_lisa.cone_a_lisa:main
+landmark_to_marker = cone_a_lisa.landmark_to_marker:main
+map_plot = cone_a_lisa.map_plot:main

@@ -1,0 +1,11 @@
+{
+  "package_name": "cloud_msgs",
+  "output_dir": "/home/aly-sultan/Desktop/fs-system-25/SLAM/build/cloud_msgs/rosidl_generator_type_description/cloud_msgs",
+  "idl_tuples": [
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/build/cloud_msgs/rosidl_adapter/cloud_msgs:msg/CloudInfo.idl"
+  ],
+  "include_paths": [
+    "std_msgs:/opt/ros/jazzy/share/std_msgs",
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces"
+  ]
+}

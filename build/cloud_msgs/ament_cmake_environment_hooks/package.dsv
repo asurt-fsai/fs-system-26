@@ -1,0 +1,4 @@
+source;share/cloud_msgs/local_setup.bash
+source;share/cloud_msgs/local_setup.dsv
+source;share/cloud_msgs/local_setup.sh
+source;share/cloud_msgs/local_setup.zsh

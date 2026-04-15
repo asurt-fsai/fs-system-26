@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-4ce2f0270108695a8e07.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "lego_loam_sr",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "lego_loam_sr::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lego_loam_sr-4d021103054dc21aad42.json",
+					"name" : "lego_loam_sr",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lego_loam_sr_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lego_loam_sr_uninstall-126596df4b3c80b5dda1.json",
+					"name" : "lego_loam_sr_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-3258eb64a88dd57dbefe.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/aly-sultan/Desktop/fs-system-25/SLAM/build/lego_loam_sr",
+		"source" : "/home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

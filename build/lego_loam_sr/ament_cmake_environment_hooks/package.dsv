@@ -1,0 +1,4 @@
+source;share/lego_loam_sr/local_setup.bash
+source;share/lego_loam_sr/local_setup.dsv
+source;share/lego_loam_sr/local_setup.sh
+source;share/lego_loam_sr/local_setup.zsh

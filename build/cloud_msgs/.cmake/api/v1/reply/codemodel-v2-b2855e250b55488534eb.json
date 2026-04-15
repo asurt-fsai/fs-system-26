@@ -1,0 +1,242 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-035caeca8f49e84c2569.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				},
+				{
+					"build" : "cloud_msgs__py",
+					"jsonFile" : "directory-cloud_msgs__py-4a541b91d3122de10ddd.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/aly-sultan/Desktop/fs-system-25/SLAM/build/cloud_msgs/cloud_msgs__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "cloud_msgs",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_cloud_msgs_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_cloud_msgs_egg-6c57d82ded8e90eb186c.json",
+					"name" : "ament_cmake_python_build_cloud_msgs_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_cloud_msgs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_cloud_msgs-5f0964a3b5ae8c1e29dd.json",
+					"name" : "ament_cmake_python_copy_cloud_msgs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cloud_msgs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cloud_msgs-afe859ceb5daef25f6f5.json",
+					"name" : "cloud_msgs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cloud_msgs__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cloud_msgs__cpp-bb72bb77746cad589bb1.json",
+					"name" : "cloud_msgs__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "cloud_msgs__py::@41c6d1a10c12bddff21d",
+					"jsonFile" : "target-cloud_msgs__py-f6fe605f2bd4eac7b864.json",
+					"name" : "cloud_msgs__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cloud_msgs__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cloud_msgs__rosidl_generator_c-e6fdc476c97d8781ec3c.json",
+					"name" : "cloud_msgs__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cloud_msgs__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cloud_msgs__rosidl_generator_py-92fe04b3285b87adf567.json",
+					"name" : "cloud_msgs__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cloud_msgs__rosidl_generator_type_description::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cloud_msgs__rosidl_generator_type_description-f718cb2bf6127b0df299.json",
+					"name" : "cloud_msgs__rosidl_generator_type_description",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cloud_msgs__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cloud_msgs__rosidl_typesupport_c-d8ea14852115d65c380d.json",
+					"name" : "cloud_msgs__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cloud_msgs__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cloud_msgs__rosidl_typesupport_cpp-31b8d417f1a53c179a86.json",
+					"name" : "cloud_msgs__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cloud_msgs__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cloud_msgs__rosidl_typesupport_fastrtps_c-39533ef550c68994b0df.json",
+					"name" : "cloud_msgs__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cloud_msgs__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cloud_msgs__rosidl_typesupport_fastrtps_cpp-33e758673df1425b5ee5.json",
+					"name" : "cloud_msgs__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cloud_msgs__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cloud_msgs__rosidl_typesupport_introspection_c-2048eb49e111a71ecb38.json",
+					"name" : "cloud_msgs__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cloud_msgs__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cloud_msgs__rosidl_typesupport_introspection_cpp-52cd3e2cdd8d1bd77082.json",
+					"name" : "cloud_msgs__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cloud_msgs_s__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cloud_msgs_s__rosidl_typesupport_c-e72b8522583a6e2abfca.json",
+					"name" : "cloud_msgs_s__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cloud_msgs_s__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cloud_msgs_s__rosidl_typesupport_fastrtps_c-46407ae5caa97554aca4.json",
+					"name" : "cloud_msgs_s__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cloud_msgs_s__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cloud_msgs_s__rosidl_typesupport_introspection_c-cea2a45e67003aa4070f.json",
+					"name" : "cloud_msgs_s__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cloud_msgs_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cloud_msgs_uninstall-f8c4fce77da9960aa279.json",
+					"name" : "cloud_msgs_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-0b542e4cac61da1034fd.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/aly-sultan/Desktop/fs-system-25/SLAM/build/cloud_msgs",
+		"source" : "/home/aly-sultan/Desktop/fs-system-25/SLAM/cloud_msgs"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

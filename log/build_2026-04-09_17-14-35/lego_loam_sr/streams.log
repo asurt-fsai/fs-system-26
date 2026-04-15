@@ -1,0 +1,161 @@
+[0.011s] Invoking command in '/home/aly-sultan/Desktop/fs-system-25/SLAM/build/lego_loam_sr': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake /home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM -DCMAKE_INSTALL_PREFIX=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr
+[0.078s] -- The C compiler identification is GNU 13.3.0
+[0.139s] -- The CXX compiler identification is GNU 13.3.0
+[0.156s] -- Detecting C compiler ABI info
+[0.278s] -- Detecting C compiler ABI info - done
+[0.291s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.291s] -- Detecting C compile features
+[0.291s] -- Detecting C compile features - done
+[0.299s] -- Detecting CXX compiler ABI info
+[0.396s] -- Detecting CXX compiler ABI info - done
+[0.404s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.404s] -- Detecting CXX compile features
+[0.404s] -- Detecting CXX compile features - done
+[0.408s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.531s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.620s] -- Found rclcpp: 28.1.12 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.656s] -- Found rosidl_generator_c: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.668s] -- Found rosidl_generator_cpp: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.681s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.696s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.759s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.762s] -- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.858s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[0.885s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[0.908s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.970s] -- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)
+[0.982s] -- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[1.013s] -- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)
+[1.040s] -- Found tf2: 0.36.14 (/opt/ros/jazzy/share/tf2/cmake)
+[1.045s] -- Found tf2_ros: 0.36.14 (/opt/ros/jazzy/share/tf2_ros/cmake)
+[1.150s] -- Found tf2_geometry_msgs: 0.36.19 (/opt/ros/jazzy/share/tf2_geometry_msgs/cmake)
+[1.165s] -- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+[1.166s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.167s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.170s] -- Found pcl_conversions: 2.6.2 (/opt/ros/jazzy/share/pcl_conversions/cmake)
+[1.229s] [33mCMake Warning (dev) at /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):
+[1.229s]   Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+[1.229s]   variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+[1.229s]   cmake_policy command to set the policy and suppress this warning.
+[1.229s] 
+[1.229s]   CMake variable FLANN_ROOT is set to:
+[1.229s] 
+[1.229s]     /usr
+[1.230s] 
+[1.230s]   For compatibility, find_package is ignoring the variable, but code in a
+[1.230s]   .cmake module might still use it.
+[1.230s] Call Stack (most recent call first):
+[1.230s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)
+[1.230s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)
+[1.230s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)
+[1.230s]   /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.230s]   /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)
+[1.230s]   CMakeLists.txt:23 (find_package)
+[1.230s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.230s] [0m
+[1.230s] -- Found flann version 1.9.2
+[1.568s] -- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+[1.568s] -- Found OpenMP: TRUE (found version "4.5") found components: CXX 
+[3.051s] -- Checking for module 'libusb-1.0'
+[3.076s] --   Found libusb-1.0, version 1.0.27
+[3.134s] -- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  
+[3.139s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[3.232s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[3.236s] -- Found Pcap: /usr/lib/x86_64-linux-gnu/libpcap.so  
+[3.247s] -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3")  
+[3.261s] -- Found PNG: /usr/lib/x86_64-linux-gnu/libpng.so (found version "1.6.43") 
+[3.609s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[3.614s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[3.957s] -- Found Qhull version 8.0.2
+[4.310s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[4.666s] -- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  
+[4.667s] -- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  
+[4.667s] -- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  
+[4.668s] -- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  
+[4.669s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  
+[4.670s] -- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  
+[4.670s] -- Found PCL_2D: /usr/include/pcl-1.14  
+[4.670s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.14  
+[4.671s] -- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  
+[4.672s] -- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  
+[4.673s] -- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  
+[4.674s] -- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  
+[4.675s] -- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  
+[4.676s] -- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  
+[4.677s] -- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  
+[4.678s] -- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  
+[4.679s] -- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  
+[4.680s] -- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  
+[4.680s] -- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  
+[4.681s] -- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  
+[4.682s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.14  
+[4.682s] -- Found PCL_MODELER: /usr/include/pcl-1.14  
+[4.682s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.14  
+[4.683s] -- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  
+[4.684s] -- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  
+[4.686s] -- Found cloud_msgs: 1.0.0 (/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake)
+[4.699s] [33mCMake Warning (dev) at CMakeLists.txt:27 (find_package):
+[4.699s]   Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+[4.699s]   Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+[4.699s]   command to set the policy and suppress this warning.
+[4.699s] 
+[4.699s]   CMake variable PCL_ROOT is set to:
+[4.699s] 
+[4.699s]     /usr
+[4.699s] 
+[4.699s]   For compatibility, CMake is ignoring the variable.
+[4.699s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[4.699s] [0m
+[4.738s] -- GTSAM include directory:  /usr/local/lib/cmake/GTSAM/../../../include
+[4.741s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: thread serialization timer 
+[4.742s] -- Found asurt_msgs: 2.0.0 (/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake)
+[4.835s] -- Configuring done (4.8s)
+[4.873s] -- Generating done (0.0s)
+[4.878s] -- Build files have been written to: /home/aly-sultan/Desktop/fs-system-25/SLAM/build/lego_loam_sr
+[4.894s] Invoked command in '/home/aly-sultan/Desktop/fs-system-25/SLAM/build/lego_loam_sr' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake /home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM -DCMAKE_INSTALL_PREFIX=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr
+[4.896s] Invoking command in '/home/aly-sultan/Desktop/fs-system-25/SLAM/build/lego_loam_sr': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake --build /home/aly-sultan/Desktop/fs-system-25/SLAM/build/lego_loam_sr -- -j16 -l16
+[4.953s] [ 42%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/main.cpp.o[0m
+[4.953s] [ 42%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/StatusPublisher.cpp.o[0m
+[4.953s] [ 42%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/imageProjection.cpp.o[0m
+[4.954s] [ 57%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/mapOptmization.cpp.o[0m
+[4.954s] [ 71%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/featureAssociation.cpp.o[0m
+[4.954s] [ 85%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/transformFusion.cpp.o[0m
+[6.255s] In file included from [01m[K/home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM/src/featureAssociation.h:4[m[K,
+[6.256s]                  from [01m[K/home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM/src/featureAssociation.cpp:37[m[K:
+[6.256s] [01m[K/home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM/include/lego_loam/utility.h:25:10:[m[K [01;31m[Kfatal error: [m[Ktf2_geometry_msgs/tf2_geometry_msgs.h: No such file or directory
+[6.256s]    25 | #include [01;31m[K<tf2_geometry_msgs/tf2_geometry_msgs.h>[m[K
+[6.256s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[6.256s] compilation terminated.
+[6.261s] In file included from [01m[K/home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM/src/featureAssociation.h:4[m[K,
+[6.261s]                  from [01m[K/home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM/src/main.cpp:2[m[K:
+[6.261s] [01m[K/home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM/include/lego_loam/utility.h:25:10:[m[K [01;31m[Kfatal error: [m[Ktf2_geometry_msgs/tf2_geometry_msgs.h: No such file or directory
+[6.261s]    25 | #include [01;31m[K<tf2_geometry_msgs/tf2_geometry_msgs.h>[m[K
+[6.261s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[6.261s] compilation terminated.
+[6.264s] In file included from [01m[K/home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM/src/transformFusion.h:4[m[K,
+[6.264s]                  from [01m[K/home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM/src/transformFusion.cpp:33[m[K:
+[6.264s] [01m[K/home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM/include/lego_loam/utility.h:25:10:[m[K [01;31m[Kfatal error: [m[Ktf2_geometry_msgs/tf2_geometry_msgs.h: No such file or directory
+[6.264s]    25 | #include [01;31m[K<tf2_geometry_msgs/tf2_geometry_msgs.h>[m[K
+[6.264s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[6.264s] compilation terminated.
+[6.272s] gmake[2]: *** [CMakeFiles/lego_loam_sr.dir/build.make:90: CMakeFiles/lego_loam_sr.dir/src/featureAssociation.cpp.o] Error 1
+[6.272s] gmake[2]: *** Waiting for unfinished jobs....
+[6.276s] gmake[2]: *** [CMakeFiles/lego_loam_sr.dir/build.make:146: CMakeFiles/lego_loam_sr.dir/src/main.cpp.o] Error 1
+[6.277s] gmake[2]: *** [CMakeFiles/lego_loam_sr.dir/build.make:118: CMakeFiles/lego_loam_sr.dir/src/transformFusion.cpp.o] Error 1
+[6.744s] In file included from [01m[K/home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM/src/imageProjection.h:4[m[K,
+[6.744s]                  from [01m[K/home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM/src/imageProjection.cpp:30[m[K:
+[6.745s] [01m[K/home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM/include/lego_loam/utility.h:25:10:[m[K [01;31m[Kfatal error: [m[Ktf2_geometry_msgs/tf2_geometry_msgs.h: No such file or directory
+[6.745s]    25 | #include [01;31m[K<tf2_geometry_msgs/tf2_geometry_msgs.h>[m[K
+[6.745s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[6.745s] compilation terminated.
+[6.762s] gmake[2]: *** [CMakeFiles/lego_loam_sr.dir/build.make:76: CMakeFiles/lego_loam_sr.dir/src/imageProjection.cpp.o] Error 1
+[6.773s] In file included from [01m[K/home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM/src/mapOptimization.h:4[m[K,
+[6.773s]                  from [01m[K/home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM/src/mapOptmization.cpp:37[m[K:
+[6.774s] [01m[K/home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM/include/lego_loam/utility.h:25:10:[m[K [01;31m[Kfatal error: [m[Ktf2_geometry_msgs/tf2_geometry_msgs.h: No such file or directory
+[6.774s]    25 | #include [01;31m[K<tf2_geometry_msgs/tf2_geometry_msgs.h>[m[K
+[6.774s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[6.774s] compilation terminated.
+[6.790s] gmake[2]: *** [CMakeFiles/lego_loam_sr.dir/build.make:104: CMakeFiles/lego_loam_sr.dir/src/mapOptmization.cpp.o] Error 1
+[8.544s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/lego_loam_sr.dir/all] Error 2
+[8.545s] gmake: *** [Makefile:146: all] Error 2
+[8.546s] Invoked command in '/home/aly-sultan/Desktop/fs-system-25/SLAM/build/lego_loam_sr' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cone_a_lisa/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake --build /home/aly-sultan/Desktop/fs-system-25/SLAM/build/lego_loam_sr -- -j16 -l16

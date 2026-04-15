@@ -1,0 +1,38 @@
+[ 14%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/mapOptmization.cpp.o[0m
+[ 57%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/featureAssociation.cpp.o[0m
+[ 57%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/imageProjection.cpp.o[0m
+[ 57%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/transformFusion.cpp.o[0m
+[ 71%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/main.cpp.o[0m
+[ 85%] [32m[1mLinking CXX executable lego_loam_sr[0m
+[100%] Built target lego_loam_sr
+-- Install configuration: ""
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/lib/lego_loam_sr/lego_loam_sr
+-- Set non-toolchain portion of runtime path of "/home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/lib/lego_loam_sr/lego_loam_sr" to ""
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/config
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/config/loam_config.yaml
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/google-earth.png
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/demo.gif
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/block.png
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/seg-total.jpg
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/run.launch.py
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/odometry.jpg
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/dataset-demo.gif
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/rviz
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/rviz/test.rviz
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/ament_index/resource_index/package_run_dependencies/lego_loam_sr
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/ament_index/resource_index/parent_prefix_path/lego_loam_sr
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/ament_prefix_path.sh
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/ament_prefix_path.dsv
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/path.sh
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/path.dsv
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.bash
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.sh
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.zsh
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.dsv
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.dsv
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/ament_index/resource_index/packages/lego_loam_sr
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/cmake/lego_loam_srConfig.cmake
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/cmake/lego_loam_srConfig-version.cmake
+-- Installing: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.xml

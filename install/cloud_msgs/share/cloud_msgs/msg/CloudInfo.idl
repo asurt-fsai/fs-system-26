@@ -1,0 +1,35 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from cloud_msgs/msg/CloudInfo.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module cloud_msgs {
+  module msg {
+    struct CloudInfo {
+      std_msgs::msg::Header header;
+
+      sequence<int32> start_ring_index;
+
+      sequence<int32> end_ring_index;
+
+      float start_orientation;
+
+      float end_orientation;
+
+      float orientation_diff;
+
+      @verbatim (language="comment", text=
+        "true - ground point, false - other points")
+      sequence<boolean> segmented_cloud_ground_flag;
+
+      @verbatim (language="comment", text=
+        "point column index in range image")
+      sequence<uint32> segmented_cloud_col_ind;
+
+      @verbatim (language="comment", text=
+        "point range")
+      sequence<float> segmented_cloud_range;
+    };
+  };
+};

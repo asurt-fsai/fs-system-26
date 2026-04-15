@@ -1,0 +1,22 @@
+{
+  "package_name": "asurt_msgs",
+  "output_dir": "/home/aly-sultan/Desktop/fs-system-25/SLAM/build/asurt_msgs/rosidl_generator_type_description/asurt_msgs",
+  "idl_tuples": [
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/build/asurt_msgs/rosidl_adapter/asurt_msgs:msg/Landmark.idl",
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/build/asurt_msgs/rosidl_adapter/asurt_msgs:msg/LandmarkArray.idl",
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/build/asurt_msgs/rosidl_adapter/asurt_msgs:msg/NodeStatus.idl",
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/build/asurt_msgs/rosidl_adapter/asurt_msgs:msg/Roadstate.idl",
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/build/asurt_msgs/rosidl_adapter/asurt_msgs:msg/BoundingBox.idl",
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/build/asurt_msgs/rosidl_adapter/asurt_msgs:msg/BoundingBoxes.idl",
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/build/asurt_msgs/rosidl_adapter/asurt_msgs:msg/ConeImg.idl",
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/build/asurt_msgs/rosidl_adapter/asurt_msgs:msg/ConeImgArray.idl",
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/build/asurt_msgs/rosidl_adapter/asurt_msgs:msg/KeyPoints.idl"
+  ],
+  "include_paths": [
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces",
+    "geometry_msgs:/opt/ros/jazzy/share/geometry_msgs",
+    "std_msgs:/opt/ros/jazzy/share/std_msgs",
+    "sensor_msgs:/opt/ros/jazzy/share/sensor_msgs",
+    "service_msgs:/opt/ros/jazzy/share/service_msgs"
+  ]
+}

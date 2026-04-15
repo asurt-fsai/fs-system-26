@@ -1,0 +1,14 @@
+{
+  "package_name": "asurt_msgs",
+  "non_idl_tuples": [
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/asurt_msgs:msg/Landmark.msg",
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/asurt_msgs:msg/LandmarkArray.msg",
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/asurt_msgs:msg/NodeStatus.msg",
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/asurt_msgs:msg/Roadstate.msg",
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/asurt_msgs:msg/BoundingBox.msg",
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/asurt_msgs:msg/BoundingBoxes.msg",
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/asurt_msgs:msg/ConeImg.msg",
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/asurt_msgs:msg/ConeImgArray.msg",
+    "/home/aly-sultan/Desktop/fs-system-25/SLAM/asurt_msgs:msg/KeyPoints.msg"
+  ]
+}
