@@ -32,6 +32,9 @@ class MissionType(Enum):
     SKIDPAD      = 2
     AUTOCROSS    = 3
     TRACKDRIVE   = 4
+    STATIC_A     = 5
+    STATIC_B     = 6
+    AUTODEMO     = 7
 
 
 # ======================================================

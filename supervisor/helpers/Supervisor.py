@@ -133,7 +133,7 @@ class Supervisor:
             if self.currentVel < self.maxStopVelTh:
                 self.currentState = SuperState.FINISHED
                 self.logger.info("[Supervisor] State transition to FINISHED")
-                
+
 ## 3ashan n5ali el finished state yeb2a leeh timer 3ashan y3mel reset ba3d 5 seconds w ten2el lel waiting so publishing to the car the finishing state correctly 
         elif self.currentState == SuperState.FINISHED: 
             if not hasattr(self, "finished_time"):
@@ -145,6 +145,7 @@ class Supervisor:
                 self.currentState = SuperState.WAITING
                 self.amiState = CanState.AMI_NOT_SELECTED
                 self.isFinished = False
+                self.missionManager.activeMission = None
                 del self.finished_time
                 self.logger.info("[Supervisor] Reset to WAITING")
     
@@ -322,8 +323,7 @@ class Supervisor:
         Logic  : Transition state to FINISHED.
         """
         self.isFinished = True
-        self.currentState = SuperState.STOPPING
-        self.logger.info(f"Mission finished with result: {result}")
+        self.logger.info(f"[Supervisor] Mission finished with result: {result}")
 
 
     def onMissionFailed(self, reason: str):
@@ -334,6 +334,6 @@ class Supervisor:
                  Issue EmergencyStopCommand.
                  Log the failure reason.
         """
-        self.logger.error(f"Mission failed: {reason}")
+        self.logger.error(f"[Supervisor] Mission failed: {reason}")
         self.currentState = SuperState.STOPPING
         self.issueCommand(EmergencyStopCommand(self.moduleManager,self.missionManager))
