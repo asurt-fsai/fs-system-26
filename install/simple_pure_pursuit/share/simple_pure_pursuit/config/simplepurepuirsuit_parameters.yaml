@@ -1,0 +1,21 @@
+simple_pure_pursuit_node:
+  ros__parameters:
+    control:
+      # look_ahead_constant: 3.0
+      look_ahead_constant: 2.0
+      cmd: "/ackr"
+      marker_viz: "marker_viz"
+      #frame_id: "base_link"
+      frame_id: "Lidar_F"
+
+    planning:
+      waypoints_clean: "/path"
+
+    physical:
+      car_base_length: 2.7 
+    
+    speed_target: 3.0
+    rate: 10
+
+
+    
