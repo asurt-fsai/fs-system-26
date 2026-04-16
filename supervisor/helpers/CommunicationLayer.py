@@ -38,6 +38,7 @@ from std_msgs.msg import Int16, String, Bool, Float64
 from eufs_msgs.msg import CanState
 from geometry_msgs.msg import TwistWithCovarianceStamped
 from ackermann_msgs.msg import AckermannDriveStamped
+from std_srvs.srv import Trigger
 
 
 
@@ -262,7 +263,8 @@ class CommunicationLayer(Node):
         self._setup_publishers()
         self._setup_subscriptions()
         self._setup_timers()
-
+        self._ebs_client = self.create_client(Trigger, "/ros_can/ebs")
+       
     # ---------------------------------------------------------
     # Publishers
     # ---------------------------------------------------------
@@ -350,6 +352,9 @@ class CommunicationLayer(Node):
         if supervisor:
             try:
                 self._supervisor.run() # Call the supervisor's main loop method
+
+                if self._activeMission and hasattr(self._activeMission, "tick"):
+                    self._activeMission.tick()
             except Exception as e:
                 self.logger.error(f"[Supervisor Loop Error] {e}", exc_info=True)
 
@@ -428,6 +433,9 @@ class CommunicationLayer(Node):
         """
 
         self._activeMission = mission
+        if mission is None:
+            self.logger.info("[register] Mission cleared")
+            return
 
         self.logger.info(
             f"[register] Mission registered: {type(mission).__name__}"
@@ -630,8 +638,15 @@ class CommunicationLayer(Node):
         msg = Bool()
         msg.data = flag
         self._mission_flag_pub.publish(msg)
-        self._log_publish("mission_flag", flag)   
+        self._log_publish("mission_flag", flag)  
+    
+    def triggerEBS(self): # for static B mission
+        if not self._ebs_client.wait_for_service(timeout_sec=1.0):
+            self.logger.error("EBS service not available")
+            return
 
+        req = Trigger.Request()
+        self._ebs_client.call_async(req)
     # ---------------------------------------------------------
     # Logging Helpers
     # ---------------------------------------------------------

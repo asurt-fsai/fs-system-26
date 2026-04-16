@@ -5,6 +5,9 @@ from enum import Enum
 from typing import Optional
 logger = logging.getLogger(__name__)
 
+from supervisor.helpers.Missions.AutoDemoMission import AutoDemoMission
+from supervisor.helpers.Missions.StaticAMission import StaticAMission
+from supervisor.helpers.Missions.StaticBMission import StaticBMission
 from supervisor.helpers.Module.ModuleState import ModuleState
 from supervisor.helpers.Module.Module import Module
 from supervisor.helpers.Module.ModuleManager import ModuleManager
@@ -128,6 +131,9 @@ class MissionManager:
             MissionType.SKIDPAD      : SkidpadMission,
             MissionType.AUTOCROSS    : AutocrossMission,
             MissionType.TRACKDRIVE   : TrackdriveMission,
+            MissionType.STATIC_A     : StaticAMission,
+            MissionType.STATIC_B     : StaticBMission,
+            MissionType.AUTODEMO     : AutoDemoMission, 
         }
 
         logger.info("[MissionManager] Initialised")

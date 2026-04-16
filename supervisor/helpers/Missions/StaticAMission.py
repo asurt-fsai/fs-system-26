@@ -5,6 +5,8 @@ from supervisor.helpers.Missions.MissionFinishing import MissionFinishing
 from supervisor.helpers.Missions.MissionStatus import MissionStatus
 from supervisor.helpers.Missions.MissionManager import MissionType
 from ackermann_msgs.msg import AckermannDriveStamped
+import math
+
 
 
 class StaticAMission(MissionFinishing):
@@ -14,26 +16,20 @@ class StaticAMission(MissionFinishing):
     def __init__(self, communication, supervisor):
         super().__init__(communication, supervisor)
 
-        # ----------------------------
-        # Parameters (same as old node)
-        # ----------------------------
-        self.maxSteer = 0.5  # replace with param if needed
+        # MUST be real max steering (IMPORTANT for rules)
+        self.maxSteer = 27.2 # wa5daha mn el code el adeem 
+        self.maxSteer_rad = math.radians(self.maxSteer)  # ≈ 0.475 rad
 
-        # ----------------------------
         # State machine
-        # ----------------------------
         self.step = 0
-        self.start_time = None
         self.phase_start_time = None
 
-        # ----------------------------
-        # Constants (from old logic)
-        # ----------------------------
-        self.acceleration_time = 10.0
-        self.brake_time = 5.0
+        # Constants (same as old)
+        self.ramp_duration = 10.0
+        self.brake_duration = 5.0
 
     # =========================================================
-    # MAIN EXECUTION (called by Supervisor loop)
+    # MAIN LOOP (called every supervisor cycle)
     # =========================================================
     def tick(self):
 
@@ -46,7 +42,6 @@ class StaticAMission(MissionFinishing):
         # STEP 0: INIT
         # -------------------------------------------------
         if self.step == 0:
-            self.start_time = now
             self.phase_start_time = now
             self.step = 1
 
@@ -54,7 +49,7 @@ class StaticAMission(MissionFinishing):
         # STEP 1: steer LEFT (5 sec)
         # -------------------------------------------------
         elif self.step == 1:
-            self.publishDrive(0.0, -self.maxSteer)
+            self.publishDrive(0.0, -self.maxSteer_rad)
 
             if now - self.phase_start_time >= 5.0:
                 self.phase_start_time = now
@@ -64,7 +59,7 @@ class StaticAMission(MissionFinishing):
         # STEP 2: steer RIGHT (5 sec)
         # -------------------------------------------------
         elif self.step == 2:
-            self.publishDrive(0.0, self.maxSteer)
+            self.publishDrive(0.0, self.maxSteer_rad)
 
             if now - self.phase_start_time >= 5.0:
                 self.phase_start_time = now
@@ -81,33 +76,32 @@ class StaticAMission(MissionFinishing):
                 self.step = 4
 
         # -------------------------------------------------
-        # STEP 4: acceleration phase (same formula as old)
+        # STEP 4: acceleration (EXACT old logic)
         # -------------------------------------------------
         elif self.step == 4:
-            elapsed = now - self.start_time
+            elapsed = now - self.phase_start_time
 
-            speed = 2 * np.pi * 200 * 0.253 / 60 * 0.1 * elapsed
+            speed = (2 * np.pi * 200 * 0.253 / 60* 0.1 * elapsed)
+
             self.publishDrive(speed, 0.0)
 
-            if elapsed >= self.acceleration_time:
+            if elapsed >= self.ramp_duration:
                 self.phase_start_time = now
                 self.step = 5
-                self.last_speed = speed
 
         # -------------------------------------------------
-        # STEP 5: deceleration phase (same logic as old)
+        # STEP 5: deceleration (EXACT old logic)
         # -------------------------------------------------
         elif self.step == 5:
-            t = now - self.phase_start_time
+            elapsed = now - self.phase_start_time
 
-            speed = max(
-                0.0,
-                self.last_speed * (1 - t / self.brake_time)
-            )
+            remaining = max(0.0, self.brake_duration - elapsed)
+
+            speed = (2 * np.pi * 200 * 0.253 / 60* 0.1 * (2 * remaining))
 
             self.publishDrive(speed, 0.0)
 
-            if t >= self.brake_time:
+            if elapsed >= self.brake_duration:
                 self.step = 6
 
         # -------------------------------------------------
@@ -117,15 +111,3 @@ class StaticAMission(MissionFinishing):
             self.publishDrive(0.0, 0.0)
             self.notifyMissionFinished()
 
-    # =========================================================
-    # HELPERS (replace ROS publishers)
-    # =========================================================
-    def publishDrive(self, speed, steer):
-        """
-        Sends Ackermann command through CommunicationLayer
-        """
-        msg = AckermannDriveStamped()
-        msg.drive.speed = speed
-        msg.drive.steering_angle = steer
-
-        self.communication.publishDriveCommand(msg)

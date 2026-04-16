@@ -2,6 +2,7 @@ import logging
 from supervisor.helpers.CommunicationLayer import CommunicationLayer
 from supervisor.helpers.Missions.MissionStatus import MissionStatus
 from supervisor.helpers.Missions.MissionManager import MissionType
+from ackermann_msgs.msg import AckermannDriveStamped
 from abc import ABC, abstractmethod
 from rclpy.node import Node
 
@@ -58,6 +59,12 @@ class MissionFinishing(ABC):
                  Implemented by subclasses that need it.
         """
         pass
+
+    def publishDrive(self, speed, steer): ##used in static missions
+        msg = AckermannDriveStamped()
+        msg.drive.speed = speed
+        msg.drive.steering_angle = steer
+        self.communication.publishDriveCommand(msg)
 
     def notifyMissionFinished(self):
         """
