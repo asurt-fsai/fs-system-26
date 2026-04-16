@@ -4,14 +4,11 @@ from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.actions import ExecuteProcess
 
+
 def generate_launch_description():
-    # 1. Setup Paths
     package_name = 'lidarpipeline'
-    bag_path = '/home/spacecraft/fs-system-25/lidarpipeline/data'
-    
-    #
-    
-    # Path to your new YAML parameter file
+    bag_path = '/home/malak/Desktop/RT/ARL/baggg/MainPointCloudBag'
+
     config_path = os.path.join(
         get_package_share_directory(package_name),
         'config',
@@ -25,7 +22,7 @@ def generate_launch_description():
             output='screen'
         ),
 
-        # 2. Your Lidar Processor Node
+        # 2. Lidar Processor Node
         Node(
             package=package_name,
             executable='lidar_processor_node',
@@ -34,16 +31,13 @@ def generate_launch_description():
             remappings=[
                 ('/points', '/velodyne_points')
             ],
-            # Pass the path to the YAML file here
-            # Note: Individual dict parameters (like use_sim_time) 
-            # can still be added to the list
             parameters=[
-                config_path, 
+                config_path,
                 {'use_sim_time': True}
             ]
         ),
 
-        # 3. RViz2 for Visualization
+        # 3. RViz2
         Node(
             package='rviz2',
             executable='rviz2',

@@ -5,12 +5,16 @@ from typing import List, Tuple, Union, Optional, Any
 
 import numpy as np
 import numpy.typing as npt
-from .helpers import SingletonMeta
 
-class ConeClassifier(metaclass=SingletonMeta):
+
+class ConeClassifier:
     """
     Given 3D points that might fall on a cone, this class predicts whether the points represent
     a cone or not, and if they fall on a cone, it returns the cone center.
+
+    SingletonMeta has been intentionally removed so that multiple independent
+    instances can coexist with different parameters (e.g. one for LUT corridor
+    building and one for final cone classification).
     """
 
     def __init__(
@@ -92,7 +96,6 @@ class ConeClassifier(metaclass=SingletonMeta):
             if returnLosses:
                 pred.extend([linLoss, l2Loss])
         except np.linalg.LinAlgError:
-            coneParams = None
             linLoss = np.inf
             l2Loss = np.inf
 
@@ -127,11 +130,8 @@ class ConeClassifier(metaclass=SingletonMeta):
         target = x**2 + y**2 - self.coneSize * z**2
 
         params = np.linalg.pinv(features) @ target
-
         params = params.reshape(-1)
-        toReturn: List[float] = params.tolist()
-
-        return toReturn
+        return params.tolist()
 
     def l2Loss(
         self, coneX: float, coneY: float, coneZ: float, points: npt.NDArray[np.float64]
@@ -158,13 +158,9 @@ class ConeClassifier(metaclass=SingletonMeta):
         x, y, z = points.T
         diffX = (x - coneX) ** 2
         diffY = (y - coneY) ** 2
-
         pred = coneZ - np.sqrt(np.abs((diffX + diffY) / self.coneSize))
-
         error = (z - pred) ** 2
-
-        mse: float = float(np.mean(error))
-        return mse
+        return float(np.mean(error))
 
     def linearizationLoss(self, coneX: float, coneY: float, coneZ: float, linTerm: float) -> float:
         """

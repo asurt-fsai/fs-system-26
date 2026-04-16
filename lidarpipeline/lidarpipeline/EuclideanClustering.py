@@ -1,10 +1,6 @@
 from .KdTree import KdTree
-import pandas as pd
-import copy
-import plotly.graph_objects as go
 import open3d as o3d
 import numpy as np
-import sys
 
 
 class clustering:
