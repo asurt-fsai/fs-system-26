@@ -1,6 +1,6 @@
-from supervisor.helpers.Module.ModuleState import ModuleState
+from supervisor.helpers.Module import ModuleState
 from supervisor.helpers.CommunicationLayer import CommunicationLayer
-from supervisor.helpers.Module.Module import Module
+from supervisor.helpers.Module import Module
 import time
 import logging
 
@@ -8,9 +8,10 @@ import logging
 class ModuleManager:
 
     def __init__(self):
-        self.modules = []
+        # Store modules as a dict pkg -> Module for easy lookup
+        self.modules = {}
         self.logger = logging.getLogger(__name__)
-
+        self._supervisor = None
 
     # ==================================================
     # Registration From MissionManager
@@ -26,13 +27,22 @@ class ModuleManager:
 
         # Shutdown old mission modules
         if self.modules:
-            print("[ModuleManager] Shutting down previous mission modules...")
+            self.logger.info("[ModuleManager] Shutting down previous mission modules...")
             self.shutdownAll()
 
-        # Replace module list
-        self.modules = list(modules)
+        # Replace module list -> convert to dict by pkg
+        self.modules = {m.pkg: m for m in modules}
 
         self.logger.info(f"[ModuleManager] Registered {len(self.modules)} modules for new mission")
+
+    def setSupervisor(self, supervisor):
+        """Optional: store supervisor reference for callbacks or coordination."""
+        self._supervisor = supervisor
+        self.logger.info("[ModuleManager] Supervisor injected")
+
+    def getModules(self):
+        """Return the internal modules mapping (pkg -> Module)."""
+        return self.modules
 
 
     def launchAll(self):
@@ -46,16 +56,13 @@ class ModuleManager:
 
         failed = []
 
-        for i, module in enumerate(self.modules):
-            try:
-                success= module.launch()
-                if not success:
-                    self.logger.error(f"[ModuleManager] Launch returned False for {module.pkg}")
-                    failed.append(module)
+        module_list = list(self.modules.values())
 
-                if i < len(self.modules) - 1:  # Add delay between launches except after last
+        for i, module in enumerate(module_list):
+            try:
+                module.launch()
+                if i < len(module_list) - 1:  # Add delay between launches except after last
                     time.sleep(0.5)
-                    
             except Exception as e:
                 self.logger.info(f"[ModuleManager] Failed to launch {module.pkg}: {e}")
                 failed.append(module)
@@ -73,7 +80,7 @@ class ModuleManager:
 
         failed = []
 
-        for module in self.modules:
+        for module in list(self.modules.values()):
             try:
                 module.shutdown()
             except Exception as e:
@@ -89,10 +96,7 @@ class ModuleManager:
         Logic  : Iterate modules and return first match on pkg name.
                  Return None if not found.
         """
-        for module in self.modules:
-            if module.pkg == pkg:
-                return module
-        return None
+        return self.modules.get(pkg, None)
 
     def __len__(self):
         """

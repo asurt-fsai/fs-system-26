@@ -14,7 +14,14 @@ from supervisor.helpers.Missions.AccelerationMission import AccelerationMission
 from supervisor.helpers.Missions.SkidpadMission import SkidpadMission
 from supervisor.helpers.Missions.AutocrossMission import AutocrossMission
 from supervisor.helpers.Missions.TrackdriveMission import TrackdriveMission
+from supervisor.helpers.Missions.StaticAMission import StaticAMission
+from supervisor.helpers.Missions.StaticBMission import StaticBMission
+from supervisor.helpers.Missions.AutoDemoMission import AutoDemoMission
 from supervisor.helpers.Missions.MissionStatus import MissionStatus
+from supervisor.helpers.Commands.StartMissionCommand import StartMissionCommand
+
+from supervisor.helpers.Commands.ShutdownModulesCommand import ShutdownModulesCommand
+from supervisor.helpers.Module.LocalLauncher import LocalLauncher
 
 
 # ======================================================
@@ -32,6 +39,9 @@ class MissionType(Enum):
     SKIDPAD      = 2
     AUTOCROSS    = 3
     TRACKDRIVE   = 4
+    STATIC_A     = 5
+    STATIC_B     = 6
+    AUTODEMO     = 7
 
 
 # ======================================================
@@ -125,6 +135,9 @@ class MissionManager:
             MissionType.SKIDPAD      : SkidpadMission,
             MissionType.AUTOCROSS    : AutocrossMission,
             MissionType.TRACKDRIVE   : TrackdriveMission,
+            MissionType.STATIC_A     : StaticAMission,
+            MissionType.STATIC_B     : StaticBMission,
+            MissionType.AUTODEMO     : AutoDemoMission,
         }
 
         logger.info("[MissionManager] Initialised")
@@ -317,19 +330,34 @@ class MissionManager:
 
         modules = []
 
+        # Prefer Supervisor's communication instance when available
+        # (Supervisor injects itself via setSupervisor()). Fall back to singleton.
+        communication = self.supervisor.communication if getattr(self, 'supervisor', None) else CommunicationLayer.getInstance()
+        launcher = LocalLauncher()
+
         for entry in config.get("modules", []):
+            # Basic JSON validation
+            if not isinstance(entry, dict):
+                logger.error(f"[MissionManager] Invalid module entry (not object): {entry}")
+                continue
+            if "pkg" not in entry or "launch_file" not in entry:
+                logger.error(f"[MissionManager] Missing required module fields in entry: {entry}")
+                continue
+
             module = Module(
                 entry["pkg"],
                 entry["launch_file"],
-                entry["heartbeats_topic"],
-                bool(entry["is_node_msg"])
+                communication,
+                launcher,
+                entry.get("heartbeat_timeout", 5.0),
+                entry.get("startup_timeout"),
             )
             modules.append(module)
             logger.debug(
                 f"[MissionManager] Module loaded — "
                 f"pkg={entry['pkg']} "
-                f"heartbeats_topic={entry['heartbeats_topic']} "
-                f"is_node_msg={entry['is_node_msg']}"
+                f"heartbeat_timeout={entry.get('heartbeat_timeout', 5.0)} "
+                f"startup_timeout={entry.get('startup_timeout')}"
             )
 
         logger.info(
@@ -397,7 +425,7 @@ class MissionManager:
             return False
 
         for module in modules.values():
-            if module.state != ModuleState.RUNNING:
+            if module.state != ModuleState.Running:
                 return False
 
         return True    

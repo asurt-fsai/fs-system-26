@@ -28,18 +28,20 @@ import logging
 import threading
 from threading import Thread, Event
 from typing import Optional
-
+  
 import rclpy
 from rclpy.node import Node
 from rclpy.executors import MultiThreadedExecutor
-from std_msgs.msg import String, Bool, Float64
-from eufs_msgs.msg import CanState
-from geometry_msgs.msg import TwistWithCovarianceStamped
-from ackermann_msgs.msg import AckermannDriveStamped
+from std_msgs.msg import String, Bool, Float64, Int16
+from geometry_msgs.msg import TwistWithCovarianceStamped  
+from dependencies.eufs_msgs.msg import CanState
+
+from dependencies.ackermann_msgs.msg import AckermannDriveStamped
+from std_srvs.srv import Trigger
 
 
 
-class CommunicationLayer(Node):
+class CommunicationLayer(rclpy.node.Node):
 
     """
     Singleton EventBus that connects ROS2 topics with internal system components.
@@ -124,6 +126,7 @@ class CommunicationLayer(Node):
         CommunicationLayer._initialised = True
 
         super().__init__("communication_layer")
+        rclpy.init() 
 
         # Registered system components
         self._supervisor = None
@@ -261,6 +264,16 @@ class CommunicationLayer(Node):
         self._setup_subscriptions()
         self._setup_timers()
 
+        # ADDED: EBS service client (small update)
+        # This client is used by some missions (e.g. Static B) to trigger
+        # the emergency braking service exposed by the CAN node. If the
+        # service type or name is not available in a test environment,
+        # we catch exceptions and keep _ebs_client as None.
+        try:
+            self._ebs_client = self.create_client(Trigger, "/ros_can/ebs")
+        except Exception:
+            self._ebs_client = None
+
     # ---------------------------------------------------------
     # Publishers
     # ---------------------------------------------------------
@@ -323,8 +336,10 @@ class CommunicationLayer(Node):
             10
         )
 
-        # Heartbeat as String
-        self.create_subscription(String, "heartbeat", self.onHeartbeat, 10)
+        # Module heartbeat topic (single global topic)
+        # Expect a NodeStatus-like message with `node_name` attribute.
+        # We subscribe with String for compatibility; the handler extracts `node_name` if present.
+        self.create_subscription(String, "/module_heartbeat", self.onHeartbeat, 10)
 
         self.create_subscription(
             TwistWithCovarianceStamped,
@@ -348,6 +363,14 @@ class CommunicationLayer(Node):
 
         # Float64 topics
         self.create_subscription(Float64, "/slam/distance", self.onDistance, 10)
+
+        # ADDED: loop closure count topic used by some missions (TrackDrive)
+        # Subscribe to Int16 counts and route to mission handler if present.
+        try:
+            self.create_subscription(Int16, "/slam/loop_closure_count", self.onLoopClosureCount, 10)
+        except Exception:
+            # In constrained/test envs Int16 may be absent; ignore if subscription fails
+            pass
 
     # ---------------------------------------------------------
     # Timers
@@ -449,6 +472,10 @@ class CommunicationLayer(Node):
             f"[register] Mission registered: {type(mission).__name__}"
         )
 
+    def register_module(self, module):
+        # removed: CommunicationLayer.register_module is not supported per design
+        raise NotImplementedError("register_module is not supported. CommunicationLayer is a ROS adapter only.")
+
     # ---------------------------------------------------------
     # Supervisor Callbacks
     # ---------------------------------------------------------
@@ -538,12 +565,32 @@ class CommunicationLayer(Node):
         Supervisor will update ModuleManager heartbeat state.
         """
 
-        module_name = msg.data
+        # Extract module name from NodeStatus-like message
+        module_name = None
 
-        self._log_topic("heartbeat", module_name)
+        # Prefer an attribute `node_name` if present
+        if hasattr(msg, 'node_name'):
+            module_name = getattr(msg, 'node_name')
+        # Fallback to `data` (String messages)
+        elif hasattr(msg, 'data'):
+            # If msg.data contains JSON, try to parse node_name
+            data = msg.data
+            module_name = data
+            try:
+                import json as _json
+                parsed = _json.loads(data)
+                if isinstance(parsed, dict) and 'node_name' in parsed:
+                    module_name = parsed['node_name']
+            except Exception:
+                # not JSON — keep raw string
+                pass
 
-        if self._supervisor:
-            self._supervisor.onHeartbeat(module_name)
+        if module_name:
+            self._log_topic("/module_heartbeat", module_name)
+            if self._supervisor:
+                self._supervisor.onHeartbeat(module_name)
+        else:
+            self.logger.debug("[CommunicationLayer] Received module heartbeat with no node_name")
 
     # ---------------------------------------------------------
     # Mission Callbacks
@@ -594,6 +641,18 @@ class CommunicationLayer(Node):
         if self._activeMission:
             self._activeMission.onDistance(msg.data)
 
+    def onLoopClosureCount(self, msg):
+        """
+        Handles loop closure count for TrackDrive mission.
+        Input : msg (Int16) — loop closure count
+        """
+        self._log_topic("/slam/loop_closure_count", msg.data)
+        if self._activeMission and hasattr(self._activeMission, 'onLoopClosureCount'):
+            try:
+                self._activeMission.onLoopClosureCount(msg.data)
+            except Exception:
+                self.logger.exception("Error in onLoopClosureCount handler")
+
     # ---------------------------------------------------------
     # Publish API
     # ---------------------------------------------------------
@@ -636,6 +695,25 @@ class CommunicationLayer(Node):
         msg.data = flag
         self._mission_flag_pub.publish(msg)
         self._log_publish("mission_flag", flag)   
+
+    # ADDED: helper to trigger Emergency Braking Service (EBS)
+    def triggerEBS(self):
+        """
+        Trigger the EBS service on the CAN node. Small added helper used by
+        some missions (e.g. Static B) to request emergency braking.
+        """
+        if not getattr(self, '_ebs_client', None):
+            self.logger.error("EBS service client not configured")
+            return
+
+        try:
+            if not self._ebs_client.wait_for_service(timeout_sec=1.0):
+                self.logger.error("EBS service not available")
+                return
+            req = Trigger.Request()
+            self._ebs_client.call_async(req)
+        except Exception:
+            self.logger.exception("Failed to call EBS service")
 
     # ---------------------------------------------------------
     # Logging Helpers

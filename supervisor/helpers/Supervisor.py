@@ -3,10 +3,12 @@ import threading
 import logging
 from enum import Enum
 from supervisor.helpers.Commands import ShutdownModulesCommand,StartMissionCommand,EmergencyStopCommand,RestartModuleCommand
+from supervisor.helpers.Missions.MissionManager import MissionType
 from supervisor.helpers.Module.ModuleState import ModuleState
-from eufs_msgs.msg import CanState
-from geometry_msgs.msg import TwistWithCovarianceStamped
-from ackermann_msgs.msg import AckermannDriveStamped
+from dependencies.eufs_msgs.msg import CanState
+from dependencies.ackermann_msgs.msg import  AckermannDriveStamped
+
+
 
 class SuperState(Enum):
     """
@@ -70,11 +72,9 @@ class Supervisor:
         self.vel= 0.0
         self.steer =0.0
 
-        # Heartbeat tracking
-        self._stop_monitor = threading.Event() # Add stop event for heartbeat monitor
+        # Heartbeat tracking: use per-module `lastHeartbeatTime` on Module instances
+        # Also keep a dict of last heartbeat timestamps for quick lookup
         self.module_last_heartbeat = {}
-        self.monitor_thread = threading.Thread(target=self._heartbeat_monitor_loop, daemon=True, name="supervisor-heartbeat-monitor")
-        self.monitor_thread.start()
 
         # Register with managers
         self.communication.registerSupervisor(self)
@@ -98,7 +98,6 @@ class Supervisor:
             self.logger.error(f"[Supervisor] Failed to execute command {type(cmd).__name__}: {e}", exc_info=True)
 
 
-
     # ========================
     # STATE TRANSITIONS
     # ========================
@@ -112,10 +111,15 @@ class Supervisor:
                  this is the same function in old system called 'run'
         """
         if self.currentState == SuperState.WAITING:
-            if self.amiState not in (None, 0):  # AMI selected
+            if self.amiState != CanState.AMI_NOT_SELECTED:  
                 self.currentState = SuperState.LAUNCHING
                 self.logger.info("[Supervisor] State transition to LAUNCHING")
-                self.issueCommand(StartMissionCommand(self.missionManager, self.amiState)) #amiState is the target mission type, passed to StartMissionCommand
+                # Map numeric AMI to MissionType when possible and pass logger to command
+                try:
+                    mission_type = MissionType(self.amiState)
+                except Exception:
+                    mission_type = self.amiState
+                self.issueCommand(StartMissionCommand(self.missionManager, mission_type, self.logger)) #amiState is the target mission type, passed to StartMissionCommand
 
         elif self.currentState == SuperState.LAUNCHING:
             self.isFinished=False
@@ -138,18 +142,27 @@ class Supervisor:
                 self.currentState = SuperState.FINISHED
                 self.logger.info("[Supervisor] State transition to FINISHED")
 
-        elif self.currentState == SuperState.FINISHED:
-            self.issueCommand(ShutdownModulesCommand(self.moduleManager))
-            self.logger.info("[Supervisor] Mission finished. Modules shutting down.")
-            time.sleep(2)  # short delay before restarting
-            self.currentState = SuperState.WAITING
-            self.amiState = CanState.AMI_NOT_SELECTED
-            self.isFinished = False
-            self.logger.info("[Supervisor] Supervisor reset to WAITING")
+## 3ashan n5ali el finished state yeb2a leeh timer 3ashan y3mel reset ba3d 5 seconds w ten2el lel waiting so publishing to the car the finishing state correctly 
+        elif self.currentState == SuperState.FINISHED: 
+            if not hasattr(self, "finished_time"):
+                self.finished_time = time.time()
+                self.issueCommand(ShutdownModulesCommand(self.moduleManager, self.logger))
+                self.logger.info("[Supervisor] Entered FINISHED")
 
-        #Publish commands after any state transition
+            elif time.time() - self.finished_time > 5:
+                self.currentState = SuperState.WAITING
+                self.amiState = CanState.AMI_NOT_SELECTED
+                self.isFinished = False
+                self.missionManager.activeMission = None
+                del self.finished_time
+                self.logger.info("[Supervisor] Reset to WAITING")
+    
+
+    def run(self):
+        self.transitionState()
         self.publishRosCanMessages()
-
+            
+        
     #===============================
     # publishing commands to the car
     #================================
@@ -181,7 +194,7 @@ class Supervisor:
         
         Returns : AckermannDriveStamped message
         """
-        from ackermann_msgs.msg import AckermannDriveStamped
+      
         
         cmdMsg = AckermannDriveStamped()
         
@@ -259,55 +272,79 @@ class Supervisor:
                  Set module.state = Running.
         """
         current_time = time.time()
-        
-        # Update heartbeat timestamp
+
+        # Update module_last_heartbeat dict (kept for quick lookup)
         self.module_last_heartbeat[pkg] = current_time
-        
+
         # Update module state in ModuleManager
         module = self.moduleManager.getModule(pkg)
-        
+
         if module:
-            if module.state != ModuleState.RUNNING:
-                module.state = ModuleState.RUNNING
+            if module.state != ModuleState.Running:
+                module.state = ModuleState.Running
                 self.logger.info(f"[Supervisor] Module {pkg} is now RUNNING (heartbeat received)")
-            
+
+            # Record heartbeat timestamp on module object as well
             module.lastHeartbeatTime = current_time
         else:
-            self.logger.warning(f"[Supervisor] Received heartbeat from unknown module: {pkg}")
+            self.logger.info(f"[Supervisor] Received heartbeat from unknown module: {pkg}")
 
 
     def checkHeartbeat(self):
-        """
-        Input  : None
-        Output : None
-        Logic  : Iterate all modules in moduleManager.
-                 For each module in Running state check if
-                 time.time() - lastHeartbeatTime > heartbeatTimeout.
-                 If timeout exceeded issue RestartModuleCommand.
-        """
         current_time = time.time()
         modules = self.moduleManager.getModules()
-        
-        for pkg, module in modules.items():
-            # Only check modules that should be running
-            if module.state != ModuleState.RUNNING:
-                continue
-            
-            # Get last heartbeat time
-            last_heartbeat = self.module_last_heartbeat.get(pkg, 0)
-            
-            # Check timeout
-            time_since_heartbeat = current_time - last_heartbeat
-            
-            if time_since_heartbeat > self.heartbeat_timeout:
-                self.logger.warning(
-                    f"[Supervisor] Module {pkg} heartbeat timeout "
-                    f"({time_since_heartbeat:.1f}s > {self.heartbeat_timeout}s)"
-                )
-                
-                # Issue restart command
-                self.issueCommand(RestartModuleCommand(self.moduleManager, module))
 
+        for pkg, module in modules.items():
+
+            # Skip modules explicitly in Error state
+            if module.state == ModuleState.Error:
+                continue
+
+            if module.state not in (ModuleState.Running, ModuleState.Starting):
+                continue
+
+            timeout = getattr(module, 'heartbeatTimeout', self.heartbeat_timeout)
+
+            # Prefer module_last_heartbeat for authoritative last-seen timestamp,
+            # fall back to module.lastHeartbeatTime if missing.
+            last_heartbeat = self.module_last_heartbeat.get(pkg, getattr(module, 'lastHeartbeatTime', 0))
+
+            # No heartbeat yet
+            if not last_heartbeat:
+                if module.state == ModuleState.Starting:
+                    started_since = current_time - getattr(module, 'startTime', current_time)
+                    startup_timeout = getattr(module, 'startupTimeout', max(2.0 * timeout, 1.0))
+
+                    if started_since > startup_timeout:
+
+                        if current_time - module.lastRestartTime < module.restartCooldown:
+                            continue
+
+                        module.state = ModuleState.Unresponsive
+
+                        self.logger.info(
+                            f"[Supervisor] Module {pkg} never reported heartbeat after start; restarting"
+                        )
+
+                        self.issueCommand(RestartModuleCommand(self.moduleManager, module, self.logger))
+                continue
+
+            # Normal timeout case
+            time_since_heartbeat = current_time - last_heartbeat
+
+            if time_since_heartbeat > timeout:
+
+                if current_time - module.lastRestartTime < module.restartCooldown:
+                    continue
+
+                module.state = ModuleState.Unresponsive
+
+                self.logger.info(
+                    f"[Supervisor] Module {pkg} heartbeat timeout "
+                    f"({time_since_heartbeat:.1f}s > {timeout}s)"
+                )
+
+                self.issueCommand(RestartModuleCommand(self.moduleManager, module, self.logger))
     # ========================
     # MISSION CALLBACKS
     # ========================
@@ -318,8 +355,7 @@ class Supervisor:
         Logic  : Transition state to FINISHED.
         """
         self.isFinished = True
-        self.currentState = SuperState.STOPPING
-        self.logger.info(f"Mission finished with result: {result}")
+        self.logger.info(f"[Supervisor] Mission finished with result: {result}")
 
 
     def onMissionFailed(self, reason: str):
@@ -330,6 +366,7 @@ class Supervisor:
                  Issue EmergencyStopCommand.
                  Log the failure reason.
         """
-        self.logger.error(f"Mission failed: {reason}")
+        self.logger.error(f"[Supervisor] Mission failed: {reason}")
         self.currentState = SuperState.STOPPING
-        self.issueCommand(EmergencyStopCommand(self.moduleManager,self.missionManager))
+        # EmergencyStopCommand expects (missionManager, moduleManager, logger)
+        self.issueCommand(EmergencyStopCommand(self.missionManager, self.moduleManager, self.logger))

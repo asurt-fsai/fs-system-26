@@ -1,6 +1,5 @@
 from supervisor.helpers.Commands import Command
 from supervisor.helpers.Missions.MissionManager import MissionManager
-from supervisor.helpers.Module import ModuleManager
 
 
 class EmergencyStopCommand(Command):
@@ -14,5 +13,12 @@ class EmergencyStopCommand(Command):
 
         self.logger.critical("EMERGENCY STOP triggered")
 
-        self.missionManager.stopMission()
-        self.moduleManager.shutdownAllModules()
+        # Attempt to stop mission first (MissionManager will shutdown modules)
+        try:
+            if hasattr(self.missionManager, 'stopMission'):
+                self.missionManager.stopMission()
+            else:
+                # Fallback: directly shutdown modules
+                self.moduleManager.shutdownAll()
+        except Exception as e:
+            self.logger.error(f"Emergency stop failed: {e}", exc_info=True)

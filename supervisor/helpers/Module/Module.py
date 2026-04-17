@@ -11,6 +11,7 @@ class Module:
         communication,
         launcher,
         heartbeat_timeout: float = 5.0,
+        startup_timeout: float = None,
     ):
         self.pkg = pkg
         self.launchFile = launch_file
@@ -24,9 +25,19 @@ class Module:
         self.lastHeartbeatTime = 0.0
         self.heartbeatTimeout = heartbeat_timeout
 
+        # Optional startup timeout used when a module is Starting but hasn't reported a heartbeat yet
+        # If not provided, default to 2x heartbeat timeout
+        if startup_timeout is None:
+            self.startupTimeout = max(2.0 * heartbeat_timeout, 1.0)
+        else:
+            self.startupTimeout = startup_timeout
+
+
         self.lastRestartTime = 0.0
         self.restartCooldown = 3.0
         self.logger = logging.getLogger(__name__)
+
+            # Modules do not interact with CommunicationLayer (no ROS logic here)
 
 
     def launch(self):
@@ -38,10 +49,14 @@ class Module:
                  Delegate to launcher.launch(self).
         """
 
-        if self.state == ModuleState.Running:
+        # Prevent launching if already starting or running
+        if self.state in (ModuleState.Starting, ModuleState.Running):
+            self.logger.info(f"[MODULE] Cannot launch from state {self.state}")
             return False
 
         self.logger.info(f"[MODULE] Launching {self.pkg}")
+        # record the start time for startup timeout checks
+        self.startTime = time.time()
 
         # Reset tracking only on intentional manual launch
         success = self.launcher.launch(self)
@@ -59,47 +74,46 @@ class Module:
         """
         self.logger.info(f"[MODULE] Shutting down {self.pkg}")
 
-        success=self.launcher.shutdown(self)
-        #self.state = ModuleState.Shutdown
+        success = self.launcher.shutdown(self)
+        # Ensure process reference is cleared on successful shutdown
+        if success:
+            self.process = None
+            self.state = ModuleState.Shutdown
+        else:
+            self.state = ModuleState.Error
 
-        self.state = ModuleState.Shutdown if success else ModuleState.Error
+    def restart(self):
+        """
+        Input  : None
+        Output : bool — True if restart was initiated successfully
+        Logic  : Check cooldown, update lastRestartTime, delegate to launcher.restart(),
+                 set state to Starting on success, Error on failure.
+        """
 
-    def restart(self):  
-            """
-            Input  : None
-            Output : bool — True if restart was initiated successfully
-            Logic  : Check max restart attempts — if exceeded set state=Error and return False.
-                        Check cooldown — if too soon return False.
-                        Increment restartAttempts, update lastRestartTime.
-                        Delegate execution to launcher.restart(self).
-                        Set state=Starting on success, Error on failure.
-            """
+        now = time.time()
 
-            now = time.time()
+        # Check cooldown
+        if now - self.lastRestartTime < self.restartCooldown:
+            self.logger.info(f"[MODULE] {self.pkg} in cooldown. Restart delayed.")
+            return False
 
-            # Check cooldown
-            if now - self.lastRestartTime < self.restartCooldown:
-                self.logger.info(f"[MODULE] {self.pkg} in cooldown. Restart delayed.")
-                return False
+        # Update tracking BEFORE restart attempt
+        self.lastRestartTime = now
 
-            # Update tracking BEFORE restart attempt
-            self.lastRestartTime = now
+        self.logger.info(f"[MODULE] Restarting {self.pkg} ")
 
-            self.logger.info(f"[MODULE] Restarting {self.pkg} ")
+        time.sleep(0.5)
 
-            time.sleep(0.5)
-            # Delegate execution to launcher ,just execution
-            
-            success = self.launcher.restart(self)
+        success = self.launcher.restart(self)
 
-            if success:
-                self.logger.info(f"[MODULE] {self.pkg} restart initiated successfully.")
-                self.state = ModuleState.Starting  # wait for heartbeat to confirm Running
-            else:
-                self.logger.error(f"[MODULE] {self.pkg} restart failed.")
-                self.state = ModuleState.Error
+        if success:
+            self.logger.info(f"[MODULE] {self.pkg} restart initiated successfully.")
+            self.state = ModuleState.Starting  # wait for heartbeat to confirm Running
+        else:
+            self.logger.error(f"[MODULE] {self.pkg} restart failed.")
+            self.state = ModuleState.Error
 
-            return success
+        return success
     
     def getState(self) -> ModuleState:
         """
