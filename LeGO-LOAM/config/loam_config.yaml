@@ -10,8 +10,8 @@ image_projection:
       ground_scan_index: 15
 # add horizental angles -60 and 60 
     image_projection:
-      segment_valid_point_num: 5
-      segment_valid_line_num: 3
+      segment_valid_point_num: 3            # original 5, minimum number of points in a segment to be considered valid, if the segment is too small, it will be discarded
+      segment_valid_line_num: 2             # original 3, minimum number of valid segments in a line to be considered valid, if the line is too small, it will be discarded
       segment_theta: 10.0                   # decrese this value may improve accuracy
 
     topics:
@@ -98,4 +98,3 @@ transform_fusion:
       mapAdjusted: "map_adjusted"
       aftAdjusted: "aft_adjusted"
       
-

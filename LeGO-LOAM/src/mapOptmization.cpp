@@ -188,10 +188,10 @@ MapOptimization::MapOptimization(const std::string &name, Channel<AssociationOut
 
   // Read cone parameters
   if (!this->get_parameter("mapping.cone_voxel_size", cone_voxel_size_)) {
-    cone_voxel_size_ = 0.8f;  // default fallback
+    cone_voxel_size_ = 0.3f;  // default fallback
   }
   if (!this->get_parameter("mapping.cone_match_distance", cone_match_distance_)) {
-    cone_match_distance_ = 1.0f;
+    cone_match_distance_ = 0.5f;
   }
 
   this->declare_parameter("topics.coneMap", std::string("/cone_map"));
@@ -2342,7 +2342,7 @@ void MapOptimization::saveKeyFramesAndFactor() {
 
 void MapOptimization::correctPoses() {
 
-  /* Summary: Corrects the poses of key frames after a loop closure.
+ /* Summary: Corrects the poses of key frames after a loop closure.
 
    Extended Description: This function is triggered after a loop closure is detected and the pose graph optimization is performed. 
    It updates the poses of all key frames in the map to reflect the optimized poses. The poses are corrected based on the latest 

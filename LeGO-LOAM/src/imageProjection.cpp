@@ -631,64 +631,121 @@ void ImageProjection::cloudSegmentation() {
 
   // For each cluster, decide if it's a cone
   for (const auto& pair : clusters) {
-      const auto& pts = pair.second;
+    const auto& pts = pair.second;
 
-      // RCLCPP_INFO(this->get_logger(),
-      //     "Cluster: size=%zu", pts.size());
+    // RCLCPP_INFO(this->get_logger(),
+    //     "Cluster: size=%zu", pts.size());
 
 
-      if (pts.size() < 3 || pts.size() > 80)
-          continue;
-      
-      // Compute bounding box
-      float min_x = pts[0].x, max_x = pts[0].x;
-      float min_y = pts[0].y, max_y = pts[0].y;
-      float min_z = pts[0].z, max_z = pts[0].z;
-      for (const auto& pt : pts) {
-          if (pt.x < min_x) min_x = pt.x;
-          if (pt.x > max_x) max_x = pt.x;
-          if (pt.y < min_y) min_y = pt.y;
-          if (pt.y > max_y) max_y = pt.y;
-          if (pt.z < min_z) min_z = pt.z;
-          if (pt.z > max_z) max_z = pt.z;
-      }
-      float height = max_z - min_z;
-      float width_x = max_x - min_x;
-      float width_y = max_y - min_y;
-      float width_xy = std::max(width_x, width_y); // approximate diameter
-
-      // Typical cone dimensions (adjust based on your cones)
-      if (height < 0.15 || height > 0.5)
-          continue;
-      if (width_xy < 0.05 || width_xy > 0.4)
-          continue;
-      
-      // Optional: check intensity if cones have reflective tape
-      // float avg_intensity = std::accumulate(pts.begin(), pts.end(), 0.0,
-      //     [](float sum, const PointType& p){ return sum + p.intensity; }) / pts.size();
-      // if (avg_intensity < cone_intensity_threshold) continue;
-      
-      // Compute centroid
-      PointType centroid;
-      // Convert from LiDAR frame to camera frame (same as LeGO-LOAM convention)
-      float cx = (min_x + max_x) / 2.0;
-      float cy = (min_y + max_y) / 2.0;
-      float cz = (min_z + max_z) / 2.0;
-
-      centroid.x = cy;   // LiDAR y → Camera x
-      centroid.y = cz;   // LiDAR z → Camera y
-      centroid.z = cx;   // LiDAR x → Camera z
-      centroid.intensity = 0;
-
-      // Reject anything too far away (cones beyond 15m are unreliable)
-      float dist = sqrt(centroid.x * centroid.x + centroid.y * centroid.y + centroid.z * centroid.z);
-      if (dist > 10.0)
+    if (pts.size() < 7 || pts.size() > 60)
         continue;
+    
+    // Compute bounding box
+    float min_x = pts[0].x, max_x = pts[0].x;
+    float min_y = pts[0].y, max_y = pts[0].y;
+    float min_z = pts[0].z, max_z = pts[0].z;
+    for (const auto& pt : pts) {
+        if (pt.x < min_x) min_x = pt.x;
+        if (pt.x > max_x) max_x = pt.x;
+        if (pt.y < min_y) min_y = pt.y;
+        if (pt.y > max_y) max_y = pt.y;
+        if (pt.z < min_z) min_z = pt.z;
+        if (pt.z > max_z) max_z = pt.z;
+    }
+    float height = max_z - min_z;
+    float width_x = max_x - min_x;
+    float width_y = max_y - min_y;
+    float width_xy = std::max(width_x, width_y); // approximate diameter
 
-      // Reject if taller than wide by too much (walls, poles)
-      if (height / width_xy > 3.0)
+    // Typical cone dimensions (adjust based on your cones)
+    if (height < 0.1 || height > 0.5)
         continue;
-      _cone_cloud->push_back(centroid);
+    if (width_xy < 0.05 || width_xy > 0.4)
+        continue;
+    
+    // Optional: check intensity if cones have reflective tape
+    // float avg_intensity = std::accumulate(pts.begin(), pts.end(), 0.0,
+    //     [](float sum, const PointType& p){ return sum + p.intensity; }) / pts.size();
+    // if (avg_intensity < cone_intensity_threshold) continue;
+    
+    // Compute centroid
+    PointType centroid;
+    // Convert from LiDAR frame to camera frame (same as LeGO-LOAM convention)
+    float cx = (min_x + max_x) / 2.0;
+    float cy = (min_y + max_y) / 2.0;
+    float cz = (min_z + max_z) / 2.0;
+
+    centroid.x = cy;   // LiDAR y → Camera x
+    centroid.y = cz;   // LiDAR z → Camera y
+    centroid.z = cx;   // LiDAR x → Camera z
+    centroid.intensity = 0;
+
+    // Reject anything too far away (cones beyond 15m are unreliable)
+    float dist = sqrt(centroid.x * centroid.x + centroid.y * centroid.y + centroid.z * centroid.z);
+    if (dist > 30.0) continue;
+
+    if (min_z > 0.2f) continue;
+
+    float aspect_xy = std::max(width_x, width_y) / std::min(width_x, width_y);
+    if (aspect_xy > 2.0f) continue;  // reject elongated shapes
+
+
+
+
+    // With this PCA elongation check:
+    float sxx=0, sxy=0, syy=0;
+    for (const auto& pt : pts) {
+        float dx = pt.x - cx, dy = pt.y - cy;
+        sxx += dx*dx;  sxy += dx*dy;  syy += dy*dy;
+    }
+    sxx /= pts.size();  sxy /= pts.size();  syy /= pts.size();
+
+    float trace = sxx + syy;
+    float det   = sxx*syy - sxy*sxy;
+    float disc  = std::max(0.0f, trace*trace/4.0f - det);
+    float l1 = trace/2.0f + std::sqrt(disc);
+    float l2 = trace/2.0f - std::sqrt(disc);
+
+    if (l2 < 1e-6f) continue;
+    float elongation = std::sqrt(l1 / l2);
+    if (elongation > 3.0f) continue;  // wall/pole: elongated in one direction
+
+
+
+
+
+    // Reject if taller than wide by too much (walls, poles)
+    if (height / width_xy > 3.0) continue;
+
+    // Better: compute actual radius and check circularity
+    float max_radius = 0.0f;
+    float min_radius = std::numeric_limits<float>::max();
+    int inlier_count = 0;
+    float sum_r = 0.0f, sum_r2 = 0.0f;
+    for (const auto& pt : pts) {
+        float dx = pt.x - cx;
+        float dy = pt.y - cy;
+        float r = std::sqrt(dx*dx + dy*dy);
+        sum_r  += r;
+        sum_r2 += r * r;
+        max_radius = std::max(max_radius, r);
+        min_radius = std::min(min_radius, r);
+        if (r < 0.25f) inlier_count++;  // example radius threshold
+    }
+
+    if (max_radius < 0.025f || max_radius > 0.2f) continue;
+    //if (max_radius / min_radius > 4.0f) continue;  // not circular enough
+    if (static_cast<float>(inlier_count) / pts.size() < 0.8f) continue;  // too many outliers from center
+
+    float mean_r = sum_r / pts.size();
+    float var_r  = sum_r2 / pts.size() - mean_r * mean_r;
+    float std_r  = std::sqrt(std::max(0.0f, var_r));
+
+    //if (mean_r < 0.01f) continue;               // degenerate cluster
+    //if (std_r / mean_r > 0.65f) continue;       // too irregular — not cone-like
+
+
+    _cone_cloud->push_back(centroid);
   }
 }
 
