@@ -10,9 +10,20 @@ image_projection:
       ground_scan_index: 15
 # add horizental angles -60 and 60 
     image_projection:
-      segment_valid_point_num: 3            # original 5, minimum number of points in a segment to be considered valid, if the segment is too small, it will be discarded
-      segment_valid_line_num: 2             # original 3, minimum number of valid segments in a line to be considered valid, if the line is too small, it will be discarded
+      segment_valid_point_num: 3
+      segment_valid_line_num: 2
       segment_theta: 10.0                   # decrese this value may improve accuracy
+      # ── Cone LUT filter ──────────────────────────────────
+      lut_resolution: 0.5
+      lut_ema_alpha: 0.3
+      lut_max_width_change: 0.5
+      lut_tolerance_multiplier: 2.0
+      lut_max_track_half_width: 4.0
+      lut_max_cone_lateral: 5.0
+      lut_filter_margin: 0.5
+      lut_filter_z_margin_before: 1.0
+      lut_filter_z_margin_after: 1.0
+      lut_max_cone_distance: 30.0
 
     topics:
       lidarPoints: "/lidar_points"

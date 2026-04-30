@@ -39,6 +39,18 @@ const std::string PARAM_SEGMENT_THETA = "image_projection.segment_theta";
 const std::string PARAM_SEGMENT_POINT = "image_projection.segment_valid_point_num";
 const std::string PARAM_SEGMENT_LINE = "image_projection.segment_valid_line_num";
 
+const std::string PARAM_LUT_RESOLUTION            = "image_projection.lut_resolution";
+const std::string PARAM_LUT_EMA_ALPHA             = "image_projection.lut_ema_alpha";
+const std::string PARAM_LUT_MAX_WIDTH_CHANGE      = "image_projection.lut_max_width_change";
+const std::string PARAM_LUT_TOLERANCE_MULT        = "image_projection.lut_tolerance_multiplier";
+const std::string PARAM_LUT_MAX_TRACK_HALF_WIDTH  = "image_projection.lut_max_track_half_width";
+const std::string PARAM_LUT_MAX_CONE_LATERAL      = "image_projection.lut_max_cone_lateral";
+const std::string PARAM_LUT_FILTER_MARGIN         = "image_projection.lut_filter_margin";
+const std::string PARAM_LUT_FILTER_Z_BEFORE       = "image_projection.lut_filter_z_margin_before";
+const std::string PARAM_LUT_FILTER_Z_AFTER        = "image_projection.lut_filter_z_margin_after";
+const std::string PARAM_LUT_MAX_CONE_DIST         = "image_projection.lut_max_cone_distance";
+
+
 ImageProjection::ImageProjection(const std::string &name, Channel<ProjectionOut>& output_channel)
     : Node(name),  _output_channel(output_channel)
 {
@@ -163,6 +175,83 @@ ImageProjection::ImageProjection(const std::string &name, Channel<ProjectionOut>
   if (!this->get_parameter(PARAM_SEGMENT_LINE, segmentValidLineNum)) {
     RCLCPP_WARN(this->get_logger(), "Parameter %s not found", PARAM_SEGMENT_LINE.c_str());
   }
+
+
+  // Declare LUT parameters
+  this->declare_parameter(PARAM_LUT_RESOLUTION,           rclcpp::PARAMETER_DOUBLE);
+  this->declare_parameter(PARAM_LUT_EMA_ALPHA,            rclcpp::PARAMETER_DOUBLE);
+  this->declare_parameter(PARAM_LUT_MAX_WIDTH_CHANGE,     rclcpp::PARAMETER_DOUBLE);
+  this->declare_parameter(PARAM_LUT_TOLERANCE_MULT,       rclcpp::PARAMETER_DOUBLE);
+  this->declare_parameter(PARAM_LUT_MAX_TRACK_HALF_WIDTH, rclcpp::PARAMETER_DOUBLE);
+  this->declare_parameter(PARAM_LUT_MAX_CONE_LATERAL,     rclcpp::PARAMETER_DOUBLE);
+  this->declare_parameter(PARAM_LUT_FILTER_MARGIN,        rclcpp::PARAMETER_DOUBLE);
+  this->declare_parameter(PARAM_LUT_FILTER_Z_BEFORE,      rclcpp::PARAMETER_DOUBLE);
+  this->declare_parameter(PARAM_LUT_FILTER_Z_AFTER,       rclcpp::PARAMETER_DOUBLE);
+  this->declare_parameter(PARAM_LUT_MAX_CONE_DIST,        rclcpp::PARAMETER_DOUBLE);
+ 
+  // Read LUT parameters  (fall back to the defaults set in the header if absent)
+  double tmp;
+  if (this->get_parameter(PARAM_LUT_RESOLUTION, tmp))
+      lut_resolution = static_cast<float>(tmp);
+  else
+      RCLCPP_WARN(this->get_logger(), "Parameter %s not found, using default %.2f",
+                  PARAM_LUT_RESOLUTION.c_str(), lut_resolution);
+ 
+  if (this->get_parameter(PARAM_LUT_EMA_ALPHA, tmp))
+      lut_ema_alpha = static_cast<float>(tmp);
+  else
+      RCLCPP_WARN(this->get_logger(), "Parameter %s not found, using default %.2f",
+                  PARAM_LUT_EMA_ALPHA.c_str(), lut_ema_alpha);
+ 
+  if (this->get_parameter(PARAM_LUT_MAX_WIDTH_CHANGE, tmp))
+      lut_max_width_change = static_cast<float>(tmp);
+  else
+      RCLCPP_WARN(this->get_logger(), "Parameter %s not found, using default %.2f",
+                  PARAM_LUT_MAX_WIDTH_CHANGE.c_str(), lut_max_width_change);
+ 
+  if (this->get_parameter(PARAM_LUT_TOLERANCE_MULT, tmp))
+      lut_tolerance_multiplier = static_cast<float>(tmp);
+  else
+      RCLCPP_WARN(this->get_logger(), "Parameter %s not found, using default %.2f",
+                  PARAM_LUT_TOLERANCE_MULT.c_str(), lut_tolerance_multiplier);
+ 
+  if (this->get_parameter(PARAM_LUT_MAX_TRACK_HALF_WIDTH, tmp))
+      lut_max_track_half_width = static_cast<float>(tmp);
+  else
+      RCLCPP_WARN(this->get_logger(), "Parameter %s not found, using default %.2f",
+                  PARAM_LUT_MAX_TRACK_HALF_WIDTH.c_str(), lut_max_track_half_width);
+ 
+  if (this->get_parameter(PARAM_LUT_MAX_CONE_LATERAL, tmp))
+      lut_max_cone_lateral = static_cast<float>(tmp);
+  else
+      RCLCPP_WARN(this->get_logger(), "Parameter %s not found, using default %.2f",
+                  PARAM_LUT_MAX_CONE_LATERAL.c_str(), lut_max_cone_lateral);
+ 
+  if (this->get_parameter(PARAM_LUT_FILTER_MARGIN, tmp))
+      lut_filter_margin = static_cast<float>(tmp);
+  else
+      RCLCPP_WARN(this->get_logger(), "Parameter %s not found, using default %.2f",
+                  PARAM_LUT_FILTER_MARGIN.c_str(), lut_filter_margin);
+ 
+  if (this->get_parameter(PARAM_LUT_FILTER_Z_BEFORE, tmp))
+      lut_filter_z_margin_before = static_cast<float>(tmp);
+  else
+      RCLCPP_WARN(this->get_logger(), "Parameter %s not found, using default %.2f",
+                  PARAM_LUT_FILTER_Z_BEFORE.c_str(), lut_filter_z_margin_before);
+ 
+  if (this->get_parameter(PARAM_LUT_FILTER_Z_AFTER, tmp))
+      lut_filter_z_margin_after = static_cast<float>(tmp);
+  else
+      RCLCPP_WARN(this->get_logger(), "Parameter %s not found, using default %.2f",
+                  PARAM_LUT_FILTER_Z_AFTER.c_str(), lut_filter_z_margin_after);
+ 
+  if (this->get_parameter(PARAM_LUT_MAX_CONE_DIST, tmp))
+      lut_max_cone_distance = static_cast<float>(tmp);
+  else
+      RCLCPP_WARN(this->get_logger(), "Parameter %s not found, using default %.2f",
+                  PARAM_LUT_MAX_CONE_DIST.c_str(), lut_max_cone_distance);
+ 
+
 
   angResolutionX = (M_PI*2) / (horizontalScans);
   angResolutionY = DEG_TO_RAD*(vertical_angle_top - angBottom) / float(verticalScans-1);
@@ -747,6 +836,173 @@ void ImageProjection::cloudSegmentation() {
 
     _cone_cloud->push_back(centroid);
   }
+  // 1. Update the LUT with RAW detections so the horizon can expand
+    buildConeLUT(_cone_cloud); 
+
+    // 2. Now filter a copy for the output/mapping
+    auto cone_cloud_filtered = filterConesWithLUT(_cone_cloud);
+    
+    // 3. Assign the filtered cloud to the member variable for publishing
+    _cone_cloud = cone_cloud_filtered;
+
+}
+
+void ImageProjection::buildConeLUT(
+    const pcl::PointCloud<PointType>::Ptr& cone_cloud)
+{
+    if (cone_cloud->empty()) return;
+
+    // ── Gate: keep only cones within reasonable bounds ──────
+    std::vector<PointType> gated;
+    for (const auto& pt : cone_cloud->points) {
+        float dist = std::sqrt(pt.x * pt.x + pt.y * pt.y + pt.z * pt.z);
+        if (std::abs(pt.x) > lut_max_cone_lateral) continue;  // too far lateral
+        if (dist > lut_max_cone_distance)           continue;  // too far away
+        gated.push_back(pt);
+    }
+
+    if (gated.size() < 2) return;
+
+    // ── Sort by forward distance (z) ─────────────────────────
+    std::sort(gated.begin(), gated.end(),
+              [](const PointType& a, const PointType& b){
+                  return a.z < b.z;
+              });
+
+    float z_min = gated.front().z;
+    float z_max = gated.back().z;
+
+    // ── Iterate forward-distance slices ──────────────────────
+    float tolerance = lut_resolution * lut_tolerance_multiplier;
+
+    for (float z = z_min; z <= z_max + lut_resolution; z += lut_resolution) {
+        // Collect cones near this z-slice
+        std::vector<float> left_x,  // lateral x > 0  (left side)
+                           right_x; // lateral x < 0  (right side)
+
+        for (const auto& pt : gated) {
+            if (std::abs(pt.z - z) <= tolerance) {
+                if (pt.x > 0.0f) left_x.push_back(pt.x);
+                else              right_x.push_back(pt.x);
+            }
+        }
+
+        if (left_x.empty() || right_x.empty()) continue;
+
+        // Mean of each side
+        float x_left  = 0.0f, x_right = 0.0f;
+        for (float v : left_x)  x_left  += v;
+        for (float v : right_x) x_right += v;
+        x_left  /= static_cast<float>(left_x.size());
+        x_right /= static_cast<float>(right_x.size());
+
+        float centerline = (x_left + x_right) / 2.0f;
+        float half_width  = std::abs(x_left - x_right) / 2.0f;
+
+        // Sanity check
+        if (half_width > lut_max_track_half_width) continue;
+
+        // Quantise z to the LUT bucket key
+        float key = std::round(z / lut_resolution) * lut_resolution;
+
+        auto it = _cone_lut.find(key);
+        if (it != _cone_lut.end()) {
+            // Rate-limit: ignore update if width changed too much (outlier)
+            if (std::abs(half_width - it->second.half_width)
+                    > lut_max_width_change) continue;
+
+            // EMA update
+            it->second.centerline_x = lut_ema_alpha * centerline
+                                    + (1.0f - lut_ema_alpha) * it->second.centerline_x;
+            it->second.half_width   = lut_ema_alpha * half_width
+                                    + (1.0f - lut_ema_alpha) * it->second.half_width;
+        } else {
+            // First observation
+            _cone_lut[key] = {centerline, half_width};
+        }
+    }
+
+    // ── Sliding window: prune stale entries ──────────────────
+    // Keep only entries within lut_max_cone_distance of the
+    // current cone cluster's median forward position.
+    if (!_cone_lut.empty()) {
+        // Median forward position of this frame's detections
+        std::vector<float> zvals;
+        zvals.reserve(gated.size());
+        for (const auto& pt : gated) zvals.push_back(pt.z);
+        std::nth_element(zvals.begin(),
+                         zvals.begin() + zvals.size()/2,
+                         zvals.end());
+        float z_center = zvals[zvals.size() / 2];
+
+        float z_lo = z_center - lut_max_cone_distance;
+        float z_hi = z_center + lut_max_cone_distance;
+
+        for (auto it = _cone_lut.begin(); it != _cone_lut.end(); ) {
+            if (it->first < z_lo || it->first > z_hi)
+                it = _cone_lut.erase(it);
+            else
+                ++it;
+        }
+    }
+}
+
+pcl::PointCloud<PointType>::Ptr ImageProjection::filterConesWithLUT(
+    const pcl::PointCloud<PointType>::Ptr& cone_cloud)
+{
+    auto filtered = std::make_shared<pcl::PointCloud<PointType>>();
+
+    // No LUT yet — pass everything through (bootstrap phase)
+    bool has_left  = false, has_right = false;
+    for (const auto& kv : _cone_lut) {
+        if (kv.second.centerline_x + kv.second.half_width > 0.5f) has_left  = true;
+        if (kv.second.centerline_x - kv.second.half_width < -0.5f) has_right = true;
+    }
+    if (!has_left || !has_right) {
+        *filtered = *cone_cloud;   // pass through until both sides seen
+        return filtered;
+    }
+
+    // Sorted LUT keys for fast nearest-key lookup
+    std::vector<float> lut_keys;
+    lut_keys.reserve(_cone_lut.size());
+    for (const auto& kv : _cone_lut) lut_keys.push_back(kv.first);
+    // std::map is already sorted, so lut_keys is ascending
+
+    float lut_z_min = lut_keys.front();
+    float lut_z_max = lut_keys.back();
+
+    for (const auto& pt : cone_cloud->points) {
+        float z = pt.z;  // forward axis
+
+        // Check if this cone is within the LUT's covered forward range
+        // (with a small margin on each end)
+        if (z < lut_z_min - lut_filter_z_margin_before) continue;
+        if (z > lut_z_max + lut_filter_z_margin_after)  continue;
+
+        // Find nearest LUT bucket
+        auto it = _cone_lut.lower_bound(z);  // first key >= z
+
+        LUTEntry entry;
+        if (it == _cone_lut.end()) {
+            entry = std::prev(it)->second;
+        } else if (it == _cone_lut.begin()) {
+            entry = it->second;
+        } else {
+            auto prev_it = std::prev(it);
+            // Pick whichever bucket key is closer
+            entry = (std::abs(it->first - z) < std::abs(prev_it->first - z))
+                    ? it->second : prev_it->second;
+        }
+
+        // Keep cone if its lateral position is inside the corridor
+        float lateral_dist = std::abs(pt.x - entry.centerline_x);
+        if (lateral_dist <= entry.half_width + lut_filter_margin) {
+            filtered->push_back(pt);
+        }
+    }
+
+    return filtered;
 }
 
 void ImageProjection::labelComponents(int row, int col) {
