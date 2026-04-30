@@ -1,0 +1,12 @@
+/.vscode/
+/.idea/
+/.github/
+
+# Top-level build/install/log folders
+/build/
+/install/
+/log/
+/dependencies/
+/logs/
+
+

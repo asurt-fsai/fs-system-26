@@ -1,23 +1,12 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-    print("new")
-    print("karim")
-    print("3")
-    print("final")
-    print("origin maibjhjhbjhn")
-    print("Changes on test-branch for pull request")
-    
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+data_files=[
+    ('share/ament_index/resource_index/packages',
+        ['resource/supervisor']),
+    ('share/supervisor', ['package.xml']),
+    ('share/supervisor/launch', ['launch/supervisor.launch.py']),
+],
+entry_points={
+    'console_scripts': [
+        'Supervisor = supervisor.Supervisor:main',
+        'CommunicationLayer = supervisor.CommunicationLayer:main',
+    ],
+},
