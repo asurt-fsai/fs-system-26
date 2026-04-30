@@ -1,0 +1,31 @@
+[100%] Built target lego_loam_sr
+-- Install configuration: ""
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/lib/lego_loam_sr/lego_loam_sr
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/config
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/config/loam_config.yaml
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/google-earth.png
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/demo.gif
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/block.png
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/seg-total.jpg
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/run.launch.py
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/odometry.jpg
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/dataset-demo.gif
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/rviz
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/rviz/test.rviz
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/ament_index/resource_index/package_run_dependencies/lego_loam_sr
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/ament_index/resource_index/parent_prefix_path/lego_loam_sr
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/ament_prefix_path.sh
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/path.sh
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/path.dsv
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.bash
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.sh
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.zsh
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.dsv
+-- Installing: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.dsv
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/ament_index/resource_index/packages/lego_loam_sr
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/cmake/lego_loam_srConfig.cmake
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/cmake/lego_loam_srConfig-version.cmake
+-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.xml

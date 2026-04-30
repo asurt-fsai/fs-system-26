@@ -1,0 +1,5 @@
+[ 14%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/imageProjection.cpp.o[0m
+[ 28%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/mapOptmization.cpp.o[0m
+[ 42%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/featureAssociation.cpp.o[0m
+[ 57%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/transformFusion.cpp.o[0m
+[ 71%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/main.cpp.o[0m

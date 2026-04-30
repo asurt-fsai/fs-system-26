@@ -1,0 +1,286 @@
+[0.301s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.301s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7ea240f639e0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7ea240f63830>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7ea240f63830>>)
+[0.363s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.364s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.364s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.364s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.364s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.364s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.364s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/aly-sultan/Desktop/SLAM'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.398s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.398s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.398s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.398s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.398s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.398s] Level 1:colcon.colcon_core.package_identification:_identify(LeGO-LOAM) by extensions ['ignore', 'ignore_ament_install']
+[0.399s] Level 1:colcon.colcon_core.package_identification:_identify(LeGO-LOAM) by extension 'ignore'
+[0.399s] Level 1:colcon.colcon_core.package_identification:_identify(LeGO-LOAM) by extension 'ignore_ament_install'
+[0.399s] Level 1:colcon.colcon_core.package_identification:_identify(LeGO-LOAM) by extensions ['colcon_pkg']
+[0.399s] Level 1:colcon.colcon_core.package_identification:_identify(LeGO-LOAM) by extension 'colcon_pkg'
+[0.399s] Level 1:colcon.colcon_core.package_identification:_identify(LeGO-LOAM) by extensions ['colcon_meta']
+[0.399s] Level 1:colcon.colcon_core.package_identification:_identify(LeGO-LOAM) by extension 'colcon_meta'
+[0.399s] Level 1:colcon.colcon_core.package_identification:_identify(LeGO-LOAM) by extensions ['ros']
+[0.399s] Level 1:colcon.colcon_core.package_identification:_identify(LeGO-LOAM) by extension 'ros'
+[0.403s] DEBUG:colcon.colcon_core.package_identification:Package 'LeGO-LOAM' with type 'ros.ament_cmake' and name 'lego_loam_sr'
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(asurt_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(asurt_msgs) by extension 'ignore'
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(asurt_msgs) by extension 'ignore_ament_install'
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(asurt_msgs) by extensions ['colcon_pkg']
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(asurt_msgs) by extension 'colcon_pkg'
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(asurt_msgs) by extensions ['colcon_meta']
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(asurt_msgs) by extension 'colcon_meta'
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(asurt_msgs) by extensions ['ros']
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(asurt_msgs) by extension 'ros'
+[0.404s] DEBUG:colcon.colcon_core.package_identification:Package 'asurt_msgs' with type 'ros.ament_cmake' and name 'asurt_msgs'
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(cloud_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(cloud_msgs) by extension 'ignore'
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(cloud_msgs) by extension 'ignore_ament_install'
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(cloud_msgs) by extensions ['colcon_pkg']
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(cloud_msgs) by extension 'colcon_pkg'
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(cloud_msgs) by extensions ['colcon_meta']
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(cloud_msgs) by extension 'colcon_meta'
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(cloud_msgs) by extensions ['ros']
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(cloud_msgs) by extension 'ros'
+[0.405s] DEBUG:colcon.colcon_core.package_identification:Package 'cloud_msgs' with type 'ros.ament_cmake' and name 'cloud_msgs'
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.406s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.406s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.406s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.406s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.406s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.433s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.433s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.438s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 374 installed packages in /opt/ros/jazzy
+[0.440s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.493s] Level 5:colcon.colcon_core.verb:set package 'asurt_msgs' build argument 'cmake_args' from command line to 'None'
+[0.493s] Level 5:colcon.colcon_core.verb:set package 'asurt_msgs' build argument 'cmake_target' from command line to 'None'
+[0.493s] Level 5:colcon.colcon_core.verb:set package 'asurt_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.493s] Level 5:colcon.colcon_core.verb:set package 'asurt_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.493s] Level 5:colcon.colcon_core.verb:set package 'asurt_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.493s] Level 5:colcon.colcon_core.verb:set package 'asurt_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.493s] Level 5:colcon.colcon_core.verb:set package 'asurt_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.493s] Level 5:colcon.colcon_core.verb:set package 'asurt_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.493s] Level 5:colcon.colcon_core.verb:set package 'asurt_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.493s] DEBUG:colcon.colcon_core.verb:Building package 'asurt_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/aly-sultan/Desktop/SLAM/build/asurt_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs', 'merge_install': False, 'path': '/home/aly-sultan/Desktop/SLAM/asurt_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.493s] Level 5:colcon.colcon_core.verb:set package 'cloud_msgs' build argument 'cmake_args' from command line to 'None'
+[0.493s] Level 5:colcon.colcon_core.verb:set package 'cloud_msgs' build argument 'cmake_target' from command line to 'None'
+[0.493s] Level 5:colcon.colcon_core.verb:set package 'cloud_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.493s] Level 5:colcon.colcon_core.verb:set package 'cloud_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.493s] Level 5:colcon.colcon_core.verb:set package 'cloud_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.493s] Level 5:colcon.colcon_core.verb:set package 'cloud_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.493s] Level 5:colcon.colcon_core.verb:set package 'cloud_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.493s] Level 5:colcon.colcon_core.verb:set package 'cloud_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.493s] Level 5:colcon.colcon_core.verb:set package 'cloud_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.493s] DEBUG:colcon.colcon_core.verb:Building package 'cloud_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/aly-sultan/Desktop/SLAM/build/cloud_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs', 'merge_install': False, 'path': '/home/aly-sultan/Desktop/SLAM/cloud_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.494s] Level 5:colcon.colcon_core.verb:set package 'lego_loam_sr' build argument 'cmake_args' from command line to 'None'
+[0.494s] Level 5:colcon.colcon_core.verb:set package 'lego_loam_sr' build argument 'cmake_target' from command line to 'None'
+[0.494s] Level 5:colcon.colcon_core.verb:set package 'lego_loam_sr' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.494s] Level 5:colcon.colcon_core.verb:set package 'lego_loam_sr' build argument 'cmake_clean_cache' from command line to 'False'
+[0.494s] Level 5:colcon.colcon_core.verb:set package 'lego_loam_sr' build argument 'cmake_clean_first' from command line to 'False'
+[0.494s] Level 5:colcon.colcon_core.verb:set package 'lego_loam_sr' build argument 'cmake_force_configure' from command line to 'False'
+[0.494s] Level 5:colcon.colcon_core.verb:set package 'lego_loam_sr' build argument 'ament_cmake_args' from command line to 'None'
+[0.494s] Level 5:colcon.colcon_core.verb:set package 'lego_loam_sr' build argument 'catkin_cmake_args' from command line to 'None'
+[0.494s] Level 5:colcon.colcon_core.verb:set package 'lego_loam_sr' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.494s] DEBUG:colcon.colcon_core.verb:Building package 'lego_loam_sr' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr', 'merge_install': False, 'path': '/home/aly-sultan/Desktop/SLAM/LeGO-LOAM', 'symlink_install': False, 'test_result_base': None}
+[0.494s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.495s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.495s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/aly-sultan/Desktop/SLAM/asurt_msgs' with build type 'ament_cmake'
+[0.496s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/aly-sultan/Desktop/SLAM/asurt_msgs'
+[0.501s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.501s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.501s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.505s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/aly-sultan/Desktop/SLAM/cloud_msgs' with build type 'ament_cmake'
+[0.505s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/aly-sultan/Desktop/SLAM/cloud_msgs'
+[0.505s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.505s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.514s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/aly-sultan/Desktop/SLAM/build/asurt_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/aly-sultan/Desktop/SLAM/build/asurt_msgs -- -j16 -l16
+[0.521s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/aly-sultan/Desktop/SLAM/build/cloud_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/aly-sultan/Desktop/SLAM/build/cloud_msgs -- -j16 -l16
+[2.749s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/aly-sultan/Desktop/SLAM/build/cloud_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/aly-sultan/Desktop/SLAM/build/cloud_msgs -- -j16 -l16
+[2.763s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/aly-sultan/Desktop/SLAM/build/cloud_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/aly-sultan/Desktop/SLAM/build/cloud_msgs
+[2.850s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(cloud_msgs)
+[2.851s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/aly-sultan/Desktop/SLAM/build/cloud_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/aly-sultan/Desktop/SLAM/build/cloud_msgs
+[2.858s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs' for CMake module files
+[2.860s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs' for CMake config files
+[2.861s] Level 1:colcon.colcon_core.shell:create_environment_hook('cloud_msgs', 'cmake_prefix_path')
+[2.861s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/hook/cmake_prefix_path.ps1'
+[2.863s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/hook/cmake_prefix_path.dsv'
+[2.864s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/hook/cmake_prefix_path.sh'
+[2.865s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib'
+[2.866s] Level 1:colcon.colcon_core.shell:create_environment_hook('cloud_msgs', 'ld_library_path_lib')
+[2.866s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/hook/ld_library_path_lib.ps1'
+[2.866s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/hook/ld_library_path_lib.dsv'
+[2.867s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/hook/ld_library_path_lib.sh'
+[2.867s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/bin'
+[2.867s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/pkgconfig/cloud_msgs.pc'
+[2.867s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages'
+[2.868s] Level 1:colcon.colcon_core.shell:create_environment_hook('cloud_msgs', 'pythonpath')
+[2.868s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/hook/pythonpath.ps1'
+[2.868s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/hook/pythonpath.dsv'
+[2.869s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/hook/pythonpath.sh'
+[2.869s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/bin'
+[2.869s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/package.ps1'
+[2.871s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/package.dsv'
+[2.871s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/package.sh'
+[2.872s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/package.bash'
+[2.874s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/package.zsh'
+[2.875s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/colcon-core/packages/cloud_msgs)
+[2.876s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(cloud_msgs)
+[2.876s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs' for CMake module files
+[2.877s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs' for CMake config files
+[2.877s] Level 1:colcon.colcon_core.shell:create_environment_hook('cloud_msgs', 'cmake_prefix_path')
+[2.877s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/hook/cmake_prefix_path.ps1'
+[2.877s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/hook/cmake_prefix_path.dsv'
+[2.878s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/hook/cmake_prefix_path.sh'
+[2.878s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib'
+[2.878s] Level 1:colcon.colcon_core.shell:create_environment_hook('cloud_msgs', 'ld_library_path_lib')
+[2.878s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/hook/ld_library_path_lib.ps1'
+[2.879s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/hook/ld_library_path_lib.dsv'
+[2.879s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/hook/ld_library_path_lib.sh'
+[2.879s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/bin'
+[2.879s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/pkgconfig/cloud_msgs.pc'
+[2.880s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages'
+[2.880s] Level 1:colcon.colcon_core.shell:create_environment_hook('cloud_msgs', 'pythonpath')
+[2.880s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/hook/pythonpath.ps1'
+[2.880s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/hook/pythonpath.dsv'
+[2.881s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/hook/pythonpath.sh'
+[2.881s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/bin'
+[2.881s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/package.ps1'
+[2.882s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/package.dsv'
+[2.882s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/package.sh'
+[2.883s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/package.bash'
+[2.883s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/package.zsh'
+[2.884s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/colcon-core/packages/cloud_msgs)
+[3.469s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/aly-sultan/Desktop/SLAM/build/asurt_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/aly-sultan/Desktop/SLAM/build/asurt_msgs -- -j16 -l16
+[3.472s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/aly-sultan/Desktop/SLAM/build/asurt_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/aly-sultan/Desktop/SLAM/build/asurt_msgs
+[3.588s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(asurt_msgs)
+[3.588s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs' for CMake module files
+[3.589s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/aly-sultan/Desktop/SLAM/build/asurt_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/aly-sultan/Desktop/SLAM/build/asurt_msgs
+[3.591s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs' for CMake config files
+[3.593s] Level 1:colcon.colcon_core.shell:create_environment_hook('asurt_msgs', 'cmake_prefix_path')
+[3.594s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/hook/cmake_prefix_path.ps1'
+[3.594s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/hook/cmake_prefix_path.dsv'
+[3.595s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/hook/cmake_prefix_path.sh'
+[3.596s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib'
+[3.596s] Level 1:colcon.colcon_core.shell:create_environment_hook('asurt_msgs', 'ld_library_path_lib')
+[3.596s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/hook/ld_library_path_lib.ps1'
+[3.597s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/hook/ld_library_path_lib.dsv'
+[3.597s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/hook/ld_library_path_lib.sh'
+[3.597s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/bin'
+[3.597s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/pkgconfig/asurt_msgs.pc'
+[3.598s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages'
+[3.598s] Level 1:colcon.colcon_core.shell:create_environment_hook('asurt_msgs', 'pythonpath')
+[3.598s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/hook/pythonpath.ps1'
+[3.598s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/hook/pythonpath.dsv'
+[3.599s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/hook/pythonpath.sh'
+[3.599s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/bin'
+[3.600s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/package.ps1'
+[3.600s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/package.dsv'
+[3.601s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/package.sh'
+[3.601s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/package.bash'
+[3.601s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/package.zsh'
+[3.602s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/colcon-core/packages/asurt_msgs)
+[3.602s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(asurt_msgs)
+[3.602s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs' for CMake module files
+[3.603s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs' for CMake config files
+[3.603s] Level 1:colcon.colcon_core.shell:create_environment_hook('asurt_msgs', 'cmake_prefix_path')
+[3.603s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/hook/cmake_prefix_path.ps1'
+[3.604s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/hook/cmake_prefix_path.dsv'
+[3.604s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/hook/cmake_prefix_path.sh'
+[3.605s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib'
+[3.605s] Level 1:colcon.colcon_core.shell:create_environment_hook('asurt_msgs', 'ld_library_path_lib')
+[3.605s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/hook/ld_library_path_lib.ps1'
+[3.605s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/hook/ld_library_path_lib.dsv'
+[3.605s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/hook/ld_library_path_lib.sh'
+[3.606s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/bin'
+[3.606s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/pkgconfig/asurt_msgs.pc'
+[3.606s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages'
+[3.606s] Level 1:colcon.colcon_core.shell:create_environment_hook('asurt_msgs', 'pythonpath')
+[3.606s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/hook/pythonpath.ps1'
+[3.607s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/hook/pythonpath.dsv'
+[3.607s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/hook/pythonpath.sh'
+[3.608s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/bin'
+[3.608s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/package.ps1'
+[3.608s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/package.dsv'
+[3.609s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/package.sh'
+[3.609s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/package.bash'
+[3.610s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/package.zsh'
+[3.610s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/colcon-core/packages/asurt_msgs)
+[3.610s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/aly-sultan/Desktop/SLAM/LeGO-LOAM' with build type 'ament_cmake'
+[3.610s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/aly-sultan/Desktop/SLAM/LeGO-LOAM'
+[3.611s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.611s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.629s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr': AMENT_PREFIX_PATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/aly-sultan/Desktop/SLAM/build/lego_loam_sr -- -j16 -l16
+[3.915s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr' returned '0': AMENT_PREFIX_PATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/aly-sultan/Desktop/SLAM/build/lego_loam_sr -- -j16 -l16
+[3.919s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr': AMENT_PREFIX_PATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/aly-sultan/Desktop/SLAM/build/lego_loam_sr
+[3.942s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(lego_loam_sr)
+[3.943s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr' for CMake module files
+[3.943s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr' returned '0': AMENT_PREFIX_PATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/aly-sultan/Desktop/SLAM/build/lego_loam_sr
+[3.944s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr' for CMake config files
+[3.945s] Level 1:colcon.colcon_core.shell:create_environment_hook('lego_loam_sr', 'cmake_prefix_path')
+[3.946s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/hook/cmake_prefix_path.ps1'
+[3.947s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/hook/cmake_prefix_path.dsv'
+[3.948s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/hook/cmake_prefix_path.sh'
+[3.949s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/lib'
+[3.949s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/bin'
+[3.949s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/lib/pkgconfig/lego_loam_sr.pc'
+[3.949s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/lib/python3.12/site-packages'
+[3.950s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/bin'
+[3.950s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.ps1'
+[3.950s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.dsv'
+[3.951s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.sh'
+[3.951s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.bash'
+[3.952s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.zsh'
+[3.952s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/colcon-core/packages/lego_loam_sr)
+[3.953s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(lego_loam_sr)
+[3.953s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr' for CMake module files
+[3.954s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr' for CMake config files
+[3.954s] Level 1:colcon.colcon_core.shell:create_environment_hook('lego_loam_sr', 'cmake_prefix_path')
+[3.954s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/hook/cmake_prefix_path.ps1'
+[3.954s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/hook/cmake_prefix_path.dsv'
+[3.955s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/hook/cmake_prefix_path.sh'
+[3.956s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/lib'
+[3.956s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/bin'
+[3.956s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/lib/pkgconfig/lego_loam_sr.pc'
+[3.956s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/lib/python3.12/site-packages'
+[3.956s] Level 1:colcon.colcon_core.environment:checking '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/bin'
+[3.957s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.ps1'
+[3.958s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.dsv'
+[3.958s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.sh'
+[3.959s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.bash'
+[3.959s] INFO:colcon.colcon_core.shell:Creating package script '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.zsh'
+[3.960s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/colcon-core/packages/lego_loam_sr)
+[3.960s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[3.960s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[3.960s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[3.960s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[3.971s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[3.971s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[3.971s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[4.002s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[4.003s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/aly-sultan/Desktop/SLAM/install/local_setup.ps1'
+[4.004s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/aly-sultan/Desktop/SLAM/install/_local_setup_util_ps1.py'
+[4.006s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/aly-sultan/Desktop/SLAM/install/setup.ps1'
+[4.008s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/aly-sultan/Desktop/SLAM/install/local_setup.sh'
+[4.009s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/aly-sultan/Desktop/SLAM/install/_local_setup_util_sh.py'
+[4.010s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/aly-sultan/Desktop/SLAM/install/setup.sh'
+[4.011s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/aly-sultan/Desktop/SLAM/install/local_setup.bash'
+[4.012s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/aly-sultan/Desktop/SLAM/install/setup.bash'
+[4.013s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/aly-sultan/Desktop/SLAM/install/local_setup.zsh'
+[4.014s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/aly-sultan/Desktop/SLAM/install/setup.zsh'

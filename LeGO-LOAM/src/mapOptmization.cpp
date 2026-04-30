@@ -35,6 +35,7 @@
 //      (IROS). October 2018.
 
 #include "mapOptimization.h"
+#include "marker_utils.h"
 #include <future>
 
 
@@ -198,6 +199,7 @@ MapOptimization::MapOptimization(const std::string &name, Channel<AssociationOut
   std::string _coneMapTopic;
   this->get_parameter("topics.coneMap", _coneMapTopic);
   pubConeMap = this->create_publisher<sensor_msgs::msg::PointCloud2>(_coneMapTopic, 2);
+  pubConeMapMarker = this->create_publisher<visualization_msgs::msg::MarkerArray>(_coneMapTopic + "_marker", 2);
 
   // Read parameters
   if (!this->get_parameter(PARAM_ENABLE_LOOP, _loop_closure_enabled)) {
@@ -2515,6 +2517,9 @@ void MapOptimization::run() {
         coneMapMsg.header.stamp = timeLaserOdometry;
         coneMapMsg.header.frame_id = _cameraInit;
         pubConeMap->publish(coneMapMsg);
+      }
+      if (pubConeMapMarker->get_subscription_count() > 0 && !globalConeMap->empty()) {
+        pubConeMapMarker->publish(createMarkerArray(globalConeMap, _cameraInit, timeLaserOdometry, "cone_map"));
       }
 
       // Periodically re-filter entire cone map to remove duplicates

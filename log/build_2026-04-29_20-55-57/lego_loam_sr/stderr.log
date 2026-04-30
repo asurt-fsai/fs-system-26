@@ -1,0 +1,4 @@
+[01m[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/imageProjection.cpp:[m[K In member function ‘[01m[Kvoid ImageProjection::[01;32m[KcloudSegmentation[m[K()[m[K’:
+[01m[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/imageProjection.cpp:756:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kstd_r[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  756 |     float [01;35m[Kstd_r[m[K  = std::sqrt(std::max(0.0f, var_r));
+      |           [01;35m[K^~~~~[m[K

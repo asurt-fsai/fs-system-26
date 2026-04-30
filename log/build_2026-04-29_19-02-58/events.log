@@ -1,0 +1,647 @@
+[0.000000] (-) TimerEvent: {}
+[0.000459] (asurt_msgs) JobQueued: {'identifier': 'asurt_msgs', 'dependencies': OrderedDict()}
+[0.000511] (cloud_msgs) JobQueued: {'identifier': 'cloud_msgs', 'dependencies': OrderedDict()}
+[0.000548] (lego_loam_sr) JobQueued: {'identifier': 'lego_loam_sr', 'dependencies': OrderedDict({'asurt_msgs': '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs', 'cloud_msgs': '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs'})}
+[0.000578] (asurt_msgs) JobStarted: {'identifier': 'asurt_msgs'}
+[0.004547] (cloud_msgs) JobStarted: {'identifier': 'cloud_msgs'}
+[0.008164] (asurt_msgs) JobProgress: {'identifier': 'asurt_msgs', 'progress': 'cmake'}
+[0.009412] (asurt_msgs) JobProgress: {'identifier': 'asurt_msgs', 'progress': 'build'}
+[0.009575] (asurt_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/aly-sultan/Desktop/SLAM/build/asurt_msgs', '--', '-j16', '-l16'], 'cwd': '/home/aly-sultan/Desktop/SLAM/build/asurt_msgs', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'aly-sultan', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/aly-sultan', 'OLDPWD': '/home/aly-sultan/Desktop', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2879', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'aly-sultan', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'aly-sultan', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/aly-sultan/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/aly-sultan-LOQ-15IAX9:@/tmp/.ICE-unix/2834,unix/aly-sultan-LOQ-15IAX9:/tmp/.ICE-unix/2834', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/48fd3b2d_a538_4d75_b7c0_c241a440d20d', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.K93PO3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.102', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr:/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/aly-sultan/Desktop/SLAM/build/asurt_msgs', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa:/opt/ros/jazzy'}), 'shell': False}
+[0.012162] (cloud_msgs) JobProgress: {'identifier': 'cloud_msgs', 'progress': 'cmake'}
+[0.012647] (cloud_msgs) JobProgress: {'identifier': 'cloud_msgs', 'progress': 'build'}
+[0.012927] (cloud_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/aly-sultan/Desktop/SLAM/build/cloud_msgs', '--', '-j16', '-l16'], 'cwd': '/home/aly-sultan/Desktop/SLAM/build/cloud_msgs', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'aly-sultan', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/aly-sultan', 'OLDPWD': '/home/aly-sultan/Desktop', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2879', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'aly-sultan', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'aly-sultan', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/aly-sultan/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/aly-sultan-LOQ-15IAX9:@/tmp/.ICE-unix/2834,unix/aly-sultan-LOQ-15IAX9:/tmp/.ICE-unix/2834', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/48fd3b2d_a538_4d75_b7c0_c241a440d20d', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.K93PO3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.102', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr:/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/aly-sultan/Desktop/SLAM/build/cloud_msgs', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa:/opt/ros/jazzy'}), 'shell': False}
+[0.018148] (asurt_msgs) StderrLine: {'line': b'\x1b[0mCMake Error: The current CMakeCache.txt directory /home/aly-sultan/Desktop/SLAM/build/asurt_msgs/CMakeCache.txt is different than the directory /home/aly-sultan/Desktop/fs-system-25/SLAM/build/asurt_msgs where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt\x1b[0m\n'}
+[0.019408] (cloud_msgs) StderrLine: {'line': b'\x1b[0mCMake Error: The current CMakeCache.txt directory /home/aly-sultan/Desktop/SLAM/build/cloud_msgs/CMakeCache.txt is different than the directory /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cloud_msgs where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt\x1b[0m\n'}
+[0.038884] (asurt_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.039226] (cloud_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.061973] (asurt_msgs) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[0.062200] (cloud_msgs) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[0.099821] (-) TimerEvent: {}
+[0.127410] (cloud_msgs) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.131322] (asurt_msgs) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.138870] (cloud_msgs) StdoutLine: {'line': b'-- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)\n'}
+[0.139073] (asurt_msgs) StdoutLine: {'line': b'-- Found builtin_interfaces: 2.0.3 (/opt/ros/jazzy/share/builtin_interfaces/cmake)\n'}
+[0.167312] (cloud_msgs) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.167545] (asurt_msgs) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.175215] (asurt_msgs) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[0.175481] (cloud_msgs) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[0.186836] (asurt_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.187079] (cloud_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.199183] (asurt_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.199516] (cloud_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.199876] (-) TimerEvent: {}
+[0.210104] (asurt_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)\n'}
+[0.217251] (asurt_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 4.6.6 (/opt/ros/jazzy/share/rosidl_adapter/cmake)\n'}
+[0.219809] (asurt_msgs) StdoutLine: {'line': b'-- Found rclcpp: 28.1.12 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[0.223254] (cloud_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)\n'}
+[0.228968] (cloud_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 4.6.6 (/opt/ros/jazzy/share/rosidl_adapter/cmake)\n'}
+[0.270245] (asurt_msgs) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[0.272471] (asurt_msgs) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.299988] (-) TimerEvent: {}
+[0.340300] (asurt_msgs) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.399339] (asurt_msgs) StdoutLine: {'line': b'-- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)\n'}
+[0.400084] (-) TimerEvent: {}
+[0.409227] (asurt_msgs) StdoutLine: {'line': b'-- Found geometry_msgs: 5.3.6 (/opt/ros/jazzy/share/geometry_msgs/cmake)\n'}
+[0.422550] (asurt_msgs) StdoutLine: {'line': b'-- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)\n'}
+[0.433174] (cloud_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)\n'}
+[0.500195] (-) TimerEvent: {}
+[0.600485] (-) TimerEvent: {}
+[0.601320] (cloud_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.665776] (cloud_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.667008] (cloud_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)\n'}
+[0.700617] (-) TimerEvent: {}
+[0.718711] (asurt_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)\n'}
+[0.800808] (-) TimerEvent: {}
+[0.901094] (-) TimerEvent: {}
+[0.916775] (cloud_msgs) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed \n'}
+[0.941953] (cloud_msgs) StdoutLine: {'line': b'-- Configuring done (0.9s)\n'}
+[0.966143] (cloud_msgs) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[0.973402] (cloud_msgs) StdoutLine: {'line': b'-- Build files have been written to: /home/aly-sultan/Desktop/fs-system-25/SLAM/build/cloud_msgs\n'}
+[0.974343] (asurt_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.001214] (-) TimerEvent: {}
+[1.008216] (cloud_msgs) StdoutLine: {'line': b'[  2%] Built target cloud_msgs__rosidl_generator_type_description\n'}
+[1.014488] (cloud_msgs) StdoutLine: {'line': b'[  2%] Built target ament_cmake_python_copy_cloud_msgs\n'}
+[1.027583] (cloud_msgs) StdoutLine: {'line': b'[  5%] Built target cloud_msgs__cpp\n'}
+[1.031772] (cloud_msgs) StdoutLine: {'line': b'[ 20%] Built target cloud_msgs__rosidl_generator_c\n'}
+[1.050662] (cloud_msgs) StdoutLine: {'line': b'[ 29%] Built target cloud_msgs__rosidl_typesupport_introspection_c\n'}
+[1.053340] (cloud_msgs) StdoutLine: {'line': b'[ 38%] Built target cloud_msgs__rosidl_typesupport_c\n'}
+[1.055558] (cloud_msgs) StdoutLine: {'line': b'[ 47%] Built target cloud_msgs__rosidl_typesupport_introspection_cpp\n'}
+[1.055745] (cloud_msgs) StdoutLine: {'line': b'[ 55%] Built target cloud_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[1.056949] (cloud_msgs) StdoutLine: {'line': b'[ 73%] Built target cloud_msgs__rosidl_typesupport_cpp\n'}
+[1.057091] (cloud_msgs) StdoutLine: {'line': b'[ 73%] Built target cloud_msgs__rosidl_typesupport_fastrtps_c\n'}
+[1.073414] (asurt_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.074474] (asurt_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)\n'}
+[1.078232] (cloud_msgs) StdoutLine: {'line': b'[ 73%] Built target cloud_msgs\n'}
+[1.098945] (cloud_msgs) StdoutLine: {'line': b'[ 76%] Built target cloud_msgs__py\n'}
+[1.101294] (-) TimerEvent: {}
+[1.125622] (cloud_msgs) StdoutLine: {'line': b'[ 82%] Built target cloud_msgs__rosidl_generator_py\n'}
+[1.148336] (cloud_msgs) StdoutLine: {'line': b'[ 88%] Built target cloud_msgs_s__rosidl_typesupport_c\n'}
+[1.151637] (cloud_msgs) StdoutLine: {'line': b'[100%] Built target cloud_msgs_s__rosidl_typesupport_introspection_c\n'}
+[1.151839] (cloud_msgs) StdoutLine: {'line': b'[100%] Built target cloud_msgs_s__rosidl_typesupport_fastrtps_c\n'}
+[1.174159] (cloud_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[1.187400] (cloud_msgs) StdoutLine: {'line': b'writing cloud_msgs.egg-info/PKG-INFO\n'}
+[1.187631] (cloud_msgs) StdoutLine: {'line': b'writing dependency_links to cloud_msgs.egg-info/dependency_links.txt\n'}
+[1.187742] (cloud_msgs) StdoutLine: {'line': b'writing top-level names to cloud_msgs.egg-info/top_level.txt\n'}
+[1.201395] (-) TimerEvent: {}
+[1.228083] (cloud_msgs) StdoutLine: {'line': b"reading manifest file 'cloud_msgs.egg-info/SOURCES.txt'\n"}
+[1.228412] (cloud_msgs) StdoutLine: {'line': b"writing manifest file 'cloud_msgs.egg-info/SOURCES.txt'\n"}
+[1.251031] (cloud_msgs) StdoutLine: {'line': b'[100%] Built target ament_cmake_python_build_cloud_msgs_egg\n'}
+[1.259369] (cloud_msgs) CommandEnded: {'returncode': 0}
+[1.261327] (cloud_msgs) JobProgress: {'identifier': 'cloud_msgs', 'progress': 'install'}
+[1.271364] (cloud_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/aly-sultan/Desktop/SLAM/build/cloud_msgs'], 'cwd': '/home/aly-sultan/Desktop/SLAM/build/cloud_msgs', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'aly-sultan', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/aly-sultan', 'OLDPWD': '/home/aly-sultan/Desktop', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2879', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'aly-sultan', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'aly-sultan', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/aly-sultan/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/aly-sultan-LOQ-15IAX9:@/tmp/.ICE-unix/2834,unix/aly-sultan-LOQ-15IAX9:/tmp/.ICE-unix/2834', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/48fd3b2d_a538_4d75_b7c0_c241a440d20d', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.K93PO3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.102', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr:/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/aly-sultan/Desktop/SLAM/build/cloud_msgs', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa:/opt/ros/jazzy'}), 'shell': False}
+[1.272704] (asurt_msgs) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed \n'}
+[1.278953] (cloud_msgs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[1.279152] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs\n'}
+[1.279284] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs/msg\n'}
+[1.279378] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs/msg/detail\n'}
+[1.279461] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs/msg/detail/cloud_info__functions.c\n'}
+[1.279547] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs/msg/detail/cloud_info__type_support.c\n'}
+[1.279643] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs/msg/detail/cloud_info__description.c\n'}
+[1.279815] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/libcloud_msgs__rosidl_generator_c.so\n'}
+[1.279928] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs\n'}
+[1.280024] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs/msg\n'}
+[1.280114] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs/msg/detail\n'}
+[1.280441] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/libcloud_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[1.280560] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs\n'}
+[1.280644] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs/msg\n'}
+[1.280770] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs/msg/detail\n'}
+[1.281313] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs\n'}
+[1.281428] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs/msg\n'}
+[1.281520] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs/msg/detail\n'}
+[1.281617] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs/msg/detail/dds_fastrtps\n'}
+[1.282163] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/libcloud_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[1.282257] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs\n'}
+[1.282357] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs/msg\n'}
+[1.282453] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs/msg/detail\n'}
+[1.282536] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs/msg/detail/cloud_info__type_support.c\n'}
+[1.282972] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/libcloud_msgs__rosidl_typesupport_introspection_c.so\n'}
+[1.283220] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/libcloud_msgs__rosidl_typesupport_c.so\n'}
+[1.283350] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs\n'}
+[1.283459] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs/msg\n'}
+[1.283550] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs/msg/detail\n'}
+[1.283635] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/include/cloud_msgs/cloud_msgs/msg/detail/cloud_info__type_support.cpp\n'}
+[1.283957] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/libcloud_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[1.284296] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/libcloud_msgs__rosidl_typesupport_cpp.so\n'}
+[1.284430] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages/cloud_msgs-1.0.0-py3.12.egg-info\n'}
+[1.284525] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages/cloud_msgs\n'}
+[1.284813] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages/cloud_msgs/msg\n'}
+[1.301581] (-) TimerEvent: {}
+[1.308486] (asurt_msgs) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.17.3 (/opt/ros/jazzy/share/ament_lint_auto/cmake)\n'}
+[1.314451] (cloud_msgs) StdoutLine: {'line': b"Listing '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages/cloud_msgs'...\n"}
+[1.314637] (cloud_msgs) StdoutLine: {'line': b"Compiling '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages/cloud_msgs/__init__.py'...\n"}
+[1.314731] (cloud_msgs) StdoutLine: {'line': b"Listing '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages/cloud_msgs/msg'...\n"}
+[1.315935] (asurt_msgs) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[1.316489] (asurt_msgs) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[1.318239] (asurt_msgs) StdoutLine: {'line': b'-- Configuring done (1.3s)\n'}
+[1.318857] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/libcloud_msgs__rosidl_generator_py.so\n'}
+[1.319080] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/package.dsv\n'}
+[1.319315] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake/export_cloud_msgs__rosidl_generator_cExport.cmake\n'}
+[1.319609] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake/export_cloud_msgs__rosidl_generator_cExport-noconfig.cmake\n'}
+[1.319849] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake/export_cloud_msgs__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[1.319977] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake/export_cloud_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[1.320080] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake/export_cloud_msgs__rosidl_generator_cppExport.cmake\n'}
+[1.320196] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake/export_cloud_msgs__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[1.320308] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake/export_cloud_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[1.320408] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake/cloud_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[1.320493] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake/cloud_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[1.320582] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake/cloud_msgs__rosidl_typesupport_cExport.cmake\n'}
+[1.320665] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake/cloud_msgs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[1.320747] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake/cloud_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[1.320831] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake/cloud_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[1.320913] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake/cloud_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[1.320995] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake/cloud_msgs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[1.321085] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake/export_cloud_msgs__rosidl_generator_pyExport.cmake\n'}
+[1.321168] (cloud_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake/export_cloud_msgs__rosidl_generator_pyExport-noconfig.cmake\n'}
+[1.322525] (cloud_msgs) CommandEnded: {'returncode': 0}
+[1.334792] (cloud_msgs) JobEnded: {'identifier': 'cloud_msgs', 'rc': 0}
+[1.357858] (asurt_msgs) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[1.366538] (asurt_msgs) StdoutLine: {'line': b'-- Build files have been written to: /home/aly-sultan/Desktop/fs-system-25/SLAM/build/asurt_msgs\n'}
+[1.401701] (-) TimerEvent: {}
+[1.409283] (asurt_msgs) StdoutLine: {'line': b'[  1%] Built target asurt_msgs__rosidl_generator_type_description\n'}
+[1.414542] (asurt_msgs) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_copy_asurt_msgs\n'}
+[1.432665] (asurt_msgs) StdoutLine: {'line': b'[  1%] Built target asurt_msgs__cpp\n'}
+[1.439128] (asurt_msgs) StdoutLine: {'line': b'[ 27%] Built target asurt_msgs__rosidl_generator_c\n'}
+[1.476487] (asurt_msgs) StdoutLine: {'line': b'[ 37%] Built target asurt_msgs__rosidl_typesupport_c\n'}
+[1.480280] (asurt_msgs) StdoutLine: {'line': b'[ 46%] Built target asurt_msgs__rosidl_typesupport_introspection_cpp\n'}
+[1.481780] (asurt_msgs) StdoutLine: {'line': b'[ 56%] Built target asurt_msgs__rosidl_typesupport_introspection_c\n'}
+[1.485882] (asurt_msgs) StdoutLine: {'line': b'[ 66%] Built target asurt_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[1.487812] (asurt_msgs) StdoutLine: {'line': b'[ 76%] Built target asurt_msgs__rosidl_typesupport_cpp\n'}
+[1.490849] (asurt_msgs) StdoutLine: {'line': b'[ 85%] Built target asurt_msgs__rosidl_typesupport_fastrtps_c\n'}
+[1.501899] (-) TimerEvent: {}
+[1.511501] (asurt_msgs) StdoutLine: {'line': b'[ 85%] Built target asurt_msgs\n'}
+[1.532216] (asurt_msgs) StdoutLine: {'line': b'[ 86%] Built target asurt_msgs__py\n'}
+[1.564843] (asurt_msgs) StdoutLine: {'line': b'[ 94%] Built target asurt_msgs__rosidl_generator_py\n'}
+[1.584492] (asurt_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[1.588752] (asurt_msgs) StdoutLine: {'line': b'[ 98%] Built target asurt_msgs_s__rosidl_typesupport_fastrtps_c\n'}
+[1.588950] (asurt_msgs) StdoutLine: {'line': b'[ 98%] Built target asurt_msgs_s__rosidl_typesupport_introspection_c\n'}
+[1.590078] (asurt_msgs) StdoutLine: {'line': b'[100%] Built target asurt_msgs_s__rosidl_typesupport_c\n'}
+[1.597799] (asurt_msgs) StdoutLine: {'line': b'writing asurt_msgs.egg-info/PKG-INFO\n'}
+[1.598001] (asurt_msgs) StdoutLine: {'line': b'writing dependency_links to asurt_msgs.egg-info/dependency_links.txt\n'}
+[1.598129] (asurt_msgs) StdoutLine: {'line': b'writing top-level names to asurt_msgs.egg-info/top_level.txt\n'}
+[1.601985] (-) TimerEvent: {}
+[1.635386] (asurt_msgs) StdoutLine: {'line': b"reading manifest file 'asurt_msgs.egg-info/SOURCES.txt'\n"}
+[1.635740] (asurt_msgs) StdoutLine: {'line': b"writing manifest file 'asurt_msgs.egg-info/SOURCES.txt'\n"}
+[1.657994] (asurt_msgs) StdoutLine: {'line': b'[100%] Built target ament_cmake_python_build_asurt_msgs_egg\n'}
+[1.667166] (asurt_msgs) CommandEnded: {'returncode': 0}
+[1.669333] (asurt_msgs) JobProgress: {'identifier': 'asurt_msgs', 'progress': 'install'}
+[1.669837] (asurt_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/aly-sultan/Desktop/SLAM/build/asurt_msgs'], 'cwd': '/home/aly-sultan/Desktop/SLAM/build/asurt_msgs', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'aly-sultan', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/aly-sultan', 'OLDPWD': '/home/aly-sultan/Desktop', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2879', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'aly-sultan', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'aly-sultan', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/aly-sultan/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/aly-sultan-LOQ-15IAX9:@/tmp/.ICE-unix/2834,unix/aly-sultan-LOQ-15IAX9:/tmp/.ICE-unix/2834', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/48fd3b2d_a538_4d75_b7c0_c241a440d20d', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.K93PO3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.102', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr:/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/aly-sultan/Desktop/SLAM/build/asurt_msgs', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa:/opt/ros/jazzy'}), 'shell': False}
+[1.682075] (asurt_msgs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[1.682628] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs\n'}
+[1.682970] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg\n'}
+[1.683261] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail\n'}
+[1.683434] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/node_status__description.c\n'}
+[1.683587] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/key_points__functions.c\n'}
+[1.683748] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_boxes__functions.c\n'}
+[1.683903] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img__description.c\n'}
+[1.684062] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img_array__functions.c\n'}
+[1.684216] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark_array__functions.c\n'}
+[1.684366] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_box__functions.c\n'}
+[1.684519] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/node_status__functions.c\n'}
+[1.684669] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/roadstate__type_support.c\n'}
+[1.684822] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark_array__type_support.c\n'}
+[1.684974] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img__type_support.c\n'}
+[1.685139] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_box__description.c\n'}
+[1.685316] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_box__type_support.c\n'}
+[1.685469] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/node_status__type_support.c\n'}
+[1.685664] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_boxes__type_support.c\n'}
+[1.685836] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/roadstate__functions.c\n'}
+[1.685988] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/roadstate__description.c\n'}
+[1.686160] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img_array__type_support.c\n'}
+[1.686306] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img_array__description.c\n'}
+[1.686485] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/key_points__type_support.c\n'}
+[1.686669] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark__type_support.c\n'}
+[1.686824] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark__functions.c\n'}
+[1.687032] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark__description.c\n'}
+[1.687199] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_boxes__description.c\n'}
+[1.687346] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img__functions.c\n'}
+[1.687494] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark_array__description.c\n'}
+[1.687694] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/key_points__description.c\n'}
+[1.687841] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/libasurt_msgs__rosidl_generator_c.so\n'}
+[1.688002] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs\n'}
+[1.688166] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg\n'}
+[1.688314] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail\n'}
+[1.688482] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/libasurt_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[1.688567] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs\n'}
+[1.688700] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg\n'}
+[1.688801] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail\n'}
+[1.688882] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs\n'}
+[1.688962] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg\n'}
+[1.689048] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail\n'}
+[1.689133] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/dds_fastrtps\n'}
+[1.689213] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/libasurt_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[1.689293] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs\n'}
+[1.689385] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg\n'}
+[1.689466] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail\n'}
+[1.689548] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/roadstate__type_support.c\n'}
+[1.689634] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark_array__type_support.c\n'}
+[1.689716] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img__type_support.c\n'}
+[1.689804] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_box__type_support.c\n'}
+[1.689933] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/node_status__type_support.c\n'}
+[1.690043] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_boxes__type_support.c\n'}
+[1.690129] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img_array__type_support.c\n'}
+[1.690215] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/key_points__type_support.c\n'}
+[1.690357] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark__type_support.c\n'}
+[1.690441] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/libasurt_msgs__rosidl_typesupport_introspection_c.so\n'}
+[1.690523] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/libasurt_msgs__rosidl_typesupport_c.so\n'}
+[1.690603] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs\n'}
+[1.690698] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg\n'}
+[1.690782] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail\n'}
+[1.690866] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_box__type_support.cpp\n'}
+[1.690948] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img_array__type_support.cpp\n'}
+[1.691029] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/node_status__type_support.cpp\n'}
+[1.691122] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark__type_support.cpp\n'}
+[1.691222] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark_array__type_support.cpp\n'}
+[1.691321] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_boxes__type_support.cpp\n'}
+[1.691421] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/roadstate__type_support.cpp\n'}
+[1.691503] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/key_points__type_support.cpp\n'}
+[1.691608] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img__type_support.cpp\n'}
+[1.691687] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/libasurt_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[1.691769] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/libasurt_msgs__rosidl_typesupport_cpp.so\n'}
+[1.691852] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages/asurt_msgs-2.0.0-py3.12.egg-info\n'}
+[1.691933] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages/asurt_msgs\n'}
+[1.692015] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages/asurt_msgs/msg\n'}
+[1.702202] (-) TimerEvent: {}
+[1.724046] (asurt_msgs) StdoutLine: {'line': b"Listing '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages/asurt_msgs'...\n"}
+[1.724242] (asurt_msgs) StdoutLine: {'line': b"Compiling '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages/asurt_msgs/__init__.py'...\n"}
+[1.724340] (asurt_msgs) StdoutLine: {'line': b"Listing '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages/asurt_msgs/msg'...\n"}
+[1.728866] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/libasurt_msgs__rosidl_generator_py.so\n'}
+[1.729089] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/package.dsv\n'}
+[1.729292] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake/export_asurt_msgs__rosidl_generator_cExport.cmake\n'}
+[1.729453] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake/export_asurt_msgs__rosidl_generator_cExport-noconfig.cmake\n'}
+[1.729574] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake/export_asurt_msgs__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[1.729691] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake/export_asurt_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[1.729801] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake/export_asurt_msgs__rosidl_generator_cppExport.cmake\n'}
+[1.729888] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake/export_asurt_msgs__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[1.729998] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake/export_asurt_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[1.730094] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake/asurt_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[1.730230] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake/asurt_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[1.730319] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake/asurt_msgs__rosidl_typesupport_cExport.cmake\n'}
+[1.730436] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake/asurt_msgs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[1.730522] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake/asurt_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[1.730608] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake/asurt_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[1.730698] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake/asurt_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[1.730783] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake/asurt_msgs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[1.730874] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake/export_asurt_msgs__rosidl_generator_pyExport.cmake\n'}
+[1.730955] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake/export_asurt_msgs__rosidl_generator_pyExport-noconfig.cmake\n'}
+[1.733015] (asurt_msgs) CommandEnded: {'returncode': 0}
+[1.743820] (asurt_msgs) JobEnded: {'identifier': 'asurt_msgs', 'rc': 0}
+[1.744351] (lego_loam_sr) JobStarted: {'identifier': 'lego_loam_sr'}
+[1.753501] (lego_loam_sr) JobProgress: {'identifier': 'lego_loam_sr', 'progress': 'cmake'}
+[1.754136] (lego_loam_sr) JobProgress: {'identifier': 'lego_loam_sr', 'progress': 'build'}
+[1.754536] (lego_loam_sr) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', '--', '-j16', '-l16'], 'cwd': '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'aly-sultan', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/aly-sultan', 'OLDPWD': '/home/aly-sultan/Desktop', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2879', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'aly-sultan', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'aly-sultan', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/aly-sultan/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/aly-sultan-LOQ-15IAX9:@/tmp/.ICE-unix/2834,unix/aly-sultan-LOQ-15IAX9:/tmp/.ICE-unix/2834', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/48fd3b2d_a538_4d75_b7c0_c241a440d20d', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.K93PO3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.102', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs:/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr:/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa:/opt/ros/jazzy'}), 'shell': False}
+[1.802328] (-) TimerEvent: {}
+[1.849980] (lego_loam_sr) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/imageProjection.cpp.o\x1b[0m\n'}
+[1.852286] (lego_loam_sr) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/mapOptmization.cpp.o\x1b[0m\n'}
+[1.902407] (-) TimerEvent: {}
+[2.002657] (-) TimerEvent: {}
+[2.102960] (-) TimerEvent: {}
+[2.203276] (-) TimerEvent: {}
+[2.303542] (-) TimerEvent: {}
+[2.403798] (-) TimerEvent: {}
+[2.504044] (-) TimerEvent: {}
+[2.604262] (-) TimerEvent: {}
+[2.704501] (-) TimerEvent: {}
+[2.804799] (-) TimerEvent: {}
+[2.905104] (-) TimerEvent: {}
+[3.005332] (-) TimerEvent: {}
+[3.105652] (-) TimerEvent: {}
+[3.205904] (-) TimerEvent: {}
+[3.306229] (-) TimerEvent: {}
+[3.406538] (-) TimerEvent: {}
+[3.506790] (-) TimerEvent: {}
+[3.607096] (-) TimerEvent: {}
+[3.707320] (-) TimerEvent: {}
+[3.807634] (-) TimerEvent: {}
+[3.907908] (-) TimerEvent: {}
+[4.008245] (-) TimerEvent: {}
+[4.108539] (-) TimerEvent: {}
+[4.208923] (-) TimerEvent: {}
+[4.309264] (-) TimerEvent: {}
+[4.409649] (-) TimerEvent: {}
+[4.510035] (-) TimerEvent: {}
+[4.610432] (-) TimerEvent: {}
+[4.710818] (-) TimerEvent: {}
+[4.811212] (-) TimerEvent: {}
+[4.911629] (-) TimerEvent: {}
+[5.012051] (-) TimerEvent: {}
+[5.112438] (-) TimerEvent: {}
+[5.212818] (-) TimerEvent: {}
+[5.313208] (-) TimerEvent: {}
+[5.413499] (-) TimerEvent: {}
+[5.513887] (-) TimerEvent: {}
+[5.614392] (-) TimerEvent: {}
+[5.714661] (-) TimerEvent: {}
+[5.814975] (-) TimerEvent: {}
+[5.915299] (-) TimerEvent: {}
+[5.931348] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/imageProjection.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid ImageProjection::\x1b[01;32m\x1b[KcloudSegmentation\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.931525] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/imageProjection.cpp:744:11:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kstd_r\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[5.931581] (lego_loam_sr) StderrLine: {'line': b'  744 |     float \x1b[01;35m\x1b[Kstd_r\x1b[m\x1b[K  = std::sqrt(std::max(0.0f, var_r));\n'}
+[5.931625] (lego_loam_sr) StderrLine: {'line': b'      |           \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[6.015476] (-) TimerEvent: {}
+[6.115791] (-) TimerEvent: {}
+[6.216112] (-) TimerEvent: {}
+[6.316434] (-) TimerEvent: {}
+[6.416691] (-) TimerEvent: {}
+[6.517011] (-) TimerEvent: {}
+[6.617351] (-) TimerEvent: {}
+[6.717676] (-) TimerEvent: {}
+[6.817998] (-) TimerEvent: {}
+[6.918329] (-) TimerEvent: {}
+[7.018594] (-) TimerEvent: {}
+[7.118926] (-) TimerEvent: {}
+[7.219250] (-) TimerEvent: {}
+[7.319573] (-) TimerEvent: {}
+[7.419885] (-) TimerEvent: {}
+[7.520201] (-) TimerEvent: {}
+[7.620460] (-) TimerEvent: {}
+[7.720796] (-) TimerEvent: {}
+[7.821106] (-) TimerEvent: {}
+[7.847600] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/mapOptmization.cpp:\x1b[m\x1b[K In destructor \xe2\x80\x98\x1b[01m\x1b[Kvirtual MapOptimization::\x1b[01;32m\x1b[K~MapOptimization\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[7.847753] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/mapOptmization.cpp:259:22:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kconverting to \xe2\x80\x98\x1b[01m\x1b[Knav_msgs::msg::Odometry\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Knav_msgs::msg::Odometry_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99} from initializer list would use explicit constructor \xe2\x80\x98\x1b[01m\x1b[Knav_msgs::msg::Odometry_<ContainerAllocator>::\x1b[01;32m\x1b[KOdometry_\x1b[m\x1b[K(rosidl_runtime_cpp::MessageInitialization) \x1b[35m\x1b[K[with ContainerAllocator = std::allocator<void>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99\n'}
+[7.847814] (lego_loam_sr) StderrLine: {'line': b'  259 |   \x1b[01;35m\x1b[K_input_channel.send({})\x1b[m\x1b[K;\n'}
+[7.847857] (lego_loam_sr) StderrLine: {'line': b'      |   \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~^~~~\x1b[m\x1b[K\n'}
+[7.847895] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/mapOptmization.cpp:259:22:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin C++11 and above a default constructor can be explicit\n'}
+[7.921281] (-) TimerEvent: {}
+[8.021614] (-) TimerEvent: {}
+[8.121953] (-) TimerEvent: {}
+[8.222275] (-) TimerEvent: {}
+[8.322591] (-) TimerEvent: {}
+[8.422921] (-) TimerEvent: {}
+[8.523253] (-) TimerEvent: {}
+[8.623584] (-) TimerEvent: {}
+[8.723908] (-) TimerEvent: {}
+[8.824244] (-) TimerEvent: {}
+[8.924579] (-) TimerEvent: {}
+[9.024903] (-) TimerEvent: {}
+[9.125150] (-) TimerEvent: {}
+[9.225474] (-) TimerEvent: {}
+[9.325793] (-) TimerEvent: {}
+[9.426118] (-) TimerEvent: {}
+[9.526456] (-) TimerEvent: {}
+[9.626708] (-) TimerEvent: {}
+[9.727044] (-) TimerEvent: {}
+[9.827368] (-) TimerEvent: {}
+[9.927630] (-) TimerEvent: {}
+[10.027942] (-) TimerEvent: {}
+[10.128183] (-) TimerEvent: {}
+[10.228501] (-) TimerEvent: {}
+[10.328818] (-) TimerEvent: {}
+[10.429133] (-) TimerEvent: {}
+[10.529444] (-) TimerEvent: {}
+[10.629688] (-) TimerEvent: {}
+[10.729992] (-) TimerEvent: {}
+[10.830310] (-) TimerEvent: {}
+[10.930628] (-) TimerEvent: {}
+[11.030963] (-) TimerEvent: {}
+[11.131283] (-) TimerEvent: {}
+[11.231599] (-) TimerEvent: {}
+[11.331906] (-) TimerEvent: {}
+[11.432215] (-) TimerEvent: {}
+[11.532517] (-) TimerEvent: {}
+[11.632825] (-) TimerEvent: {}
+[11.733135] (-) TimerEvent: {}
+[11.833438] (-) TimerEvent: {}
+[11.933748] (-) TimerEvent: {}
+[12.034074] (-) TimerEvent: {}
+[12.134298] (-) TimerEvent: {}
+[12.234560] (-) TimerEvent: {}
+[12.334867] (-) TimerEvent: {}
+[12.435184] (-) TimerEvent: {}
+[12.535491] (-) TimerEvent: {}
+[12.635752] (-) TimerEvent: {}
+[12.736066] (-) TimerEvent: {}
+[12.836289] (-) TimerEvent: {}
+[12.936594] (-) TimerEvent: {}
+[13.036847] (-) TimerEvent: {}
+[13.137152] (-) TimerEvent: {}
+[13.237386] (-) TimerEvent: {}
+[13.337699] (-) TimerEvent: {}
+[13.437944] (-) TimerEvent: {}
+[13.538244] (-) TimerEvent: {}
+[13.638484] (-) TimerEvent: {}
+[13.738791] (-) TimerEvent: {}
+[13.839027] (-) TimerEvent: {}
+[13.939327] (-) TimerEvent: {}
+[14.039631] (-) TimerEvent: {}
+[14.139947] (-) TimerEvent: {}
+[14.240189] (-) TimerEvent: {}
+[14.340510] (-) TimerEvent: {}
+[14.440823] (-) TimerEvent: {}
+[14.541136] (-) TimerEvent: {}
+[14.641450] (-) TimerEvent: {}
+[14.741777] (-) TimerEvent: {}
+[14.842100] (-) TimerEvent: {}
+[14.952278] (-) TimerEvent: {}
+[15.052617] (-) TimerEvent: {}
+[15.152926] (-) TimerEvent: {}
+[15.253287] (-) TimerEvent: {}
+[15.353607] (-) TimerEvent: {}
+[15.453932] (-) TimerEvent: {}
+[15.554263] (-) TimerEvent: {}
+[15.654600] (-) TimerEvent: {}
+[15.754865] (-) TimerEvent: {}
+[15.855184] (-) TimerEvent: {}
+[15.955507] (-) TimerEvent: {}
+[16.055831] (-) TimerEvent: {}
+[16.156145] (-) TimerEvent: {}
+[16.256394] (-) TimerEvent: {}
+[16.356709] (-) TimerEvent: {}
+[16.457060] (-) TimerEvent: {}
+[16.557411] (-) TimerEvent: {}
+[16.657751] (-) TimerEvent: {}
+[16.758132] (-) TimerEvent: {}
+[16.858454] (-) TimerEvent: {}
+[16.958780] (-) TimerEvent: {}
+[17.059104] (-) TimerEvent: {}
+[17.159415] (-) TimerEvent: {}
+[17.259728] (-) TimerEvent: {}
+[17.360070] (-) TimerEvent: {}
+[17.460381] (-) TimerEvent: {}
+[17.560752] (-) TimerEvent: {}
+[17.661083] (-) TimerEvent: {}
+[17.761396] (-) TimerEvent: {}
+[17.861715] (-) TimerEvent: {}
+[17.962084] (-) TimerEvent: {}
+[18.062397] (-) TimerEvent: {}
+[18.162652] (-) TimerEvent: {}
+[18.262977] (-) TimerEvent: {}
+[18.363211] (-) TimerEvent: {}
+[18.463561] (-) TimerEvent: {}
+[18.563887] (-) TimerEvent: {}
+[18.664171] (-) TimerEvent: {}
+[18.764477] (-) TimerEvent: {}
+[18.864727] (-) TimerEvent: {}
+[18.965036] (-) TimerEvent: {}
+[19.065352] (-) TimerEvent: {}
+[19.165604] (-) TimerEvent: {}
+[19.265912] (-) TimerEvent: {}
+[19.366148] (-) TimerEvent: {}
+[19.466452] (-) TimerEvent: {}
+[19.566760] (-) TimerEvent: {}
+[19.667079] (-) TimerEvent: {}
+[19.767391] (-) TimerEvent: {}
+[19.867701] (-) TimerEvent: {}
+[19.968015] (-) TimerEvent: {}
+[20.068330] (-) TimerEvent: {}
+[20.168641] (-) TimerEvent: {}
+[20.268947] (-) TimerEvent: {}
+[20.369271] (-) TimerEvent: {}
+[20.469585] (-) TimerEvent: {}
+[20.569912] (-) TimerEvent: {}
+[20.670170] (-) TimerEvent: {}
+[20.770477] (-) TimerEvent: {}
+[20.870727] (-) TimerEvent: {}
+[20.971032] (-) TimerEvent: {}
+[21.071447] (-) TimerEvent: {}
+[21.171772] (-) TimerEvent: {}
+[21.272093] (-) TimerEvent: {}
+[21.372324] (-) TimerEvent: {}
+[21.472634] (-) TimerEvent: {}
+[21.573009] (-) TimerEvent: {}
+[21.673321] (-) TimerEvent: {}
+[21.773631] (-) TimerEvent: {}
+[21.873881] (-) TimerEvent: {}
+[21.974198] (-) TimerEvent: {}
+[22.074521] (-) TimerEvent: {}
+[22.174861] (-) TimerEvent: {}
+[22.275181] (-) TimerEvent: {}
+[22.375515] (-) TimerEvent: {}
+[22.475824] (-) TimerEvent: {}
+[22.576119] (-) TimerEvent: {}
+[22.676424] (-) TimerEvent: {}
+[22.776723] (-) TimerEvent: {}
+[22.877022] (-) TimerEvent: {}
+[22.977331] (-) TimerEvent: {}
+[23.077637] (-) TimerEvent: {}
+[23.177951] (-) TimerEvent: {}
+[23.278258] (-) TimerEvent: {}
+[23.378603] (-) TimerEvent: {}
+[23.478937] (-) TimerEvent: {}
+[23.579169] (-) TimerEvent: {}
+[23.679459] (-) TimerEvent: {}
+[23.779752] (-) TimerEvent: {}
+[23.880053] (-) TimerEvent: {}
+[23.980271] (-) TimerEvent: {}
+[24.080562] (-) TimerEvent: {}
+[24.180804] (-) TimerEvent: {}
+[24.281100] (-) TimerEvent: {}
+[24.381391] (-) TimerEvent: {}
+[24.481683] (-) TimerEvent: {}
+[24.581916] (-) TimerEvent: {}
+[24.682116] (-) TimerEvent: {}
+[24.782330] (-) TimerEvent: {}
+[24.882567] (-) TimerEvent: {}
+[24.982810] (-) TimerEvent: {}
+[25.083046] (-) TimerEvent: {}
+[25.183258] (-) TimerEvent: {}
+[25.283566] (-) TimerEvent: {}
+[25.383855] (-) TimerEvent: {}
+[25.484166] (-) TimerEvent: {}
+[25.584440] (-) TimerEvent: {}
+[25.684748] (-) TimerEvent: {}
+[25.785072] (-) TimerEvent: {}
+[25.885290] (-) TimerEvent: {}
+[25.985528] (-) TimerEvent: {}
+[26.085755] (-) TimerEvent: {}
+[26.185981] (-) TimerEvent: {}
+[26.286284] (-) TimerEvent: {}
+[26.386524] (-) TimerEvent: {}
+[26.486814] (-) TimerEvent: {}
+[26.587137] (-) TimerEvent: {}
+[26.687449] (-) TimerEvent: {}
+[26.787768] (-) TimerEvent: {}
+[26.888104] (-) TimerEvent: {}
+[26.988404] (-) TimerEvent: {}
+[27.088647] (-) TimerEvent: {}
+[27.188944] (-) TimerEvent: {}
+[27.289255] (-) TimerEvent: {}
+[27.389499] (-) TimerEvent: {}
+[27.489798] (-) TimerEvent: {}
+[27.590105] (-) TimerEvent: {}
+[27.690409] (-) TimerEvent: {}
+[27.790713] (-) TimerEvent: {}
+[27.891014] (-) TimerEvent: {}
+[27.991334] (-) TimerEvent: {}
+[28.091645] (-) TimerEvent: {}
+[28.191977] (-) TimerEvent: {}
+[28.292291] (-) TimerEvent: {}
+[28.392602] (-) TimerEvent: {}
+[28.492907] (-) TimerEvent: {}
+[28.593213] (-) TimerEvent: {}
+[28.693521] (-) TimerEvent: {}
+[28.793819] (-) TimerEvent: {}
+[28.894129] (-) TimerEvent: {}
+[28.994435] (-) TimerEvent: {}
+[29.094694] (-) TimerEvent: {}
+[29.195031] (-) TimerEvent: {}
+[29.295343] (-) TimerEvent: {}
+[29.395648] (-) TimerEvent: {}
+[29.496022] (-) TimerEvent: {}
+[29.596353] (-) TimerEvent: {}
+[29.696659] (-) TimerEvent: {}
+[29.796969] (-) TimerEvent: {}
+[29.897285] (-) TimerEvent: {}
+[29.997589] (-) TimerEvent: {}
+[30.097831] (-) TimerEvent: {}
+[30.198131] (-) TimerEvent: {}
+[30.298447] (-) TimerEvent: {}
+[30.398753] (-) TimerEvent: {}
+[30.499073] (-) TimerEvent: {}
+[30.599365] (-) TimerEvent: {}
+[30.699676] (-) TimerEvent: {}
+[30.799997] (-) TimerEvent: {}
+[30.900326] (-) TimerEvent: {}
+[31.000626] (-) TimerEvent: {}
+[31.100949] (-) TimerEvent: {}
+[31.201274] (-) TimerEvent: {}
+[31.301595] (-) TimerEvent: {}
+[31.401890] (-) TimerEvent: {}
+[31.502201] (-) TimerEvent: {}
+[31.577679] (lego_loam_sr) StdoutLine: {'line': b'[ 42%] \x1b[32m\x1b[1mLinking CXX executable lego_loam_sr\x1b[0m\n'}
+[31.602338] (-) TimerEvent: {}
+[31.702638] (-) TimerEvent: {}
+[31.802884] (-) TimerEvent: {}
+[31.903171] (-) TimerEvent: {}
+[32.003411] (-) TimerEvent: {}
+[32.103675] (-) TimerEvent: {}
+[32.203942] (-) TimerEvent: {}
+[32.304190] (-) TimerEvent: {}
+[32.404425] (-) TimerEvent: {}
+[32.431089] (lego_loam_sr) StdoutLine: {'line': b'[100%] Built target lego_loam_sr\n'}
+[32.440738] (lego_loam_sr) CommandEnded: {'returncode': 0}
+[32.441324] (lego_loam_sr) JobProgress: {'identifier': 'lego_loam_sr', 'progress': 'install'}
+[32.441813] (lego_loam_sr) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr'], 'cwd': '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'aly-sultan', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/aly-sultan', 'OLDPWD': '/home/aly-sultan/Desktop', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2879', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'aly-sultan', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'aly-sultan', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/aly-sultan/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/aly-sultan-LOQ-15IAX9:@/tmp/.ICE-unix/2834,unix/aly-sultan-LOQ-15IAX9:/tmp/.ICE-unix/2834', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/48fd3b2d_a538_4d75_b7c0_c241a440d20d', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.K93PO3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.102', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs:/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr:/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa:/opt/ros/jazzy'}), 'shell': False}
+[32.452739] (lego_loam_sr) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[32.452974] (lego_loam_sr) StdoutLine: {'line': b'-- Installing: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/lib/lego_loam_sr/lego_loam_sr\n'}
+[32.455636] (lego_loam_sr) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/lib/lego_loam_sr/lego_loam_sr" to ""\n'}
+[32.455731] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/config\n'}
+[32.455790] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/config/loam_config.yaml\n'}
+[32.455849] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch\n'}
+[32.455907] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/google-earth.png\n'}
+[32.455965] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/demo.gif\n'}
+[32.456022] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/block.png\n'}
+[32.456081] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/seg-total.jpg\n'}
+[32.456137] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/run.launch.py\n'}
+[32.456192] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/odometry.jpg\n'}
+[32.456247] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/dataset-demo.gif\n'}
+[32.456301] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/rviz\n'}
+[32.456353] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/rviz/test.rviz\n'}
+[32.456406] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/ament_index/resource_index/package_run_dependencies/lego_loam_sr\n'}
+[32.456476] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/ament_index/resource_index/parent_prefix_path/lego_loam_sr\n'}
+[32.456571] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/ament_prefix_path.sh\n'}
+[32.456627] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/ament_prefix_path.dsv\n'}
+[32.456680] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/path.sh\n'}
+[32.456740] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/path.dsv\n'}
+[32.456792] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.bash\n'}
+[32.456844] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.sh\n'}
+[32.456900] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.zsh\n'}
+[32.456947] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.dsv\n'}
+[32.456991] (lego_loam_sr) StdoutLine: {'line': b'-- Installing: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.dsv\n'}
+[32.457035] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/ament_index/resource_index/packages/lego_loam_sr\n'}
+[32.457086] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[32.457134] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/cmake/lego_loam_srConfig.cmake\n'}
+[32.457182] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/cmake/lego_loam_srConfig-version.cmake\n'}
+[32.457229] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.xml\n'}
+[32.457674] (lego_loam_sr) CommandEnded: {'returncode': 0}
+[32.468425] (lego_loam_sr) JobEnded: {'identifier': 'lego_loam_sr', 'rc': 0}
+[32.469048] (-) EventReactorShutdown: {}

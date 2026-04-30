@@ -26,6 +26,23 @@ Visualization Manager:
   Class: ""
   Displays:
     - Alpha: 1
+      Class: rviz_default_plugins/PointCloud2
+      Color: 255; 0; 0
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: true
+      Name: Cone Map (red)
+      Position Transformer: XYZ
+      Queue Size: 2
+      Selectable: true
+      Size (Pixels): 5
+      Size (m): 0.3                  # Larger spheres for better visibility
+      Style: Squares                  # Changed from Points to Spheres
+      Topic: /cone_map
+      Unreliable: false
+      Use Fixed Frame: true
+
+    - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
         Max Value: 10

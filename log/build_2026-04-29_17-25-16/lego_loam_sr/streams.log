@@ -1,0 +1,113 @@
+[0.013s] Invoking command in '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr': AMENT_PREFIX_PATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/aly-sultan/Desktop/SLAM/build/lego_loam_sr -- -j16 -l16
+[0.054s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.254s] -- Found rclcpp: 28.1.12 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.273s] -- Found rosidl_generator_c: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.280s] -- Found rosidl_generator_cpp: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.288s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.297s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.341s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.342s] -- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.397s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.444s] -- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)
+[0.453s] -- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[0.481s] -- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)
+[0.500s] -- Found tf2: 0.36.14 (/opt/ros/jazzy/share/tf2/cmake)
+[0.503s] -- Found tf2_ros: 0.36.14 (/opt/ros/jazzy/share/tf2_ros/cmake)
+[0.583s] -- Found tf2_geometry_msgs: 0.36.19 (/opt/ros/jazzy/share/tf2_geometry_msgs/cmake)
+[0.585s] -- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+[0.586s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[0.587s] -- Found visualization_msgs: 5.3.6 (/opt/ros/jazzy/share/visualization_msgs/cmake)
+[0.609s] -- Found pcl_conversions: 2.6.2 (/opt/ros/jazzy/share/pcl_conversions/cmake)
+[0.645s] [33mCMake Warning (dev) at /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):
+[0.645s]   Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+[0.645s]   variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+[0.645s]   cmake_policy command to set the policy and suppress this warning.
+[0.645s] 
+[0.645s]   CMake variable FLANN_ROOT is set to:
+[0.645s] 
+[0.645s]     /usr
+[0.645s] 
+[0.645s]   For compatibility, find_package is ignoring the variable, but code in a
+[0.646s]   .cmake module might still use it.
+[0.646s] Call Stack (most recent call first):
+[0.646s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)
+[0.646s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)
+[0.646s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)
+[0.646s]   /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[0.646s]   /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)
+[0.646s]   CMakeLists.txt:24 (find_package)
+[0.646s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[0.646s] [0m
+[0.646s] -- Found flann version 1.9.2
+[1.048s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[1.054s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[1.435s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[1.441s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[1.791s] -- Found Qhull version 8.0.2
+[2.138s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[2.477s] -- Found cloud_msgs: 1.0.0 (/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/cmake)
+[2.489s] [33mCMake Warning (dev) at CMakeLists.txt:28 (find_package):
+[2.490s]   Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+[2.490s]   Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+[2.490s]   command to set the policy and suppress this warning.
+[2.490s] 
+[2.490s]   CMake variable PCL_ROOT is set to:
+[2.490s] 
+[2.490s]     /usr
+[2.490s] 
+[2.490s]   For compatibility, CMake is ignoring the variable.
+[2.490s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[2.490s] [0m
+[2.508s] -- GTSAM include directory:  /usr/local/lib/cmake/GTSAM/../../../include
+[2.513s] -- Found asurt_msgs: 2.0.0 (/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/cmake)
+[2.607s] -- Configuring done (2.6s)
+[2.638s] -- Generating done (0.0s)
+[2.643s] -- Build files have been written to: /home/aly-sultan/Desktop/SLAM/build/lego_loam_sr
+[2.730s] [ 14%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/mapOptmization.cpp.o[0m
+[2.731s] [ 28%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/imageProjection.cpp.o[0m
+[2.734s] [ 42%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/main.cpp.o[0m
+[7.011s] [01m[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/imageProjection.cpp:[m[K In member function ‘[01m[Kvoid ImageProjection::[01;32m[KcloudSegmentation[m[K()[m[K’:
+[7.011s] [01m[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/imageProjection.cpp:744:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kstd_r[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[7.012s]   744 |     float [01;35m[Kstd_r[m[K  = std::sqrt(std::max(0.0f, var_r));
+[7.012s]       |           [01;35m[K^~~~~[m[K
+[9.210s] [01m[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/mapOptmization.cpp:[m[K In destructor ‘[01m[Kvirtual MapOptimization::[01;32m[K~MapOptimization[m[K()[m[K’:
+[9.210s] [01m[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/mapOptmization.cpp:259:22:[m[K [01;35m[Kwarning: [m[Kconverting to ‘[01m[Knav_msgs::msg::Odometry[m[K’ {aka ‘[01m[Knav_msgs::msg::Odometry_<std::allocator<void> >[m[K’} from initializer list would use explicit constructor ‘[01m[Knav_msgs::msg::Odometry_<ContainerAllocator>::[01;32m[KOdometry_[m[K(rosidl_runtime_cpp::MessageInitialization) [35m[K[with ContainerAllocator = std::allocator<void>][m[K[m[K’
+[9.210s]   259 |   [01;35m[K_input_channel.send({})[m[K;
+[9.210s]       |   [01;35m[K~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[9.210s] [01m[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/mapOptmization.cpp:259:22:[m[K [01;36m[Knote: [m[Kin C++11 and above a default constructor can be explicit
+[36.940s] [ 57%] [32m[1mLinking CXX executable lego_loam_sr[0m
+[37.913s] [100%] Built target lego_loam_sr
+[37.924s] Invoked command in '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr' returned '0': AMENT_PREFIX_PATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/aly-sultan/Desktop/SLAM/build/lego_loam_sr -- -j16 -l16
+[37.926s] Invoking command in '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr': AMENT_PREFIX_PATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/aly-sultan/Desktop/SLAM/build/lego_loam_sr
+[37.935s] -- Install configuration: ""
+[37.935s] -- Installing: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/lib/lego_loam_sr/lego_loam_sr
+[37.938s] -- Set non-toolchain portion of runtime path of "/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/lib/lego_loam_sr/lego_loam_sr" to ""
+[37.938s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/config
+[37.938s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/config/loam_config.yaml
+[37.938s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch
+[37.938s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/google-earth.png
+[37.938s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/demo.gif
+[37.938s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/block.png
+[37.939s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/seg-total.jpg
+[37.939s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/run.launch.py
+[37.939s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/odometry.jpg
+[37.939s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/dataset-demo.gif
+[37.939s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/rviz
+[37.939s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/rviz/test.rviz
+[37.939s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/ament_index/resource_index/package_run_dependencies/lego_loam_sr
+[37.939s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/ament_index/resource_index/parent_prefix_path/lego_loam_sr
+[37.939s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/ament_prefix_path.sh
+[37.939s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/ament_prefix_path.dsv
+[37.939s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/path.sh
+[37.939s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/path.dsv
+[37.939s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.bash
+[37.939s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.sh
+[37.940s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.zsh
+[37.940s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.dsv
+[37.940s] -- Installing: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.dsv
+[37.940s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/ament_index/resource_index/packages/lego_loam_sr
+[37.940s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/cmake/ament_cmake_export_include_directories-extras.cmake
+[37.940s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/cmake/lego_loam_srConfig.cmake
+[37.940s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/cmake/lego_loam_srConfig-version.cmake
+[37.940s] -- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.xml
+[37.941s] Invoked command in '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr' returned '0': AMENT_PREFIX_PATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/aly-sultan/Desktop/SLAM/build/lego_loam_sr

@@ -1,0 +1,256 @@
+[0.000000] (-) TimerEvent: {}
+[0.000331] (-) JobUnselected: {'identifier': 'asurt_msgs'}
+[0.000541] (-) JobUnselected: {'identifier': 'cloud_msgs'}
+[0.000587] (lego_loam_sr) JobQueued: {'identifier': 'lego_loam_sr', 'dependencies': OrderedDict({'asurt_msgs': '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs', 'cloud_msgs': '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs'})}
+[0.000642] (lego_loam_sr) JobStarted: {'identifier': 'lego_loam_sr'}
+[0.013293] (lego_loam_sr) JobProgress: {'identifier': 'lego_loam_sr', 'progress': 'cmake'}
+[0.013953] (lego_loam_sr) Command: {'cmd': ['/usr/bin/cmake', '/home/aly-sultan/Desktop/SLAM/LeGO-LOAM', '-DCMAKE_INSTALL_PREFIX=/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr'], 'cwd': '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', 'env': OrderedDict({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'aly-sultan', 'FONTCONFIG_PATH': '/etc/fonts', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'GIT_EDITOR': ':', 'GIO_MODULE_DIR': '/home/aly-sultan/snap/code/common/.cache/gio-modules', 'XDG_SESSION_TYPE': 'wayland', 'GIT_ASKPASS': '/snap/code/229/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'GTK_EXE_PREFIX_VSCODE_SNAP_ORIG': '', 'GDK_BACKEND_VSCODE_SNAP_ORIG': '', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/aly-sultan', 'CHROME_DESKTOP': 'code.desktop', 'LOCPATH_VSCODE_SNAP_ORIG': '', 'TERM_PROGRAM_VERSION': '1.111.0', 'DESKTOP_SESSION': 'ubuntu', 'GTK_PATH': '/snap/code/229/usr/lib/x86_64-linux-gnu/gtk-3.0', 'XDG_DATA_HOME_VSCODE_SNAP_ORIG': '', 'GTK_IM_MODULE_FILE': '/home/aly-sultan/snap/code/common/.cache/immodules/immodules.cache', 'GIO_LAUNCHED_DESKTOP_FILE': '/var/lib/snapd/desktop/applications/code_code.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG': '', 'VSCODE_GIT_ASKPASS_MAIN': '/snap/code/229/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/snap/code/229/usr/share/code/code', 'MANAGERPID': '2603', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'SYSTEMD_EXEC_PID': '2879', 'BUNDLED_DEBUGPY_PATH': '/home/aly-sultan/.vscode/extensions/ms-python.debugpy-2026.4.0-linux-x64/bundled/libs/debugpy', 'IM_CONFIG_CHECK_ENV': '1', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '22723', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'aly-sultan', 'JOURNAL_STREAM': '9:17359', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'XDG_DATA_DIRS_VSCODE_SNAP_ORIG': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'USERNAME': 'aly-sultan', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'HISTCONTROL': 'ignorespace', 'PATH': '/home/aly-sultan/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/aly-sultan/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/home/aly-sultan/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/aly-sultan/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/aly-sultan/.vscode/extensions/ms-python.debugpy-2026.4.0-linux-x64/bundled/scripts/noConfigScripts', 'SESSION_MANAGER': 'local/aly-sultan-LOQ-15IAX9:@/tmp/.ICE-unix/2834,unix/aly-sultan-LOQ-15IAX9:/tmp/.ICE-unix/2834', 'GTK_EXE_PREFIX': '/snap/code/229/usr', 'INVOCATION_ID': 'b9711b6207f349d697b393dbba045789', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':0', 'LOCPATH': '/snap/code/229/usr/lib/locale', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/aly-sultan/.vscode/extensions/ms-python.debugpy-2026.4.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-dd13d1ed00240b53.txt', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'PYTHONSTARTUP': '/home/aly-sultan/.config/Code/User/workspaceStorage/953c52eb1efb63a47286b720417fd91c/ms-python.python/pythonrc.py', 'GIO_MODULE_DIR_VSCODE_SNAP_ORIG': '', 'XDG_DATA_HOME': '/home/aly-sultan/snap/code/229/.local/share', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.K93PO3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-5ffc5d0530.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'GSETTINGS_SCHEMA_DIR': '/home/aly-sultan/snap/code/229/.local/share/glib-2.0/schemas', 'AMENT_PREFIX_PATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GTK_PATH_VSCODE_SNAP_ORIG': '', 'FONTCONFIG_FILE': '/etc/fonts/fonts.conf', 'GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG': '', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'GIT_PAGER': 'cat', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', 'GIT_MERGE_AUTOEDIT': 'no', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/home/aly-sultan/snap/code/229/.local/share:/home/aly-sultan/snap/code/229:/snap/code/229/usr/share:/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'CMAKE_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.090717] (lego_loam_sr) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.099779] (-) TimerEvent: {}
+[0.153688] (lego_loam_sr) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[0.171937] (lego_loam_sr) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.199891] (-) TimerEvent: {}
+[0.258652] (lego_loam_sr) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.265582] (lego_loam_sr) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.266228] (lego_loam_sr) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.266657] (lego_loam_sr) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.277265] (lego_loam_sr) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.300022] (-) TimerEvent: {}
+[0.374551] (lego_loam_sr) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.382120] (lego_loam_sr) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.382386] (lego_loam_sr) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.382657] (lego_loam_sr) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.386105] (lego_loam_sr) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.400162] (-) TimerEvent: {}
+[0.500469] (-) TimerEvent: {}
+[0.516121] (lego_loam_sr) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[0.600579] (-) TimerEvent: {}
+[0.618536] (lego_loam_sr) StdoutLine: {'line': b'-- Found rclcpp: 28.1.12 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[0.657633] (lego_loam_sr) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.670174] (lego_loam_sr) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[0.684645] (lego_loam_sr) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.700758] (lego_loam_sr) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.700979] (-) TimerEvent: {}
+[0.768432] (lego_loam_sr) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[0.771407] (lego_loam_sr) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.801145] (-) TimerEvent: {}
+[0.855025] (lego_loam_sr) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[0.875147] (lego_loam_sr) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[0.899320] (lego_loam_sr) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.901228] (-) TimerEvent: {}
+[0.963965] (lego_loam_sr) StdoutLine: {'line': b'-- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)\n'}
+[0.976096] (lego_loam_sr) StdoutLine: {'line': b'-- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)\n'}
+[1.001454] (-) TimerEvent: {}
+[1.008826] (lego_loam_sr) StdoutLine: {'line': b'-- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)\n'}
+[1.032101] (lego_loam_sr) StdoutLine: {'line': b'-- Found tf2: 0.36.14 (/opt/ros/jazzy/share/tf2/cmake)\n'}
+[1.037304] (lego_loam_sr) StdoutLine: {'line': b'-- Found tf2_ros: 0.36.14 (/opt/ros/jazzy/share/tf2_ros/cmake)\n'}
+[1.101543] (-) TimerEvent: {}
+[1.144796] (lego_loam_sr) StdoutLine: {'line': b'-- Found tf2_geometry_msgs: 0.36.19 (/opt/ros/jazzy/share/tf2_geometry_msgs/cmake)\n'}
+[1.160486] (lego_loam_sr) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)\n'}
+[1.161471] (lego_loam_sr) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.4.0") \n'}
+[1.161600] (lego_loam_sr) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[1.165185] (lego_loam_sr) StdoutLine: {'line': b'-- Found pcl_conversions: 2.6.2 (/opt/ros/jazzy/share/pcl_conversions/cmake)\n'}
+[1.201646] (-) TimerEvent: {}
+[1.225328] (lego_loam_sr) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):\n'}
+[1.225598] (lego_loam_sr) StderrLine: {'line': b'  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT\n'}
+[1.225708] (lego_loam_sr) StderrLine: {'line': b'  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the\n'}
+[1.225807] (lego_loam_sr) StderrLine: {'line': b'  cmake_policy command to set the policy and suppress this warning.\n'}
+[1.225902] (lego_loam_sr) StderrLine: {'line': b'\n'}
+[1.225999] (lego_loam_sr) StderrLine: {'line': b'  CMake variable FLANN_ROOT is set to:\n'}
+[1.226232] (lego_loam_sr) StderrLine: {'line': b'\n'}
+[1.226342] (lego_loam_sr) StderrLine: {'line': b'    /usr\n'}
+[1.226449] (lego_loam_sr) StderrLine: {'line': b'\n'}
+[1.226544] (lego_loam_sr) StderrLine: {'line': b'  For compatibility, find_package is ignoring the variable, but code in a\n'}
+[1.226637] (lego_loam_sr) StderrLine: {'line': b'  .cmake module might still use it.\n'}
+[1.226726] (lego_loam_sr) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[1.226813] (lego_loam_sr) StderrLine: {'line': b'  /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)\n'}
+[1.226902] (lego_loam_sr) StderrLine: {'line': b'  /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)\n'}
+[1.226992] (lego_loam_sr) StderrLine: {'line': b'  /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)\n'}
+[1.227094] (lego_loam_sr) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)\n'}
+[1.227183] (lego_loam_sr) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)\n'}
+[1.227273] (lego_loam_sr) StderrLine: {'line': b'  CMakeLists.txt:23 (find_package)\n'}
+[1.227359] (lego_loam_sr) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[1.227456] (lego_loam_sr) StderrLine: {'line': b'\x1b[0m\n'}
+[1.227545] (lego_loam_sr) StdoutLine: {'line': b'-- Found flann version 1.9.2\n'}
+[1.301825] (-) TimerEvent: {}
+[1.402116] (-) TimerEvent: {}
+[1.502446] (-) TimerEvent: {}
+[1.509151] (lego_loam_sr) StdoutLine: {'line': b'-- Found OpenMP_CXX: -fopenmp (found version "4.5") \n'}
+[1.509418] (lego_loam_sr) StdoutLine: {'line': b'-- Found OpenMP: TRUE (found version "4.5") found components: CXX \n'}
+[1.602527] (-) TimerEvent: {}
+[1.702821] (-) TimerEvent: {}
+[1.803142] (-) TimerEvent: {}
+[1.903499] (-) TimerEvent: {}
+[2.003823] (-) TimerEvent: {}
+[2.104123] (-) TimerEvent: {}
+[2.204477] (-) TimerEvent: {}
+[2.304743] (-) TimerEvent: {}
+[2.404991] (-) TimerEvent: {}
+[2.505295] (-) TimerEvent: {}
+[2.605546] (-) TimerEvent: {}
+[2.705779] (-) TimerEvent: {}
+[2.724716] (lego_loam_sr) StdoutLine: {'line': b"-- Checking for module 'libusb-1.0'\n"}
+[2.742592] (lego_loam_sr) StdoutLine: {'line': b'--   Found libusb-1.0, version 1.0.27\n'}
+[2.778162] (lego_loam_sr) StdoutLine: {'line': b'-- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  \n'}
+[2.778835] (lego_loam_sr) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[2.805908] (-) TimerEvent: {}
+[2.838546] (lego_loam_sr) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[2.840405] (lego_loam_sr) StdoutLine: {'line': b'-- Found Pcap: /usr/lib/x86_64-linux-gnu/libpcap.so  \n'}
+[2.851767] (lego_loam_sr) StdoutLine: {'line': b'-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3")  \n'}
+[2.867077] (lego_loam_sr) StdoutLine: {'line': b'-- Found PNG: /usr/lib/x86_64-linux-gnu/libpng.so (found version "1.6.43") \n'}
+[2.906047] (-) TimerEvent: {}
+[3.006360] (-) TimerEvent: {}
+[3.106674] (-) TimerEvent: {}
+[3.206992] (-) TimerEvent: {}
+[3.244532] (lego_loam_sr) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[3.250864] (lego_loam_sr) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[3.307137] (-) TimerEvent: {}
+[3.407479] (-) TimerEvent: {}
+[3.507880] (-) TimerEvent: {}
+[3.608199] (-) TimerEvent: {}
+[3.610765] (lego_loam_sr) StdoutLine: {'line': b'-- Found Qhull version 8.0.2\n'}
+[3.708332] (-) TimerEvent: {}
+[3.808646] (-) TimerEvent: {}
+[3.908965] (-) TimerEvent: {}
+[3.971970] (lego_loam_sr) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[4.009136] (-) TimerEvent: {}
+[4.109435] (-) TimerEvent: {}
+[4.209786] (-) TimerEvent: {}
+[4.310205] (-) TimerEvent: {}
+[4.336011] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  \n'}
+[4.337034] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  \n'}
+[4.337888] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  \n'}
+[4.338775] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  \n'}
+[4.339513] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  \n'}
+[4.340388] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  \n'}
+[4.340785] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_2D: /usr/include/pcl-1.14  \n'}
+[4.340939] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_GEOMETRY: /usr/include/pcl-1.14  \n'}
+[4.342005] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  \n'}
+[4.342869] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  \n'}
+[4.343765] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  \n'}
+[4.344510] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  \n'}
+[4.345473] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  \n'}
+[4.346420] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  \n'}
+[4.347185] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  \n'}
+[4.348172] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  \n'}
+[4.349120] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  \n'}
+[4.349998] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  \n'}
+[4.350979] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  \n'}
+[4.351847] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  \n'}
+[4.352575] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.14  \n'}
+[4.352795] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_MODELER: /usr/include/pcl-1.14  \n'}
+[4.353091] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.14  \n'}
+[4.354086] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  \n'}
+[4.355087] (lego_loam_sr) StdoutLine: {'line': b'-- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  \n'}
+[4.357196] (lego_loam_sr) StdoutLine: {'line': b'-- Found cloud_msgs: 1.0.0 (/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/share/cloud_msgs/cmake)\n'}
+[4.370040] (lego_loam_sr) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at CMakeLists.txt:27 (find_package):\n'}
+[4.370272] (lego_loam_sr) StderrLine: {'line': b'  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.\n'}
+[4.370375] (lego_loam_sr) StderrLine: {'line': b'  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy\n'}
+[4.370475] (lego_loam_sr) StderrLine: {'line': b'  command to set the policy and suppress this warning.\n'}
+[4.370566] (lego_loam_sr) StderrLine: {'line': b'\n'}
+[4.370654] (lego_loam_sr) StderrLine: {'line': b'  CMake variable PCL_ROOT is set to:\n'}
+[4.370740] (lego_loam_sr) StderrLine: {'line': b'\n'}
+[4.370826] (lego_loam_sr) StderrLine: {'line': b'    /usr\n'}
+[4.370911] (lego_loam_sr) StderrLine: {'line': b'\n'}
+[4.370997] (lego_loam_sr) StderrLine: {'line': b'  For compatibility, CMake is ignoring the variable.\n'}
+[4.371081] (lego_loam_sr) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[4.371166] (lego_loam_sr) StderrLine: {'line': b'\x1b[0m\n'}
+[4.406308] (lego_loam_sr) StdoutLine: {'line': b'-- GTSAM include directory:  /usr/local/lib/cmake/GTSAM/../../../include\n'}
+[4.409667] (lego_loam_sr) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: thread serialization timer \n'}
+[4.410259] (-) TimerEvent: {}
+[4.410724] (lego_loam_sr) StdoutLine: {'line': b'-- Found asurt_msgs: 2.0.0 (/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/share/asurt_msgs/cmake)\n'}
+[4.510382] (-) TimerEvent: {}
+[4.515334] (lego_loam_sr) StdoutLine: {'line': b'-- Configuring done (4.5s)\n'}
+[4.548787] (lego_loam_sr) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[4.554430] (lego_loam_sr) StdoutLine: {'line': b'-- Build files have been written to: /home/aly-sultan/Desktop/SLAM/build/lego_loam_sr\n'}
+[4.574312] (lego_loam_sr) CommandEnded: {'returncode': 0}
+[4.575158] (lego_loam_sr) JobProgress: {'identifier': 'lego_loam_sr', 'progress': 'build'}
+[4.575843] (lego_loam_sr) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', '--', '-j16', '-l16'], 'cwd': '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', 'env': OrderedDict({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'aly-sultan', 'FONTCONFIG_PATH': '/etc/fonts', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'GIT_EDITOR': ':', 'GIO_MODULE_DIR': '/home/aly-sultan/snap/code/common/.cache/gio-modules', 'XDG_SESSION_TYPE': 'wayland', 'GIT_ASKPASS': '/snap/code/229/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'GTK_EXE_PREFIX_VSCODE_SNAP_ORIG': '', 'GDK_BACKEND_VSCODE_SNAP_ORIG': '', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/aly-sultan', 'CHROME_DESKTOP': 'code.desktop', 'LOCPATH_VSCODE_SNAP_ORIG': '', 'TERM_PROGRAM_VERSION': '1.111.0', 'DESKTOP_SESSION': 'ubuntu', 'GTK_PATH': '/snap/code/229/usr/lib/x86_64-linux-gnu/gtk-3.0', 'XDG_DATA_HOME_VSCODE_SNAP_ORIG': '', 'GTK_IM_MODULE_FILE': '/home/aly-sultan/snap/code/common/.cache/immodules/immodules.cache', 'GIO_LAUNCHED_DESKTOP_FILE': '/var/lib/snapd/desktop/applications/code_code.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG': '', 'VSCODE_GIT_ASKPASS_MAIN': '/snap/code/229/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/snap/code/229/usr/share/code/code', 'MANAGERPID': '2603', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'SYSTEMD_EXEC_PID': '2879', 'BUNDLED_DEBUGPY_PATH': '/home/aly-sultan/.vscode/extensions/ms-python.debugpy-2026.4.0-linux-x64/bundled/libs/debugpy', 'IM_CONFIG_CHECK_ENV': '1', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '22723', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'aly-sultan', 'JOURNAL_STREAM': '9:17359', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'XDG_DATA_DIRS_VSCODE_SNAP_ORIG': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'USERNAME': 'aly-sultan', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'HISTCONTROL': 'ignorespace', 'PATH': '/home/aly-sultan/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/aly-sultan/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/home/aly-sultan/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/aly-sultan/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/aly-sultan/.vscode/extensions/ms-python.debugpy-2026.4.0-linux-x64/bundled/scripts/noConfigScripts', 'SESSION_MANAGER': 'local/aly-sultan-LOQ-15IAX9:@/tmp/.ICE-unix/2834,unix/aly-sultan-LOQ-15IAX9:/tmp/.ICE-unix/2834', 'GTK_EXE_PREFIX': '/snap/code/229/usr', 'INVOCATION_ID': 'b9711b6207f349d697b393dbba045789', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':0', 'LOCPATH': '/snap/code/229/usr/lib/locale', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/aly-sultan/.vscode/extensions/ms-python.debugpy-2026.4.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-dd13d1ed00240b53.txt', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'PYTHONSTARTUP': '/home/aly-sultan/.config/Code/User/workspaceStorage/953c52eb1efb63a47286b720417fd91c/ms-python.python/pythonrc.py', 'GIO_MODULE_DIR_VSCODE_SNAP_ORIG': '', 'XDG_DATA_HOME': '/home/aly-sultan/snap/code/229/.local/share', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.K93PO3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-5ffc5d0530.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'GSETTINGS_SCHEMA_DIR': '/home/aly-sultan/snap/code/229/.local/share/glib-2.0/schemas', 'AMENT_PREFIX_PATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GTK_PATH_VSCODE_SNAP_ORIG': '', 'FONTCONFIG_FILE': '/etc/fonts/fonts.conf', 'GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG': '', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'GIT_PAGER': 'cat', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', 'GIT_MERGE_AUTOEDIT': 'no', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/home/aly-sultan/snap/code/229/.local/share:/home/aly-sultan/snap/code/229:/snap/code/229/usr/share:/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'CMAKE_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[4.610507] (-) TimerEvent: {}
+[4.633134] (lego_loam_sr) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/StatusPublisher.cpp.o\x1b[0m\n'}
+[4.633947] (lego_loam_sr) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/main.cpp.o\x1b[0m\n'}
+[4.634046] (lego_loam_sr) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/imageProjection.cpp.o\x1b[0m\n'}
+[4.634112] (lego_loam_sr) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/featureAssociation.cpp.o\x1b[0m\n'}
+[4.634176] (lego_loam_sr) StdoutLine: {'line': b'[ 71%] \x1b[32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/mapOptmization.cpp.o\x1b[0m\n'}
+[4.634375] (lego_loam_sr) StdoutLine: {'line': b'[ 85%] \x1b[32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/transformFusion.cpp.o\x1b[0m\n'}
+[4.710629] (-) TimerEvent: {}
+[4.810989] (-) TimerEvent: {}
+[4.911341] (-) TimerEvent: {}
+[5.011755] (-) TimerEvent: {}
+[5.112083] (-) TimerEvent: {}
+[5.212476] (-) TimerEvent: {}
+[5.312812] (-) TimerEvent: {}
+[5.413129] (-) TimerEvent: {}
+[5.513487] (-) TimerEvent: {}
+[5.613818] (-) TimerEvent: {}
+[5.714141] (-) TimerEvent: {}
+[5.814483] (-) TimerEvent: {}
+[5.914830] (-) TimerEvent: {}
+[6.015161] (-) TimerEvent: {}
+[6.021263] (lego_loam_sr) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/featureAssociation.h:4\x1b[m\x1b[K,\n'}
+[6.021515] (lego_loam_sr) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/main.cpp:2\x1b[m\x1b[K:\n'}
+[6.021619] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/include/lego_loam/utility.h:25:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Ktf2_geometry_msgs/tf2_geometry_msgs.h: No such file or directory\n'}
+[6.021725] (lego_loam_sr) StderrLine: {'line': b'   25 | #include \x1b[01;31m\x1b[K<tf2_geometry_msgs/tf2_geometry_msgs.h>\x1b[m\x1b[K\n'}
+[6.021816] (lego_loam_sr) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.021906] (lego_loam_sr) StderrLine: {'line': b'compilation terminated.\n'}
+[6.025135] (lego_loam_sr) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/imageProjection.h:4\x1b[m\x1b[K,\n'}
+[6.025327] (lego_loam_sr) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/imageProjection.cpp:30\x1b[m\x1b[K:\n'}
+[6.025458] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/include/lego_loam/utility.h:25:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Ktf2_geometry_msgs/tf2_geometry_msgs.h: No such file or directory\n'}
+[6.025557] (lego_loam_sr) StderrLine: {'line': b'   25 | #include \x1b[01;31m\x1b[K<tf2_geometry_msgs/tf2_geometry_msgs.h>\x1b[m\x1b[K\n'}
+[6.025650] (lego_loam_sr) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.025742] (lego_loam_sr) StderrLine: {'line': b'compilation terminated.\n'}
+[6.037278] (lego_loam_sr) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/featureAssociation.h:4\x1b[m\x1b[K,\n'}
+[6.037519] (lego_loam_sr) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/featureAssociation.cpp:37\x1b[m\x1b[K:\n'}
+[6.037628] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/include/lego_loam/utility.h:25:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Ktf2_geometry_msgs/tf2_geometry_msgs.h: No such file or directory\n'}
+[6.037728] (lego_loam_sr) StderrLine: {'line': b'   25 | #include \x1b[01;31m\x1b[K<tf2_geometry_msgs/tf2_geometry_msgs.h>\x1b[m\x1b[K\n'}
+[6.037820] (lego_loam_sr) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.037912] (lego_loam_sr) StderrLine: {'line': b'compilation terminated.\n'}
+[6.040505] (lego_loam_sr) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/lego_loam_sr.dir/build.make:76: CMakeFiles/lego_loam_sr.dir/src/imageProjection.cpp.o] Error 1\n'}
+[6.040662] (lego_loam_sr) StderrLine: {'line': b'gmake[2]: *** Waiting for unfinished jobs....\n'}
+[6.040765] (lego_loam_sr) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/lego_loam_sr.dir/build.make:146: CMakeFiles/lego_loam_sr.dir/src/main.cpp.o] Error 1\n'}
+[6.059468] (lego_loam_sr) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/lego_loam_sr.dir/build.make:90: CMakeFiles/lego_loam_sr.dir/src/featureAssociation.cpp.o] Error 1\n'}
+[6.115295] (-) TimerEvent: {}
+[6.215594] (-) TimerEvent: {}
+[6.315905] (-) TimerEvent: {}
+[6.416238] (-) TimerEvent: {}
+[6.516545] (-) TimerEvent: {}
+[6.517008] (lego_loam_sr) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/transformFusion.h:4\x1b[m\x1b[K,\n'}
+[6.517189] (lego_loam_sr) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/transformFusion.cpp:33\x1b[m\x1b[K:\n'}
+[6.517299] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/include/lego_loam/utility.h:25:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Ktf2_geometry_msgs/tf2_geometry_msgs.h: No such file or directory\n'}
+[6.517396] (lego_loam_sr) StderrLine: {'line': b'   25 | #include \x1b[01;31m\x1b[K<tf2_geometry_msgs/tf2_geometry_msgs.h>\x1b[m\x1b[K\n'}
+[6.517498] (lego_loam_sr) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.517595] (lego_loam_sr) StderrLine: {'line': b'compilation terminated.\n'}
+[6.529339] (lego_loam_sr) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/mapOptimization.h:4\x1b[m\x1b[K,\n'}
+[6.529584] (lego_loam_sr) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/mapOptmization.cpp:37\x1b[m\x1b[K:\n'}
+[6.529680] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/include/lego_loam/utility.h:25:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Ktf2_geometry_msgs/tf2_geometry_msgs.h: No such file or directory\n'}
+[6.529770] (lego_loam_sr) StderrLine: {'line': b'   25 | #include \x1b[01;31m\x1b[K<tf2_geometry_msgs/tf2_geometry_msgs.h>\x1b[m\x1b[K\n'}
+[6.529855] (lego_loam_sr) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.529940] (lego_loam_sr) StderrLine: {'line': b'compilation terminated.\n'}
+[6.533924] (lego_loam_sr) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/lego_loam_sr.dir/build.make:118: CMakeFiles/lego_loam_sr.dir/src/transformFusion.cpp.o] Error 1\n'}
+[6.548543] (lego_loam_sr) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/lego_loam_sr.dir/build.make:104: CMakeFiles/lego_loam_sr.dir/src/mapOptmization.cpp.o] Error 1\n'}
+[6.616656] (-) TimerEvent: {}
+[6.716962] (-) TimerEvent: {}
+[6.817249] (-) TimerEvent: {}
+[6.917608] (-) TimerEvent: {}
+[7.017908] (-) TimerEvent: {}
+[7.118201] (-) TimerEvent: {}
+[7.218474] (-) TimerEvent: {}
+[7.318764] (-) TimerEvent: {}
+[7.419053] (-) TimerEvent: {}
+[7.519397] (-) TimerEvent: {}
+[7.619689] (-) TimerEvent: {}
+[7.720027] (-) TimerEvent: {}
+[7.820311] (-) TimerEvent: {}
+[7.920618] (-) TimerEvent: {}
+[8.020932] (-) TimerEvent: {}
+[8.121250] (-) TimerEvent: {}
+[8.221556] (-) TimerEvent: {}
+[8.321869] (-) TimerEvent: {}
+[8.422164] (-) TimerEvent: {}
+[8.522476] (-) TimerEvent: {}
+[8.622819] (-) TimerEvent: {}
+[8.696163] (lego_loam_sr) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/lego_loam_sr.dir/all] Error 2\n'}
+[8.696465] (lego_loam_sr) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[8.698514] (lego_loam_sr) CommandEnded: {'returncode': 2}
+[8.705414] (lego_loam_sr) JobEnded: {'identifier': 'lego_loam_sr', 'rc': 2}
+[8.716140] (-) EventReactorShutdown: {}

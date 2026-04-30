@@ -1,0 +1,55 @@
+running egg_info
+writing ../build/cone_a_lisa/cone_a_lisa.egg-info/PKG-INFO
+writing dependency_links to ../build/cone_a_lisa/cone_a_lisa.egg-info/dependency_links.txt
+writing entry points to ../build/cone_a_lisa/cone_a_lisa.egg-info/entry_points.txt
+writing requirements to ../build/cone_a_lisa/cone_a_lisa.egg-info/requires.txt
+writing top-level names to ../build/cone_a_lisa/cone_a_lisa.egg-info/top_level.txt
+reading manifest file '../build/cone_a_lisa/cone_a_lisa.egg-info/SOURCES.txt'
+writing manifest file '../build/cone_a_lisa/cone_a_lisa.egg-info/SOURCES.txt'
+running build
+running build_py
+copying cone_a_lisa/loop_closure.py -> /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+copying cone_a_lisa/landmark_to_marker.py -> /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+copying cone_a_lisa/cone_a_lisa.py -> /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+copying cone_a_lisa/tranformation.py -> /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+copying cone_a_lisa/__init__.py -> /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+copying cone_a_lisa/map_plot.py -> /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+copying cone_a_lisa/generated_cones.py -> /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+copying cone_a_lisa/node.py -> /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+copying cone_a_lisa/data.py -> /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+copying cone_a_lisa/filtered_cones.py -> /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa
+running install
+running install_lib
+copying /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/loop_closure.py -> /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+copying /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/landmark_to_marker.py -> /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+copying /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/cone_a_lisa.py -> /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+copying /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/tranformation.py -> /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+copying /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/__init__.py -> /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+copying /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/map_plot.py -> /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+copying /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/generated_cones.py -> /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+copying /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/node.py -> /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+copying /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/data.py -> /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+copying /home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/build/lib/cone_a_lisa/filtered_cones.py -> /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa
+byte-compiling /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/loop_closure.py to loop_closure.cpython-312.pyc
+byte-compiling /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/landmark_to_marker.py to landmark_to_marker.cpython-312.pyc
+byte-compiling /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/cone_a_lisa.py to cone_a_lisa.cpython-312.pyc
+byte-compiling /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/tranformation.py to tranformation.cpython-312.pyc
+byte-compiling /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/map_plot.py to map_plot.cpython-312.pyc
+byte-compiling /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/generated_cones.py to generated_cones.cpython-312.pyc
+byte-compiling /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/node.py to node.cpython-312.pyc
+byte-compiling /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/data.py to data.cpython-312.pyc
+byte-compiling /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa/filtered_cones.py to filtered_cones.cpython-312.pyc
+running install_data
+copying resource/cone_a_lisa -> /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/share/ament_index/resource_index/packages
+copying package.xml -> /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/share/cone_a_lisa
+copying launch/cone_mapping.launch.py -> /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/share/cone_a_lisa/launch
+copying launch/dbscan_launch.py -> /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/share/cone_a_lisa/launch
+running install_egg_info
+removing '/home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa-0.0.0-py3.12.egg-info' (and everything under it)
+Copying ../build/cone_a_lisa/cone_a_lisa.egg-info to /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/python3.12/site-packages/cone_a_lisa-0.0.0-py3.12.egg-info
+running install_scripts
+Installing cone_a_lisa script to /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/cone_a_lisa
+Installing landmark_to_marker script to /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/cone_a_lisa
+Installing map_plot script to /home/aly-sultan/Desktop/SLAM/install/cone_a_lisa/lib/cone_a_lisa
+writing list of installed files to '/home/aly-sultan/Desktop/SLAM/build/cone_a_lisa/install.log'

@@ -28,6 +28,7 @@
 
 #include <boost/circular_buffer.hpp>
 #include "imageProjection.h"
+#include "marker_utils.h"
 
 const std::string PARAM_VERTICAL_SCANS = "laser.num_vertical_scans";
 const std::string PARAM_HORIZONTAL_SCANS = "laser.num_horizontal_scans";
@@ -118,6 +119,7 @@ ImageProjection::ImageProjection(const std::string &name, Channel<ProjectionOut>
   pubGroundCloud = this->create_publisher<sensor_msgs::msg::PointCloud2>(_groundCloud, 1);
   pubSegmentedCloud = this->create_publisher<sensor_msgs::msg::PointCloud2>(_segmentedCloud, 1);
   pubConeCloud = this->create_publisher<sensor_msgs::msg::PointCloud2>(_coneCloud, 1);
+  pubConeCloudMarker = this->create_publisher<visualization_msgs::msg::MarkerArray>(_coneCloud + "_marker", 1);
   pubSegmentedCloudPure = this->create_publisher<sensor_msgs::msg::PointCloud2>(_segmentedCloudPure, 1);
   pubSegmentedCloudInfo = this->create_publisher<cloud_msgs::msg::CloudInfo>(_segmentedCloudInfo, 1);
   pubOutlierCloud = this->create_publisher<sensor_msgs::msg::PointCloud2>(_outlierCloud, 1);
@@ -680,7 +682,10 @@ void ImageProjection::cloudSegmentation() {
     centroid.z = cx;   // LiDAR x → Camera z
     centroid.intensity = 0;
 
-    // Reject anything too far away (cones beyond 15m are unreliable)
+  
+
+
+    // Reject anything too far away (Overall 3D distance check as a fallback)
     float dist = sqrt(centroid.x * centroid.x + centroid.y * centroid.y + centroid.z * centroid.z);
     if (dist > 30.0) continue;
 
@@ -937,6 +942,9 @@ void ImageProjection::publishClouds() {
   PublishCloud(pubOutlierCloud, temp, _outlier_cloud);
   PublishCloud(pubSegmentedCloud, temp, _segmented_cloud);
   PublishCloud(pubConeCloud, temp, _cone_cloud);
+  if (pubConeCloudMarker->get_subscription_count() != 0) {
+      pubConeCloudMarker->publish(createMarkerArray(_cone_cloud, temp.header.frame_id, temp.header.stamp, "cone_cloud", true));
+  }
   PublishCloud(pubFullCloud, temp, _full_cloud);
   PublishCloud(pubGroundCloud, temp, _ground_cloud);
   PublishCloud(pubSegmentedCloudPure, temp, _segmented_cloud_pure);

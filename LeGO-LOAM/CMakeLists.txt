@@ -20,6 +20,7 @@ find_package(nav_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
+find_package(visualization_msgs REQUIRED)
 find_package(pcl_conversions REQUIRED)
 find_package(cloud_msgs REQUIRED)
 find_package(eigen3_cmake_module REQUIRED)
@@ -41,6 +42,7 @@ set(dependencies
   tf2
   tf2_ros
   tf2_geometry_msgs
+  visualization_msgs
   pcl_conversions
   cloud_msgs
   asurt_msgs  # ✅ Added

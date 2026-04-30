@@ -2,7 +2,7 @@
 
 # since this file is sourced use either the provided AMENT_CURRENT_PREFIX
 # or fall back to the destination set at configure time
-: ${AMENT_CURRENT_PREFIX:="/home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr"}
+: ${AMENT_CURRENT_PREFIX:="/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr"}
 if [ ! -d "$AMENT_CURRENT_PREFIX" ]; then
   if [ -z "$COLCON_CURRENT_PREFIX" ]; then
     echo "The compile time prefix path '$AMENT_CURRENT_PREFIX' doesn't " \

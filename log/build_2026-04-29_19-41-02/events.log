@@ -1,0 +1,213 @@
+[0.000000] (-) TimerEvent: {}
+[0.000467] (-) JobUnselected: {'identifier': 'asurt_msgs'}
+[0.000546] (-) JobUnselected: {'identifier': 'cloud_msgs'}
+[0.000579] (lego_loam_sr) JobQueued: {'identifier': 'lego_loam_sr', 'dependencies': OrderedDict({'asurt_msgs': '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs', 'cloud_msgs': '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs'})}
+[0.000614] (lego_loam_sr) JobStarted: {'identifier': 'lego_loam_sr'}
+[0.012631] (lego_loam_sr) JobProgress: {'identifier': 'lego_loam_sr', 'progress': 'cmake'}
+[0.013924] (lego_loam_sr) JobProgress: {'identifier': 'lego_loam_sr', 'progress': 'build'}
+[0.013986] (lego_loam_sr) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', '--', '-j16', '-l16'], 'cwd': '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', 'env': OrderedDict({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'aly-sultan', 'FONTCONFIG_PATH': '/etc/fonts', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'GIT_EDITOR': ':', 'GIO_MODULE_DIR': '/home/aly-sultan/snap/code/common/.cache/gio-modules', 'XDG_SESSION_TYPE': 'wayland', 'GIT_ASKPASS': '/snap/code/229/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'GTK_EXE_PREFIX_VSCODE_SNAP_ORIG': '', 'GDK_BACKEND_VSCODE_SNAP_ORIG': '', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/aly-sultan', 'CHROME_DESKTOP': 'code.desktop', 'LOCPATH_VSCODE_SNAP_ORIG': '', 'TERM_PROGRAM_VERSION': '1.111.0', 'DESKTOP_SESSION': 'ubuntu', 'GTK_PATH': '/snap/code/229/usr/lib/x86_64-linux-gnu/gtk-3.0', 'XDG_DATA_HOME_VSCODE_SNAP_ORIG': '', 'GTK_IM_MODULE_FILE': '/home/aly-sultan/snap/code/common/.cache/immodules/immodules.cache', 'GIO_LAUNCHED_DESKTOP_FILE': '/var/lib/snapd/desktop/applications/code_code.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG': '', 'VSCODE_GIT_ASKPASS_MAIN': '/snap/code/229/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/snap/code/229/usr/share/code/code', 'MANAGERPID': '2603', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'SYSTEMD_EXEC_PID': '2879', 'BUNDLED_DEBUGPY_PATH': '/home/aly-sultan/.vscode/extensions/ms-python.debugpy-2026.4.0-linux-x64/bundled/libs/debugpy', 'IM_CONFIG_CHECK_ENV': '1', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '22723', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'aly-sultan', 'JOURNAL_STREAM': '9:17359', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'XDG_DATA_DIRS_VSCODE_SNAP_ORIG': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'USERNAME': 'aly-sultan', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'HISTCONTROL': 'ignorespace', 'PATH': '/home/aly-sultan/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/aly-sultan/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/home/aly-sultan/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/aly-sultan/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/aly-sultan/.vscode/extensions/ms-python.debugpy-2026.4.0-linux-x64/bundled/scripts/noConfigScripts', 'SESSION_MANAGER': 'local/aly-sultan-LOQ-15IAX9:@/tmp/.ICE-unix/2834,unix/aly-sultan-LOQ-15IAX9:/tmp/.ICE-unix/2834', 'GTK_EXE_PREFIX': '/snap/code/229/usr', 'INVOCATION_ID': 'b9711b6207f349d697b393dbba045789', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':0', 'LOCPATH': '/snap/code/229/usr/lib/locale', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/aly-sultan/.vscode/extensions/ms-python.debugpy-2026.4.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-dd13d1ed00240b53.txt', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'PYTHONSTARTUP': '/home/aly-sultan/.config/Code/User/workspaceStorage/953c52eb1efb63a47286b720417fd91c/ms-python.python/pythonrc.py', 'GIO_MODULE_DIR_VSCODE_SNAP_ORIG': '', 'XDG_DATA_HOME': '/home/aly-sultan/snap/code/229/.local/share', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.K93PO3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-5ffc5d0530.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'GSETTINGS_SCHEMA_DIR': '/home/aly-sultan/snap/code/229/.local/share/glib-2.0/schemas', 'AMENT_PREFIX_PATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GTK_PATH_VSCODE_SNAP_ORIG': '', 'FONTCONFIG_FILE': '/etc/fonts/fonts.conf', 'GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG': '', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'GIT_PAGER': 'cat', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', 'GIT_MERGE_AUTOEDIT': 'no', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/home/aly-sultan/snap/code/229/.local/share:/home/aly-sultan/snap/code/229:/snap/code/229/usr/share:/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'CMAKE_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.099322] (-) TimerEvent: {}
+[0.125979] (lego_loam_sr) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/imageProjection.cpp.o\x1b[0m\n'}
+[0.199529] (-) TimerEvent: {}
+[0.299843] (-) TimerEvent: {}
+[0.400248] (-) TimerEvent: {}
+[0.500593] (-) TimerEvent: {}
+[0.601093] (-) TimerEvent: {}
+[0.701345] (-) TimerEvent: {}
+[0.801602] (-) TimerEvent: {}
+[0.901819] (-) TimerEvent: {}
+[1.002045] (-) TimerEvent: {}
+[1.102309] (-) TimerEvent: {}
+[1.202629] (-) TimerEvent: {}
+[1.302919] (-) TimerEvent: {}
+[1.403204] (-) TimerEvent: {}
+[1.503598] (-) TimerEvent: {}
+[1.603975] (-) TimerEvent: {}
+[1.704302] (-) TimerEvent: {}
+[1.804603] (-) TimerEvent: {}
+[1.904996] (-) TimerEvent: {}
+[2.005358] (-) TimerEvent: {}
+[2.105663] (-) TimerEvent: {}
+[2.206059] (-) TimerEvent: {}
+[2.306449] (-) TimerEvent: {}
+[2.406742] (-) TimerEvent: {}
+[2.507041] (-) TimerEvent: {}
+[2.607409] (-) TimerEvent: {}
+[2.707777] (-) TimerEvent: {}
+[2.808168] (-) TimerEvent: {}
+[2.908541] (-) TimerEvent: {}
+[3.008842] (-) TimerEvent: {}
+[3.109232] (-) TimerEvent: {}
+[3.209539] (-) TimerEvent: {}
+[3.309857] (-) TimerEvent: {}
+[3.410375] (-) TimerEvent: {}
+[3.510680] (-) TimerEvent: {}
+[3.610997] (-) TimerEvent: {}
+[3.711222] (-) TimerEvent: {}
+[3.811529] (-) TimerEvent: {}
+[3.911849] (-) TimerEvent: {}
+[4.012182] (-) TimerEvent: {}
+[4.112515] (-) TimerEvent: {}
+[4.212833] (-) TimerEvent: {}
+[4.311291] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/imageProjection.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid ImageProjection::\x1b[01;32m\x1b[KcloudSegmentation\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.311472] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/imageProjection.cpp:749:11:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kstd_r\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[4.311527] (lego_loam_sr) StderrLine: {'line': b'  749 |     float \x1b[01;35m\x1b[Kstd_r\x1b[m\x1b[K  = std::sqrt(std::max(0.0f, var_r));\n'}
+[4.311571] (lego_loam_sr) StderrLine: {'line': b'      |           \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[4.312920] (-) TimerEvent: {}
+[4.413171] (-) TimerEvent: {}
+[4.513423] (-) TimerEvent: {}
+[4.613751] (-) TimerEvent: {}
+[4.713983] (-) TimerEvent: {}
+[4.814320] (-) TimerEvent: {}
+[4.914662] (-) TimerEvent: {}
+[5.014992] (-) TimerEvent: {}
+[5.115299] (-) TimerEvent: {}
+[5.215548] (-) TimerEvent: {}
+[5.315856] (-) TimerEvent: {}
+[5.416195] (-) TimerEvent: {}
+[5.516456] (-) TimerEvent: {}
+[5.616766] (-) TimerEvent: {}
+[5.717150] (-) TimerEvent: {}
+[5.817438] (-) TimerEvent: {}
+[5.917777] (-) TimerEvent: {}
+[6.018116] (-) TimerEvent: {}
+[6.118505] (-) TimerEvent: {}
+[6.218764] (-) TimerEvent: {}
+[6.319097] (-) TimerEvent: {}
+[6.419331] (-) TimerEvent: {}
+[6.519636] (-) TimerEvent: {}
+[6.619948] (-) TimerEvent: {}
+[6.720176] (-) TimerEvent: {}
+[6.820505] (-) TimerEvent: {}
+[6.920838] (-) TimerEvent: {}
+[7.021169] (-) TimerEvent: {}
+[7.121402] (-) TimerEvent: {}
+[7.221667] (-) TimerEvent: {}
+[7.321889] (-) TimerEvent: {}
+[7.422113] (-) TimerEvent: {}
+[7.522454] (-) TimerEvent: {}
+[7.622729] (-) TimerEvent: {}
+[7.723061] (-) TimerEvent: {}
+[7.823323] (-) TimerEvent: {}
+[7.923615] (-) TimerEvent: {}
+[8.023927] (-) TimerEvent: {}
+[8.124184] (-) TimerEvent: {}
+[8.224425] (-) TimerEvent: {}
+[8.324661] (-) TimerEvent: {}
+[8.424995] (-) TimerEvent: {}
+[8.525236] (-) TimerEvent: {}
+[8.625596] (-) TimerEvent: {}
+[8.725955] (-) TimerEvent: {}
+[8.826272] (-) TimerEvent: {}
+[8.926594] (-) TimerEvent: {}
+[9.026995] (-) TimerEvent: {}
+[9.127299] (-) TimerEvent: {}
+[9.227598] (-) TimerEvent: {}
+[9.327905] (-) TimerEvent: {}
+[9.428205] (-) TimerEvent: {}
+[9.528515] (-) TimerEvent: {}
+[9.628835] (-) TimerEvent: {}
+[9.729140] (-) TimerEvent: {}
+[9.829458] (-) TimerEvent: {}
+[9.929777] (-) TimerEvent: {}
+[10.030094] (-) TimerEvent: {}
+[10.130389] (-) TimerEvent: {}
+[10.230702] (-) TimerEvent: {}
+[10.331057] (-) TimerEvent: {}
+[10.431361] (-) TimerEvent: {}
+[10.531753] (-) TimerEvent: {}
+[10.632069] (-) TimerEvent: {}
+[10.732391] (-) TimerEvent: {}
+[10.832690] (-) TimerEvent: {}
+[10.932964] (-) TimerEvent: {}
+[11.033241] (-) TimerEvent: {}
+[11.133553] (-) TimerEvent: {}
+[11.233936] (-) TimerEvent: {}
+[11.334208] (-) TimerEvent: {}
+[11.434504] (-) TimerEvent: {}
+[11.534814] (-) TimerEvent: {}
+[11.635243] (-) TimerEvent: {}
+[11.735501] (-) TimerEvent: {}
+[11.835836] (-) TimerEvent: {}
+[11.936167] (-) TimerEvent: {}
+[12.036458] (-) TimerEvent: {}
+[12.136753] (-) TimerEvent: {}
+[12.237058] (-) TimerEvent: {}
+[12.337357] (-) TimerEvent: {}
+[12.437658] (-) TimerEvent: {}
+[12.538017] (-) TimerEvent: {}
+[12.638285] (-) TimerEvent: {}
+[12.738588] (-) TimerEvent: {}
+[12.838991] (-) TimerEvent: {}
+[12.939275] (-) TimerEvent: {}
+[13.039603] (-) TimerEvent: {}
+[13.139909] (-) TimerEvent: {}
+[13.240260] (-) TimerEvent: {}
+[13.340544] (-) TimerEvent: {}
+[13.440906] (-) TimerEvent: {}
+[13.541270] (-) TimerEvent: {}
+[13.641563] (-) TimerEvent: {}
+[13.741929] (-) TimerEvent: {}
+[13.842229] (-) TimerEvent: {}
+[13.942612] (-) TimerEvent: {}
+[14.043003] (-) TimerEvent: {}
+[14.143282] (-) TimerEvent: {}
+[14.243572] (-) TimerEvent: {}
+[14.343849] (-) TimerEvent: {}
+[14.444178] (-) TimerEvent: {}
+[14.544509] (-) TimerEvent: {}
+[14.644819] (-) TimerEvent: {}
+[14.745059] (-) TimerEvent: {}
+[14.845368] (-) TimerEvent: {}
+[14.945660] (-) TimerEvent: {}
+[15.046014] (-) TimerEvent: {}
+[15.146307] (-) TimerEvent: {}
+[15.215208] (lego_loam_sr) StdoutLine: {'line': b'[ 28%] \x1b[32m\x1b[1mLinking CXX executable lego_loam_sr\x1b[0m\n'}
+[15.246439] (-) TimerEvent: {}
+[15.346769] (-) TimerEvent: {}
+[15.447082] (-) TimerEvent: {}
+[15.547474] (-) TimerEvent: {}
+[15.647872] (-) TimerEvent: {}
+[15.748330] (-) TimerEvent: {}
+[15.848673] (-) TimerEvent: {}
+[15.948999] (-) TimerEvent: {}
+[16.049345] (-) TimerEvent: {}
+[16.123914] (lego_loam_sr) StdoutLine: {'line': b'[100%] Built target lego_loam_sr\n'}
+[16.134894] (lego_loam_sr) CommandEnded: {'returncode': 0}
+[16.135537] (lego_loam_sr) JobProgress: {'identifier': 'lego_loam_sr', 'progress': 'install'}
+[16.146419] (lego_loam_sr) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr'], 'cwd': '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', 'env': OrderedDict({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'aly-sultan', 'FONTCONFIG_PATH': '/etc/fonts', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'GIT_EDITOR': ':', 'GIO_MODULE_DIR': '/home/aly-sultan/snap/code/common/.cache/gio-modules', 'XDG_SESSION_TYPE': 'wayland', 'GIT_ASKPASS': '/snap/code/229/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'GTK_EXE_PREFIX_VSCODE_SNAP_ORIG': '', 'GDK_BACKEND_VSCODE_SNAP_ORIG': '', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/aly-sultan', 'CHROME_DESKTOP': 'code.desktop', 'LOCPATH_VSCODE_SNAP_ORIG': '', 'TERM_PROGRAM_VERSION': '1.111.0', 'DESKTOP_SESSION': 'ubuntu', 'GTK_PATH': '/snap/code/229/usr/lib/x86_64-linux-gnu/gtk-3.0', 'XDG_DATA_HOME_VSCODE_SNAP_ORIG': '', 'GTK_IM_MODULE_FILE': '/home/aly-sultan/snap/code/common/.cache/immodules/immodules.cache', 'GIO_LAUNCHED_DESKTOP_FILE': '/var/lib/snapd/desktop/applications/code_code.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG': '', 'VSCODE_GIT_ASKPASS_MAIN': '/snap/code/229/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/snap/code/229/usr/share/code/code', 'MANAGERPID': '2603', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'SYSTEMD_EXEC_PID': '2879', 'BUNDLED_DEBUGPY_PATH': '/home/aly-sultan/.vscode/extensions/ms-python.debugpy-2026.4.0-linux-x64/bundled/libs/debugpy', 'IM_CONFIG_CHECK_ENV': '1', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '22723', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'aly-sultan', 'JOURNAL_STREAM': '9:17359', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'XDG_DATA_DIRS_VSCODE_SNAP_ORIG': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'USERNAME': 'aly-sultan', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'HISTCONTROL': 'ignorespace', 'PATH': '/home/aly-sultan/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/aly-sultan/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/home/aly-sultan/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/aly-sultan/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/aly-sultan/.vscode/extensions/ms-python.debugpy-2026.4.0-linux-x64/bundled/scripts/noConfigScripts', 'SESSION_MANAGER': 'local/aly-sultan-LOQ-15IAX9:@/tmp/.ICE-unix/2834,unix/aly-sultan-LOQ-15IAX9:/tmp/.ICE-unix/2834', 'GTK_EXE_PREFIX': '/snap/code/229/usr', 'INVOCATION_ID': 'b9711b6207f349d697b393dbba045789', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':0', 'LOCPATH': '/snap/code/229/usr/lib/locale', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/aly-sultan/.vscode/extensions/ms-python.debugpy-2026.4.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-dd13d1ed00240b53.txt', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'PYTHONSTARTUP': '/home/aly-sultan/.config/Code/User/workspaceStorage/953c52eb1efb63a47286b720417fd91c/ms-python.python/pythonrc.py', 'GIO_MODULE_DIR_VSCODE_SNAP_ORIG': '', 'XDG_DATA_HOME': '/home/aly-sultan/snap/code/229/.local/share', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.K93PO3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-5ffc5d0530.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'GSETTINGS_SCHEMA_DIR': '/home/aly-sultan/snap/code/229/.local/share/glib-2.0/schemas', 'AMENT_PREFIX_PATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GTK_PATH_VSCODE_SNAP_ORIG': '', 'FONTCONFIG_FILE': '/etc/fonts/fonts.conf', 'GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG': '', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'GIT_PAGER': 'cat', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', 'GIT_MERGE_AUTOEDIT': 'no', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/home/aly-sultan/snap/code/229/.local/share:/home/aly-sultan/snap/code/229:/snap/code/229/usr/share:/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'CMAKE_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[16.149516] (-) TimerEvent: {}
+[16.158047] (lego_loam_sr) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[16.158379] (lego_loam_sr) StdoutLine: {'line': b'-- Installing: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/lib/lego_loam_sr/lego_loam_sr\n'}
+[16.160255] (lego_loam_sr) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/lib/lego_loam_sr/lego_loam_sr" to ""\n'}
+[16.160871] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/config\n'}
+[16.161082] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/config/loam_config.yaml\n'}
+[16.161203] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch\n'}
+[16.161314] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/google-earth.png\n'}
+[16.161412] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/demo.gif\n'}
+[16.161510] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/block.png\n'}
+[16.161645] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/seg-total.jpg\n'}
+[16.161836] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/run.launch.py\n'}
+[16.162146] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/odometry.jpg\n'}
+[16.162645] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch/dataset-demo.gif\n'}
+[16.162837] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/rviz\n'}
+[16.163043] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/rviz/test.rviz\n'}
+[16.163152] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/ament_index/resource_index/package_run_dependencies/lego_loam_sr\n'}
+[16.163320] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/ament_index/resource_index/parent_prefix_path/lego_loam_sr\n'}
+[16.163437] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/ament_prefix_path.sh\n'}
+[16.163786] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/ament_prefix_path.dsv\n'}
+[16.164111] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/path.sh\n'}
+[16.164218] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/environment/path.dsv\n'}
+[16.164271] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.bash\n'}
+[16.164318] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.sh\n'}
+[16.164396] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.zsh\n'}
+[16.164442] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/local_setup.dsv\n'}
+[16.164488] (lego_loam_sr) StdoutLine: {'line': b'-- Installing: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.dsv\n'}
+[16.164535] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/ament_index/resource_index/packages/lego_loam_sr\n'}
+[16.164580] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[16.164623] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/cmake/lego_loam_srConfig.cmake\n'}
+[16.164667] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/cmake/lego_loam_srConfig-version.cmake\n'}
+[16.164730] (lego_loam_sr) StdoutLine: {'line': b'-- Up-to-date: /home/aly-sultan/Desktop/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.xml\n'}
+[16.164786] (lego_loam_sr) CommandEnded: {'returncode': 0}
+[16.175233] (lego_loam_sr) JobEnded: {'identifier': 'lego_loam_sr', 'rc': 0}
+[16.175858] (-) EventReactorShutdown: {}

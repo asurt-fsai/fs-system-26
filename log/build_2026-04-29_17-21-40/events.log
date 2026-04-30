@@ -1,0 +1,384 @@
+[0.000000] (-) TimerEvent: {}
+[0.000198] (-) JobUnselected: {'identifier': 'asurt_msgs'}
+[0.000284] (-) JobUnselected: {'identifier': 'cloud_msgs'}
+[0.000318] (lego_loam_sr) JobQueued: {'identifier': 'lego_loam_sr', 'dependencies': OrderedDict({'asurt_msgs': '/home/aly-sultan/Desktop/SLAM/install/asurt_msgs', 'cloud_msgs': '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs'})}
+[0.000419] (lego_loam_sr) JobStarted: {'identifier': 'lego_loam_sr'}
+[0.012873] (lego_loam_sr) JobProgress: {'identifier': 'lego_loam_sr', 'progress': 'cmake'}
+[0.013947] (lego_loam_sr) JobProgress: {'identifier': 'lego_loam_sr', 'progress': 'build'}
+[0.014896] (lego_loam_sr) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', '--', '-j16', '-l16'], 'cwd': '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', 'env': OrderedDict({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'aly-sultan', 'FONTCONFIG_PATH': '/etc/fonts', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'GIT_EDITOR': ':', 'GIO_MODULE_DIR': '/home/aly-sultan/snap/code/common/.cache/gio-modules', 'XDG_SESSION_TYPE': 'wayland', 'GIT_ASKPASS': '/snap/code/229/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'GTK_EXE_PREFIX_VSCODE_SNAP_ORIG': '', 'GDK_BACKEND_VSCODE_SNAP_ORIG': '', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/aly-sultan', 'CHROME_DESKTOP': 'code.desktop', 'LOCPATH_VSCODE_SNAP_ORIG': '', 'TERM_PROGRAM_VERSION': '1.111.0', 'DESKTOP_SESSION': 'ubuntu', 'GTK_PATH': '/snap/code/229/usr/lib/x86_64-linux-gnu/gtk-3.0', 'XDG_DATA_HOME_VSCODE_SNAP_ORIG': '', 'GTK_IM_MODULE_FILE': '/home/aly-sultan/snap/code/common/.cache/immodules/immodules.cache', 'GIO_LAUNCHED_DESKTOP_FILE': '/var/lib/snapd/desktop/applications/code_code.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG': '', 'VSCODE_GIT_ASKPASS_MAIN': '/snap/code/229/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/snap/code/229/usr/share/code/code', 'MANAGERPID': '2603', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'SYSTEMD_EXEC_PID': '2879', 'BUNDLED_DEBUGPY_PATH': '/home/aly-sultan/.vscode/extensions/ms-python.debugpy-2026.4.0-linux-x64/bundled/libs/debugpy', 'IM_CONFIG_CHECK_ENV': '1', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '22723', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'aly-sultan', 'JOURNAL_STREAM': '9:17359', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'XDG_DATA_DIRS_VSCODE_SNAP_ORIG': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'USERNAME': 'aly-sultan', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'HISTCONTROL': 'ignorespace', 'PATH': '/home/aly-sultan/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/aly-sultan/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/home/aly-sultan/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/aly-sultan/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/aly-sultan/.vscode/extensions/ms-python.debugpy-2026.4.0-linux-x64/bundled/scripts/noConfigScripts', 'SESSION_MANAGER': 'local/aly-sultan-LOQ-15IAX9:@/tmp/.ICE-unix/2834,unix/aly-sultan-LOQ-15IAX9:/tmp/.ICE-unix/2834', 'GTK_EXE_PREFIX': '/snap/code/229/usr', 'INVOCATION_ID': 'b9711b6207f349d697b393dbba045789', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':0', 'LOCPATH': '/snap/code/229/usr/lib/locale', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/aly-sultan/.vscode/extensions/ms-python.debugpy-2026.4.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-dd13d1ed00240b53.txt', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'PYTHONSTARTUP': '/home/aly-sultan/.config/Code/User/workspaceStorage/953c52eb1efb63a47286b720417fd91c/ms-python.python/pythonrc.py', 'GIO_MODULE_DIR_VSCODE_SNAP_ORIG': '', 'XDG_DATA_HOME': '/home/aly-sultan/snap/code/229/.local/share', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.K93PO3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-5ffc5d0530.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'GSETTINGS_SCHEMA_DIR': '/home/aly-sultan/snap/code/229/.local/share/glib-2.0/schemas', 'AMENT_PREFIX_PATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GTK_PATH_VSCODE_SNAP_ORIG': '', 'FONTCONFIG_FILE': '/etc/fonts/fonts.conf', 'GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG': '', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'GIT_PAGER': 'cat', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/aly-sultan/Desktop/SLAM/build/lego_loam_sr', 'GIT_MERGE_AUTOEDIT': 'no', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/home/aly-sultan/snap/code/229/.local/share:/home/aly-sultan/snap/code/229:/snap/code/229/usr/share:/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/cloud_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'CMAKE_PREFIX_PATH': '/home/aly-sultan/Desktop/SLAM/install/cloud_msgs:/home/aly-sultan/Desktop/SLAM/install/asurt_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.080408] (lego_loam_sr) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/imageProjection.cpp.o\x1b[0m\n'}
+[0.083011] (lego_loam_sr) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/mapOptmization.cpp.o\x1b[0m\n'}
+[0.083570] (lego_loam_sr) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/featureAssociation.cpp.o\x1b[0m\n'}
+[0.083745] (lego_loam_sr) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/transformFusion.cpp.o\x1b[0m\n'}
+[0.086593] (lego_loam_sr) StdoutLine: {'line': b'[ 71%] \x1b[32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/main.cpp.o\x1b[0m\n'}
+[0.099456] (-) TimerEvent: {}
+[0.199803] (-) TimerEvent: {}
+[0.300171] (-) TimerEvent: {}
+[0.400425] (-) TimerEvent: {}
+[0.500736] (-) TimerEvent: {}
+[0.601048] (-) TimerEvent: {}
+[0.701341] (-) TimerEvent: {}
+[0.801629] (-) TimerEvent: {}
+[0.901905] (-) TimerEvent: {}
+[1.002195] (-) TimerEvent: {}
+[1.102479] (-) TimerEvent: {}
+[1.202771] (-) TimerEvent: {}
+[1.303056] (-) TimerEvent: {}
+[1.403339] (-) TimerEvent: {}
+[1.502359] (lego_loam_sr) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/imageProjection.cpp:30\x1b[m\x1b[K:\n'}
+[1.502607] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/imageProjection.h:6:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Kvisualization_msgs/msg/marker_array.hpp: No such file or directory\n'}
+[1.502703] (lego_loam_sr) StderrLine: {'line': b'    6 | #include \x1b[01;31m\x1b[K<visualization_msgs/msg/marker_array.hpp>\x1b[m\x1b[K\n'}
+[1.502782] (lego_loam_sr) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.502853] (lego_loam_sr) StderrLine: {'line': b'compilation terminated.\n'}
+[1.503435] (-) TimerEvent: {}
+[1.504330] (lego_loam_sr) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/mapOptmization.cpp:37\x1b[m\x1b[K:\n'}
+[1.504492] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/mapOptimization.h:7:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Kvisualization_msgs/msg/marker_array.hpp: No such file or directory\n'}
+[1.504611] (lego_loam_sr) StderrLine: {'line': b'    7 | #include \x1b[01;31m\x1b[K<visualization_msgs/msg/marker_array.hpp>\x1b[m\x1b[K\n'}
+[1.504704] (lego_loam_sr) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.504791] (lego_loam_sr) StderrLine: {'line': b'compilation terminated.\n'}
+[1.518264] (lego_loam_sr) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/lego_loam_sr.dir/build.make:76: CMakeFiles/lego_loam_sr.dir/src/imageProjection.cpp.o] Error 1\n'}
+[1.518424] (lego_loam_sr) StderrLine: {'line': b'gmake[2]: *** Waiting for unfinished jobs....\n'}
+[1.518473] (lego_loam_sr) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/lego_loam_sr.dir/build.make:104: CMakeFiles/lego_loam_sr.dir/src/mapOptmization.cpp.o] Error 1\n'}
+[1.603556] (-) TimerEvent: {}
+[1.703805] (-) TimerEvent: {}
+[1.804088] (-) TimerEvent: {}
+[1.904354] (-) TimerEvent: {}
+[2.004650] (-) TimerEvent: {}
+[2.056994] (lego_loam_sr) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/main.cpp:3\x1b[m\x1b[K:\n'}
+[2.057170] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/imageProjection.h:6:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Kvisualization_msgs/msg/marker_array.hpp: No such file or directory\n'}
+[2.057232] (lego_loam_sr) StderrLine: {'line': b'    6 | #include \x1b[01;31m\x1b[K<visualization_msgs/msg/marker_array.hpp>\x1b[m\x1b[K\n'}
+[2.057292] (lego_loam_sr) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.057346] (lego_loam_sr) StderrLine: {'line': b'compilation terminated.\n'}
+[2.072317] (lego_loam_sr) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/lego_loam_sr.dir/build.make:146: CMakeFiles/lego_loam_sr.dir/src/main.cpp.o] Error 1\n'}
+[2.104741] (-) TimerEvent: {}
+[2.204961] (-) TimerEvent: {}
+[2.305220] (-) TimerEvent: {}
+[2.405519] (-) TimerEvent: {}
+[2.505783] (-) TimerEvent: {}
+[2.606071] (-) TimerEvent: {}
+[2.706356] (-) TimerEvent: {}
+[2.806649] (-) TimerEvent: {}
+[2.906925] (-) TimerEvent: {}
+[3.007218] (-) TimerEvent: {}
+[3.107513] (-) TimerEvent: {}
+[3.207800] (-) TimerEvent: {}
+[3.308079] (-) TimerEvent: {}
+[3.408362] (-) TimerEvent: {}
+[3.508650] (-) TimerEvent: {}
+[3.608987] (-) TimerEvent: {}
+[3.709312] (-) TimerEvent: {}
+[3.809688] (-) TimerEvent: {}
+[3.909986] (-) TimerEvent: {}
+[4.010226] (-) TimerEvent: {}
+[4.110525] (-) TimerEvent: {}
+[4.210769] (-) TimerEvent: {}
+[4.310995] (-) TimerEvent: {}
+[4.411246] (-) TimerEvent: {}
+[4.511501] (-) TimerEvent: {}
+[4.611742] (-) TimerEvent: {}
+[4.712005] (-) TimerEvent: {}
+[4.812285] (-) TimerEvent: {}
+[4.829854] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/featureAssociation.cpp:\x1b[m\x1b[K In destructor \xe2\x80\x98\x1b[01m\x1b[Kvirtual FeatureAssociation::\x1b[01;32m\x1b[K~FeatureAssociation\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.830048] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/featureAssociation.cpp:195:22:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kconverting to \xe2\x80\x98\x1b[01m\x1b[Kcloud_msgs::msg::CloudInfo\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kcloud_msgs::msg::CloudInfo_<std::allocator<void> >\x1b[m\x1b[K\xe2\x80\x99} from initializer list would use explicit constructor \xe2\x80\x98\x1b[01m\x1b[Kcloud_msgs::msg::CloudInfo_<ContainerAllocator>::\x1b[01;32m\x1b[KCloudInfo_\x1b[m\x1b[K(rosidl_runtime_cpp::MessageInitialization) \x1b[35m\x1b[K[with ContainerAllocator = std::allocator<void>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.830149] (lego_loam_sr) StderrLine: {'line': b'  195 |   \x1b[01;35m\x1b[K_input_channel.send({})\x1b[m\x1b[K;\n'}
+[4.830220] (lego_loam_sr) StderrLine: {'line': b'      |   \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~^~~~\x1b[m\x1b[K\n'}
+[4.830285] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/featureAssociation.cpp:195:22:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin C++11 and above a default constructor can be explicit\n'}
+[4.912411] (-) TimerEvent: {}
+[5.012733] (-) TimerEvent: {}
+[5.112998] (-) TimerEvent: {}
+[5.213309] (-) TimerEvent: {}
+[5.313620] (-) TimerEvent: {}
+[5.413922] (-) TimerEvent: {}
+[5.514146] (-) TimerEvent: {}
+[5.614462] (-) TimerEvent: {}
+[5.714712] (-) TimerEvent: {}
+[5.814967] (-) TimerEvent: {}
+[5.915200] (-) TimerEvent: {}
+[6.015484] (-) TimerEvent: {}
+[6.115745] (-) TimerEvent: {}
+[6.215967] (-) TimerEvent: {}
+[6.316231] (-) TimerEvent: {}
+[6.416486] (-) TimerEvent: {}
+[6.516743] (-) TimerEvent: {}
+[6.617052] (-) TimerEvent: {}
+[6.717313] (-) TimerEvent: {}
+[6.817666] (-) TimerEvent: {}
+[6.918005] (-) TimerEvent: {}
+[7.018331] (-) TimerEvent: {}
+[7.118651] (-) TimerEvent: {}
+[7.218980] (-) TimerEvent: {}
+[7.319252] (-) TimerEvent: {}
+[7.419536] (-) TimerEvent: {}
+[7.519771] (-) TimerEvent: {}
+[7.620013] (-) TimerEvent: {}
+[7.720264] (-) TimerEvent: {}
+[7.820613] (-) TimerEvent: {}
+[7.920861] (-) TimerEvent: {}
+[8.021223] (-) TimerEvent: {}
+[8.121477] (-) TimerEvent: {}
+[8.221722] (-) TimerEvent: {}
+[8.321969] (-) TimerEvent: {}
+[8.422221] (-) TimerEvent: {}
+[8.522451] (-) TimerEvent: {}
+[8.622724] (-) TimerEvent: {}
+[8.722960] (-) TimerEvent: {}
+[8.823209] (-) TimerEvent: {}
+[8.923431] (-) TimerEvent: {}
+[9.023639] (-) TimerEvent: {}
+[9.123861] (-) TimerEvent: {}
+[9.224110] (-) TimerEvent: {}
+[9.324369] (-) TimerEvent: {}
+[9.424618] (-) TimerEvent: {}
+[9.524864] (-) TimerEvent: {}
+[9.625107] (-) TimerEvent: {}
+[9.725432] (-) TimerEvent: {}
+[9.825746] (-) TimerEvent: {}
+[9.925989] (-) TimerEvent: {}
+[10.026335] (-) TimerEvent: {}
+[10.126672] (-) TimerEvent: {}
+[10.226915] (-) TimerEvent: {}
+[10.327167] (-) TimerEvent: {}
+[10.427397] (-) TimerEvent: {}
+[10.527654] (-) TimerEvent: {}
+[10.627877] (-) TimerEvent: {}
+[10.728215] (-) TimerEvent: {}
+[10.828473] (-) TimerEvent: {}
+[10.928866] (-) TimerEvent: {}
+[11.029130] (-) TimerEvent: {}
+[11.129374] (-) TimerEvent: {}
+[11.229617] (-) TimerEvent: {}
+[11.329865] (-) TimerEvent: {}
+[11.430120] (-) TimerEvent: {}
+[11.530425] (-) TimerEvent: {}
+[11.630738] (-) TimerEvent: {}
+[11.731091] (-) TimerEvent: {}
+[11.831386] (-) TimerEvent: {}
+[11.931718] (-) TimerEvent: {}
+[12.032011] (-) TimerEvent: {}
+[12.132330] (-) TimerEvent: {}
+[12.232676] (-) TimerEvent: {}
+[12.332981] (-) TimerEvent: {}
+[12.433285] (-) TimerEvent: {}
+[12.533640] (-) TimerEvent: {}
+[12.633949] (-) TimerEvent: {}
+[12.734261] (-) TimerEvent: {}
+[12.834572] (-) TimerEvent: {}
+[12.934934] (-) TimerEvent: {}
+[13.035258] (-) TimerEvent: {}
+[13.135551] (-) TimerEvent: {}
+[13.235876] (-) TimerEvent: {}
+[13.336193] (-) TimerEvent: {}
+[13.436536] (-) TimerEvent: {}
+[13.536859] (-) TimerEvent: {}
+[13.637153] (-) TimerEvent: {}
+[13.737492] (-) TimerEvent: {}
+[13.837812] (-) TimerEvent: {}
+[13.938155] (-) TimerEvent: {}
+[14.038484] (-) TimerEvent: {}
+[14.138798] (-) TimerEvent: {}
+[14.239118] (-) TimerEvent: {}
+[14.339436] (-) TimerEvent: {}
+[14.439842] (-) TimerEvent: {}
+[14.540100] (-) TimerEvent: {}
+[14.640412] (-) TimerEvent: {}
+[14.740762] (-) TimerEvent: {}
+[14.840984] (-) TimerEvent: {}
+[14.941271] (-) TimerEvent: {}
+[15.041644] (-) TimerEvent: {}
+[15.141879] (-) TimerEvent: {}
+[15.242120] (-) TimerEvent: {}
+[15.342360] (-) TimerEvent: {}
+[15.442727] (-) TimerEvent: {}
+[15.543124] (-) TimerEvent: {}
+[15.643356] (-) TimerEvent: {}
+[15.743598] (-) TimerEvent: {}
+[15.843842] (-) TimerEvent: {}
+[15.944113] (-) TimerEvent: {}
+[16.044435] (-) TimerEvent: {}
+[16.144678] (-) TimerEvent: {}
+[16.244904] (-) TimerEvent: {}
+[16.345168] (-) TimerEvent: {}
+[16.445425] (-) TimerEvent: {}
+[16.545673] (-) TimerEvent: {}
+[16.645902] (-) TimerEvent: {}
+[16.746260] (-) TimerEvent: {}
+[16.846521] (-) TimerEvent: {}
+[16.946763] (-) TimerEvent: {}
+[17.047035] (-) TimerEvent: {}
+[17.147290] (-) TimerEvent: {}
+[17.247553] (-) TimerEvent: {}
+[17.347780] (-) TimerEvent: {}
+[17.448096] (-) TimerEvent: {}
+[17.548410] (-) TimerEvent: {}
+[17.648679] (-) TimerEvent: {}
+[17.748905] (-) TimerEvent: {}
+[17.849133] (-) TimerEvent: {}
+[17.949373] (-) TimerEvent: {}
+[18.049686] (-) TimerEvent: {}
+[18.149920] (-) TimerEvent: {}
+[18.250165] (-) TimerEvent: {}
+[18.350485] (-) TimerEvent: {}
+[18.450735] (-) TimerEvent: {}
+[18.551022] (-) TimerEvent: {}
+[18.651281] (-) TimerEvent: {}
+[18.751592] (-) TimerEvent: {}
+[18.851814] (-) TimerEvent: {}
+[18.952069] (-) TimerEvent: {}
+[19.052385] (-) TimerEvent: {}
+[19.152707] (-) TimerEvent: {}
+[19.252940] (-) TimerEvent: {}
+[19.353191] (-) TimerEvent: {}
+[19.453440] (-) TimerEvent: {}
+[19.553811] (-) TimerEvent: {}
+[19.654075] (-) TimerEvent: {}
+[19.754317] (-) TimerEvent: {}
+[19.854652] (-) TimerEvent: {}
+[19.954888] (-) TimerEvent: {}
+[20.055224] (-) TimerEvent: {}
+[20.155463] (-) TimerEvent: {}
+[20.255731] (-) TimerEvent: {}
+[20.355957] (-) TimerEvent: {}
+[20.456208] (-) TimerEvent: {}
+[20.556563] (-) TimerEvent: {}
+[20.656810] (-) TimerEvent: {}
+[20.757081] (-) TimerEvent: {}
+[20.857326] (-) TimerEvent: {}
+[20.957636] (-) TimerEvent: {}
+[21.057947] (-) TimerEvent: {}
+[21.158164] (-) TimerEvent: {}
+[21.258412] (-) TimerEvent: {}
+[21.358741] (-) TimerEvent: {}
+[21.458979] (-) TimerEvent: {}
+[21.559193] (-) TimerEvent: {}
+[21.659408] (-) TimerEvent: {}
+[21.759716] (-) TimerEvent: {}
+[21.859960] (-) TimerEvent: {}
+[21.960206] (-) TimerEvent: {}
+[22.060437] (-) TimerEvent: {}
+[22.160759] (-) TimerEvent: {}
+[22.261018] (-) TimerEvent: {}
+[22.361263] (-) TimerEvent: {}
+[22.461506] (-) TimerEvent: {}
+[22.561726] (-) TimerEvent: {}
+[22.661948] (-) TimerEvent: {}
+[22.762254] (-) TimerEvent: {}
+[22.862510] (-) TimerEvent: {}
+[22.962750] (-) TimerEvent: {}
+[23.063003] (-) TimerEvent: {}
+[23.163222] (-) TimerEvent: {}
+[23.263543] (-) TimerEvent: {}
+[23.363771] (-) TimerEvent: {}
+[23.463997] (-) TimerEvent: {}
+[23.564247] (-) TimerEvent: {}
+[23.664500] (-) TimerEvent: {}
+[23.764750] (-) TimerEvent: {}
+[23.864974] (-) TimerEvent: {}
+[23.965220] (-) TimerEvent: {}
+[24.065450] (-) TimerEvent: {}
+[24.165673] (-) TimerEvent: {}
+[24.190731] (lego_loam_sr) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/eigen3/Eigen/Core:253\x1b[m\x1b[K,\n'}
+[24.191097] (lego_loam_sr) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/eigen3/Eigen/StdVector:14\x1b[m\x1b[K,\n'}
+[24.191156] (lego_loam_sr) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/pcl-1.14/pcl/point_cloud.h:45\x1b[m\x1b[K,\n'}
+[24.191201] (lego_loam_sr) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/include/lego_loam/utility.h:14\x1b[m\x1b[K,\n'}
+[24.191261] (lego_loam_sr) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/featureAssociation.h:4\x1b[m\x1b[K,\n'}
+[24.191323] (lego_loam_sr) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/featureAssociation.cpp:37\x1b[m\x1b[K:\n'}
+[24.191385] (lego_loam_sr) StderrLine: {'line': b'In member function \xe2\x80\x98\x1b[01m\x1b[KEigen::internal::scalar_product_op<LhsScalar, RhsScalar>::result_type Eigen::internal::scalar_product_op<LhsScalar, RhsScalar>::\x1b[01;32m\x1b[Koperator()\x1b[m\x1b[K(const LhsScalar&, const RhsScalar&) const \x1b[35m\x1b[K[with LhsScalar = float; RhsScalar = float]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99,\n'}
+[24.191455] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[KEigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<BinaryOp, Lhs, Rhs>, Eigen::internal::IndexBased, Eigen::internal::IndexBased>::CoeffReturnType Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<BinaryOp, Lhs, Rhs>, Eigen::internal::IndexBased, Eigen::internal::IndexBased>::\x1b[01;32m\x1b[Kcoeff\x1b[m\x1b[K(Eigen::Index, Eigen::Index) const \x1b[35m\x1b[K[with BinaryOp = Eigen::internal::scalar_product_op<float, float>; Lhs = const Eigen::Transpose<const Eigen::Block<const Eigen::Matrix<float, 3, 3>, 1, 3, false> >; Rhs = const Eigen::Block<const Eigen::Matrix<float, 3, 1>, 3, 1, true>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/CoreEvaluators.h:769:22\x1b[m\x1b[K,\n'}
+[24.191516] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[KEigen::internal::redux_evaluator<_XprType>::CoeffReturnType Eigen::internal::redux_evaluator<_XprType>::\x1b[01;32m\x1b[KcoeffByOuterInner\x1b[m\x1b[K(Eigen::Index, Eigen::Index) const \x1b[35m\x1b[K[with _XprType = Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<float, float>, const Eigen::Transpose<const Eigen::Block<const Eigen::Matrix<float, 3, 3>, 1, 3, false> >, const Eigen::Block<const Eigen::Matrix<float, 3, 1>, 3, 1, true> >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/Redux.h:381:23\x1b[m\x1b[K,\n'}
+[24.191563] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic Eigen::internal::redux_novec_unroller<Func, Evaluator, Start, 1>::Scalar Eigen::internal::redux_novec_unroller<Func, Evaluator, Start, 1>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(const Evaluator&, const Func&) \x1b[35m\x1b[K[with Func = Eigen::internal::scalar_sum_op<float, float>; Evaluator = Eigen::internal::redux_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<float, float>, const Eigen::Transpose<const Eigen::Block<const Eigen::Matrix<float, 3, 3>, 1, 3, false> >, const Eigen::Block<const Eigen::Matrix<float, 3, 1>, 3, 1, true> > >; int Start = 2]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/Redux.h:128:34\x1b[m\x1b[K,\n'}
+[24.191670] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic Eigen::internal::redux_novec_unroller<Func, Evaluator, Start, Length>::Scalar Eigen::internal::redux_novec_unroller<Func, Evaluator, Start, Length>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(const Evaluator&, const Func&) \x1b[35m\x1b[K[with Func = Eigen::internal::scalar_sum_op<float, float>; Evaluator = Eigen::internal::redux_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<float, float>, const Eigen::Transpose<const Eigen::Block<const Eigen::Matrix<float, 3, 3>, 1, 3, false> >, const Eigen::Block<const Eigen::Matrix<float, 3, 1>, 3, 1, true> > >; int Start = 1; int Length = 2]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/Redux.h:111:96\x1b[m\x1b[K,\n'}
+[24.191718] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic Eigen::internal::redux_novec_unroller<Func, Evaluator, Start, Length>::Scalar Eigen::internal::redux_novec_unroller<Func, Evaluator, Start, Length>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(const Evaluator&, const Func&) \x1b[35m\x1b[K[with Func = Eigen::internal::scalar_sum_op<float, float>; Evaluator = Eigen::internal::redux_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<float, float>, const Eigen::Transpose<const Eigen::Block<const Eigen::Matrix<float, 3, 3>, 1, 3, false> >, const Eigen::Block<const Eigen::Matrix<float, 3, 1>, 3, 1, true> > >; int Start = 0; int Length = 3]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/Redux.h:111:96\x1b[m\x1b[K,\n'}
+[24.191763] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic Eigen::internal::redux_impl<Func, Evaluator, 0, 2>::Scalar Eigen::internal::redux_impl<Func, Evaluator, 0, 2>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(const Evaluator&, const Func&, const XprType&) \x1b[35m\x1b[K[with XprType = Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<float, float>, const Eigen::Transpose<const Eigen::Block<const Eigen::Matrix<float, 3, 3>, 1, 3, false> >, const Eigen::Block<const Eigen::Matrix<float, 3, 1>, 3, 1, true> >; Func = Eigen::internal::scalar_sum_op<float, float>; Evaluator = Eigen::internal::redux_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<float, float>, const Eigen::Transpose<const Eigen::Block<const Eigen::Matrix<float, 3, 3>, 1, 3, false> >, const Eigen::Block<const Eigen::Matrix<float, 3, 1>, 3, 1, true> > >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/Redux.h:222:21\x1b[m\x1b[K,\n'}
+[24.191815] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Ktypename Eigen::internal::traits<T>::Scalar Eigen::DenseBase<Derived>::\x1b[01;32m\x1b[Kredux\x1b[m\x1b[K(const Func&) const \x1b[35m\x1b[K[with BinaryOp = Eigen::internal::scalar_sum_op<float, float>; Derived = Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<float, float>, const Eigen::Transpose<const Eigen::Block<const Eigen::Matrix<float, 3, 3>, 1, 3, false> >, const Eigen::Block<const Eigen::Matrix<float, 3, 1>, 3, 1, true> >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/Redux.h:418:56\x1b[m\x1b[K,\n'}
+[24.191860] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Ktypename Eigen::internal::traits<T>::Scalar Eigen::DenseBase<Derived>::\x1b[01;32m\x1b[Ksum\x1b[m\x1b[K() const \x1b[35m\x1b[K[with Derived = Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<float, float>, const Eigen::Transpose<const Eigen::Block<const Eigen::Matrix<float, 3, 3>, 1, 3, false> >, const Eigen::Block<const Eigen::Matrix<float, 3, 1>, 3, 1, true> >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/Redux.h:463:25\x1b[m\x1b[K,\n'}
+[24.191902] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kconst Eigen::internal::product_evaluator<Eigen::Product<Lhs, Rhs, 1>, ProductTag, Eigen::DenseShape, Eigen::DenseShape>::CoeffReturnType Eigen::internal::product_evaluator<Eigen::Product<Lhs, Rhs, 1>, ProductTag, Eigen::DenseShape, Eigen::DenseShape>::\x1b[01;32m\x1b[Kcoeff\x1b[m\x1b[K(Eigen::Index, Eigen::Index) const \x1b[35m\x1b[K[with Lhs = Eigen::Matrix<float, 3, 3>; Rhs = Eigen::Matrix<float, 3, 1>; int ProductTag = 3]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/ProductEvaluators.h:606:75\x1b[m\x1b[K,\n'}
+[24.191945] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kvoid Eigen::internal::generic_dense_assignment_kernel<DstEvaluatorTypeT, SrcEvaluatorTypeT, Functor, Version>::\x1b[01;32m\x1b[KassignCoeff\x1b[m\x1b[K(Eigen::Index, Eigen::Index) \x1b[35m\x1b[K[with DstEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Matrix<float, 3, 1> >; SrcEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 1> >; Functor = Eigen::internal::assign_op<float, float>; int Version = 0]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:654:63\x1b[m\x1b[K,\n'}
+[24.191996] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kvoid Eigen::internal::generic_dense_assignment_kernel<DstEvaluatorTypeT, SrcEvaluatorTypeT, Functor, Version>::\x1b[01;32m\x1b[KassignCoeffByOuterInner\x1b[m\x1b[K(Eigen::Index, Eigen::Index) \x1b[35m\x1b[K[with DstEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Matrix<float, 3, 1> >; SrcEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 1> >; Functor = Eigen::internal::assign_op<float, float>; int Version = 0]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:668:16\x1b[m\x1b[K,\n'}
+[24.192041] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic void Eigen::internal::copy_using_evaluator_DefaultTraversal_CompleteUnrolling<Kernel, Index, Stop>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(Kernel&) \x1b[35m\x1b[K[with Kernel = Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float, 3, 1> >, Eigen::internal::evaluator<Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 1> >, Eigen::internal::assign_op<float, float>, 0>; int Index = 2; int Stop = 3]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:211:35\x1b[m\x1b[K,\n'}
+[24.192083] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic void Eigen::internal::copy_using_evaluator_DefaultTraversal_CompleteUnrolling<Kernel, Index, Stop>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(Kernel&) \x1b[35m\x1b[K[with Kernel = Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float, 3, 1> >, Eigen::internal::evaluator<Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 1> >, Eigen::internal::assign_op<float, float>, 0>; int Index = 1; int Stop = 3]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:212:88\x1b[m\x1b[K,\n'}
+[24.192125] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic void Eigen::internal::copy_using_evaluator_DefaultTraversal_CompleteUnrolling<Kernel, Index, Stop>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(Kernel&) \x1b[35m\x1b[K[with Kernel = Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float, 3, 1> >, Eigen::internal::evaluator<Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 1> >, Eigen::internal::assign_op<float, float>, 0>; int Index = 0; int Stop = 3]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:212:88\x1b[m\x1b[K,\n'}
+[24.192169] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic void Eigen::internal::dense_assignment_loop<Kernel, 3, 2>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(Kernel&) \x1b[35m\x1b[K[with Kernel = Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float, 3, 1> >, Eigen::internal::evaluator<Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 1> >, Eigen::internal::assign_op<float, float>, 0>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:456:92\x1b[m\x1b[K,\n'}
+[24.192211] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kvoid Eigen::internal::\x1b[01;32m\x1b[Kcall_dense_assignment_loop\x1b[m\x1b[K(DstXprType&, const SrcXprType&, const Functor&) \x1b[35m\x1b[K[with DstXprType = Eigen::Matrix<float, 3, 1>; SrcXprType = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 1>; Functor = assign_op<float, float>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:785:37\x1b[m\x1b[K,\n'}
+[24.192252] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic void Eigen::internal::Assignment<DstXprType, SrcXprType, Functor, Eigen::internal::Dense2Dense, Weak>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(DstXprType&, const SrcXprType&, const Functor&) \x1b[35m\x1b[K[with DstXprType = Eigen::Matrix<float, 3, 1>; SrcXprType = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 1>; Functor = Eigen::internal::assign_op<float, float>; Weak = void]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:954:31\x1b[m\x1b[K,\n'}
+[24.192296] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kvoid Eigen::internal::\x1b[01;32m\x1b[Kcall_assignment_no_alias\x1b[m\x1b[K(Dst&, const Src&, const Func&) \x1b[35m\x1b[K[with Dst = Eigen::Matrix<float, 3, 1>; Src = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 1>; Func = assign_op<float, float>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:890:49\x1b[m\x1b[K,\n'}
+[24.192339] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic void Eigen::internal::generic_product_impl<Lhs, Rhs, Eigen::DenseShape, Eigen::DenseShape, 3>::\x1b[01;32m\x1b[KevalTo\x1b[m\x1b[K(Dst&, const Lhs&, const Rhs&) \x1b[35m\x1b[K[with Dst = Eigen::Matrix<float, 3, 1>; Lhs = Eigen::Matrix<float, 3, 3>; Rhs = Eigen::Matrix<float, 3, 1>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/ProductEvaluators.h:402:29\x1b[m\x1b[K,\n'}
+[24.192381] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic void Eigen::internal::Assignment<DstXprType, Eigen::Product<Lhs, Rhs, Options>, Eigen::internal::assign_op<Scalar, Scalar>, Eigen::internal::Dense2Dense, typename Eigen::internal::enable_if<((Options == Eigen::DefaultProduct) || (Options == Eigen::AliasFreeProduct))>::type>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(DstXprType&, const SrcXprType&, const Eigen::internal::assign_op<Scalar, Scalar>&) \x1b[35m\x1b[K[with DstXprType = Eigen::Matrix<float, 3, 1>; Lhs = Eigen::Matrix<float, 3, 3>; Rhs = Eigen::Matrix<float, 3, 1>; int Options = 0; Scalar = float]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/ProductEvaluators.h:148:43\x1b[m\x1b[K,\n'}
+[24.192424] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kvoid Eigen::internal::\x1b[01;32m\x1b[Kcall_assignment_no_alias\x1b[m\x1b[K(Dst&, const Src&, const Func&) \x1b[35m\x1b[K[with Dst = Eigen::Matrix<float, 3, 1>; Src = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 0>; Func = assign_op<float, float>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:890:49\x1b[m\x1b[K,\n'}
+[24.192465] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[KDerived& Eigen::PlainObjectBase<Derived>::\x1b[01;32m\x1b[K_set_noalias\x1b[m\x1b[K(const Eigen::DenseBase<OtherDerived>&) \x1b[35m\x1b[K[with OtherDerived = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 0>; Derived = Eigen::Matrix<float, 3, 1>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h:797:41\x1b[m\x1b[K,\n'}
+[24.192506] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kvoid Eigen::PlainObjectBase<Derived>::\x1b[01;32m\x1b[K_init1\x1b[m\x1b[K(const Eigen::DenseBase<ElseDerived>&) \x1b[35m\x1b[K[with T = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 0>; OtherDerived = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 0>; Derived = Eigen::Matrix<float, 3, 1>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h:883:25\x1b[m\x1b[K,\n'}
+[24.192550] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[KEigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::\x1b[01;32m\x1b[KMatrix\x1b[m\x1b[K(const T&) \x1b[35m\x1b[K[with T = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 0>; _Scalar = float; int _Rows = 3; int _Cols = 1; int _Options = 0; int _MaxRows = 3; int _MaxCols = 1]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/Matrix.h:332:31\x1b[m\x1b[K,\n'}
+[24.192596] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kvoid Eigen::internal::\x1b[01;32m\x1b[Kcall_assignment\x1b[m\x1b[K(Dst&, const Src&, const Func&, typename enable_if<evaluator_assume_aliasing<Src>::value, void*>::type) \x1b[35m\x1b[K[with Dst = Eigen::Matrix<float, 3, 1>; Src = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 0>; Func = assign_op<float, float>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:850:41\x1b[m\x1b[K,\n'}
+[24.192638] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kvoid Eigen::internal::\x1b[01;32m\x1b[Kcall_assignment\x1b[m\x1b[K(Dst&, const Src&) \x1b[35m\x1b[K[with Dst = Eigen::Matrix<float, 3, 1>; Src = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 0>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:836:18\x1b[m\x1b[K,\n'}
+[24.192681] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[KDerived& Eigen::PlainObjectBase<Derived>::\x1b[01;32m\x1b[K_set\x1b[m\x1b[K(const Eigen::DenseBase<OtherDerived>&) \x1b[35m\x1b[K[with OtherDerived = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 0>; Derived = Eigen::Matrix<float, 3, 1>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h:779:32\x1b[m\x1b[K,\n'}
+[24.192722] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[KEigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>& Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::\x1b[01;32m\x1b[Koperator=\x1b[m\x1b[K(const Eigen::DenseBase<OtherDerived>&) \x1b[35m\x1b[K[with OtherDerived = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 0>; _Scalar = float; int _Rows = 3; int _Cols = 1; int _Options = 0; int _MaxRows = 3; int _MaxCols = 1]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/Matrix.h:225:24\x1b[m\x1b[K,\n'}
+[24.192762] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kbool FeatureAssociation::\x1b[01;32m\x1b[KcalculateTransformationSurf\x1b[m\x1b[K(int)\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/featureAssociation.cpp:1270:19\x1b[m\x1b[K:\n'}
+[24.192802] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/functors/BinaryFunctors.h:80:124:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KmatP.Eigen::Matrix<float, 3, 3, 0, 3, 3>::<unnamed>.Eigen::PlainObjectBase<Eigen::Matrix<float, 3, 3, 0, 3, 3> >::m_storage.Eigen::DenseStorage<float, 9, 3, 3, 0>::m_data.Eigen::internal::plain_array<float, 9, 0, 0>::array[8]\x1b[m\x1b[K\xe2\x80\x99 may be used uninitialized [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmaybe-uninitialized\x07-Wmaybe-uninitialized\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[24.192848] (lego_loam_sr) StderrLine: {'line': b'   80 |   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type operator() (const LhsScalar& a, const RhsScalar& b) const { return a * \x1b[01;35m\x1b[Kb\x1b[m\x1b[K; }\n'}
+[24.192888] (lego_loam_sr) StderrLine: {'line': b'      |                                                                                                                            \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[24.192928] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/featureAssociation.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kbool FeatureAssociation::\x1b[01;32m\x1b[KcalculateTransformationSurf\x1b[m\x1b[K(int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[24.192967] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/featureAssociation.cpp:1175:28:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KmatP.Eigen::Matrix<float, 3, 3, 0, 3, 3>::<unnamed>.Eigen::PlainObjectBase<Eigen::Matrix<float, 3, 3, 0, 3, 3> >::m_storage.Eigen::DenseStorage<float, 9, 3, 3, 0>::m_data.Eigen::internal::plain_array<float, 9, 0, 0>::array[8]\x1b[m\x1b[K\xe2\x80\x99 was declared here\n'}
+[24.193007] (lego_loam_sr) StderrLine: {'line': b' 1175 |   Eigen::Matrix<float,3,3> \x1b[01;36m\x1b[KmatP\x1b[m\x1b[K;\n'}
+[24.193044] (lego_loam_sr) StderrLine: {'line': b'      |                            \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[24.265770] (-) TimerEvent: {}
+[24.289667] (lego_loam_sr) StderrLine: {'line': b'In member function \xe2\x80\x98\x1b[01m\x1b[KEigen::internal::scalar_product_op<LhsScalar, RhsScalar>::result_type Eigen::internal::scalar_product_op<LhsScalar, RhsScalar>::\x1b[01;32m\x1b[Koperator()\x1b[m\x1b[K(const LhsScalar&, const RhsScalar&) const \x1b[35m\x1b[K[with LhsScalar = float; RhsScalar = float]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99,\n'}
+[24.290044] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[KEigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<BinaryOp, Lhs, Rhs>, Eigen::internal::IndexBased, Eigen::internal::IndexBased>::CoeffReturnType Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<BinaryOp, Lhs, Rhs>, Eigen::internal::IndexBased, Eigen::internal::IndexBased>::\x1b[01;32m\x1b[Kcoeff\x1b[m\x1b[K(Eigen::Index, Eigen::Index) const \x1b[35m\x1b[K[with BinaryOp = Eigen::internal::scalar_product_op<float, float>; Lhs = const Eigen::Transpose<const Eigen::Block<const Eigen::Matrix<float, 3, 3>, 1, 3, false> >; Rhs = const Eigen::Block<const Eigen::Matrix<float, 3, 1>, 3, 1, true>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/CoreEvaluators.h:769:22\x1b[m\x1b[K,\n'}
+[24.290146] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[KEigen::internal::redux_evaluator<_XprType>::CoeffReturnType Eigen::internal::redux_evaluator<_XprType>::\x1b[01;32m\x1b[KcoeffByOuterInner\x1b[m\x1b[K(Eigen::Index, Eigen::Index) const \x1b[35m\x1b[K[with _XprType = Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<float, float>, const Eigen::Transpose<const Eigen::Block<const Eigen::Matrix<float, 3, 3>, 1, 3, false> >, const Eigen::Block<const Eigen::Matrix<float, 3, 1>, 3, 1, true> >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/Redux.h:381:23\x1b[m\x1b[K,\n'}
+[24.290196] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic Eigen::internal::redux_novec_unroller<Func, Evaluator, Start, 1>::Scalar Eigen::internal::redux_novec_unroller<Func, Evaluator, Start, 1>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(const Evaluator&, const Func&) \x1b[35m\x1b[K[with Func = Eigen::internal::scalar_sum_op<float, float>; Evaluator = Eigen::internal::redux_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<float, float>, const Eigen::Transpose<const Eigen::Block<const Eigen::Matrix<float, 3, 3>, 1, 3, false> >, const Eigen::Block<const Eigen::Matrix<float, 3, 1>, 3, 1, true> > >; int Start = 2]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/Redux.h:128:34\x1b[m\x1b[K,\n'}
+[24.290241] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic Eigen::internal::redux_novec_unroller<Func, Evaluator, Start, Length>::Scalar Eigen::internal::redux_novec_unroller<Func, Evaluator, Start, Length>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(const Evaluator&, const Func&) \x1b[35m\x1b[K[with Func = Eigen::internal::scalar_sum_op<float, float>; Evaluator = Eigen::internal::redux_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<float, float>, const Eigen::Transpose<const Eigen::Block<const Eigen::Matrix<float, 3, 3>, 1, 3, false> >, const Eigen::Block<const Eigen::Matrix<float, 3, 1>, 3, 1, true> > >; int Start = 1; int Length = 2]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/Redux.h:111:96\x1b[m\x1b[K,\n'}
+[24.290285] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic Eigen::internal::redux_novec_unroller<Func, Evaluator, Start, Length>::Scalar Eigen::internal::redux_novec_unroller<Func, Evaluator, Start, Length>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(const Evaluator&, const Func&) \x1b[35m\x1b[K[with Func = Eigen::internal::scalar_sum_op<float, float>; Evaluator = Eigen::internal::redux_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<float, float>, const Eigen::Transpose<const Eigen::Block<const Eigen::Matrix<float, 3, 3>, 1, 3, false> >, const Eigen::Block<const Eigen::Matrix<float, 3, 1>, 3, 1, true> > >; int Start = 0; int Length = 3]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/Redux.h:111:96\x1b[m\x1b[K,\n'}
+[24.290324] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic Eigen::internal::redux_impl<Func, Evaluator, 0, 2>::Scalar Eigen::internal::redux_impl<Func, Evaluator, 0, 2>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(const Evaluator&, const Func&, const XprType&) \x1b[35m\x1b[K[with XprType = Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<float, float>, const Eigen::Transpose<const Eigen::Block<const Eigen::Matrix<float, 3, 3>, 1, 3, false> >, const Eigen::Block<const Eigen::Matrix<float, 3, 1>, 3, 1, true> >; Func = Eigen::internal::scalar_sum_op<float, float>; Evaluator = Eigen::internal::redux_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<float, float>, const Eigen::Transpose<const Eigen::Block<const Eigen::Matrix<float, 3, 3>, 1, 3, false> >, const Eigen::Block<const Eigen::Matrix<float, 3, 1>, 3, 1, true> > >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/Redux.h:222:21\x1b[m\x1b[K,\n'}
+[24.290366] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Ktypename Eigen::internal::traits<T>::Scalar Eigen::DenseBase<Derived>::\x1b[01;32m\x1b[Kredux\x1b[m\x1b[K(const Func&) const \x1b[35m\x1b[K[with BinaryOp = Eigen::internal::scalar_sum_op<float, float>; Derived = Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<float, float>, const Eigen::Transpose<const Eigen::Block<const Eigen::Matrix<float, 3, 3>, 1, 3, false> >, const Eigen::Block<const Eigen::Matrix<float, 3, 1>, 3, 1, true> >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/Redux.h:418:56\x1b[m\x1b[K,\n'}
+[24.290406] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Ktypename Eigen::internal::traits<T>::Scalar Eigen::DenseBase<Derived>::\x1b[01;32m\x1b[Ksum\x1b[m\x1b[K() const \x1b[35m\x1b[K[with Derived = Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<float, float>, const Eigen::Transpose<const Eigen::Block<const Eigen::Matrix<float, 3, 3>, 1, 3, false> >, const Eigen::Block<const Eigen::Matrix<float, 3, 1>, 3, 1, true> >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/Redux.h:463:25\x1b[m\x1b[K,\n'}
+[24.290443] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kconst Eigen::internal::product_evaluator<Eigen::Product<Lhs, Rhs, 1>, ProductTag, Eigen::DenseShape, Eigen::DenseShape>::CoeffReturnType Eigen::internal::product_evaluator<Eigen::Product<Lhs, Rhs, 1>, ProductTag, Eigen::DenseShape, Eigen::DenseShape>::\x1b[01;32m\x1b[Kcoeff\x1b[m\x1b[K(Eigen::Index, Eigen::Index) const \x1b[35m\x1b[K[with Lhs = Eigen::Matrix<float, 3, 3>; Rhs = Eigen::Matrix<float, 3, 1>; int ProductTag = 3]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/ProductEvaluators.h:606:75\x1b[m\x1b[K,\n'}
+[24.290481] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kvoid Eigen::internal::generic_dense_assignment_kernel<DstEvaluatorTypeT, SrcEvaluatorTypeT, Functor, Version>::\x1b[01;32m\x1b[KassignCoeff\x1b[m\x1b[K(Eigen::Index, Eigen::Index) \x1b[35m\x1b[K[with DstEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Matrix<float, 3, 1> >; SrcEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 1> >; Functor = Eigen::internal::assign_op<float, float>; int Version = 0]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:654:63\x1b[m\x1b[K,\n'}
+[24.290519] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kvoid Eigen::internal::generic_dense_assignment_kernel<DstEvaluatorTypeT, SrcEvaluatorTypeT, Functor, Version>::\x1b[01;32m\x1b[KassignCoeffByOuterInner\x1b[m\x1b[K(Eigen::Index, Eigen::Index) \x1b[35m\x1b[K[with DstEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Matrix<float, 3, 1> >; SrcEvaluatorTypeT = Eigen::internal::evaluator<Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 1> >; Functor = Eigen::internal::assign_op<float, float>; int Version = 0]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:668:16\x1b[m\x1b[K,\n'}
+[24.290557] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic void Eigen::internal::copy_using_evaluator_DefaultTraversal_CompleteUnrolling<Kernel, Index, Stop>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(Kernel&) \x1b[35m\x1b[K[with Kernel = Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float, 3, 1> >, Eigen::internal::evaluator<Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 1> >, Eigen::internal::assign_op<float, float>, 0>; int Index = 2; int Stop = 3]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:211:35\x1b[m\x1b[K,\n'}
+[24.290601] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic void Eigen::internal::copy_using_evaluator_DefaultTraversal_CompleteUnrolling<Kernel, Index, Stop>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(Kernel&) \x1b[35m\x1b[K[with Kernel = Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float, 3, 1> >, Eigen::internal::evaluator<Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 1> >, Eigen::internal::assign_op<float, float>, 0>; int Index = 1; int Stop = 3]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:212:88\x1b[m\x1b[K,\n'}
+[24.290638] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic void Eigen::internal::copy_using_evaluator_DefaultTraversal_CompleteUnrolling<Kernel, Index, Stop>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(Kernel&) \x1b[35m\x1b[K[with Kernel = Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float, 3, 1> >, Eigen::internal::evaluator<Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 1> >, Eigen::internal::assign_op<float, float>, 0>; int Index = 0; int Stop = 3]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:212:88\x1b[m\x1b[K,\n'}
+[24.290677] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic void Eigen::internal::dense_assignment_loop<Kernel, 3, 2>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(Kernel&) \x1b[35m\x1b[K[with Kernel = Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float, 3, 1> >, Eigen::internal::evaluator<Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 1> >, Eigen::internal::assign_op<float, float>, 0>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:456:92\x1b[m\x1b[K,\n'}
+[24.290714] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kvoid Eigen::internal::\x1b[01;32m\x1b[Kcall_dense_assignment_loop\x1b[m\x1b[K(DstXprType&, const SrcXprType&, const Functor&) \x1b[35m\x1b[K[with DstXprType = Eigen::Matrix<float, 3, 1>; SrcXprType = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 1>; Functor = assign_op<float, float>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:785:37\x1b[m\x1b[K,\n'}
+[24.290751] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic void Eigen::internal::Assignment<DstXprType, SrcXprType, Functor, Eigen::internal::Dense2Dense, Weak>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(DstXprType&, const SrcXprType&, const Functor&) \x1b[35m\x1b[K[with DstXprType = Eigen::Matrix<float, 3, 1>; SrcXprType = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 1>; Functor = Eigen::internal::assign_op<float, float>; Weak = void]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:954:31\x1b[m\x1b[K,\n'}
+[24.290791] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kvoid Eigen::internal::\x1b[01;32m\x1b[Kcall_assignment_no_alias\x1b[m\x1b[K(Dst&, const Src&, const Func&) \x1b[35m\x1b[K[with Dst = Eigen::Matrix<float, 3, 1>; Src = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 1>; Func = assign_op<float, float>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:890:49\x1b[m\x1b[K,\n'}
+[24.290826] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic void Eigen::internal::generic_product_impl<Lhs, Rhs, Eigen::DenseShape, Eigen::DenseShape, 3>::\x1b[01;32m\x1b[KevalTo\x1b[m\x1b[K(Dst&, const Lhs&, const Rhs&) \x1b[35m\x1b[K[with Dst = Eigen::Matrix<float, 3, 1>; Lhs = Eigen::Matrix<float, 3, 3>; Rhs = Eigen::Matrix<float, 3, 1>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/ProductEvaluators.h:402:29\x1b[m\x1b[K,\n'}
+[24.290863] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kstatic void Eigen::internal::Assignment<DstXprType, Eigen::Product<Lhs, Rhs, Options>, Eigen::internal::assign_op<Scalar, Scalar>, Eigen::internal::Dense2Dense, typename Eigen::internal::enable_if<((Options == Eigen::DefaultProduct) || (Options == Eigen::AliasFreeProduct))>::type>::\x1b[01;32m\x1b[Krun\x1b[m\x1b[K(DstXprType&, const SrcXprType&, const Eigen::internal::assign_op<Scalar, Scalar>&) \x1b[35m\x1b[K[with DstXprType = Eigen::Matrix<float, 3, 1>; Lhs = Eigen::Matrix<float, 3, 3>; Rhs = Eigen::Matrix<float, 3, 1>; int Options = 0; Scalar = float]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/ProductEvaluators.h:148:43\x1b[m\x1b[K,\n'}
+[24.290904] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kvoid Eigen::internal::\x1b[01;32m\x1b[Kcall_assignment_no_alias\x1b[m\x1b[K(Dst&, const Src&, const Func&) \x1b[35m\x1b[K[with Dst = Eigen::Matrix<float, 3, 1>; Src = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 0>; Func = assign_op<float, float>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:890:49\x1b[m\x1b[K,\n'}
+[24.290940] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[KDerived& Eigen::PlainObjectBase<Derived>::\x1b[01;32m\x1b[K_set_noalias\x1b[m\x1b[K(const Eigen::DenseBase<OtherDerived>&) \x1b[35m\x1b[K[with OtherDerived = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 0>; Derived = Eigen::Matrix<float, 3, 1>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h:797:41\x1b[m\x1b[K,\n'}
+[24.290977] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kvoid Eigen::PlainObjectBase<Derived>::\x1b[01;32m\x1b[K_init1\x1b[m\x1b[K(const Eigen::DenseBase<ElseDerived>&) \x1b[35m\x1b[K[with T = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 0>; OtherDerived = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 0>; Derived = Eigen::Matrix<float, 3, 1>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h:883:25\x1b[m\x1b[K,\n'}
+[24.291015] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[KEigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::\x1b[01;32m\x1b[KMatrix\x1b[m\x1b[K(const T&) \x1b[35m\x1b[K[with T = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 0>; _Scalar = float; int _Rows = 3; int _Cols = 1; int _Options = 0; int _MaxRows = 3; int _MaxCols = 1]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/Matrix.h:332:31\x1b[m\x1b[K,\n'}
+[24.291054] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kvoid Eigen::internal::\x1b[01;32m\x1b[Kcall_assignment\x1b[m\x1b[K(Dst&, const Src&, const Func&, typename enable_if<evaluator_assume_aliasing<Src>::value, void*>::type) \x1b[35m\x1b[K[with Dst = Eigen::Matrix<float, 3, 1>; Src = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 0>; Func = assign_op<float, float>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:850:41\x1b[m\x1b[K,\n'}
+[24.291094] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kvoid Eigen::internal::\x1b[01;32m\x1b[Kcall_assignment\x1b[m\x1b[K(Dst&, const Src&) \x1b[35m\x1b[K[with Dst = Eigen::Matrix<float, 3, 1>; Src = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 0>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:836:18\x1b[m\x1b[K,\n'}
+[24.291129] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[KDerived& Eigen::PlainObjectBase<Derived>::\x1b[01;32m\x1b[K_set\x1b[m\x1b[K(const Eigen::DenseBase<OtherDerived>&) \x1b[35m\x1b[K[with OtherDerived = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 0>; Derived = Eigen::Matrix<float, 3, 1>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h:779:32\x1b[m\x1b[K,\n'}
+[24.291165] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[KEigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>& Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::\x1b[01;32m\x1b[Koperator=\x1b[m\x1b[K(const Eigen::DenseBase<OtherDerived>&) \x1b[35m\x1b[K[with OtherDerived = Eigen::Product<Eigen::Matrix<float, 3, 3>, Eigen::Matrix<float, 3, 1>, 0>; _Scalar = float; int _Rows = 3; int _Cols = 1; int _Options = 0; int _MaxRows = 3; int _MaxCols = 1]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/Matrix.h:225:24\x1b[m\x1b[K,\n'}
+[24.291201] (lego_loam_sr) StderrLine: {'line': b'    inlined from \xe2\x80\x98\x1b[01m\x1b[Kbool FeatureAssociation::\x1b[01;32m\x1b[KcalculateTransformationCorner\x1b[m\x1b[K(int)\x1b[m\x1b[K\xe2\x80\x99 at \x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/featureAssociation.cpp:1405:19\x1b[m\x1b[K:\n'}
+[24.291238] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/eigen3/Eigen/src/Core/functors/BinaryFunctors.h:80:124:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KmatP.Eigen::Matrix<float, 3, 3, 0, 3, 3>::<unnamed>.Eigen::PlainObjectBase<Eigen::Matrix<float, 3, 3, 0, 3, 3> >::m_storage.Eigen::DenseStorage<float, 9, 3, 3, 0>::m_data.Eigen::internal::plain_array<float, 9, 0, 0>::array[8]\x1b[m\x1b[K\xe2\x80\x99 may be used uninitialized [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmaybe-uninitialized\x07-Wmaybe-uninitialized\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[24.291275] (lego_loam_sr) StderrLine: {'line': b'   80 |   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type operator() (const LhsScalar& a, const RhsScalar& b) const { return a * \x1b[01;35m\x1b[Kb\x1b[m\x1b[K; }\n'}
+[24.291313] (lego_loam_sr) StderrLine: {'line': b'      |                                                                                                                            \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[24.291348] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/featureAssociation.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kbool FeatureAssociation::\x1b[01;32m\x1b[KcalculateTransformationCorner\x1b[m\x1b[K(int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[24.291384] (lego_loam_sr) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aly-sultan/Desktop/SLAM/LeGO-LOAM/src/featureAssociation.cpp:1329:28:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KmatP.Eigen::Matrix<float, 3, 3, 0, 3, 3>::<unnamed>.Eigen::PlainObjectBase<Eigen::Matrix<float, 3, 3, 0, 3, 3> >::m_storage.Eigen::DenseStorage<float, 9, 3, 3, 0>::m_data.Eigen::internal::plain_array<float, 9, 0, 0>::array[8]\x1b[m\x1b[K\xe2\x80\x99 was declared here\n'}
+[24.291423] (lego_loam_sr) StderrLine: {'line': b' 1329 |   Eigen::Matrix<float,3,3> \x1b[01;36m\x1b[KmatP\x1b[m\x1b[K;\n'}
+[24.291459] (lego_loam_sr) StderrLine: {'line': b'      |                            \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[24.365863] (-) TimerEvent: {}
+[24.466121] (-) TimerEvent: {}
+[24.566466] (-) TimerEvent: {}
+[24.666740] (-) TimerEvent: {}
+[24.766994] (-) TimerEvent: {}
+[24.867259] (-) TimerEvent: {}
+[24.967522] (-) TimerEvent: {}
+[25.067931] (-) TimerEvent: {}
+[25.168188] (-) TimerEvent: {}
+[25.268442] (-) TimerEvent: {}
+[25.368763] (-) TimerEvent: {}
+[25.468988] (-) TimerEvent: {}
+[25.569316] (-) TimerEvent: {}
+[25.669594] (-) TimerEvent: {}
+[25.769821] (-) TimerEvent: {}
+[25.870084] (-) TimerEvent: {}
+[25.970381] (-) TimerEvent: {}
+[26.070664] (-) TimerEvent: {}
+[26.170970] (-) TimerEvent: {}
+[26.271254] (-) TimerEvent: {}
+[26.305995] (lego_loam_sr) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/lego_loam_sr.dir/all] Error 2\n'}
+[26.306322] (lego_loam_sr) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[26.308506] (lego_loam_sr) CommandEnded: {'returncode': 2}
+[26.316270] (lego_loam_sr) JobEnded: {'identifier': 'lego_loam_sr', 'rc': 2}
+[26.326775] (-) EventReactorShutdown: {}

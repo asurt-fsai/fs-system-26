@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM
+CMAKE_SOURCE_DIR = /home/aly-sultan/Desktop/SLAM/LeGO-LOAM
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aly-sultan/Desktop/fs-system-25/SLAM/build/lego_loam_sr
+CMAKE_BINARY_DIR = /home/aly-sultan/Desktop/SLAM/build/lego_loam_sr
 
 # Utility rule file for uninstall.
 
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/aly-sultan/Desktop/fs-system-25/SLAM/build/lego_loam_sr && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM /home/aly-sultan/Desktop/fs-system-25/SLAM/LeGO-LOAM /home/aly-sultan/Desktop/fs-system-25/SLAM/build/lego_loam_sr /home/aly-sultan/Desktop/fs-system-25/SLAM/build/lego_loam_sr /home/aly-sultan/Desktop/fs-system-25/SLAM/build/lego_loam_sr/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/aly-sultan/Desktop/SLAM/build/lego_loam_sr && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aly-sultan/Desktop/SLAM/LeGO-LOAM /home/aly-sultan/Desktop/SLAM/LeGO-LOAM /home/aly-sultan/Desktop/SLAM/build/lego_loam_sr /home/aly-sultan/Desktop/SLAM/build/lego_loam_sr /home/aly-sultan/Desktop/SLAM/build/lego_loam_sr/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/uninstall.dir/depend
 

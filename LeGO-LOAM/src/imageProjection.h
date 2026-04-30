@@ -3,6 +3,7 @@
 
 #include "lego_loam/utility.h"
 #include "lego_loam/channel.h"
+#include <visualization_msgs/msg/marker_array.hpp>
 #include <Eigen/QR>
 
 class ImageProjection : public rclcpp::Node {
@@ -69,6 +70,7 @@ class ImageProjection : public rclcpp::Node {
   rclcpp::Publisher<cloud_msgs::msg::CloudInfo>::SharedPtr pubSegmentedCloudInfo;
   rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr pubOutlierCloud;
   rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr pubConeCloud;
+  rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr pubConeCloudMarker;
 
 
   cloud_msgs::msg::CloudInfo _seg_msg;

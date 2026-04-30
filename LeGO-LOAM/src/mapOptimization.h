@@ -4,6 +4,7 @@
 #include "lego_loam/utility.h"
 #include "lego_loam/channel.h"
 #include "lego_loam/nanoflann_pcl.h"
+#include <visualization_msgs/msg/marker_array.hpp>
 
 #include <gtsam/geometry/Pose3.h>
 #include <gtsam/geometry/Rot3.h>
@@ -107,6 +108,7 @@ class MapOptimization : public rclcpp::Node {
   rclcpp::Publisher<std_msgs::msg::Int32>::SharedPtr pubLapCount;
 
   rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr pubConeMap;
+  rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr pubConeMapMarker;
 
   nav_msgs::msg::Odometry odomAftMapped;
   nav_msgs::msg::Odometry odomAftMappedAdjusted;

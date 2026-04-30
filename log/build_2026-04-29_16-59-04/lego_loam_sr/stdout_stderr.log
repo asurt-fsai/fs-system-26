@@ -1,0 +1,74 @@
+[0mCMake Error: The current CMakeCache.txt directory /home/aly-sultan/Desktop/SLAM/build/lego_loam_sr/CMakeCache.txt is different than the directory /home/aly-sultan/Desktop/fs-system-25/SLAM/build/lego_loam_sr where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt[0m
+-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found rclcpp: 28.1.12 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)
+-- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+-- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)
+-- Found tf2: 0.36.14 (/opt/ros/jazzy/share/tf2/cmake)
+-- Found tf2_ros: 0.36.14 (/opt/ros/jazzy/share/tf2_ros/cmake)
+-- Found tf2_geometry_msgs: 0.36.19 (/opt/ros/jazzy/share/tf2_geometry_msgs/cmake)
+-- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Found pcl_conversions: 2.6.2 (/opt/ros/jazzy/share/pcl_conversions/cmake)
+[33mCMake Warning (dev) at /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):
+  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  CMake variable FLANN_ROOT is set to:
+
+    /usr
+
+  For compatibility, find_package is ignoring the variable, but code in a
+  .cmake module might still use it.
+Call Stack (most recent call first):
+  /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)
+  /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)
+  /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)
+  /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)
+  CMakeLists.txt:23 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+[0m
+-- Found flann version 1.9.2
+-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+-- Found Qhull version 8.0.2
+-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+-- Found cloud_msgs: 1.0.0 (/home/aly-sultan/Desktop/fs-system-25/SLAM/install/cloud_msgs/share/cloud_msgs/cmake)
+[33mCMake Warning (dev) at CMakeLists.txt:27 (find_package):
+  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  CMake variable PCL_ROOT is set to:
+
+    /usr
+
+  For compatibility, CMake is ignoring the variable.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+[0m
+-- GTSAM include directory:  /usr/local/lib/cmake/GTSAM/../../../include
+-- Found asurt_msgs: 2.0.0 (/home/aly-sultan/Desktop/fs-system-25/SLAM/install/asurt_msgs/share/asurt_msgs/cmake)
+-- Configuring done (2.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/aly-sultan/Desktop/fs-system-25/SLAM/build/lego_loam_sr
+[ 14%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/transformFusion.cpp.o[0m
+[ 28%] [32mBuilding CXX object CMakeFiles/lego_loam_sr.dir/src/StatusPublisher.cpp.o[0m
+[ 42%] [32m[1mLinking CXX executable lego_loam_sr[0m
+[100%] Built target lego_loam_sr
+-- Install configuration: ""
+-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/config
+-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/launch
+-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/rviz
+-- Up-to-date: /home/aly-sultan/Desktop/fs-system-25/SLAM/install/lego_loam_sr/share/lego_loam_sr/package.dsv
