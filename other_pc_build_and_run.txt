@@ -1,0 +1,119 @@
+MPC Controller on Another PC - Command Guide
+============================================
+
+Replace this first:
+- YOUR_FOLDER = absolute path to your copied project folder on the other PC
+  Example: /home/ibrahim/my_mpc_workspace
+
+# Set this once in terminal before running commands below:
+export YOUR_FOLDER=/home/your_user/your_folder
+
+Important:
+- Run sections in order.
+- This guide runs ONLY the mpc_controller node (no simulator, no visualizer).
+
+
+SECTION 0) Optional: hardcode solver paths in CMake (only if path issues continue)
+--------------------------------------------------------------------------
+# File to edit:
+#   src/mpc_controller/CMakeLists.txt
+#
+# Change these two lines to your real absolute paths:
+#   set(BLASFEO_BUILD_DIR "/home/your_user/your_folder/src/mpc_controller/src/build_solver/blasfeo")
+#   set(BLASFEO_INSTALL "/home/your_user/your_folder/src/mpc_controller/src/install")
+
+
+SECTION 1) Build solver libraries (BLASFEO + HPIPM)
+----------------------------------------------------
+# Go to solver source directory
+cd "$YOUR_FOLDER"/src/mpc_controller/src
+
+# Build and install BLASFEO into src/install
+cd blasfeo
+mkdir -p build
+cd build
+# Verify you are in the correct directory before running cmake
+pwd
+ls ../CMakeLists.txt
+cmake .. -DCMAKE_INSTALL_PREFIX=../../install -DTARGET=X64_AUTOMATIC
+make -j$(nproc)
+make install
+
+# Build and install HPIPM into the same src/install
+cd ../../hpipm
+mkdir -p build
+cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=../../install -DBLASFEO_PATH=../../install
+make -j$(nproc)
+make install
+
+
+SECTION 2) Build ROS2 package with clean cache
+-----------------------------------------------
+# Go to workspace root
+cd "$YOUR_FOLDER"
+
+# Remove old cache/artifacts so old paths do not break build
+rm -rf build install log
+
+# Tell CMake where solver folders are for this machine
+export MPC_SOLVER_INSTALL=$(pwd)/src/mpc_controller/src/install
+export MPC_SOLVER_BUILD=$(pwd)/src/mpc_controller/src/build_solver/blasfeo
+
+# Build only the mpc_controller package
+colcon build --packages-select mpc_controller
+
+# Keep package metadata consistent (required in your project workflow)
+cp build/mpc_controller/ament_cmake_environment_hooks/package.dsv install/mpc_controller/share/mpc_controller/package.dsv
+
+
+SECTION 3) Prepare runtime environment
+---------------------------------------
+# Source workspace setup
+source install/setup.bash
+
+# Add solver shared libraries to runtime linker path
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(pwd)/src/mpc_controller/src/install/lib
+
+
+SECTION 4) Run ONLY MPC controller node (no simulator/visualizer)
+------------------------------------------------------------------
+# Run controller with explicit parameter file paths
+ros2 run mpc_controller mpc_controller_node --ros-args \
+  -p control_dt:=0.05 \
+  -p model_path:=$(pwd)/src/mpc_controller/src/Params/model.json \
+  -p costs_path:=$(pwd)/src/mpc_controller/src/Params/cost.json \
+  -p bounds_path:=$(pwd)/src/mpc_controller/src/Params/bounds.json \
+  -p norm_path:=$(pwd)/src/mpc_controller/src/Params/normalization.json
+
+
+SECTION 5) If command not found or launch fails
+------------------------------------------------
+# Ensure ROS2 is sourced first (replace distro if needed)
+# source /opt/ros/jazzy/setup.bash
+
+# Then re-source your workspace
+# source "$YOUR_FOLDER"/install/setup.bash
+
+# Re-apply library path
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"$YOUR_FOLDER"/src/mpc_controller/src/install/lib
+
+
+SECTION 6) Quick verification commands
+--------------------------------------
+# Check solver libs exist
+ls -la "$YOUR_FOLDER"/src/mpc_controller/src/install/lib/libblasfeo.so
+ls -la "$YOUR_FOLDER"/src/mpc_controller/src/install/lib/libhpipm.so
+
+# Check the controller binary exists
+ls -la "$YOUR_FOLDER"/install/mpc_controller/lib/mpc_controller/mpc_controller_node
+
+# Check required input topics are present from your external system
+ros2 topic list | grep -E '^/odom$|^/reference_path$'
+
+
+Expected behavior
+-----------------
+- This does NOT start simulator.
+- This does NOT start visualizer.
+- Controller needs /odom and /reference_path from your external bridge/system.

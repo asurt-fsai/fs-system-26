@@ -38,9 +38,9 @@ MPCControllerNode::MPCControllerNode()
 
     current_state_.setZero();
 
-    // ─── Publisher: acceleration + steering angle for IPG CarMaker ─────
-    cmd_vel_pub_ = create_publisher<geometry_msgs::msg::Twist>(
-        "/cmd_vel", rclcpp::QoS(10));
+    // ─── Publisher: acceleration + steering angle ─────────────────────
+    cmd_vel_pub_ = create_publisher<ackermann_msgs::msg::AckermannDriveStamped>(
+        "/action", rclcpp::QoS(10));
 
     // ─── Subscribers ────────────────────────────────────────────────────
     odom_sub_ = create_subscription<nav_msgs::msg::Odometry>(
@@ -48,7 +48,7 @@ MPCControllerNode::MPCControllerNode()
         std::bind(&MPCControllerNode::odomCallback, this, std::placeholders::_1));
 
     reference_path_sub_ = create_subscription<nav_msgs::msg::Path>(
-        "/reference_path", rclcpp::QoS(10).transient_local(),
+        "/path", rclcpp::QoS(10).transient_local(),
         std::bind(&MPCControllerNode::pathCallback, this, std::placeholders::_1));
 
     // ─── Control-loop timer ─────────────────────────────────────────────
@@ -90,7 +90,7 @@ void MPCControllerNode::controlLoop()
     if (!has_reference_path_) {
         static int warn_count = 0;
         if (warn_count++ % 100 == 0)
-            RCLCPP_WARN(get_logger(), "Waiting for /reference_path...");
+            RCLCPP_WARN(get_logger(), "Waiting for /path...");
         return;
     }
 
@@ -116,11 +116,11 @@ void MPCControllerNode::controlLoop()
             x0.delta + result.u0.delta_dot * control_dt_,
             -0.6109, 0.6109);  // clamp to steering limits
 
-        // Publish: linear.x = acceleration [m/s²], angular.z = steering angle [rad]
-        geometry_msgs::msg::Twist twist;
-        twist.linear.x  = result.u0.D_dot;   // acceleration
-        twist.angular.z = target_delta;       // steering angle
-        cmd_vel_pub_->publish(twist);
+        // Publish: acceleration + steering angle
+        ackermann_msgs::msg::AckermannDriveStamped drive_msg;
+        drive_msg.drive.acceleration = result.u0.D_dot;
+        drive_msg.drive.steering_angle = target_delta;
+        cmd_vel_pub_->publish(drive_msg);
 
         // Log periodically (~1 Hz at 20 Hz control rate)
         static int log_count = 0;

@@ -3,17 +3,17 @@
 // Standalone Kinematic Bicycle Simulator for RViz Testing
 //
 // This node replaces the real car (IPG) for offline development:
-//   • Subscribes to /cmd_vel  (acceleration + steering rate from MPC)
+//   • Subscribes to /ackr  (Ackermann drive command from MPC)
 //   • Integrates the kinematic bicycle model forward
-//   • Publishes /odom so the MPC controller can close the loop
-//   • Publishes /reference_path from a CSV file or a parameterised oval track
+//   • Publishes /carmaker/Odometry so the MPC controller can close the loop
+//   • Publishes /path from a CSV file or a parameterised oval track
 //
 // The MPC controller node and the visualizer node run alongside this node
 // using the rviz_test.launch.py file.
 // ─────────────────────────────────────────────────────────────────────────────
 
 #include <rclcpp/rclcpp.hpp>
-#include <geometry_msgs/msg/twist.hpp>
+#include <ackermann_msgs/msg/ackermann_drive_stamped.hpp>
 #include <nav_msgs/msg/odometry.hpp>
 #include <nav_msgs/msg/path.hpp>
 #include <tf2/LinearMath/Quaternion.h>
@@ -28,7 +28,7 @@ public:
     BicycleSimulator();
 
 private:
-    void cmdVelCallback(const geometry_msgs::msg::Twist::SharedPtr msg);
+    void cmdAckermannCallback(const ackermann_msgs::msg::AckermannDriveStamped::SharedPtr msg);
     void simStep();
     void publishOdom();
     void publishTrack();
@@ -64,7 +64,7 @@ private:
     std::vector<std::pair<double, double>> track_points_;
 
     // ROS interfaces
-    rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr cmd_sub_;
+    rclcpp::Subscription<ackermann_msgs::msg::AckermannDriveStamped>::SharedPtr cmd_sub_;
     rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr      odom_pub_;
     rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr          track_pub_;
     rclcpp::TimerBase::SharedPtr sim_timer_;

@@ -61,14 +61,14 @@ BicycleSimulator::BicycleSimulator()
     }
 
     /* ─── Subscribers ─────────────────────────────────────────────────── */
-    cmd_sub_ = create_subscription<geometry_msgs::msg::Twist>(
-        "/cmd_vel", 10,
-        std::bind(&BicycleSimulator::cmdVelCallback, this, std::placeholders::_1));
+    cmd_sub_ = create_subscription<ackermann_msgs::msg::AckermannDriveStamped>(
+        "/ackr", 10,
+        std::bind(&BicycleSimulator::cmdAckermannCallback, this, std::placeholders::_1));
 
     /* ─── Publishers ──────────────────────────────────────────────────── */
-    odom_pub_  = create_publisher<nav_msgs::msg::Odometry>("/odom", 10);
+    odom_pub_  = create_publisher<nav_msgs::msg::Odometry>("/carmaker/Odometry", 10);
     track_pub_ = create_publisher<nav_msgs::msg::Path>(
-        "/reference_path", rclcpp::QoS(10).transient_local());
+        "/path", rclcpp::QoS(10).transient_local());
 
     /* ─── Timers ──────────────────────────────────────────────────────── */
     auto sim_ns = std::chrono::duration_cast<std::chrono::nanoseconds>(
@@ -88,11 +88,11 @@ BicycleSimulator::BicycleSimulator()
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-void BicycleSimulator::cmdVelCallback(
-    const geometry_msgs::msg::Twist::SharedPtr msg)
+void BicycleSimulator::cmdAckermannCallback(
+    const ackermann_msgs::msg::AckermannDriveStamped::SharedPtr msg)
 {
-    cmd_accel_       = msg->linear.x;   // acceleration [m/s²]
-    cmd_delta_target_ = msg->angular.z;  // target steering angle [rad]
+    cmd_accel_       = msg->drive.acceleration;   // acceleration [m/s²]
+    cmd_delta_target_ = msg->drive.steering_angle;  // target steering angle [rad]
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

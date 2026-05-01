@@ -20,10 +20,10 @@ MPCVisualizer::MPCVisualizer()
 
     /* ---------- subscribers ---------- */
     odom_sub_ = create_subscription<nav_msgs::msg::Odometry>(
-        "/odom", 10,
+        "/carmaker/Odometry", 10,
         std::bind(&MPCVisualizer::odomCallback, this, std::placeholders::_1));
     ref_path_sub_ = create_subscription<nav_msgs::msg::Path>(
-        "/reference_path", rclcpp::QoS(10).transient_local(),
+        "/path", rclcpp::QoS(10).transient_local(),
         std::bind(&MPCVisualizer::pathCallback, this, std::placeholders::_1));
     pred_path_sub_ = create_subscription<nav_msgs::msg::Path>(
         "/mpc/predicted_path", 10,

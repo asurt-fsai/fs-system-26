@@ -11,6 +11,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(ackermann_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(visualization_msgs REQUIRED)
 find_package(tf2 REQUIRED)
@@ -26,8 +27,21 @@ include_directories(
 )
 
 # Locate pre-built BLASFEO (from build_solver.sh output or source build)
-set(BLASFEO_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/build_solver/blasfeo")
-set(BLASFEO_INSTALL   "${CMAKE_CURRENT_SOURCE_DIR}/src/install")
+# Optional overrides for moved/copied workspaces:
+#   export MPC_SOLVER_INSTALL=/absolute/path/to/src/install
+#   export MPC_SOLVER_BUILD=/absolute/path/to/src/build_solver/blasfeo
+set(BLASFEO_BUILD_DIR "$ENV{MPC_SOLVER_BUILD}")
+if(NOT BLASFEO_BUILD_DIR)
+  set(BLASFEO_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/build_solver/blasfeo")
+endif()
+
+set(BLASFEO_INSTALL "$ENV{MPC_SOLVER_INSTALL}")
+if(NOT BLASFEO_INSTALL)
+  set(BLASFEO_INSTALL "${CMAKE_CURRENT_SOURCE_DIR}/src/install")
+endif()
+
+message(STATUS "BLASFEO build dir: ${BLASFEO_BUILD_DIR}")
+message(STATUS "Solver install dir: ${BLASFEO_INSTALL}")
 if(EXISTS "${BLASFEO_INSTALL}/lib/libblasfeo.so")
   set(BLASFEO_LIB       "${BLASFEO_INSTALL}/lib/libblasfeo.so")
   set(BLASFEO_INCLUDE   "${BLASFEO_INSTALL}/include")
@@ -141,6 +155,7 @@ ament_target_dependencies(mpc_controller_node
   rclcpp
   std_msgs
   geometry_msgs
+  ackermann_msgs
   nav_msgs
   tf2
   tf2_ros
@@ -168,29 +183,10 @@ ament_target_dependencies(mpc_visualizer
   tf2_geometry_msgs
 )
 
-# ── Bicycle Simulator Node (RViz-only testing, no IPG dependency) ─────────
-add_executable(bicycle_simulator
-  "src/rviz test/bicycle_simulator.cpp"
-)
-
-target_link_libraries(bicycle_simulator
-  ${rclcpp_LIBRARIES}
-)
-
-ament_target_dependencies(bicycle_simulator
-  rclcpp
-  geometry_msgs
-  nav_msgs
-  tf2
-  tf2_ros
-  tf2_geometry_msgs
-)
-
-# ── Install targets ───────────────────────────────────────────────────────
+# ── Install targets ────────────────────────────────────────────────────────
 install(TARGETS
   mpc_controller_node
   mpc_visualizer
-  bicycle_simulator
   DESTINATION lib/${PROJECT_NAME}
 )
 

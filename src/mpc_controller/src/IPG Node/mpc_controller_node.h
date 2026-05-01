@@ -1,7 +1,7 @@
 #pragma once
 
 #include <rclcpp/rclcpp.hpp>
-#include <geometry_msgs/msg/twist.hpp>
+#include <ackermann_msgs/msg/ackermann_drive_stamped.hpp>
 #include <nav_msgs/msg/odometry.hpp>
 #include <nav_msgs/msg/path.hpp>
 #include <Eigen/Dense>
@@ -35,7 +35,7 @@ private:
     double control_dt_;
 
     // ROS 2 interfaces
-    rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr              cmd_vel_pub_;
+    rclcpp::Publisher<ackermann_msgs::msg::AckermannDriveStamped>::SharedPtr cmd_vel_pub_;
 
     rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr   odom_sub_;
     rclcpp::Subscription<nav_msgs::msg::Path>::SharedPtr       reference_path_sub_;
