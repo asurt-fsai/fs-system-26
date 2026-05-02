@@ -129,7 +129,7 @@ class MappingConstants:
     TIMEOUT_UNTIL_DELETED = 5.0  # seconds
     
     # Map maintenance
-    MERGE_DISTANCE_THRESHOLD = 0.5  # meters
+    MERGE_DISTANCE_THRESHOLD = 1.0  # meters
     MERGE_CHECK_INTERVAL = 1.0  # seconds
     
     # Initial covariance for new landmarks
@@ -482,6 +482,10 @@ class CoordinateTransformer:
         validated_detections = []
         
         for landmark in landmarks_camera:
+
+            if landmark.type == 3:
+                landmark.type = 2
+
             # Position in camera frame (homogeneous coordinates)
             p_camera = np.array([landmark.position.x,
                                landmark.position.y,
