@@ -96,7 +96,7 @@ Visualization Manager:
       Name: Reference Path
       Enabled: true
       Topic:
-        Value: /reference_path
+        Value: /path
         Depth: 5
         Durability Policy: Transient Local
         Reliability Policy: Reliable

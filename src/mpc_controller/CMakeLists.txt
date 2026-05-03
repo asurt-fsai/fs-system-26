@@ -166,6 +166,37 @@ ament_target_dependencies(mpc_controller_node
   tf2_geometry_msgs
 )
 
+# ── Bicycle Simulator Node (RViz standalone test) ────────────────────────
+add_executable(bicycle_simulator
+  "src/rviz test/bicycle_simulator.cpp"
+)
+
+target_link_libraries(bicycle_simulator
+  ${rclcpp_LIBRARIES}
+)
+
+ament_target_dependencies(bicycle_simulator
+  rclcpp
+  ackermann_msgs
+  nav_msgs
+  tf2
+  tf2_ros
+  tf2_geometry_msgs
+)
+
+# Embed solver library paths so ros2 launch works without setting LD_LIBRARY_PATH
+if(BLASFEO_LIB)
+  set(_solver_rpath "${BLASFEO_INSTALL}/lib")
+  set_target_properties(mpc_controller_node PROPERTIES
+    INSTALL_RPATH   "${_solver_rpath}"
+    BUILD_WITH_INSTALL_RPATH TRUE
+  )
+  set_target_properties(mpc_lib PROPERTIES
+    INSTALL_RPATH   "${_solver_rpath}"
+    BUILD_WITH_INSTALL_RPATH TRUE
+  )
+endif()
+
 # ── MPC Visualizer Node (shared by IPG and RViz test) ────────────────────
 add_executable(mpc_visualizer
   "src/IPG Node/mpc_visualizer.cpp"
@@ -191,6 +222,7 @@ ament_target_dependencies(mpc_visualizer
 install(TARGETS
   mpc_controller_node
   mpc_visualizer
+  bicycle_simulator
   DESTINATION lib/${PROJECT_NAME}
 )
 

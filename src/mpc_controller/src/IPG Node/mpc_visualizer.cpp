@@ -11,11 +11,15 @@ MPCVisualizer::MPCVisualizer()
     declare_parameter("car_width",    car_width_);
     declare_parameter("wheelbase",    wheelbase_);
     declare_parameter("track_width",  track_width_);
+    declare_parameter("r_inner",      r_inner_);
+    declare_parameter("r_outer",      r_outer_);
     declare_parameter("cone_spacing", cone_spacing_);
     car_length_   = get_parameter("car_length").as_double();
     car_width_    = get_parameter("car_width").as_double();
     wheelbase_    = get_parameter("wheelbase").as_double();
     track_width_  = get_parameter("track_width").as_double();
+    r_inner_      = get_parameter("r_inner").as_double();
+    r_outer_      = get_parameter("r_outer").as_double();
     cone_spacing_ = get_parameter("cone_spacing").as_int();
 
     /* ---------- subscribers ---------- */
@@ -183,13 +187,13 @@ void MPCVisualizer::publishTrackMarkers()
 
         // Use the heading quaternion from the path for accurate normal computation
         double yaw = getYawFromQuat(ps.pose.orientation);
-        // Left normal: 90° CCW from heading
+        // Left normal: 90° CCW from heading (inner boundary — to the left of travel)
         double nx = -std::sin(yaw);
         double ny =  std::cos(yaw);
 
         geometry_msgs::msg::Point pl, pr;
-        pl.x = px + nx * track_width_;  pl.y = py + ny * track_width_;  pl.z = 0.0;
-        pr.x = px - nx * track_width_;  pr.y = py - ny * track_width_;  pr.z = 0.0;
+        pl.x = px + nx * r_inner_;  pl.y = py + ny * r_inner_;  pl.z = 0.0;
+        pr.x = px - nx * r_outer_;  pr.y = py - ny * r_outer_;  pr.z = 0.0;
         left_wall.points.push_back(pl);
         right_wall.points.push_back(pr);
 
@@ -392,7 +396,7 @@ void MPCVisualizer::publishTrackConstraints()
         double nx = -std::sin(yaw);
         double ny =  std::cos(yaw);
 
-        // Constraint normal line centered at the closest reference point
+        // Constraint normal line: inner boundary on left side, outer on right side
         double cx = reference_path_->poses[ci].pose.position.x;
         double cy = reference_path_->poses[ci].pose.position.y;
 
@@ -408,8 +412,8 @@ void MPCVisualizer::publishTrackConstraints()
         line.pose.orientation.w = 1.0;
 
         geometry_msgs::msg::Point p1, p2;
-        p1.x = cx - nx * track_width_;  p1.y = cy - ny * track_width_;  p1.z = 0.05;
-        p2.x = cx + nx * track_width_;  p2.y = cy + ny * track_width_;  p2.z = 0.05;
+        p1.x = cx - nx * r_outer_;  p1.y = cy - ny * r_outer_;  p1.z = 0.05;
+        p2.x = cx + nx * r_inner_;  p2.y = cy + ny * r_inner_;  p2.z = 0.05;
         line.points.push_back(p1);
         line.points.push_back(p2);
         ma.markers.push_back(line);

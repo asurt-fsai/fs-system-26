@@ -57,7 +57,9 @@ private:
     double car_length_  = 2.8;     // total length [m]
     double car_width_   = 1.4;     // total width [m]
     double wheelbase_   = 1.575;   // front-to-rear axle [m]
-    double track_width_ = 1.5;     // half-width each side for boundary viz [m]
+    double track_width_ = 1.5;     // half-width each side (fallback if r_inner/r_outer not set)
+    double r_inner_     = 1.5;     // track inner boundary offset from centerline [m]
+    double r_outer_     = 1.5;     // track outer boundary offset from centerline [m]
     int    cone_spacing_ = 5;      // place a cone every N waypoints
 
     // ── ROS interfaces ─────────────────────────────────────────────────────

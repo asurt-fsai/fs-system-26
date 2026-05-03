@@ -3,6 +3,7 @@
 #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
 #include <algorithm>
 #include <cmath>
+#include <iomanip>
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // Default JSON parameter-file paths
@@ -22,16 +23,19 @@ MPCControllerNode::MPCControllerNode()
       delta_ref_(0.0), v_ref_(0.0),
       has_reference_path_(false), track_set_(false),
       control_dt_(0.01), control_frequency_(100.0),
-      max_steering_angle_(0.6109), max_velocity_(15.0)
+      max_steering_angle_(0.6109), max_velocity_(15.0),
+      use_odom_steering_(false)
 {
     // ─── ROS 2 PARAMETERS ───────────────────────────────────────────────
-    declare_parameter("model_path",       DFL_MODEL);
-    declare_parameter("costs_path",       DFL_COSTS);
-    declare_parameter("bounds_path",      DFL_BOUNDS);
-    declare_parameter("norm_path",        DFL_NORM);
+    declare_parameter("model_path",        DFL_MODEL);
+    declare_parameter("costs_path",        DFL_COSTS);
+    declare_parameter("bounds_path",       DFL_BOUNDS);
+    declare_parameter("norm_path",         DFL_NORM);
     declare_parameter("control_frequency", control_frequency_);
     declare_parameter("max_steering_angle", max_steering_angle_);
     declare_parameter("max_velocity",       max_velocity_);
+    declare_parameter("use_odom_steering",  use_odom_steering_);
+    declare_parameter("csv_output_path",    std::string("/tmp/mpc_data.csv"));
 
     mpc_controller::PathToJson paths{
         get_parameter("model_path").as_string(),
@@ -44,6 +48,9 @@ MPCControllerNode::MPCControllerNode()
     max_steering_angle_ = get_parameter("max_steering_angle").as_double();
     max_velocity_ = get_parameter("max_velocity").as_double();
     control_dt_ = 1.0 / control_frequency_;
+    use_odom_steering_ = get_parameter("use_odom_steering").as_bool();
+    csv_output_path_ = get_parameter("csv_output_path").as_string();
+    initCsvLogger(csv_output_path_);
 
     // ─── MPC SOLVER ─────────────────────────────────────────────────────
     // (3 SQP iters, reset after 5 consecutive failures)
@@ -54,6 +61,10 @@ MPCControllerNode::MPCControllerNode()
     ackermann_cmd_pub_ = 
         create_publisher<ackermann_msgs::msg::AckermannDriveStamped>(
             "/ackermann_cmd", rclcpp::QoS(10));
+
+    // ─── ROS 2 PUBLISHER: Predicted Path (for MPC visualizer) ───────────
+    predicted_path_pub_ = create_publisher<nav_msgs::msg::Path>(
+        "/mpc/predicted_path", rclcpp::QoS(10));
 
     // ─── ROS 2 SUBSCRIBERS: State Feedback from Isaac Sim ────────────────
     // Odometry: position, velocity, heading
@@ -104,6 +115,12 @@ void MPCControllerNode::odomCallback(const nav_msgs::msg::Odometry::SharedPtr ms
 
     // Extract forward velocity
     v_meas_ = msg->twist.twist.linear.x;
+
+    // In bicycle simulator mode the steering angle is encoded in twist.linear.y
+    // (joint_states is not published by the simulator)
+    if (use_odom_steering_) {
+        delta_meas_ = msg->twist.twist.linear.y;
+    }
 }
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
@@ -222,6 +239,16 @@ void MPCControllerNode::controlLoop()
         publishAckermannCommand();
 
         // ───────────────────────────────────────────────────────────────
+        // PUBLISHER: Predicted horizon path for RViz visualizer
+        // ───────────────────────────────────────────────────────────────
+        publishPredictedPath(result);
+
+        // ───────────────────────────────────────────────────────────────
+        // CSV DATA LOGGER: Write per-step data for debugging
+        // ───────────────────────────────────────────────────────────────
+        writeCsvRow(x0, result);
+
+        // ───────────────────────────────────────────────────────────────
         // DIAGNOSTICS: Log periodically
         // ───────────────────────────────────────────────────────────────
         static int log_count = 0;
@@ -279,6 +306,67 @@ void MPCControllerNode::publishAckermannCommand()
 
     // Publish
     ackermann_cmd_pub_->publish(cmd);
+}
+
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+// PUBLISHER: Predicted MPC Horizon Path
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+void MPCControllerNode::publishPredictedPath(const mpc_controller::MPCReturn& result)
+{
+    nav_msgs::msg::Path path;
+    path.header.stamp    = now();
+    path.header.frame_id = "map";
+
+    for (const auto& opt : result.mpc_horizon) {
+        geometry_msgs::msg::PoseStamped ps;
+        ps.header = path.header;
+        ps.pose.position.x = opt.xk.x;
+        ps.pose.position.y = opt.xk.y;
+        ps.pose.position.z = 0.0;
+        tf2::Quaternion q;
+        q.setRPY(0, 0, opt.xk.theta);
+        ps.pose.orientation = tf2::toMsg(q);
+        path.poses.push_back(ps);
+    }
+    predicted_path_pub_->publish(path);
+}
+
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+// CSV LOGGER: Initialize file
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+void MPCControllerNode::initCsvLogger(const std::string& path)
+{
+    csv_file_.open(path, std::ios::out | std::ios::trunc);
+    if (!csv_file_.is_open()) {
+        RCLCPP_WARN(get_logger(), "Could not open CSV log file: %s", path.c_str());
+        return;
+    }
+    csv_file_ << "time_s,x,y,theta_rad,v_ms,delta_rad,"
+              << "acc_ms2,steering_cmd_rad,s_m,lateral_error_m,solve_time_ms\n";
+    csv_open_ = true;
+    RCLCPP_INFO(get_logger(), "MPC CSV logger: %s", path.c_str());
+}
+
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+// CSV LOGGER: Write one row
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+void MPCControllerNode::writeCsvRow(const mpc_controller::state& x0,
+                                    const mpc_controller::MPCReturn& result)
+{
+    if (!csv_open_) return;
+    double t = now().seconds();
+    csv_file_ << std::fixed << std::setprecision(6)
+              << t                        << ","
+              << x0.x                     << ","
+              << x0.y                     << ","
+              << x0.theta                 << ","
+              << x0.v                     << ","
+              << x0.delta                 << ","
+              << result.u0.D_dot          << ","
+              << result.u0.delta_dot      << ","
+              << x0.s                     << ","
+              << result.lateral_error     << ","
+              << result.time_total * 1000.0 << "\n";
 }
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――

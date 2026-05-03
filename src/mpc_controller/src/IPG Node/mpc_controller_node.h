@@ -4,9 +4,14 @@
 #include <ackermann_msgs/msg/ackermann_drive_stamped.hpp>
 #include <nav_msgs/msg/odometry.hpp>
 #include <nav_msgs/msg/path.hpp>
+#include <geometry_msgs/msg/pose_stamped.hpp>
 #include <sensor_msgs/msg/joint_state.hpp>
 #include <rosgraph_msgs/msg/clock.hpp>
+#include <tf2/LinearMath/Quaternion.h>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 #include <Eigen/Dense>
+#include <fstream>
+#include <string>
 
 // MPC library headers
 #include "../MPC/mpc.h"
@@ -65,6 +70,15 @@ private:
     double control_frequency_;    // control frequency [Hz]
     double max_steering_angle_;   // maximum steering angle limit [rad]
     double max_velocity_;         // maximum velocity limit [m/s]
+    bool   use_odom_steering_;    // read delta from odom.twist.linear.y (bicycle sim mode)
+
+    // CSV data logger
+    std::string  csv_output_path_;
+    std::ofstream csv_file_;
+    bool csv_open_ = false;
+    void initCsvLogger(const std::string& path);
+    void writeCsvRow(const mpc_controller::state& x0,
+                     const mpc_controller::MPCReturn& result);
 
     // ────────────────────────────────────────────────────────────────────
     // ROS 2 INTERFACES
@@ -72,6 +86,7 @@ private:
     // Publishers
     rclcpp::Publisher<ackermann_msgs::msg::AckermannDriveStamped>::SharedPtr 
         ackermann_cmd_pub_;
+    rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr predicted_path_pub_;
 
     // Subscribers
     rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr   odom_sub_;
@@ -140,4 +155,5 @@ private:
      * Fills: steering_angle, steering_angle_velocity, speed, acceleration
      */
     void publishAckermannCommand();
+    void publishPredictedPath(const mpc_controller::MPCReturn& result);
 };
