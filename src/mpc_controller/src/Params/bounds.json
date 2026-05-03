@@ -7,7 +7,7 @@
   "theta_min": -1e20,
   "theta_max": 1e20,
   "v_min": 0.0,
-  "v_max": 10.0,
+  "v_max": 30.0,
   "delta_min": -0.6109,
   "delta_max": 0.6109,
   "a_min": -5.0,

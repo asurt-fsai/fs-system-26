@@ -1,20 +1,22 @@
 """
-MPC Controller Launch — External simulator integration
+mpc_controller.launch.py — Real car / IPG CarMaker launch
 
-Launches:
-  1. mpc_controller_node   — MPC solver (subscribes to /path, /odom, publishes to /action)
-  2. mpc_visualizer        — RViz markers for track, heading, constraints
-  3. rviz2                 — RViz with pre-configured display layout (optional)
+Launches ONLY the MPC controller node.
+Expects external system (IPG / Isaac Sim / real car) to publish:
+  - /carmaker/Odometry  (nav_msgs/Odometry)  — vehicle state
+  - /path               (nav_msgs/Path)       — track centerline (once, transient_local)
 
-Expects external system to provide:
-  - /path         : nav_msgs/Path — reference trajectory (publish once or periodically)
-  - /odom         : nav_msgs/Odometry — vehicle state feedback
+The controller publishes:
+  - /ackr               (AckermannDriveStamped) — steering + speed commands
+  - /mpc/predicted_path (nav_msgs/Path)          — MPC horizon for visualizer
 
-The controller publishes to:
-  - /action       : ackermann_msgs/AckermannDriveStamped — steering angle & acceleration commands
+Run:
+  ros2 launch mpc_controller mpc_controller.launch.py
+  ros2 launch mpc_controller mpc_controller.launch.py csv_enabled:=false
 """
 
 import os
+import json
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
@@ -24,71 +26,64 @@ from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
     pkg_dir = get_package_share_directory('mpc_controller')
-    params_dir = os.path.join(pkg_dir, 'config')
-    rviz_cfg   = os.path.join(pkg_dir, 'config', 'mpc_test.rviz')
+    cfg_dir = os.path.join(pkg_dir, 'config')
 
-    # ── Launch arguments ─────────────────────────────────────────────────
-    control_dt_arg = DeclareLaunchArgument(
-        'control_dt', default_value='0.05',
-        description='MPC control loop period [s]')
-    
-    use_rviz_arg = DeclareLaunchArgument(
-        'use_rviz', default_value='true',
-        description='Launch RViz for visualization')
+    # ── Load nodes.json ──────────────────────────────────────────────────
+    nodes_cfg = {'node_names': {'mpc_controller': 'mpc_controller'},
+                 'topics': {'odometry': '/carmaker/Odometry',
+                            'ackermann_cmd': '/ackr',
+                            'reference_path': '/path',
+                            'joint_states': '/joint_states'}}
+    try:
+        with open(os.path.join(cfg_dir, 'nodes.json')) as f:
+            nodes_cfg = json.load(f)
+    except Exception:
+        pass
 
-    # ── MPC Controller ───────────────────────────────────────────────────
-    # Subscribes to:
-    #   /path  — reference trajectory (nav_msgs/Path)
-    #   /odom  — odometry feedback (nav_msgs/Odometry)
-    # Publishes to:
-    #   /action — control commands (ackermann_msgs/AckermannDriveStamped)
+    node_name   = nodes_cfg['node_names']['mpc_controller']
+    topic_odom  = nodes_cfg['topics']['odometry']
+    topic_ackr  = nodes_cfg['topics']['ackermann_cmd']
+    topic_path  = nodes_cfg['topics']['reference_path']
+    topic_js    = nodes_cfg['topics']['joint_states']
+
+    # Workspace root = 4 directories up from share/mpc_controller/ (use pkg_dir, not cfg_dir)
+    ws_root    = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(pkg_dir))))
+    lap_dir    = os.path.join(ws_root, 'lap_tests')
+
+    csv_arg = DeclareLaunchArgument(
+        'csv_enabled', default_value='true',
+        description='Enable lap CSV logging (true/false)')
+
+    use_odom_steering_arg = DeclareLaunchArgument(
+        'use_odom_steering', default_value='true',
+        description='True = read steering from odom.twist.linear.y (bicycle_sim); '
+                    'False = read from /joint_states (real car / IPG)')
+
     mpc_node = Node(
         package='mpc_controller',
         executable='mpc_controller_node',
-        name='mpc_controller',
+        name=node_name,
         output='screen',
         parameters=[{
-            'control_dt':  LaunchConfiguration('control_dt'),
-            'model_path':  os.path.join(params_dir, 'model.json'),
-            'costs_path':  os.path.join(params_dir, 'cost.json'),
-            'bounds_path': os.path.join(params_dir, 'bounds.json'),
-            'norm_path':   os.path.join(params_dir, 'normalization.json'),
+            'model_path':         os.path.join(cfg_dir, 'model.json'),
+            'costs_path':         os.path.join(cfg_dir, 'cost.json'),
+            'bounds_path':        os.path.join(cfg_dir, 'bounds.json'),
+            'norm_path':          os.path.join(cfg_dir, 'normalization.json'),
+            'control_frequency':  20.0,
+            'use_odom_steering':  LaunchConfiguration('use_odom_steering'),
+            'csv_enabled':        LaunchConfiguration('csv_enabled'),
+            'csv_lap_dir':        lap_dir,
         }],
-    )
-
-    # ── MPC Visualizer ───────────────────────────────────────────────────
-    # Publishes RViz markers for visualization
-    viz_node = Node(
-        package='mpc_controller',
-        executable='mpc_visualizer',
-        name='mpc_visualizer',
-        output='screen',
-        parameters=[{
-            'car_length':   2.8,
-            'car_width':    1.4,
-            'wheelbase':    1.575,
-            'track_width':  1.5,
-            'cone_spacing': 5,
-        }],
-    )
-
-    # ── RViz ─────────────────────────────────────────────────────────────
-    # Import for conditional launching
-    from launch.conditions import IfCondition
-
-    rviz_node = Node(
-        package='rviz2',
-        executable='rviz2',
-        name='rviz2',
-        arguments=['-d', rviz_cfg],
-        output='screen',
-        condition=IfCondition(LaunchConfiguration('use_rviz')),
+        remappings=[
+            ('/odom',          topic_odom),
+            ('/ackermann_cmd', topic_ackr),
+            ('/path',          topic_path),
+            ('/joint_states',  topic_js),
+        ],
     )
 
     return LaunchDescription([
-        control_dt_arg,
-        use_rviz_arg,
+        csv_arg,
+        use_odom_steering_arg,
         mpc_node,
-        viz_node,
-        rviz_node,
     ])

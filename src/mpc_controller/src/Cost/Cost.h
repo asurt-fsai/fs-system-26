@@ -2,7 +2,7 @@
 #define COST_H
 
 #include <Eigen/Dense>
-#include "../config.h"
+#include "../config/config.h"
 #include "../Params/params.h"
 #include "../Spline/Arc_Spline.h"
 

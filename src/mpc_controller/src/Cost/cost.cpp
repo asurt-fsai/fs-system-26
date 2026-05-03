@@ -78,39 +78,51 @@ CostMatrix Cost::getContouringCost(const mpc_controller::ArcSpline &track, const
     static const StateInputIndexes si_index;
     const int horizon = params_.horizon;
 
-    // ── Direct position-tracking cost ─────────────────────────────────────
-    // Penalises: q_c * ((x − x_ref)² + (y − y_ref)²)
-    // This gives a clear, direct gradient for the QP optimizer — no
-    // contouring/lag rotation, no linearisation-induced sign/coupling issues.
-    const Eigen::Vector2d pos_ref = track.getPosition(x.s);
-    const double q_xy = k < horizon ? params_.q_c : params_.q_c_N_mult * params_.q_c;
+    // ── MPCC contouring/lag error cost ────────────────────────────────────
+    // Decomposes the XY error into the track frame:
+    //   e_c = lateral  deviation (perpendicular to track tangent) — penalised by q_c
+    //   e_l = longitudinal deviation (along track tangent)        — penalised by q_l
+    //
+    // Setting q_c >> q_l means: strongly penalise going off track sideways,
+    // but tolerate the car being slightly ahead/behind the reference point.
+    // This is essential for time-optimal MPCC — a fixed reference point will
+    // never perfectly align with the car's along-track position at every step.
+    const ErrorInfo error_info = getErrorInfo(track, x);
 
+    const double q_c = k < horizon ? params_.q_c : params_.q_c_N_mult * params_.q_c;
+    const double q_l = params_.q_l;
+
+    // Extract Jacobian rows for contouring and lag errors
+    // d_error(0,:) = gradient of e_c w.r.t. state   [sinθ, -cosθ, 0, 0, 0]
+    // d_error(1,:) = gradient of e_l w.r.t. state   [-cosθ, -sinθ, 0, 0, 0]
+    const Eigen::Matrix<double,1,NX> d_contouring_error = error_info.d_error.row(0);
+    const Eigen::Matrix<double,1,NX> d_lag_error        = error_info.d_error.row(1);
+
+    // Zero-order terms: e_c(x0) - d_e_c * x0 (makes linearisation exact at current point)
+    // For this 2D error (only x,y entries non-zero) these simplify to:
+    //   c0 = -sin(θ_ref)*x_ref + cos(θ_ref)*y_ref
+    //   l0 =  cos(θ_ref)*x_ref + sin(θ_ref)*y_ref
+    const TrackPoint ref_point = getRefPoint(track, x);
+    const double c0 = -std::sin(ref_point.theta_ref) * ref_point.x_ref
+                     + std::cos(ref_point.theta_ref) * ref_point.y_ref;
+    const double l0 =  std::cos(ref_point.theta_ref) * ref_point.x_ref
+                     + std::sin(ref_point.theta_ref) * ref_point.y_ref;
+
+    // Build Q and q: expanding (d*x + c0)^2 → x^T(d^T d)x + 2*c0*(d)x
+    // Solver expects 0.5 x^T Q x + q^T x so Q is pre-scaled by 2
     Q_MPC Q_contouring_cost = Q_MPC::Zero();
     q_MPC q_contouring_cost = q_MPC::Zero();
 
-    // Position tracking: 0.5 * x' * Q * x + q' * x  with Q pre-scaled by 2
-    Q_contouring_cost(si_index.x, si_index.x) = 2.0 * q_xy;
-    Q_contouring_cost(si_index.y, si_index.y) = 2.0 * q_xy;
-    q_contouring_cost(si_index.x) = -2.0 * q_xy * pos_ref(0);
-    q_contouring_cost(si_index.y) = -2.0 * q_xy * pos_ref(1);
+    Q_contouring_cost = 2.0 * q_c * d_contouring_error.transpose() * d_contouring_error
+                      + 2.0 * q_l * d_lag_error.transpose()        * d_lag_error;
 
-    // ── Velocity reference tracking ───────────────────────────────────────
-    //     Curvature-aware: v_ref = min(ref_velocity, sqrt(a_lat_max / |kappa|))
-    //     The car naturally slows in tight corners and goes full speed on straights.
-    const Eigen::Vector2d d_ref  = track.getDerivative(x.s);
-    const Eigen::Vector2d dd_ref = track.getSecondDerivative(x.s);
-    const double d_norm3 = std::pow(d_ref.norm(), 3.0);
-    const double kappa = std::abs(d_ref(0) * dd_ref(1) - d_ref(1) * dd_ref(0))
-                       / std::max(d_norm3, 1e-6);
+    q_contouring_cost = 2.0 * q_c * c0 * d_contouring_error.transpose()
+                      + 2.0 * q_l * l0 * d_lag_error.transpose();
 
-    double v_ref = params_.ref_velocity;
-    if (kappa > 1e-4 && params_.a_lat_max > 0.0) {
-        v_ref = std::min(params_.ref_velocity, std::sqrt(params_.a_lat_max / kappa));
-        v_ref = std::max(v_ref, 1.0);  // floor at 1 m/s to avoid crawling
-    }
-
-    Q_contouring_cost(si_index.vs, si_index.vs) = 2.0 * params_.q_vs;
-    q_contouring_cost(si_index.vs) = -2.0 * params_.q_vs * v_ref;
+    // ── Progress maximisation ─────────────────────────────────────────────
+    // Pure linear incentive: the car goes as fast as the constraints allow.
+    // No Q term — the constraints (speed/track limits) are the ceiling.
+    q_contouring_cost(si_index.vs) = -params_.q_vs;
 
     // solver interface expects 0.5 x^T Q x + q^T x
     return {Q_contouring_cost, R_MPC::Zero(), S_MPC::Zero(), q_contouring_cost, r_MPC::Zero(), Z_MPC::Zero(), z_MPC::Zero()};
@@ -150,10 +162,10 @@ CostMatrix Cost::getInputCost() const
     Q_MPC Q_input_cost = Q_MPC::Zero();
     R_MPC R_input_cost = R_MPC::Zero();
 
-    // State penalties on steering angle and velocity
-    // Note: reference also penalizes D (throttle state) but our model has no D state — skipped
+    // State penalties on steering angle
+    // vs (velocity) is NOT penalised here — it is handled by the progress
+    // maximisation linear term in getContouringCost (pure incentive, no target).
     Q_input_cost(si_index.delta, si_index.delta) = params_.r_delta;
-    Q_input_cost(si_index.vs,    si_index.vs)    = params_.r_vs;
 
     // Control input penalties on acceleration rate and steering rate
     // Note: reference also penalizes dVs (vs control) but our NU=2 has no vs control — skipped

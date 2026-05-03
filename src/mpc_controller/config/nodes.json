@@ -1,0 +1,22 @@
+{
+  "_comment": "Edit this file to rename nodes or topics without recompiling. Rebuild (colcon build) after changes.",
+
+  "node_names": {
+    "mpc_controller":    "mpc_controller",
+    "bicycle_simulator": "bicycle_simulator",
+    "mpc_visualizer":    "mpc_visualizer"
+  },
+
+  "topics": {
+    "odometry":           "/carmaker/Odometry",
+    "ackermann_cmd":      "/ackr",
+    "reference_path":     "/path",
+    "predicted_path":     "/mpc/predicted_path",
+    "joint_states":       "/joint_states",
+    "track_markers":      "/mpc/track_markers",
+    "heading_arrow":      "/mpc/heading_arrow",
+    "vehicle_footprint":  "/mpc/vehicle_footprint",
+    "constraint_markers": "/mpc/constraint_markers",
+    "predicted_path_viz": "/mpc/predicted_path_viz"
+  }
+}

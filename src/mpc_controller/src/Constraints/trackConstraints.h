@@ -1,7 +1,7 @@
 #ifndef MPC_CONTROLLER_TRACK_CONSTRAINTS_H
 #define MPC_CONTROLLER_TRACK_CONSTRAINTS_H
 
-#include "../types.h"
+#include "../types/types.h"
 #include "../Spline/Arc_Spline.h"
 #include "constraints.h"
 #include "../Params/params.h"

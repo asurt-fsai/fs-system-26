@@ -7,8 +7,8 @@
 #include <Eigen/Dense>
 #include <array>
 
-#include "config.h"
-#include "types.h"
+#include "../config/config.h"
+#include "../types/types.h"
 
 namespace mpcc {
 

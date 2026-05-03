@@ -18,8 +18,8 @@
 #ifndef MPC_PARAMS_H
 #define MPC_PARAMS_H
 
-#include "../config.h"
-#include "../types.h"
+#include "../config/config.h"
+#include "../types/types.h"
 // nlohmann/json.hpp is included directly in params.cpp to avoid
 // the #define N 20 macro conflicting with json's template<unsigned N>.
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Eigen/Dense>
-#include "../config.h"
+#include "../config/config.h"
 #include "../Spline/Arc_Spline.h"
 #include "../Params/params.h"
 

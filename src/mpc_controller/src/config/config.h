@@ -15,7 +15,7 @@ static constexpr int NB  = 10;  // Max Number of Bounds
 static constexpr int NPC = 1;   // Number of Polytopic Constraints (only track boundary active)
 static constexpr int NS  = 1;   // Number of Soft Constraints (kinematic model: track boundary only)
 
-#include "types.h"
+#include "../types/types.h"
 
 namespace mpc_controller{
 

@@ -21,8 +21,8 @@
 #ifndef MPC_CONTROLLER_MPC_H
 #define MPC_CONTROLLER_MPC_H
 
-#include "../config.h"
-#include "../types.h"
+#include "../config/config.h"
+#include "../types/types.h"
 #include "../Params/params.h"
 #include "../Spline/Arc_Spline.h"
 #include "../Bicycle Model/bicycle_model.h"

@@ -72,7 +72,11 @@ endif()
 include_directories(
   include
   src
-  "src/IPG Node"
+  src/types
+  src/config
+  src/controller
+  src/bicycle_sim
+  src/visualizer
   ${EIGEN3_INCLUDE_DIR}
   ${BLASFEO_INCLUDE}
   ${HPIPM_INCLUDE}
@@ -82,8 +86,8 @@ include_directories(
 # Create library — only list source files that exist
 add_library(mpc_lib
   src/Params/params.cpp
-  src/config.cpp
-  src/types.cpp
+  src/config/config.cpp
+  src/types/types.cpp
   "src/Bicycle Model/bicycle_model.cpp"
   src/MPC/mpc.cpp
   src/Constraints/constraints.cpp
@@ -143,9 +147,9 @@ if(HPIPM_LIB)
   message(STATUS "HPIPM_CPP_AVAILABLE enabled")
 endif()
 
-# Create ROS 2 node — MPC Controller (IPG + RViz test)
+# Create ROS 2 node — MPC Controller
 add_executable(mpc_controller_node
-  "src/IPG Node/mpc_controller_node.cpp"
+  src/controller/mpc_controller_node.cpp
 )
 
 target_link_libraries(mpc_controller_node
@@ -166,9 +170,9 @@ ament_target_dependencies(mpc_controller_node
   tf2_geometry_msgs
 )
 
-# ── Bicycle Simulator Node (RViz standalone test) ────────────────────────
+# ── Bicycle Simulator Node ────────────────────────────────────────────────
 add_executable(bicycle_simulator
-  "src/rviz test/bicycle_simulator.cpp"
+  src/bicycle_sim/bicycle_simulator.cpp
 )
 
 target_link_libraries(bicycle_simulator
@@ -184,9 +188,13 @@ ament_target_dependencies(bicycle_simulator
   tf2_geometry_msgs
 )
 
-# Embed solver library paths so ros2 launch works without setting LD_LIBRARY_PATH
+# Install solver shared libraries into the package lib dir so LD_LIBRARY_PATH
+# is set automatically by the ament library_path hook after sourcing setup.bash
 if(BLASFEO_LIB)
-  set(_solver_rpath "${BLASFEO_INSTALL}/lib")
+  file(GLOB _solver_so_files "${BLASFEO_INSTALL}/lib/libblasfeo.so*" "${BLASFEO_INSTALL}/lib/libhpipm.so*")
+  install(FILES ${_solver_so_files} DESTINATION lib)
+  # Point RPATH to install/mpc_controller/lib (standard ament location)
+  set(_solver_rpath "$ORIGIN/../../../lib;${BLASFEO_INSTALL}/lib")
   set_target_properties(mpc_controller_node PROPERTIES
     INSTALL_RPATH   "${_solver_rpath}"
     BUILD_WITH_INSTALL_RPATH TRUE
@@ -197,10 +205,10 @@ if(BLASFEO_LIB)
   )
 endif()
 
-# ── MPC Visualizer Node (shared by IPG and RViz test) ────────────────────
+# ── MPC Visualizer Node ────────────────────────────────────────────────────
 add_executable(mpc_visualizer
-  "src/IPG Node/mpc_visualizer.cpp"
-  "src/IPG Node/mpc_visualizer_main.cpp"
+  src/visualizer/mpc_visualizer.cpp
+  src/visualizer/mpc_visualizer_main.cpp
 )
 
 target_link_libraries(mpc_visualizer
@@ -235,13 +243,14 @@ install(DIRECTORY launch/
   DESTINATION share/${PROJECT_NAME}/launch
 )
 
-# Install config files (JSON params + RViz config)
+# Install config files (JSON params + RViz config + nodes.json)
 install(DIRECTORY config/
   DESTINATION share/${PROJECT_NAME}/config
 )
 install(DIRECTORY src/Params/
   DESTINATION share/${PROJECT_NAME}/config
   FILES_MATCHING PATTERN "*.json"
+  PATTERN "config.json" EXCLUDE
 )
 
 # Install track.csv data file

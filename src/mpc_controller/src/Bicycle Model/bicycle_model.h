@@ -2,10 +2,10 @@
 
 #include <Eigen/Dense>
 #include <cmath>
-#include "../config.h"
+#include "../config/config.h"
 #include "../Integrator/integration_methods.h"
 #include "../Params/params.h"
-#include "../types.h"
+#include "../types/types.h"
 
 namespace mpc_controller {
 /**

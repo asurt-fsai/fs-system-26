@@ -1,7 +1,7 @@
 #ifndef MPC_TYPES_H
 #define MPC_TYPES_H
 
-#include "config.h"
+#include "../config/config.h"
 namespace mpc_controller{
     /**
      * @brief Vehicle state (5D Kinematic Bicycle Model)
