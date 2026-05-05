@@ -1,3 +1,6 @@
 [submodule "src/mpc_controller/src/hpipm"]
 	path = src/mpc_controller/src/hpipm
 	url = https://github.com/giaf/hpipm.git
+[submodule "src/mpc_controller/src/blasfeo"]
+	path = src/mpc_controller/src/blasfeo
+	url = https://github.com/giaf/blasfeo.git
