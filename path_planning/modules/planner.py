@@ -20,8 +20,7 @@ class PathPlanner:
         self.robot_radius = robot_radius
         self.safety_margin = safety_margin
         self.max_edge_len = max_edge_len
-        self.last_virtual_cones = []
-        self.last_balanced_cones = []
+        
         
         # --- NEW: Instantiate the VirtualCones module ---
         self.virtual_cone_generator = VirtualCones(
@@ -53,25 +52,19 @@ class PathPlanner:
              cone_data, car_pos, car_yaw
          )
 
-        # save balanced and virtual cone data for plotting/debug
-        self.last_balanced_cones = balanced_cone_data
-        self.last_virtual_cones = [
-             (c[0], c[1], c[2]) for c in balanced_cone_data if len(c) >= 4 and c[3] is True
-         ]
-
         # 5. Module 1: Generate Voronoi
         points, colors, vor = voronoi_gen.generate_voronoi(balanced_cone_data)
 
         if vor is None:
             print("Voronoi generation failed. Switching to fallback.")
             return self._handle_low_cones(cone_data, car_pos, car_yaw)
-
+        
         # 6. Module 2: Build Safe Graph
         safe_graph = filters.build_safe_graph(
             vor,
             colors,
             midpoint_nodes ,
-            cone_data = balanced_cone_data,
+            cone_data = balanced_cone_data,  # Use the balanced cone data for safety checks
             max_edge_len=self.max_edge_len
         )
 
@@ -83,15 +76,15 @@ class PathPlanner:
             return []
 
         # 8. Module 4: Smoothing
-        rx = [p[0] for p in path]
-        ry = [p[1] for p in path]
+        # rx = [p[0] for p in path]
+        # ry = [p[1] for p in path]
 
-        try:
-            smoothed_x, smoothed_y = smooth_path_bspline(rx, ry)
-            return list(zip(smoothed_x, smoothed_y))
-        except Exception as e:
-            print(f"Smoothing failed ({e}), returning raw path")
-            return path
+        # try:
+        #     smoothed_x, smoothed_y = smooth_path_bspline(rx, ry)
+        #     return list(zip(smoothed_x, smoothed_y))
+        # except Exception as e:
+        #     print(f"Smoothing failed ({e}), returning raw path")
+        #     return path
             
     def _handle_low_cones(self, cone_data, car_pos, car_yaw):
         """
@@ -133,7 +126,6 @@ class PathPlanner:
                 target_point = cone_pos + (right_vec * (ASSUMED_WIDTH / 2.0))
             elif color == 'y':  # Yellow -> Path is to the Left
                 target_point = cone_pos - (right_vec * (ASSUMED_WIDTH / 2.0))
-
         if target_point is not None:
             direction = target_point - car_pos
             length = np.linalg.norm(direction)
