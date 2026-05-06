@@ -1,0 +1,672 @@
+{"timestamp": 1777562009.4735065, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 11.4875, "pid": 8368, "threshold": 10.0}}
+{"timestamp": 1777562013.5915017, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 7.1625, "pid": 8368, "threshold": 10.0}}
+{"timestamp": 1777562016.732061, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 11.125, "pid": 8368, "threshold": 10.0}}
+{"timestamp": 1777562018.1385398, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 2.4875, "pid": 8368, "threshold": 10.0}}
+{"timestamp": 1777562020.4069111, "severity": "WARN", "category": "TOPIC_HEALTH", "event_type": "LOW_FREQ", "source": "topic_monitor", "details": {"topic": "/perception_markers", "freq": 0.0, "expected": 10}}
+{"timestamp": 1777562023.4070687, "severity": "WARN", "category": "TOPIC_HEALTH", "event_type": "LOW_FREQ", "source": "topic_monitor", "details": {"topic": "/topic2", "freq": 0.0, "expected": 10}}
+{"timestamp": 1777562023.5265224, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 11.6375, "pid": 8368, "threshold": 10.0}}
+{"timestamp": 1777562024.4118843, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 0.0, "pid": 8368, "threshold": 10.0}}
+{"timestamp": 1777562025.4074295, "severity": "ERROR", "category": "TOPIC_HEALTH", "event_type": "NODE_CRASH", "source": "topic_monitor", "details": {"topic": "/topic2", "silence_seconds": 2.82, "timeout": 2.0}}
+{"timestamp": 1777562030.4833145, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.282, "threshold": 30.0}}
+{"timestamp": 1777562031.4504578, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.967, "threshold": 30.0}}
+{"timestamp": 1777562035.491355, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.088, "threshold": 30.0}}
+{"timestamp": 1777562270.1630218, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 12.1125, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562271.4940984, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 8.9625, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562278.0763097, "severity": "WARN", "category": "TOPIC_HEALTH", "event_type": "LOW_FREQ", "source": "topic_monitor", "details": {"topic": "/perception_markers", "freq": 0.0, "expected": 10}}
+{"timestamp": 1777562279.0761342, "severity": "WARN", "category": "TOPIC_HEALTH", "event_type": "LOW_FREQ", "source": "topic_monitor", "details": {"topic": "/topic2", "freq": 0.0, "expected": 10}}
+{"timestamp": 1777562281.2726853, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 11.025, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562281.2753825, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 11.775, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562283.1896603, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.1375, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562284.3254826, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 12.275, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562285.2002654, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.544, "threshold": 30.0}}
+{"timestamp": 1777562287.269814, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.3625, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562287.278798, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 80.04669714952817, "threshold": 80.0}}
+{"timestamp": 1777562288.403487, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 18.309739182044993, "threshold": 80.0}}
+{"timestamp": 1777562289.281525, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.55, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562289.2850046, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 11.375, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562289.2918687, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 80.39038496294958, "threshold": 80.0}}
+{"timestamp": 1777562289.292309, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.261, "threshold": 30.0}}
+{"timestamp": 1777562290.3006945, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 18.454156613292398, "threshold": 80.0}}
+{"timestamp": 1777562290.3011265, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.077, "threshold": 30.0}}
+{"timestamp": 1777562291.1970036, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.25, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562291.2058694, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 80.66205032933627, "threshold": 80.0}}
+{"timestamp": 1777562291.2062635, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.609, "threshold": 30.0}}
+{"timestamp": 1777562292.198986, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 8.7375, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562292.211221, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.775, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562292.2287827, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 18.595539893900806, "threshold": 80.0}}
+{"timestamp": 1777562293.224939, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 11.7, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562293.2372248, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 80.90448281324251, "threshold": 80.0}}
+{"timestamp": 1777562293.2376378, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.073, "threshold": 30.0}}
+{"timestamp": 1777562294.2288487, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 18.737953665634706, "threshold": 80.0}}
+{"timestamp": 1777562295.2993555, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.4875, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562295.3101985, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 81.21320515686713, "threshold": 80.0}}
+{"timestamp": 1777562296.2241611, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 18.87787070585992, "threshold": 80.0}}
+{"timestamp": 1777562297.313664, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.3625, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562297.3174093, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.0125, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562297.3269966, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 81.46403206525561, "threshold": 80.0}}
+{"timestamp": 1777562297.327394, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.765, "threshold": 30.0}}
+{"timestamp": 1777562298.287579, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 19.013739893538926, "threshold": 80.0}}
+{"timestamp": 1777562298.2880335, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.429, "threshold": 30.0}}
+{"timestamp": 1777562299.349046, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.2375, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562299.3520617, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.925, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562299.3580604, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 81.58981876332624, "threshold": 80.0}}
+{"timestamp": 1777562299.3609939, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.919, "threshold": 30.0}}
+{"timestamp": 1777562300.4073763, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 19.156156832319198, "threshold": 80.0}}
+{"timestamp": 1777562300.4101138, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.586, "threshold": 30.0}}
+{"timestamp": 1777562301.2759056, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.9625, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562301.288771, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 81.77445892924946, "threshold": 80.0}}
+{"timestamp": 1777562302.3290055, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 19.296749585136936, "threshold": 80.0}}
+{"timestamp": 1777562303.34705, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 81.94754296050648, "threshold": 80.0}}
+{"timestamp": 1777562304.2333398, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 19.438111189151215, "threshold": 80.0}}
+{"timestamp": 1777562304.233832, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.609, "threshold": 30.0}}
+{"timestamp": 1777562305.2537327, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.01335328652009, "threshold": 80.0}}
+{"timestamp": 1777562306.3427327, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.3375, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562306.3530982, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 19.581314981494515, "threshold": 80.0}}
+{"timestamp": 1777562307.293515, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 11.8375, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562307.3020217, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.13616833755646, "threshold": 80.0}}
+{"timestamp": 1777562308.295814, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 19.72390566956372, "threshold": 80.0}}
+{"timestamp": 1777562309.2908196, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.075, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562309.3031375, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.3097639541638, "threshold": 80.0}}
+{"timestamp": 1777562309.3035557, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.233, "threshold": 30.0}}
+{"timestamp": 1777562310.2449996, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.35, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562310.2561233, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 19.864769466566813, "threshold": 80.0}}
+{"timestamp": 1777562310.2565, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.919, "threshold": 30.0}}
+{"timestamp": 1777562311.196566, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.3905109489051, "threshold": 80.0}}
+{"timestamp": 1777562311.1970024, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.58, "threshold": 30.0}}
+{"timestamp": 1777562312.27407, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 20.003053533259404, "threshold": 80.0}}
+{"timestamp": 1777562313.2636416, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.875, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562313.2750452, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.52583349580814, "threshold": 80.0}}
+{"timestamp": 1777562314.316759, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.6, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562314.3247304, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 20.142519592434596, "threshold": 80.0}}
+{"timestamp": 1777562315.2378259, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.54847645429362, "threshold": 80.0}}
+{"timestamp": 1777562316.3420403, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 11.8, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562316.345476, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.2, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562316.364249, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 20.27569136223967, "threshold": 80.0}}
+{"timestamp": 1777562317.1946952, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 11.0375, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562317.2008924, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.599837000815, "threshold": 80.0}}
+{"timestamp": 1777562318.1994488, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.825, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562318.207677, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 20.40991242779951, "threshold": 80.0}}
+{"timestamp": 1777562319.3448381, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.63226934849148, "threshold": 80.0}}
+{"timestamp": 1777562320.1785488, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.425, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562320.1866632, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 20.54797067573311, "threshold": 80.0}}
+{"timestamp": 1777562321.3462086, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.3125, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562321.3580139, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.7503066706146, "threshold": 80.0}}
+{"timestamp": 1777562322.2895296, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 20.681136871456545, "threshold": 80.0}}
+{"timestamp": 1777562323.1978798, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.925, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562323.2139902, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.82075433064418, "threshold": 80.0}}
+{"timestamp": 1777562324.306413, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.5875, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562324.3156695, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 20.81147781648508, "threshold": 80.0}}
+{"timestamp": 1777562325.2392092, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.3125, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562325.2497318, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.86779876210124, "threshold": 80.0}}
+{"timestamp": 1777562326.195508, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 20.948685460880583, "threshold": 80.0}}
+{"timestamp": 1777562327.2284832, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.88977770940697, "threshold": 80.0}}
+{"timestamp": 1777562328.2478611, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.9625, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562328.250835, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.7125, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562328.2601147, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 21.07438560812217, "threshold": 80.0}}
+{"timestamp": 1777562329.1808043, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.45, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562329.183884, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.05, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562329.1970816, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.89233065870498, "threshold": 80.0}}
+{"timestamp": 1777562330.2039847, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.8, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562330.2146153, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 21.20908615336893, "threshold": 80.0}}
+{"timestamp": 1777562331.2291873, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.3625, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562331.2411175, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.9070062769856, "threshold": 80.0}}
+{"timestamp": 1777562331.2416437, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.955, "threshold": 30.0}}
+{"timestamp": 1777562332.3232348, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.6625, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562332.3360534, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 21.341962496196103, "threshold": 80.0}}
+{"timestamp": 1777562332.3366604, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.423, "threshold": 30.0}}
+{"timestamp": 1777562333.2714207, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.94480691236113, "threshold": 80.0}}
+{"timestamp": 1777562334.2903986, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.5125, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562334.3061662, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 21.471412900911844, "threshold": 80.0}}
+{"timestamp": 1777562335.3446655, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.99807771522724, "threshold": 80.0}}
+{"timestamp": 1777562335.3450735, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.762, "threshold": 30.0}}
+{"timestamp": 1777562336.3700407, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.85, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562336.384069, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 21.60184345763261, "threshold": 80.0}}
+{"timestamp": 1777562336.3845456, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 31.205, "threshold": 30.0}}
+{"timestamp": 1777562337.262576, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.10546548554237, "threshold": 80.0}}
+{"timestamp": 1777562338.2939873, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.625, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562338.3074489, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 21.737849548708695, "threshold": 80.0}}
+{"timestamp": 1777562339.2067416, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.8375, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562339.2136023, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.7875, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562339.2299469, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.14921628050966, "threshold": 80.0}}
+{"timestamp": 1777562340.2767534, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.75, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562340.284207, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.7375, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562340.2947855, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 21.86546291839575, "threshold": 80.0}}
+{"timestamp": 1777562341.279853, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.8, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562341.298441, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.18291597813652, "threshold": 80.0}}
+{"timestamp": 1777562342.2779884, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 21.996967368049354, "threshold": 80.0}}
+{"timestamp": 1777562343.3046029, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 11.175, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562343.3424225, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.2594338160057, "threshold": 80.0}}
+{"timestamp": 1777562344.3206959, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.225, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562344.3336892, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 22.12686789539009, "threshold": 80.0}}
+{"timestamp": 1777562345.293514, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 10.0, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562345.2961824, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.375, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562345.3067803, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.2980268732599, "threshold": 80.0}}
+{"timestamp": 1777562346.232316, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 11.3125, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562346.2351909, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.45, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562346.248155, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 22.25543611769787, "threshold": 80.0}}
+{"timestamp": 1777562347.4203794, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.36289988764709, "threshold": 80.0}}
+{"timestamp": 1777562348.2440155, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.025, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562348.2557604, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 22.379728411501475, "threshold": 80.0}}
+{"timestamp": 1777562349.2540412, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.36464264038611, "threshold": 80.0}}
+{"timestamp": 1777562350.279327, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 22.501319940763636, "threshold": 80.0}}
+{"timestamp": 1777562351.2061357, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.40914870172068, "threshold": 80.0}}
+{"timestamp": 1777562352.4212537, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.6375, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562352.4438465, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 22.626969867548823, "threshold": 80.0}}
+{"timestamp": 1777562353.2886624, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.525, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562353.3069336, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.44343403631942, "threshold": 80.0}}
+{"timestamp": 1777562353.307369, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.761, "threshold": 30.0}}
+{"timestamp": 1777562354.3108742, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.5625, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562354.3264785, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 22.747654153776693, "threshold": 80.0}}
+{"timestamp": 1777562354.3268657, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.265, "threshold": 30.0}}
+{"timestamp": 1777562355.2598994, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 11.325, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562355.271509, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.4586669552045, "threshold": 80.0}}
+{"timestamp": 1777562356.2806664, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 22.874031672563248, "threshold": 80.0}}
+{"timestamp": 1777562357.2224808, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.42118507138505, "threshold": 80.0}}
+{"timestamp": 1777562358.3135142, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 22.998607615957496, "threshold": 80.0}}
+{"timestamp": 1777562359.2624235, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.6625, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562359.2775795, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.42849727485077, "threshold": 80.0}}
+{"timestamp": 1777562360.260127, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.65, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562360.276307, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 23.12168057542216, "threshold": 80.0}}
+{"timestamp": 1777562361.2605724, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 8.5, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562361.2764165, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.5117881940029, "threshold": 80.0}}
+{"timestamp": 1777562362.378922, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 23.25163614896843, "threshold": 80.0}}
+{"timestamp": 1777562362.3796144, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.874, "threshold": 30.0}}
+{"timestamp": 1777562363.3408854, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.59850374064838, "threshold": 80.0}}
+{"timestamp": 1777562363.341261, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.225, "threshold": 30.0}}
+{"timestamp": 1777562364.2511382, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 11.125, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562364.2665656, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 23.378730817383257, "threshold": 80.0}}
+{"timestamp": 1777562365.2265272, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 8.4375, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562365.2412877, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.65720710811273, "threshold": 80.0}}
+{"timestamp": 1777562366.266704, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.7, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562366.2827663, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 23.49907106775248, "threshold": 80.0}}
+{"timestamp": 1777562367.229169, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.65820326548227, "threshold": 80.0}}
+{"timestamp": 1777562368.466826, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.775, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562368.4697394, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.075, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562368.4857712, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 23.62343953556025, "threshold": 80.0}}
+{"timestamp": 1777562369.1912315, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.525, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562369.1936953, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.7, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562369.2095196, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.74085143435389, "threshold": 80.0}}
+{"timestamp": 1777562370.2748373, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 23.752997904622447, "threshold": 80.0}}
+{"timestamp": 1777562370.2753315, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.407, "threshold": 30.0}}
+{"timestamp": 1777562371.2810383, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.275, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562371.2925794, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.77972407736925, "threshold": 80.0}}
+{"timestamp": 1777562371.2929308, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.381, "threshold": 30.0}}
+{"timestamp": 1777562372.1763601, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.75, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562372.1918902, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 23.88033378348416, "threshold": 80.0}}
+{"timestamp": 1777562373.299524, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 11.575, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562373.3191223, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.82733421088466, "threshold": 80.0}}
+{"timestamp": 1777562373.3195157, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.918, "threshold": 30.0}}
+{"timestamp": 1777562374.3113656, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.65, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562374.3321307, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 24.002293260780462, "threshold": 80.0}}
+{"timestamp": 1777562374.3336549, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.226, "threshold": 30.0}}
+{"timestamp": 1777562375.2580333, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.5125, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562375.2764962, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.8688817036459, "threshold": 80.0}}
+{"timestamp": 1777562375.277772, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.092, "threshold": 30.0}}
+{"timestamp": 1777562376.3048007, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.3875, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562376.3266149, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 24.128066010509883, "threshold": 80.0}}
+{"timestamp": 1777562376.3270736, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 31.357, "threshold": 30.0}}
+{"timestamp": 1777562377.2881906, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.9125, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562377.3153923, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.94222972232572, "threshold": 80.0}}
+{"timestamp": 1777562377.3161914, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.403, "threshold": 30.0}}
+{"timestamp": 1777562378.346285, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 24.252450090289557, "threshold": 80.0}}
+{"timestamp": 1777562379.316856, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.03902481047554, "threshold": 80.0}}
+{"timestamp": 1777562380.2668555, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.325, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562380.2802927, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 24.379830622019142, "threshold": 80.0}}
+{"timestamp": 1777562380.2818475, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.068, "threshold": 30.0}}
+{"timestamp": 1777562381.2122042, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.11020987314429, "threshold": 80.0}}
+{"timestamp": 1777562381.212611, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.72, "threshold": 30.0}}
+{"timestamp": 1777562382.3785346, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 24.50779838943052, "threshold": 80.0}}
+{"timestamp": 1777562382.3789966, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.224, "threshold": 30.0}}
+{"timestamp": 1777562383.4194279, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.18070858761534, "threshold": 80.0}}
+{"timestamp": 1777562384.1960995, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 24.633567620996757, "threshold": 80.0}}
+{"timestamp": 1777562384.1966405, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.761, "threshold": 30.0}}
+{"timestamp": 1777562385.3362281, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.22692244630267, "threshold": 80.0}}
+{"timestamp": 1777562386.1783867, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.65, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562386.1825438, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 11.075, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562386.1957254, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 24.75579421857877, "threshold": 80.0}}
+{"timestamp": 1777562387.305006, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 7.3375, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562387.325665, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.21955057086376, "threshold": 80.0}}
+{"timestamp": 1777562388.295756, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 24.874568149858504, "threshold": 80.0}}
+{"timestamp": 1777562388.2962022, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 31.04, "threshold": 30.0}}
+{"timestamp": 1777562389.3111916, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 8.7, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562389.329583, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.2555641590724, "threshold": 80.0}}
+{"timestamp": 1777562390.330302, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 24.996782178217828, "threshold": 80.0}}
+{"timestamp": 1777562391.4446967, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.31794190092661, "threshold": 80.0}}
+{"timestamp": 1777562392.2706912, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.025, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562392.2956126, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 25.11833471678723, "threshold": 80.0}}
+{"timestamp": 1777562393.19985, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.0125, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562393.2153752, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.35761716870368, "threshold": 80.0}}
+{"timestamp": 1777562394.3427792, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 25.23948426739389, "threshold": 80.0}}
+{"timestamp": 1777562395.2626538, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.38477729108595, "threshold": 80.0}}
+{"timestamp": 1777562396.2521834, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 25.356726239989754, "threshold": 80.0}}
+{"timestamp": 1777562397.248094, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.0375, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562397.2606888, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.42995160054566, "threshold": 80.0}}
+{"timestamp": 1777562398.1975412, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 25.475352415387135, "threshold": 80.0}}
+{"timestamp": 1777562399.351566, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.75, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562399.3992727, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.46837890085612, "threshold": 80.0}}
+{"timestamp": 1777562400.3202255, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 25.59221606356195, "threshold": 80.0}}
+{"timestamp": 1777562400.320678, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.915, "threshold": 30.0}}
+{"timestamp": 1777562401.3011694, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.49924691962909, "threshold": 80.0}}
+{"timestamp": 1777562401.3037345, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 31.711, "threshold": 30.0}}
+{"timestamp": 1777562402.242778, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 25.714684178590304, "threshold": 80.0}}
+{"timestamp": 1777562403.3480291, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.57341181100954, "threshold": 80.0}}
+{"timestamp": 1777562404.397954, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 25.831163946996966, "threshold": 80.0}}
+{"timestamp": 1777562404.3983362, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.918, "threshold": 30.0}}
+{"timestamp": 1777562405.275217, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.58634013797484, "threshold": 80.0}}
+{"timestamp": 1777562406.3627498, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 25.944017081517444, "threshold": 80.0}}
+{"timestamp": 1777562406.3631034, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.265, "threshold": 30.0}}
+{"timestamp": 1777562407.3647282, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.2875, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562407.3789907, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.5946416144746, "threshold": 80.0}}
+{"timestamp": 1777562408.3105145, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 26.06034510021432, "threshold": 80.0}}
+{"timestamp": 1777562409.3285477, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.59703029782851, "threshold": 80.0}}
+{"timestamp": 1777562410.2749925, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.9125, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562410.288845, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 26.17128316693214, "threshold": 80.0}}
+{"timestamp": 1777562411.2963965, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.525, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562411.322449, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.5729187834451, "threshold": 80.0}}
+{"timestamp": 1777562412.206562, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.0625, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562412.219462, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 26.280294383498244, "threshold": 80.0}}
+{"timestamp": 1777562412.2198436, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.915, "threshold": 30.0}}
+{"timestamp": 1777562413.309822, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.0875, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562413.3259392, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.58105600962745, "threshold": 80.0}}
+{"timestamp": 1777562413.3263133, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.383, "threshold": 30.0}}
+{"timestamp": 1777562414.3484714, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.9875, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562414.3637195, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 26.387168869366675, "threshold": 80.0}}
+{"timestamp": 1777562415.2691925, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.57603907139439, "threshold": 80.0}}
+{"timestamp": 1777562415.271468, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.918, "threshold": 30.0}}
+{"timestamp": 1777562416.202625, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 26.5038251972952, "threshold": 80.0}}
+{"timestamp": 1777562416.203001, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.229, "threshold": 30.0}}
+{"timestamp": 1777562417.3496602, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.62227579242271, "threshold": 80.0}}
+{"timestamp": 1777562418.3065608, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 26.618845447667326, "threshold": 80.0}}
+{"timestamp": 1777562419.2978783, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.65150686693899, "threshold": 80.0}}
+{"timestamp": 1777562420.360748, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 26.73273755699637, "threshold": 80.0}}
+{"timestamp": 1777562420.3611894, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.761, "threshold": 30.0}}
+{"timestamp": 1777562421.331563, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.1375, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562421.357577, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.68794664125774, "threshold": 80.0}}
+{"timestamp": 1777562422.2815373, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.475, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562422.2965038, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 26.847317836602627, "threshold": 80.0}}
+{"timestamp": 1777562423.4474874, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.71623253406935, "threshold": 80.0}}
+{"timestamp": 1777562424.3872724, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 26.96052593749701, "threshold": 80.0}}
+{"timestamp": 1777562424.3877373, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.421, "threshold": 30.0}}
+{"timestamp": 1777562425.3378315, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.75314092732879, "threshold": 80.0}}
+{"timestamp": 1777562425.3383198, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.761, "threshold": 30.0}}
+{"timestamp": 1777562426.3412921, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 27.07539702467639, "threshold": 80.0}}
+{"timestamp": 1777562426.3417137, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.732, "threshold": 30.0}}
+{"timestamp": 1777562427.2869809, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.80104071013162, "threshold": 80.0}}
+{"timestamp": 1777562428.3221684, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 27.184324658492287, "threshold": 80.0}}
+{"timestamp": 1777562429.390132, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.83982212541973, "threshold": 80.0}}
+{"timestamp": 1777562430.3132396, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 11.175, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562430.3371606, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 27.301641000228713, "threshold": 80.0}}
+{"timestamp": 1777562431.2830052, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.4125, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562431.3040493, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.88227819717467, "threshold": 80.0}}
+{"timestamp": 1777562432.5083704, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 27.419834258741844, "threshold": 80.0}}
+{"timestamp": 1777562432.509566, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.911, "threshold": 30.0}}
+{"timestamp": 1777562433.3718085, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.725, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562433.4042447, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.92685089404463, "threshold": 80.0}}
+{"timestamp": 1777562433.4048166, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.421, "threshold": 30.0}}
+{"timestamp": 1777562434.329733, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 27.534130178863023, "threshold": 80.0}}
+{"timestamp": 1777562435.1901038, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.93718959976628, "threshold": 80.0}}
+{"timestamp": 1777562436.3200412, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 8.8625, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562436.3338165, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 27.642442060177345, "threshold": 80.0}}
+{"timestamp": 1777562437.215281, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.05, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562437.2303221, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.9392806087823, "threshold": 80.0}}
+{"timestamp": 1777562438.2689674, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.6125, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562438.2945967, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 27.750742485292164, "threshold": 80.0}}
+{"timestamp": 1777562438.295146, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.757, "threshold": 30.0}}
+{"timestamp": 1777562439.4751713, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.9258143287589, "threshold": 80.0}}
+{"timestamp": 1777562439.4755847, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.884, "threshold": 30.0}}
+{"timestamp": 1777562440.302286, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 27.86092079084071, "threshold": 80.0}}
+{"timestamp": 1777562441.5092943, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.96052650161707, "threshold": 80.0}}
+{"timestamp": 1777562441.5097194, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.751, "threshold": 30.0}}
+{"timestamp": 1777562442.3178508, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 27.972210835795153, "threshold": 80.0}}
+{"timestamp": 1777562442.318212, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.413, "threshold": 30.0}}
+{"timestamp": 1777562443.499182, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.97304393977485, "threshold": 80.0}}
+{"timestamp": 1777562444.3515236, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 28.08182940450297, "threshold": 80.0}}
+{"timestamp": 1777562444.3521233, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.911, "threshold": 30.0}}
+{"timestamp": 1777562445.2906992, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.01105277701022, "threshold": 80.0}}
+{"timestamp": 1777562446.2085257, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 28.188138425717284, "threshold": 80.0}}
+{"timestamp": 1777562447.4343517, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.03649635036496, "threshold": 80.0}}
+{"timestamp": 1777562447.4350572, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.215, "threshold": 30.0}}
+{"timestamp": 1777562448.265729, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 28.29648059901507, "threshold": 80.0}}
+{"timestamp": 1777562448.2661672, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.753, "threshold": 30.0}}
+{"timestamp": 1777562449.309696, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.07174057094946, "threshold": 80.0}}
+{"timestamp": 1777562449.3101158, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.413, "threshold": 30.0}}
+{"timestamp": 1777562450.4488618, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 28.4019475781557, "threshold": 80.0}}
+{"timestamp": 1777562451.194775, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.11051054265225, "threshold": 80.0}}
+{"timestamp": 1777562452.2647257, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 28.511136944028152, "threshold": 80.0}}
+{"timestamp": 1777562452.2654397, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.906, "threshold": 30.0}}
+{"timestamp": 1777562453.5998304, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.14257724588948, "threshold": 80.0}}
+{"timestamp": 1777562453.600328, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.883, "threshold": 30.0}}
+{"timestamp": 1777562454.4623046, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.55, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562454.4839795, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 28.61609941025837, "threshold": 80.0}}
+{"timestamp": 1777562455.3563278, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.1892132711358, "threshold": 80.0}}
+{"timestamp": 1777562456.5219674, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 28.73369676447058, "threshold": 80.0}}
+{"timestamp": 1777562457.2999766, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.23658814983916, "threshold": 80.0}}
+{"timestamp": 1777562458.480043, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 28.847140426341923, "threshold": 80.0}}
+{"timestamp": 1777562459.2344823, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 7.925, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562459.2662652, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.28135192747258, "threshold": 80.0}}
+{"timestamp": 1777562460.3836377, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 28.9561244161044, "threshold": 80.0}}
+{"timestamp": 1777562460.3841155, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.555, "threshold": 30.0}}
+{"timestamp": 1777562461.3897164, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.4, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562461.414518, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.31883781550003, "threshold": 80.0}}
+{"timestamp": 1777562462.2761433, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 8.4875, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562462.2991943, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 29.0619225049322, "threshold": 80.0}}
+{"timestamp": 1777562462.299689, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.255, "threshold": 30.0}}
+{"timestamp": 1777562463.219896, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.34887526592063, "threshold": 80.0}}
+{"timestamp": 1777562464.3773832, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 29.170697245969606, "threshold": 80.0}}
+{"timestamp": 1777562465.3111851, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.5, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562465.327034, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.36971479856402, "threshold": 80.0}}
+{"timestamp": 1777562465.3273947, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.902, "threshold": 30.0}}
+{"timestamp": 1777562466.7140033, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 8.2875, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562466.7693858, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 31.496, "threshold": 30.0}}
+{"timestamp": 1777562468.331794, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 29.389004800824452, "threshold": 80.0}}
+{"timestamp": 1777562469.3065271, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.42402718859644, "threshold": 80.0}}
+{"timestamp": 1777562470.319694, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 29.495413370684602, "threshold": 80.0}}
+{"timestamp": 1777562471.3709776, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.451000811305, "threshold": 80.0}}
+{"timestamp": 1777562472.3347552, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.0625, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562472.3547442, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 29.59838087117565, "threshold": 80.0}}
+{"timestamp": 1777562473.3613608, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.47181806186953, "threshold": 80.0}}
+{"timestamp": 1777562474.2799585, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 8.8, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562474.3006725, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 29.703819797970553, "threshold": 80.0}}
+{"timestamp": 1777562475.3089533, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.6875, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562475.329104, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.50161581598707, "threshold": 80.0}}
+{"timestamp": 1777562475.329564, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.743, "threshold": 30.0}}
+{"timestamp": 1777562476.3161252, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 29.806783144912643, "threshold": 80.0}}
+{"timestamp": 1777562476.316523, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.561, "threshold": 30.0}}
+{"timestamp": 1777562477.267145, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 8.675, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562477.2888613, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.513012158806, "threshold": 80.0}}
+{"timestamp": 1777562477.2893965, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.239, "threshold": 30.0}}
+{"timestamp": 1777562478.3762465, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 29.90606903469974, "threshold": 80.0}}
+{"timestamp": 1777562478.3795834, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.404, "threshold": 30.0}}
+{"timestamp": 1777562479.3885577, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.5334834186798, "threshold": 80.0}}
+{"timestamp": 1777562480.252974, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.075, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562480.2678928, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 30.008852840305238, "threshold": 80.0}}
+{"timestamp": 1777562481.2307334, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.4625, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562481.2477417, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.54748913345048, "threshold": 80.0}}
+{"timestamp": 1777562481.2483213, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.744, "threshold": 30.0}}
+{"timestamp": 1777562482.1918342, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.4, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562482.2214432, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 30.105726592032568, "threshold": 80.0}}
+{"timestamp": 1777562482.223186, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.565, "threshold": 30.0}}
+{"timestamp": 1777562482.2236893, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_TEMP_START", "source": "SYSTEM", "details": {"temperature": 51.0, "threshold": 50.0}}
+{"timestamp": 1777562483.3442233, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 8.25, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562483.3592978, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.56043125078769, "threshold": 80.0}}
+{"timestamp": 1777562484.300276, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 30.204950746512353, "threshold": 80.0}}
+{"timestamp": 1777562485.3563073, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.55337292350316, "threshold": 80.0}}
+{"timestamp": 1777562486.3568633, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.675, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562486.3720489, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 30.301157636917623, "threshold": 80.0}}
+{"timestamp": 1777562487.279036, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.625, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562487.2991805, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.5620209569044, "threshold": 80.0}}
+{"timestamp": 1777562487.3015168, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.277, "threshold": 30.0}}
+{"timestamp": 1777562488.2971427, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 30.396908788936713, "threshold": 80.0}}
+{"timestamp": 1777562488.2975326, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.875, "threshold": 30.0}}
+{"timestamp": 1777562489.1946237, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.56254741821752, "threshold": 80.0}}
+{"timestamp": 1777562490.3110635, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.6125, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562490.3353314, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 30.492665618521926, "threshold": 80.0}}
+{"timestamp": 1777562491.3346221, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.55265544471234, "threshold": 80.0}}
+{"timestamp": 1777562492.222495, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.1, "pid": 12499, "threshold": 10.0}}
+{"timestamp": 1777562492.2461197, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 30.5850668564197, "threshold": 80.0}}
+{"timestamp": 1777562493.243625, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.54527312997521, "threshold": 80.0}}
+{"timestamp": 1777562494.2019203, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 30.67915901442929, "threshold": 80.0}}
+{"timestamp": 1777562495.427878, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.55665474469218, "threshold": 80.0}}
+{"timestamp": 1777562496.3261714, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 30.777498782668786, "threshold": 80.0}}
+{"timestamp": 1777562497.2550576, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.58017718954108, "threshold": 80.0}}
+{"timestamp": 1777562498.2548285, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.05, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562498.2798421, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 30.882738323220522, "threshold": 80.0}}
+{"timestamp": 1777562498.2805161, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.082, "threshold": 30.0}}
+{"timestamp": 1777562499.1368825, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 7.65, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562499.155535, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.59623710513657, "threshold": 80.0}}
+{"timestamp": 1777562499.156059, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.718, "threshold": 30.0}}
+{"timestamp": 1777562500.1864827, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 30.986743698841167, "threshold": 80.0}}
+{"timestamp": 1777562500.1869118, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.7, "threshold": 30.0}}
+{"timestamp": 1777562501.3685508, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.60872699516581, "threshold": 80.0}}
+{"timestamp": 1777562501.3689559, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.521, "threshold": 30.0}}
+{"timestamp": 1777562502.324541, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 12.0875, "pid": 12454, "threshold": 10}}
+{"timestamp": 1777562502.345282, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 31.08356341413875, "threshold": 80.0}}
+{"timestamp": 1777562502.3456864, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.429, "threshold": 30.0}}
+{"timestamp": 1777562503.3988895, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.6441472697071, "threshold": 80.0}}
+{"timestamp": 1777562503.3992517, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.207, "threshold": 30.0}}
+{"timestamp": 1777562504.2937822, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 31.188282057680652, "threshold": 80.0}}
+{"timestamp": 1777562504.2942526, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 28.765, "threshold": 30.0}}
+{"timestamp": 1777562561.77731, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 11.975, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562562.7301588, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 0.0, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562563.6931152, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 12.275, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562565.8456905, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 7.9875, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562571.6370242, "severity": "WARN", "category": "TOPIC_HEALTH", "event_type": "LOW_FREQ", "source": "topic_monitor", "details": {"topic": "/perception_markers", "freq": 0.0, "expected": 10}}
+{"timestamp": 1777562572.637093, "severity": "WARN", "category": "TOPIC_HEALTH", "event_type": "LOW_FREQ", "source": "topic_monitor", "details": {"topic": "/topic2", "freq": 0.0, "expected": 10}}
+{"timestamp": 1777562574.8686314, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.025, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562576.8896668, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.875, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562578.7991922, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 11.85, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562578.8065178, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.718, "threshold": 30.0}}
+{"timestamp": 1777562579.8054228, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 11.3375, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562581.9563918, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.7, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562583.9140904, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 11.3, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562584.8945875, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 7.9, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562586.704182, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.2125, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562586.710239, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 80.12295081967213, "threshold": 80.0}}
+{"timestamp": 1777562587.8323326, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 39.66653053846514, "threshold": 80.0}}
+{"timestamp": 1777562588.8902042, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.8375, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562588.897237, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 80.32494992210104, "threshold": 80.0}}
+{"timestamp": 1777562589.8272235, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.5375, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562589.8374624, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 39.724532181093345, "threshold": 80.0}}
+{"timestamp": 1777562590.8105755, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.7875, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562590.8174186, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 80.43188669985277, "threshold": 80.0}}
+{"timestamp": 1777562591.882972, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.725, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562591.8901777, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 39.78412053993235, "threshold": 80.0}}
+{"timestamp": 1777562592.7619402, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.8125, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562592.7715423, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 80.60078420947697, "threshold": 80.0}}
+{"timestamp": 1777562593.7733195, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.2625, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562593.7769396, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.6375, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562593.7924478, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 39.840712508919694, "threshold": 80.0}}
+{"timestamp": 1777562593.7936397, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.078, "threshold": 30.0}}
+{"timestamp": 1777562594.8662755, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 80.83385975994946, "threshold": 80.0}}
+{"timestamp": 1777562595.8485868, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.3625, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562595.8578284, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 39.90083068454467, "threshold": 80.0}}
+{"timestamp": 1777562595.8582408, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.868, "threshold": 30.0}}
+{"timestamp": 1777562596.918231, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 81.07652477572401, "threshold": 80.0}}
+{"timestamp": 1777562597.757851, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 39.95653301761294, "threshold": 80.0}}
+{"timestamp": 1777562598.831717, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 81.32429793832195, "threshold": 80.0}}
+{"timestamp": 1777562600.0400517, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.7625, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562600.0502663, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 40.01501252150577, "threshold": 80.0}}
+{"timestamp": 1777562600.7487867, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 12.875, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562600.7598467, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 81.51583337906811, "threshold": 80.0}}
+{"timestamp": 1777562600.7603996, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.743, "threshold": 30.0}}
+{"timestamp": 1777562601.789988, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.575, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562601.7987928, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 40.07649096852626, "threshold": 80.0}}
+{"timestamp": 1777562601.799231, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.213, "threshold": 30.0}}
+{"timestamp": 1777562602.784704, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 11.6875, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562602.7931545, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 81.54768163179476, "threshold": 80.0}}
+{"timestamp": 1777562602.793628, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.899, "threshold": 30.0}}
+{"timestamp": 1777562603.7953644, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 40.13436647993613, "threshold": 80.0}}
+{"timestamp": 1777562603.7959628, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.718, "threshold": 30.0}}
+{"timestamp": 1777562604.843809, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 81.69980821641263, "threshold": 80.0}}
+{"timestamp": 1777562606.0157082, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.7625, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562606.0258052, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 40.192226569285104, "threshold": 80.0}}
+{"timestamp": 1777562606.8182933, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 81.87293569069361, "threshold": 80.0}}
+{"timestamp": 1777562607.806032, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 40.25317041256666, "threshold": 80.0}}
+{"timestamp": 1777562608.8234174, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.1587242201749, "threshold": 80.0}}
+{"timestamp": 1777562608.824014, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 28.886, "threshold": 30.0}}
+{"timestamp": 1777562609.8442268, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.625, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562609.848554, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.225, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562609.8579512, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 40.31962671717688, "threshold": 80.0}}
+{"timestamp": 1777562609.8584023, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.017, "threshold": 30.0}}
+{"timestamp": 1777562610.9837866, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.025, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562610.9934263, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.40682248894504, "threshold": 80.0}}
+{"timestamp": 1777562610.9940405, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.744, "threshold": 30.0}}
+{"timestamp": 1777562612.141534, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.6875, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562612.9034402, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 6.2375, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562614.0223014, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.25, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562614.034069, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 40.45116147420666, "threshold": 80.0}}
+{"timestamp": 1777562614.9574125, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 82.91429774689408, "threshold": 80.0}}
+{"timestamp": 1777562615.8202536, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.35, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562615.828002, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 40.51563046976049, "threshold": 80.0}}
+{"timestamp": 1777562616.9485006, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.3125, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562616.9615593, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.09549049987768, "threshold": 80.0}}
+{"timestamp": 1777562616.9622343, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.011, "threshold": 30.0}}
+{"timestamp": 1777562617.8034077, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 40.57970300848758, "threshold": 80.0}}
+{"timestamp": 1777562618.9368303, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 8.9625, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562618.9564407, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.2102373711442, "threshold": 80.0}}
+{"timestamp": 1777562618.9568815, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 28.916, "threshold": 30.0}}
+{"timestamp": 1777562619.9812632, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.175, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562619.991191, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 40.64140266671912, "threshold": 80.0}}
+{"timestamp": 1777562619.9915462, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.364, "threshold": 30.0}}
+{"timestamp": 1777562621.0892782, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 8.925, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562621.1184855, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.39, "threshold": 30.0}}
+{"timestamp": 1777562621.118896, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_TEMP_START", "source": "SYSTEM", "details": {"temperature": 51.0, "threshold": 50.0}}
+{"timestamp": 1777562622.7377532, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.48896908367126, "threshold": 80.0}}
+{"timestamp": 1777562623.8447547, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.1625, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562623.8816762, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 40.767306497498446, "threshold": 80.0}}
+{"timestamp": 1777562624.9975736, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 8.5625, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562625.0104291, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.6527335840324, "threshold": 80.0}}
+{"timestamp": 1777562625.0108492, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.365, "threshold": 30.0}}
+{"timestamp": 1777562625.8860407, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 40.82956953955984, "threshold": 80.0}}
+{"timestamp": 1777562625.8864384, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.896, "threshold": 30.0}}
+{"timestamp": 1777562626.8701768, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.79299441380037, "threshold": 80.0}}
+{"timestamp": 1777562626.8706503, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 31.688, "threshold": 30.0}}
+{"timestamp": 1777562627.8869011, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 40.89081898400387, "threshold": 80.0}}
+{"timestamp": 1777562628.8358798, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.87604323436858, "threshold": 80.0}}
+{"timestamp": 1777562629.8797448, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.45, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562629.8948057, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 40.95157746611922, "threshold": 80.0}}
+{"timestamp": 1777562630.8943667, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.2375, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562630.9046638, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 83.92190831556503, "threshold": 80.0}}
+{"timestamp": 1777562631.9228365, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.325, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562631.931554, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 41.009149688910576, "threshold": 80.0}}
+{"timestamp": 1777562631.934229, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.075, "threshold": 30.0}}
+{"timestamp": 1777562632.8758097, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.9625, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562632.8833659, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.00493554567004, "threshold": 80.0}}
+{"timestamp": 1777562632.8838015, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.054, "threshold": 30.0}}
+{"timestamp": 1777562633.8337681, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 41.06765439318989, "threshold": 80.0}}
+{"timestamp": 1777562634.8341384, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.0598980593282, "threshold": 80.0}}
+{"timestamp": 1777562635.7972136, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 41.12966685649665, "threshold": 80.0}}
+{"timestamp": 1777562635.7976315, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.586, "threshold": 30.0}}
+{"timestamp": 1777562636.9943037, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.11521107608628, "threshold": 80.0}}
+{"timestamp": 1777562636.9946973, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.403, "threshold": 30.0}}
+{"timestamp": 1777562637.966858, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 41.18801356600138, "threshold": 80.0}}
+{"timestamp": 1777562638.8340528, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.21909875128189, "threshold": 80.0}}
+{"timestamp": 1777562639.8268526, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.1125, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562639.8469524, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 41.24718208314655, "threshold": 80.0}}
+{"timestamp": 1777562640.8657427, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 8.9, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562640.8786032, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.26976223446569, "threshold": 80.0}}
+{"timestamp": 1777562640.8789706, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.742, "threshold": 30.0}}
+{"timestamp": 1777562641.9982035, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 41.30672304221055, "threshold": 80.0}}
+{"timestamp": 1777562641.998566, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 31.028, "threshold": 30.0}}
+{"timestamp": 1777562642.8481894, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.39407902315402, "threshold": 80.0}}
+{"timestamp": 1777562643.973472, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.2125, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562643.9834733, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 41.367871532620484, "threshold": 80.0}}
+{"timestamp": 1777562644.9786365, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 11.3625, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562644.9904473, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.48329251470878, "threshold": 80.0}}
+{"timestamp": 1777562645.9147842, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 41.425098185898634, "threshold": 80.0}}
+{"timestamp": 1777562646.816687, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 7.0125, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562646.8260083, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.60161885358735, "threshold": 80.0}}
+{"timestamp": 1777562647.883093, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.125, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562647.894553, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 41.48536868529913, "threshold": 80.0}}
+{"timestamp": 1777562649.0508633, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.69830490204005, "threshold": 80.0}}
+{"timestamp": 1777562649.9934187, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 41.54692543102825, "threshold": 80.0}}
+{"timestamp": 1777562650.8948536, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.125, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562650.9057508, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.77452041058659, "threshold": 80.0}}
+{"timestamp": 1777562651.833263, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.5875, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562651.8438597, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 41.60686753180008, "threshold": 80.0}}
+{"timestamp": 1777562652.846618, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.4875, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562652.853961, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.81173062997827, "threshold": 80.0}}
+{"timestamp": 1777562653.775173, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 8.8875, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562653.7832294, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 41.66281695924443, "threshold": 80.0}}
+{"timestamp": 1777562654.846153, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.83473588157761, "threshold": 80.0}}
+{"timestamp": 1777562655.866884, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 41.717518179182086, "threshold": 80.0}}
+{"timestamp": 1777562656.9726894, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.84637565874515, "threshold": 80.0}}
+{"timestamp": 1777562656.9753842, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.897, "threshold": 30.0}}
+{"timestamp": 1777562657.9304273, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 41.77386735275106, "threshold": 80.0}}
+{"timestamp": 1777562657.930823, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.207, "threshold": 30.0}}
+{"timestamp": 1777562658.8809123, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 84.96257101753189, "threshold": 80.0}}
+{"timestamp": 1777562658.8814294, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.74, "threshold": 30.0}}
+{"timestamp": 1777562659.9686146, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.575, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562659.9888923, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 41.83235163458434, "threshold": 80.0}}
+{"timestamp": 1777562659.989302, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.363, "threshold": 30.0}}
+{"timestamp": 1777562660.9221537, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 8.65, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562660.93784, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.03970911874461, "threshold": 80.0}}
+{"timestamp": 1777562661.7829714, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 41.89338648953607, "threshold": 80.0}}
+{"timestamp": 1777562662.7713146, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.15, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562662.7866151, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.09519449726507, "threshold": 80.0}}
+{"timestamp": 1777562663.9865603, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 41.949449046570834, "threshold": 80.0}}
+{"timestamp": 1777562665.0081263, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 8.9625, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562665.0318513, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.11202286557256, "threshold": 80.0}}
+{"timestamp": 1777562665.897515, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 42.005874346299876, "threshold": 80.0}}
+{"timestamp": 1777562666.9349706, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.13409440971279, "threshold": 80.0}}
+{"timestamp": 1777562667.8384085, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 42.06389081450295, "threshold": 80.0}}
+{"timestamp": 1777562668.7174625, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.20686355240024, "threshold": 80.0}}
+{"timestamp": 1777562669.8369932, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 42.120457591483365, "threshold": 80.0}}
+{"timestamp": 1777562671.0497081, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.2719280981434, "threshold": 80.0}}
+{"timestamp": 1777562671.8034005, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.6875, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562671.8141847, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 42.17758499004782, "threshold": 80.0}}
+{"timestamp": 1777562673.0182989, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 8.95, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562673.0326238, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.35064711699704, "threshold": 80.0}}
+{"timestamp": 1777562673.9189873, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 42.235960893890145, "threshold": 80.0}}
+{"timestamp": 1777562674.85806, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 11.1625, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562674.8714616, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.39530163026241, "threshold": 80.0}}
+{"timestamp": 1777562675.9614894, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 10.175, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562675.9643145, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.6, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562675.9752986, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 42.29376448533076, "threshold": 80.0}}
+{"timestamp": 1777562676.8258786, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 9.5375, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562676.8370798, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.41822721598002, "threshold": 80.0}}
+{"timestamp": 1777562677.7717402, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 42.35095586388006, "threshold": 80.0}}
+{"timestamp": 1777562678.8796628, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.48647929418026, "threshold": 80.0}}
+{"timestamp": 1777562679.8712852, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 11.6625, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562679.8877537, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 42.411215897183396, "threshold": 80.0}}
+{"timestamp": 1777562681.0874624, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.58594851548966, "threshold": 80.0}}
+{"timestamp": 1777562681.8970246, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "conversion_node", "details": {"cpu": 8.9375, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562681.9169414, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 42.46818893244374, "threshold": 80.0}}
+{"timestamp": 1777562682.7061653, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.65481971892406, "threshold": 80.0}}
+{"timestamp": 1777562683.8883195, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 42.52498650122867, "threshold": 80.0}}
+{"timestamp": 1777562684.9071286, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.6766513806225, "threshold": 80.0}}
+{"timestamp": 1777562685.841218, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 42.58251260958706, "threshold": 80.0}}
+{"timestamp": 1777562686.8358462, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.71703117192605, "threshold": 80.0}}
+{"timestamp": 1777562687.8086736, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 42.6376808408067, "threshold": 80.0}}
+{"timestamp": 1777562688.9043434, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.73376254497255, "threshold": 80.0}}
+{"timestamp": 1777562689.9724889, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 42.69186071131145, "threshold": 80.0}}
+{"timestamp": 1777562690.7946398, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.76280041797283, "threshold": 80.0}}
+{"timestamp": 1777562691.7989676, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.225, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562691.8090787, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 42.74749253202964, "threshold": 80.0}}
+{"timestamp": 1777562692.8318272, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 8.475, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562692.8458238, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.7836555263303, "threshold": 80.0}}
+{"timestamp": 1777562693.9187346, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 42.802989413146975, "threshold": 80.0}}
+{"timestamp": 1777562694.7924457, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.175, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562694.8025708, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.79870930316874, "threshold": 80.0}}
+{"timestamp": 1777562695.892952, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 10.0, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562695.9017005, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 42.85593747363223, "threshold": 80.0}}
+{"timestamp": 1777562696.8146498, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.81513385995639, "threshold": 80.0}}
+{"timestamp": 1777562697.8952062, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.45, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562697.9130898, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 42.908399114798414, "threshold": 80.0}}
+{"timestamp": 1777562698.9492857, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.82958851000089, "threshold": 80.0}}
+{"timestamp": 1777562699.8233404, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 7.325, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562699.831519, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 42.95944246048138, "threshold": 80.0}}
+{"timestamp": 1777562700.730824, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.4875, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562700.7395382, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.83273940932084, "threshold": 80.0}}
+{"timestamp": 1777562701.7821608, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.2625, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562701.7915273, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 43.016277060320874, "threshold": 80.0}}
+{"timestamp": 1777562703.0096853, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.80077522038899, "threshold": 80.0}}
+{"timestamp": 1777562703.7992527, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 11.4375, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562703.8099923, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 43.070327660844896, "threshold": 80.0}}
+{"timestamp": 1777562704.8660288, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.78293681681275, "threshold": 80.0}}
+{"timestamp": 1777562705.8965192, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.5125, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562705.9056842, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 43.120676641517285, "threshold": 80.0}}
+{"timestamp": 1777562706.7872143, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.78038351038953, "threshold": 80.0}}
+{"timestamp": 1777562707.7553873, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 11.6125, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562707.767386, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 43.17278264929569, "threshold": 80.0}}
+{"timestamp": 1777562708.9182968, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.25, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562708.9293602, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.79414286656552, "threshold": 80.0}}
+{"timestamp": 1777562709.7952197, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.425, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562709.8124065, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 43.22525869588457, "threshold": 80.0}}
+{"timestamp": 1777562710.740875, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 11.05, "pid": 57688, "threshold": 10}}
+{"timestamp": 1777562710.7474544, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.4375, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562710.7605207, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.79149573484405, "threshold": 80.0}}
+{"timestamp": 1777562711.9016, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 43.273033951285946, "threshold": 80.0}}
+{"timestamp": 1777562712.901073, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.2875, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562712.9111605, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.8201517489712, "threshold": 80.0}}
+{"timestamp": 1777562713.8327534, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.6625, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562713.84298, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 43.32729006601226, "threshold": 80.0}}
+{"timestamp": 1777562714.7541988, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.7375, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562714.768175, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.80114619548824, "threshold": 80.0}}
+{"timestamp": 1777562715.8654425, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.8875, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562715.8748822, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 43.377372005853985, "threshold": 80.0}}
+{"timestamp": 1777562716.8387203, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.0125, "pid": 57741, "threshold": 10.0}}
+{"timestamp": 1777562716.8505673, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.78574340640387, "threshold": 80.0}}
+{"timestamp": 1777562717.7610354, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 43.42787359955099, "threshold": 80.0}}
+{"timestamp": 1777562718.9920936, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 85.76429766404362, "threshold": 80.0}}
+{"timestamp": 1777562719.8965998, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 43.47880994403324, "threshold": 80.0}}
