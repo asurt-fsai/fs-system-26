@@ -49,29 +49,29 @@ class PathPlanner:
         # cone_data = remove_ghost_cones(cone_data)
 
         # 4. Virtual cones logic - DELEGATED TO THE NEW CLASS
-        balanced_cone_data, midpoint_nodes = self.virtual_cone_generator.generate_balanced_cones(
-             cone_data, car_pos, car_yaw
-         )
-
-        # save balanced and virtual cone data for plotting/debug
-        self.last_balanced_cones = balanced_cone_data
-        self.last_virtual_cones = [
-             (c[0], c[1], c[2]) for c in balanced_cone_data if len(c) >= 4 and c[3] is True
-         ]
+        # balanced_cone_data, midpoint_nodes = self.virtual_cone_generator.generate_balanced_cones(
+        #      cone_data, car_pos, car_yaw
+        #  )
+        #
+        # # save balanced and virtual cone data for plotting/debug
+        # self.last_balanced_cones = balanced_cone_data
+        # self.last_virtual_cones = [
+        #      (c[0], c[1], c[2]) for c in balanced_cone_data if len(c) >= 4 and c[3] is True
+        #  ]
 
         # 5. Module 1: Generate Voronoi
-        points, colors, vor = voronoi_gen.generate_voronoi(balanced_cone_data)
+        points, colors, vor = voronoi_gen.generate_voronoi(cone_data)
 
         if vor is None:
             print("Voronoi generation failed. Switching to fallback.")
             return self._handle_low_cones(cone_data, car_pos, car_yaw)
-
+        midpoint_nodes=[]
         # 6. Module 2: Build Safe Graph
         safe_graph = filters.build_safe_graph(
             vor,
             colors,
             midpoint_nodes ,
-            cone_data = balanced_cone_data,
+            cone_data = cone_data,
             max_edge_len=self.max_edge_len
         )
 
@@ -82,16 +82,16 @@ class PathPlanner:
             print("No path found.")
             return []
 
-        # 8. Module 4: Smoothing
-        rx = [p[0] for p in path]
-        ry = [p[1] for p in path]
-
-        try:
-            smoothed_x, smoothed_y = smooth_path_bspline(rx, ry)
-            return list(zip(smoothed_x, smoothed_y))
-        except Exception as e:
-            print(f"Smoothing failed ({e}), returning raw path")
-            return path
+        # # 8. Module 4: Smoothing
+        # rx = [p[0] for p in path]
+        # ry = [p[1] for p in path]
+        #
+        # try:
+        #     smoothed_x, smoothed_y = smooth_path_bspline(rx, ry)
+        #     return list(zip(smoothed_x, smoothed_y))
+        # except Exception as e:
+        #     print(f"Smoothing failed ({e}), returning raw path")
+        #     return path
             
     def _handle_low_cones(self, cone_data, car_pos, car_yaw):
         """
