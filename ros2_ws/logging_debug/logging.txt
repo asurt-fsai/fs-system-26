@@ -1,0 +1,198 @@
+[INFO] [launch]: All log files can be found below /home/ayasx9/.ros/log/2026-05-06-20-59-36-239800-LAPTOP-4FIG3HKH-270594
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [logger_node-1]: process started with pid [270595]
+[INFO] [resource_monitor-2]: process started with pid [270597]
+[INFO] [rosout_monitor-3]: process started with pid [270599]
+[INFO] [topic_monitor-4]: process started with pid [270601]
+[resource_monitor-2] /opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py:440: UserWarning: when declaring parameter named 'cpu_process_names', declaring a parameter only providing its name is deprecated. You have to either:
+[resource_monitor-2] 	- Pass a name and a default value different to "PARAMETER NOT SET" (and optionally a descriptor).
+[resource_monitor-2] 	- Pass a name and a parameter type.
+[resource_monitor-2] 	- Pass a name and a descriptor with `dynamic_typing=True
+[resource_monitor-2]   warnings.warn(
+[resource_monitor-2] /opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py:440: UserWarning: when declaring parameter named 'gpu_process_names', declaring a parameter only providing its name is deprecated. You have to either:
+[resource_monitor-2] 	- Pass a name and a default value different to "PARAMETER NOT SET" (and optionally a descriptor).
+[resource_monitor-2] 	- Pass a name and a parameter type.
+[resource_monitor-2] 	- Pass a name and a descriptor with `dynamic_typing=True
+[resource_monitor-2]   warnings.warn(
+[resource_monitor-2] [INFO] [1778090376.517270182] [resource_monitor]: Monitoring CPU processes: ['conversion_node', 'dl_node', 'planning_centerline_calc_node']
+[resource_monitor-2] [INFO] [1778090376.517617155] [resource_monitor]: Monitoring GPU processes: ['zed']
+[resource_monitor-2] [INFO] [1778090376.517851223] [resource_monitor]: Overall thresholds - CPU: 80.0%, GPU: 300.0MB, Max Power: 30.0W, Min Power: 10.0W
+[resource_monitor-2] [INFO] [1778090376.518068091] [resource_monitor]: Custom process thresholds: {'zed': {'cpu': 90.0, 'gpu': 1000.0, 'mem': 800.0}, 'conversion_node': {'cpu': 12, 'mem': 200}, 'dl_node': {'cpu': 12.0, 'mem': 500}, 'planning_centerline_calc_node': {'cpu': 10.0, 'mem': 500}}
+[topic_monitor-4] /opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py:440: UserWarning: when declaring parameter named 'topics', declaring a parameter only providing its name is deprecated. You have to either:
+[topic_monitor-4] 	- Pass a name and a default value different to "PARAMETER NOT SET" (and optionally a descriptor).
+[topic_monitor-4] 	- Pass a name and a parameter type.
+[topic_monitor-4] 	- Pass a name and a descriptor with `dynamic_typing=True
+[topic_monitor-4]   warnings.warn(
+[topic_monitor-4] [INFO] [1778090376.739641267] [topic_monitor]: Monitoring topic '/perception_markers' with expected freq 10Hz, type MarkerArray
+[topic_monitor-4] [INFO] [1778090376.745840982] [topic_monitor]: Monitoring topic '/topic2' with expected freq 10Hz, type Path
+[resource_monitor-2] [INFO] [1778090378.522597975] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 0.00%, MEM: 53.32 MB
+[resource_monitor-2] [INFO] [1778090379.518135766] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 1.01%, MEM: 62.82 MB
+[resource_monitor-2] [INFO] [1778090380.513121559] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 0.00%, MEM: 62.82 MB
+[resource_monitor-2] [INFO] [1778090380.514001694] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090380.514826709] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090380.515397112] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 0.00%, MEM: 108.84 MB
+[resource_monitor-2] [INFO] [1778090381.513878823] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 0.00%, MEM: 62.82 MB
+[resource_monitor-2] [INFO] [1778090381.514426939] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090381.514883458] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090381.515252177] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 6.17%, MEM: 218.64 MB
+[resource_monitor-2] [INFO] [1778090382.515432583] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 0.00%, MEM: 62.82 MB
+[resource_monitor-2] [INFO] [1778090382.516126796] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090382.517069168] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090382.518129915] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 4.83%, MEM: 390.50 MB
+[resource_monitor-2] [INFO] [1778090382.520107473] [resource_monitor]: CPU Process planning_centerline_calc_node (PID 270737) --> CPU: 0.00%, MEM: 56.10 MB
+[resource_monitor-2] [INFO] [1778090383.512524040] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 0.00%, MEM: 62.82 MB
+[resource_monitor-2] [INFO] [1778090383.512991274] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090383.513335794] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090383.513650529] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 0.83%, MEM: 391.75 MB
+[resource_monitor-2] [INFO] [1778090383.514282232] [resource_monitor]: CPU Process planning_centerline_calc_node (PID 270737) --> CPU: 4.77%, MEM: 150.59 MB
+[resource_monitor-2] [INFO] [1778090384.512814806] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 0.08%, MEM: 62.95 MB
+[resource_monitor-2] [INFO] [1778090384.513670111] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090384.514575320] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090384.515446426] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 0.08%, MEM: 391.75 MB
+[resource_monitor-2] [INFO] [1778090384.516825498] [resource_monitor]: CPU Process planning_centerline_calc_node (PID 270737) --> CPU: 15.55%, MEM: 334.10 MB
+[resource_monitor-2] [INFO] [1778090385.512342434] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 0.08%, MEM: 62.95 MB
+[resource_monitor-2] [INFO] [1778090385.512804393] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090385.513155724] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090385.513499184] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 0.00%, MEM: 391.75 MB
+[resource_monitor-2] [INFO] [1778090385.513941988] [resource_monitor]: CPU Process planning_centerline_calc_node (PID 270737) --> CPU: 0.58%, MEM: 343.60 MB
+[resource_monitor-2] [INFO] [1778090386.513606880] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 0.00%, MEM: 62.95 MB
+[resource_monitor-2] [INFO] [1778090386.514046476] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090386.514412823] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090386.514764342] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 0.08%, MEM: 391.75 MB
+[resource_monitor-2] [INFO] [1778090386.515262981] [resource_monitor]: CPU Process planning_centerline_calc_node (PID 270737) --> CPU: 0.00%, MEM: 343.60 MB
+[resource_monitor-2] [INFO] [1778090387.512772871] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 0.00%, MEM: 62.95 MB
+[resource_monitor-2] [INFO] [1778090387.513230347] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090387.513546519] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090387.513872424] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 0.00%, MEM: 391.75 MB
+[resource_monitor-2] [INFO] [1778090387.514329438] [resource_monitor]: CPU Process planning_centerline_calc_node (PID 270737) --> CPU: 0.00%, MEM: 343.60 MB
+[resource_monitor-2] [INFO] [1778090388.514088734] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 0.00%, MEM: 63.07 MB
+[resource_monitor-2] [INFO] [1778090388.514655728] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090388.515121987] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090388.515958848] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 0.08%, MEM: 392.00 MB
+[resource_monitor-2] [INFO] [1778090388.516520371] [resource_monitor]: CPU Process planning_centerline_calc_node (PID 270737) --> CPU: 0.00%, MEM: 343.60 MB
+[topic_monitor-4] [INFO] [1778090388.748630488] [topic_monitor]: LOW_FREQ: {'topic': '/topic2', 'freq': 0.0, 'expected': 10}
+[resource_monitor-2] [INFO] [1778090389.520714197] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 1.91%, MEM: 63.57 MB
+[resource_monitor-2] [INFO] [1778090389.521386845] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090389.521950726] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090389.523264270] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 11.34%, MEM: 417.00 MB
+[resource_monitor-2] [INFO] [1778090389.524985042] [resource_monitor]: CPU Process planning_centerline_calc_node (PID 270737) --> CPU: 10.08%, MEM: 365.97 MB
+[resource_monitor-2] [INFO] [1778090390.524172006] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 4.32%, MEM: 63.57 MB
+[resource_monitor-2] [INFO] [1778090390.525033459] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090390.525633435] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090390.526251133] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 16.86%, MEM: 418.62 MB
+[resource_monitor-2] [INFO] [1778090390.527650124] [resource_monitor]: CPU Process planning_centerline_calc_node (PID 270737) --> CPU: 8.22%, MEM: 376.22 MB
+[resource_monitor-2] [INFO] [1778090391.525908609] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 4.24%, MEM: 63.57 MB
+[resource_monitor-2] [INFO] [1778090391.526739943] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090391.527528760] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090391.528217379] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 19.29%, MEM: 419.25 MB
+[resource_monitor-2] [INFO] [1778090391.529174398] [resource_monitor]: CPU Process planning_centerline_calc_node (PID 270737) --> CPU: 8.15%, MEM: 377.47 MB
+[resource_monitor-2] [INFO] [1778090392.516283632] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 5.05%, MEM: 63.57 MB
+[resource_monitor-2] [INFO] [1778090392.517891472] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090392.518880167] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090392.519467456] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 25.47%, MEM: 420.62 MB
+[resource_monitor-2] [INFO] [1778090392.520556219] [resource_monitor]: CPU Process planning_centerline_calc_node (PID 270737) --> CPU: 8.33%, MEM: 377.60 MB
+[resource_monitor-2] [INFO] [1778090393.520282009] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 3.82%, MEM: 63.57 MB
+[resource_monitor-2] [INFO] [1778090393.520817205] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090393.521786383] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090393.522843659] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 16.95%, MEM: 421.25 MB
+[resource_monitor-2] [INFO] [1778090393.523515364] [resource_monitor]: CPU Process planning_centerline_calc_node (PID 270737) --> CPU: 8.14%, MEM: 377.72 MB
+[resource_monitor-2] [INFO] [1778090394.524899162] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 4.32%, MEM: 63.57 MB
+[resource_monitor-2] [INFO] [1778090394.526594007] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090394.527963209] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090394.529603112] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 15.90%, MEM: 421.37 MB
+[resource_monitor-2] [INFO] [1778090394.531995925] [resource_monitor]: CPU Process planning_centerline_calc_node (PID 270737) --> CPU: 8.18%, MEM: 377.72 MB
+[resource_monitor-2] [INFO] [1778090395.514596531] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 1.93%, MEM: 63.57 MB
+[resource_monitor-2] [INFO] [1778090395.515168191] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090395.515627273] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090395.516317001] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 8.87%, MEM: 421.75 MB
+[resource_monitor-2] [INFO] [1778090395.518018221] [resource_monitor]: CPU Process planning_centerline_calc_node (PID 270737) --> CPU: 8.28%, MEM: 377.72 MB
+[resource_monitor-2] [INFO] [1778090396.513627843] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 0.00%, MEM: 63.57 MB
+[resource_monitor-2] [INFO] [1778090396.514113649] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090396.514486393] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090396.514841988] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 0.00%, MEM: 421.75 MB
+[resource_monitor-2] [INFO] [1778090396.515369683] [resource_monitor]: CPU Process planning_centerline_calc_node (PID 270737) --> CPU: 0.58%, MEM: 377.72 MB
+[resource_monitor-2] [INFO] [1778090397.512840608] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 0.00%, MEM: 63.57 MB
+[resource_monitor-2] [INFO] [1778090397.513270539] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090397.513618847] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090397.513934931] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 0.08%, MEM: 421.75 MB
+[resource_monitor-2] [INFO] [1778090397.514443307] [resource_monitor]: CPU Process planning_centerline_calc_node (PID 270737) --> CPU: 0.00%, MEM: 377.72 MB
+[topic_monitor-4] [INFO] [1778090397.748201494] [topic_monitor]: NODE_CRASH: {'topic': '/perception_markers', 'silence_seconds': 2.82, 'timeout': 2.0}
+[topic_monitor-4] [INFO] [1778090397.748567437] [topic_monitor]: NODE_CRASH: {'topic': '/topic2', 'silence_seconds': 2.77, 'timeout': 2.0}
+[resource_monitor-2] [INFO] [1778090398.513679659] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 0.00%, MEM: 63.57 MB
+[resource_monitor-2] [INFO] [1778090398.514172173] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090398.514544578] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090398.514882763] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 0.00%, MEM: 421.75 MB
+[resource_monitor-2] [INFO] [1778090398.515371126] [resource_monitor]: CPU Process planning_centerline_calc_node (PID 270737) --> CPU: 0.00%, MEM: 377.72 MB
+[resource_monitor-2] [INFO] [1778090399.513442277] [resource_monitor]: CPU Process conversion_node (PID 270666) --> CPU: 0.00%, MEM: 63.57 MB
+[resource_monitor-2] [INFO] [1778090399.513958676] [resource_monitor]: CPU Process dl_node (PID 270697) --> CPU: 0.00%, MEM: 3.25 MB
+[resource_monitor-2] [INFO] [1778090399.514362125] [resource_monitor]: CPU Process dl_node (PID 270699) --> CPU: 0.00%, MEM: 24.23 MB
+[resource_monitor-2] [INFO] [1778090399.514734594] [resource_monitor]: CPU Process dl_node (PID 270700) --> CPU: 0.00%, MEM: 421.75 MB
+[resource_monitor-2] [INFO] [1778090399.515309893] [resource_monitor]: CPU Process planning_centerline_calc_node (PID 270737) --> CPU: 0.00%, MEM: 377.72 MB
+[resource_monitor-2] Traceback (most recent call last):
+[resource_monitor-2]   File "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/logging_system/resource_monitor", line 33, in <module>
+[resource_monitor-2]     sys.exit(load_entry_point('logging-system', 'console_scripts', 'resource_monitor')())
+[resource_monitor-2]   File "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/logging_system/resource_monitor.py", line 364, in main
+[topic_monitor-4] Traceback (most recent call last):
+[topic_monitor-4]   File "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/logging_system/topic_monitor", line 33, in <module>
+[topic_monitor-4]     sys.exit(load_entry_point('logging-system', 'console_scripts', 'topic_monitor')())
+[topic_monitor-4]   File "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/logging_system/topic_monitor.py", line 203, in main
+[topic_monitor-4]     rclpy.spin(node)
+[topic_monitor-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[topic_monitor-4]     executor.spin_once()
+[topic_monitor-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 776, in spin_once
+[topic_monitor-4]     self._spin_once_impl(timeout_sec)
+[topic_monitor-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 765, in _spin_once_impl
+[topic_monitor-4]     handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+[topic_monitor-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 748, in wait_for_ready_callbacks
+[resource_monitor-2]     rclpy.spin(node)
+[resource_monitor-2]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[resource_monitor-2]     executor.spin_once()
+[resource_monitor-2]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 776, in spin_once
+[resource_monitor-2]     self._spin_once_impl(timeout_sec)
+[resource_monitor-2]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 765, in _spin_once_impl
+[resource_monitor-2]     handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+[resource_monitor-2]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 748, in wait_for_ready_callbacks
+[topic_monitor-4]     return next(self._cb_iter)
+[topic_monitor-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 649, in _wait_for_ready_callbacks
+[topic_monitor-4]     raise ExternalShutdownException()
+[topic_monitor-4] rclpy.executors.ExternalShutdownException
+[resource_monitor-2]     return next(self._cb_iter)
+[resource_monitor-2]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 649, in _wait_for_ready_callbacks
+[resource_monitor-2]     raise ExternalShutdownException()
+[resource_monitor-2] rclpy.executors.ExternalShutdownException
+[rosout_monitor-3] Traceback (most recent call last):
+[rosout_monitor-3]   File "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/logging_system/rosout_monitor", line 33, in <module>
+[rosout_monitor-3]     sys.exit(load_entry_point('logging-system', 'console_scripts', 'rosout_monitor')())
+[rosout_monitor-3]   File "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/logging_system/rosout_monitor.py", line 56, in main
+[logger_node-1] Traceback (most recent call last):
+[logger_node-1]   File "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/logging_system/logger_node", line 33, in <module>
+[logger_node-1]     sys.exit(load_entry_point('logging-system', 'console_scripts', 'logger_node')())
+[logger_node-1]   File "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/logging_system/logger_node.py", line 36, in main
+[rosout_monitor-3]     rclpy.spin(node)
+[rosout_monitor-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[rosout_monitor-3]     executor.spin_once()
+[rosout_monitor-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 776, in spin_once
+[rosout_monitor-3]     self._spin_once_impl(timeout_sec)
+[rosout_monitor-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 765, in _spin_once_impl
+[rosout_monitor-3]     handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+[rosout_monitor-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 748, in wait_for_ready_callbacks
+[rosout_monitor-3]     return next(self._cb_iter)
+[rosout_monitor-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 649, in _wait_for_ready_callbacks
+[rosout_monitor-3]     raise ExternalShutdownException()
+[rosout_monitor-3] rclpy.executors.ExternalShutdownException
+[logger_node-1]     rclpy.spin(node)
+[logger_node-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[logger_node-1]     executor.spin_once()
+[logger_node-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 776, in spin_once
+[logger_node-1]     self._spin_once_impl(timeout_sec)
+[logger_node-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 765, in _spin_once_impl
+[logger_node-1]     handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+[logger_node-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 748, in wait_for_ready_callbacks
+[logger_node-1]     return next(self._cb_iter)
+[logger_node-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 649, in _wait_for_ready_callbacks
+[logger_node-1]     raise ExternalShutdownException()
+[logger_node-1] rclpy.executors.ExternalShutdownException
+[ERROR] [rosout_monitor-3]: process has died [pid 270599, exit code 1, cmd '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/logging_system/rosout_monitor --ros-args -r __node:=rosout_monitor'].
+[ERROR] [logger_node-1]: process has died [pid 270595, exit code 1, cmd '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/logging_system/logger_node --ros-args -r __node:=logger_node'].
+[ERROR] [resource_monitor-2]: process has died [pid 270597, exit code 1, cmd '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/logging_system/resource_monitor --ros-args -r __node:=resource_monitor --params-file /tmp/launch_params_xd7fo7jf'].
+[ERROR] [topic_monitor-4]: process has died [pid 270601, exit code 1, cmd '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/logging_system/topic_monitor --ros-args -r __node:=topic_monitor --params-file /tmp/launch_params_m7sll06f'].

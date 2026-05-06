@@ -1,0 +1,220 @@
+[INFO] [launch]: All log files can be found below /home/ayasx9/.ros/log/2026-05-06-20-59-38-186802-LAPTOP-4FIG3HKH-270665
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [conversion_node-1]: process started with pid [270666]
+[conversion_node-1] [INFO] [1778090388.545887940] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 1, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090388.558258640] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 2, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090388.592427424] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 3, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090388.627739395] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 4, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090388.657434215] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 5, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090388.693686454] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 6, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090389.259086817] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 7, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090389.282466688] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 8, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090389.311827598] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 9, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090389.327229238] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 10, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090389.371276932] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 11, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090389.381763756] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 12, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090389.411341567] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 13, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090389.432619708] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 14, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090389.456084616] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 15, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090389.485436336] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 16, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090389.511799150] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 17, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090389.529203310] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 18, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090389.556717691] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 19, total landmarks stored: 8
+[conversion_node-1] [INFO] [1778090389.589005884] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 20, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090389.606951841] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 21, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090389.640964456] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 22, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090389.656755831] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 23, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090389.686524775] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 24, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090389.709977819] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 25, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090389.729604665] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 26, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090389.756149603] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 27, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090389.788471215] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 28, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090389.820326178] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 29, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090389.837815873] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 30, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090389.860189419] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 31, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090389.889424775] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 32, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090389.909293520] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 33, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090389.937443105] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 34, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090389.957596685] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 35, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090389.996219976] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 36, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090390.016367072] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 37, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090390.042557614] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 38, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.082511273] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 39, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.104161374] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 40, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.147948936] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 41, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.186501476] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 42, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090390.212075135] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 43, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090390.241069428] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 44, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090390.277149166] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 45, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.308790101] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 46, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.339681869] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 47, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.375437129] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 48, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.398277463] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 49, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.427897220] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 50, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.463085009] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 51, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.492477749] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 52, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.522681171] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 53, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.559184711] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 54, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.595081648] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 55, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.630490333] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 56, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.655502872] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 57, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.689000990] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 58, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.727117640] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 59, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.750978184] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 60, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.787777073] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 61, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.819589762] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 62, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.848380892] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 63, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.881818442] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 64, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.919019040] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 65, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.947837681] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 66, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090390.980487204] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 67, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.020972940] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 68, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090391.049661678] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 69, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090391.092946872] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 70, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090391.118077552] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 71, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090391.147782776] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 72, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090391.182059604] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 73, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090391.221517957] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 74, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090391.248158530] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 75, total landmarks stored: 9
+[conversion_node-1] [INFO] [1778090391.290748289] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 76, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.317588971] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 77, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.351488886] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 78, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.385248797] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 79, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.419468724] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 80, total landmarks stored: 11
+[conversion_node-1] [INFO] [1778090391.455936523] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 81, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.482534672] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 82, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.517108963] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 83, total landmarks stored: 11
+[conversion_node-1] [INFO] [1778090391.615135751] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 84, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.635726660] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 85, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.656054365] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 86, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.675309725] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 87, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.719640797] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 88, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.735807484] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 89, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.746454554] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 90, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.776374762] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 91, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.814241607] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 92, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.838102507] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 93, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.870481165] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 94, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.912681097] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 95, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.934846370] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 96, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090391.978628917] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 97, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.014082193] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 98, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.043045021] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 99, total landmarks stored: 11
+[conversion_node-1] [INFO] [1778090392.068072500] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 100, total landmarks stored: 11
+[conversion_node-1] [INFO] [1778090392.102844956] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 101, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.143321898] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 102, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.174347568] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 103, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.210632502] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 104, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.242557987] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 105, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.273188888] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 106, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.304269655] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 107, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.340507342] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 108, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.361989979] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 109, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.394325311] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 110, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.425385488] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 111, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.461090305] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 112, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.503333255] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 113, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.532155491] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 114, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.557242273] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 115, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.591988107] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 116, total landmarks stored: 11
+[conversion_node-1] [INFO] [1778090392.622775501] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 117, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.664319234] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 118, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.692911947] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 119, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.724698989] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 120, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.760972303] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 121, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.787099798] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 122, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.821032167] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 123, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.849470288] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 124, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.883556922] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 125, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.917043818] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 126, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.958828434] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 127, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090392.983341949] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 128, total landmarks stored: 11
+[conversion_node-1] [INFO] [1778090393.016330809] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 129, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.051438262] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 130, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.082954729] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 131, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.121017143] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 132, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.151032635] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 133, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.183926997] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 134, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.214110434] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 135, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.255716677] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 136, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.277472113] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 137, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.311018601] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 138, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.344744673] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 139, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.380634184] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 140, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.417754601] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 141, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.437957961] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 142, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.479199077] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 143, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.508934782] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 144, total landmarks stored: 11
+[conversion_node-1] [INFO] [1778090393.537240822] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 145, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.577792832] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 146, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.597593617] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 147, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.638170388] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 148, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.662428726] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 149, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.709224837] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 150, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.735417305] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 151, total landmarks stored: 11
+[conversion_node-1] [INFO] [1778090393.776864979] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 152, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.809183253] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 153, total landmarks stored: 10
+[conversion_node-1] [INFO] [1778090393.827342188] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 154, total landmarks stored: 11
+[conversion_node-1] [INFO] [1778090393.861888968] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 155, total landmarks stored: 11
+[conversion_node-1] [INFO] [1778090393.894993874] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 156, total landmarks stored: 11
+[conversion_node-1] [INFO] [1778090393.926883537] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 157, total landmarks stored: 11
+[conversion_node-1] [INFO] [1778090393.966441828] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 158, total landmarks stored: 11
+[conversion_node-1] [INFO] [1778090393.999766123] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 159, total landmarks stored: 11
+[conversion_node-1] [INFO] [1778090394.029138577] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 160, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.071388726] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 161, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.096537851] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 162, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.127143551] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 163, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.164297621] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 164, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.191598446] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 165, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.234500109] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 166, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.257023883] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 167, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.289447830] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 168, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.326102934] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 169, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.362619881] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 170, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.399419830] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 171, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.432817491] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 172, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.455441457] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 173, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.493950763] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 174, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.527463803] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 175, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.559905524] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 176, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.585615968] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 177, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.627765194] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 178, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.661862186] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 179, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.689158452] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 180, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.722752021] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 181, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.753292425] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 182, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.787637112] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 183, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.824979731] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 184, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.861879413] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 185, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.883606114] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 186, total landmarks stored: 12
+[conversion_node-1] [INFO] [1778090394.928695641] [Zed_to_landmark]: Published LandmarkArray and MarkerArray from message 187, total landmarks stored: 12
+[conversion_node-1] Traceback (most recent call last):
+[conversion_node-1]   File "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg/perception_zed_pkg/conversion_node.py", line 163, in main
+[conversion_node-1]     rclpy.spin(node)
+[conversion_node-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[conversion_node-1]     executor.spin_once()
+[conversion_node-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 776, in spin_once
+[conversion_node-1]     self._spin_once_impl(timeout_sec)
+[conversion_node-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 765, in _spin_once_impl
+[conversion_node-1]     handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+[conversion_node-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 748, in wait_for_ready_callbacks
+[conversion_node-1]     return next(self._cb_iter)
+[conversion_node-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 649, in _wait_for_ready_callbacks
+[conversion_node-1]     raise ExternalShutdownException()
+[conversion_node-1] rclpy.executors.ExternalShutdownException
+[conversion_node-1] 
+[conversion_node-1] During handling of the above exception, another exception occurred:
+[conversion_node-1] 
+[conversion_node-1] Traceback (most recent call last):
+[conversion_node-1]   File "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/lib/perception_zed_pkg/conversion_node", line 33, in <module>
+[conversion_node-1]     sys.exit(load_entry_point('perception-zed-pkg', 'console_scripts', 'conversion_node')())
+[conversion_node-1]   File "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg/perception_zed_pkg/conversion_node.py", line 168, in main
+[conversion_node-1]     rclpy.shutdown()
+[conversion_node-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
+[conversion_node-1]     _shutdown(context=context)
+[conversion_node-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
+[conversion_node-1]     return context.shutdown()
+[conversion_node-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
+[conversion_node-1]     self.__context.shutdown()
+[conversion_node-1] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
+[ERROR] [conversion_node-1]: process has died [pid 270666, exit code 1, cmd '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/lib/perception_zed_pkg/conversion_node --ros-args'].

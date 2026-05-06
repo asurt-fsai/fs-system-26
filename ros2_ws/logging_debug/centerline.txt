@@ -1,0 +1,25 @@
+[INFO] [launch]: All log files can be found below /home/ayasx9/.ros/log/2026-05-06-20-59-42-202973-LAPTOP-4FIG3HKH-270736
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [planning_centerline_calc_node-1]: process started with pid [270737]
+[planning_centerline_calc_node-1] /usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+[planning_centerline_calc_node-1]   warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+[planning_centerline_calc_node-1] [INFO] [1778090384.007891970] [planning_node]: Path Planner instantiated...
+[planning_centerline_calc_node-1] /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/src/utils/math_utils.py:117: RuntimeWarning: divide by zero encountered in divide
+[planning_centerline_calc_node-1]   cosTheta /= normOfLastAxis(vecs1) * normOfLastAxis(vecs2)
+[planning_centerline_calc_node-1] Traceback (most recent call last):
+[planning_centerline_calc_node-1]   File "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/lib/planning_centerline_calc/planning_centerline_calc_node", line 33, in <module>
+[planning_centerline_calc_node-1]     sys.exit(load_entry_point('planning-centerline-calc', 'console_scripts', 'planning_centerline_calc_node')())
+[planning_centerline_calc_node-1]   File "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/planning_centerline_calc/node.py", line 477, in main
+[planning_centerline_calc_node-1]     rclpy.spin(node)
+[planning_centerline_calc_node-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[planning_centerline_calc_node-1]     executor.spin_once()
+[planning_centerline_calc_node-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 776, in spin_once
+[planning_centerline_calc_node-1]     self._spin_once_impl(timeout_sec)
+[planning_centerline_calc_node-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 765, in _spin_once_impl
+[planning_centerline_calc_node-1]     handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+[planning_centerline_calc_node-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 748, in wait_for_ready_callbacks
+[planning_centerline_calc_node-1]     return next(self._cb_iter)
+[planning_centerline_calc_node-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 649, in _wait_for_ready_callbacks
+[planning_centerline_calc_node-1]     raise ExternalShutdownException()
+[planning_centerline_calc_node-1] rclpy.executors.ExternalShutdownException
+[ERROR] [planning_centerline_calc_node-1]: process has died [pid 270737, exit code 1, cmd '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/lib/planning_centerline_calc/planning_centerline_calc_node --ros-args --params-file /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/config/planning_parameters.yaml'].

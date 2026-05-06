@@ -1,0 +1,1 @@
+{"timestamp": 1777545722.2369647, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_LOW_POWER_START", "source": "SYSTEM", "details": {"power": 9.976, "threshold": 10.0}}

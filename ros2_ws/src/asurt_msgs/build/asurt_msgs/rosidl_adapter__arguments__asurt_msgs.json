@@ -1,0 +1,15 @@
+{
+  "package_name": "asurt_msgs",
+  "non_idl_tuples": [
+    "/home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/asurt_msgs:msg/Landmark.msg",
+    "/home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/asurt_msgs:msg/LandmarkArray.msg",
+    "/home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/asurt_msgs:msg/NodeStatus.msg",
+    "/home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/asurt_msgs:msg/Roadstate.msg",
+    "/home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/asurt_msgs:msg/CloudInfo.msg",
+    "/home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/asurt_msgs:msg/BoundingBox.msg",
+    "/home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/asurt_msgs:msg/BoundingBoxes.msg",
+    "/home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/asurt_msgs:msg/ConeImg.msg",
+    "/home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/asurt_msgs:msg/ConeImgArray.msg",
+    "/home/ayasx9/FSAI26/FSAI25_perception/fs-system-26/Perception/ros2_ws/asurt_msgs:msg/KeyPoints.msg"
+  ]
+}

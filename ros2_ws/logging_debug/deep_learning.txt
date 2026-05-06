@@ -1,0 +1,1045 @@
+[INFO] [1778090381.828586918] [planning_dl]: --- Initializing Tracking Mode ---
+[INFO] [1778090381.848068006] [planning_dl]: Successfully loaded model from: ./src/planning_deep_learning/planning_deep_learning/best_HybridgedanconeshiftingRFIX.pth
+[INFO] [1778090388.531517958] [planning_dl]: --- FRAME START: 9 Markers Received ---
+[INFO] [1778090388.532489405] [planning_dl]: Filtered Cones Entering Model (7):
+[INFO] [1778090388.533250135] [planning_dl]:   [0] YELLOW -> X: 1.759, Y: 2.086
+[INFO] [1778090388.534330919] [planning_dl]:   [1] BLUE -> X: -0.973, Y: 2.301
+[INFO] [1778090388.535303175] [planning_dl]:   [2] YELLOW -> X: 2.039, Y: 5.180
+[INFO] [1778090388.536101625] [planning_dl]:   [3] BLUE -> X: -1.019, Y: 5.401
+[INFO] [1778090388.536502317] [planning_dl]:   [4] BLUE -> X: -0.701, Y: 8.458
+[INFO] [1778090388.537243236] [planning_dl]:   [5] YELLOW -> X: 4.108, Y: 9.803
+[INFO] [1778090388.537560878] [planning_dl]:   [6] BLUE -> X: 1.080, Y: 12.496
+[INFO] [1778090388.632419540] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090388.633176798] [planning_dl]:   First Point: X: 0.116, Y: 0.623
+[INFO] [1778090388.633719219] [planning_dl]:   Middle Pt:   X: 0.892, Y: 5.194
+[INFO] [1778090388.634156930] [planning_dl]:   Last Point:  X: 1.805, Y: 9.254
+[INFO] [1778090388.635360352] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090388.774549392] [planning_dl]: --- FRAME START: 9 Markers Received ---
+[INFO] [1778090388.775349951] [planning_dl]: Filtered Cones Entering Model (7):
+[INFO] [1778090388.776237637] [planning_dl]:   [0] YELLOW -> X: 1.759, Y: 2.086
+[INFO] [1778090388.777154997] [planning_dl]:   [1] BLUE -> X: -0.973, Y: 2.301
+[INFO] [1778090388.778126454] [planning_dl]:   [2] YELLOW -> X: 2.036, Y: 5.167
+[INFO] [1778090388.779209493] [planning_dl]:   [3] BLUE -> X: -1.018, Y: 5.402
+[INFO] [1778090388.780184649] [planning_dl]:   [4] BLUE -> X: -0.701, Y: 8.409
+[INFO] [1778090388.780938619] [planning_dl]:   [5] YELLOW -> X: 4.108, Y: 9.803
+[INFO] [1778090388.781753969] [planning_dl]:   [6] BLUE -> X: 1.044, Y: 12.481
+[INFO] [1778090388.797498361] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090388.798146744] [planning_dl]:   First Point: X: 0.115, Y: 0.619
+[INFO] [1778090388.798561927] [planning_dl]:   Middle Pt:   X: 0.891, Y: 5.193
+[INFO] [1778090388.798989846] [planning_dl]:   Last Point:  X: 1.800, Y: 9.254
+[INFO] [1778090388.800309884] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090389.261394012] [planning_dl]: --- FRAME START: 9 Markers Received ---
+[INFO] [1778090389.261987935] [planning_dl]: Filtered Cones Entering Model (7):
+[INFO] [1778090389.262489024] [planning_dl]:   [0] YELLOW -> X: 1.759, Y: 2.086
+[INFO] [1778090389.263083164] [planning_dl]:   [1] BLUE -> X: -0.973, Y: 2.301
+[INFO] [1778090389.263649973] [planning_dl]:   [2] YELLOW -> X: 2.035, Y: 5.163
+[INFO] [1778090389.264236489] [planning_dl]:   [3] BLUE -> X: -1.018, Y: 5.402
+[INFO] [1778090389.264893627] [planning_dl]:   [4] BLUE -> X: -0.701, Y: 8.403
+[INFO] [1778090389.265469879] [planning_dl]:   [5] YELLOW -> X: 4.108, Y: 9.804
+[INFO] [1778090389.266042482] [planning_dl]:   [6] BLUE -> X: 1.042, Y: 12.478
+[INFO] [1778090389.280879042] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090389.281669909] [planning_dl]:   First Point: X: 0.114, Y: 0.619
+[INFO] [1778090389.282238828] [planning_dl]:   Middle Pt:   X: 0.891, Y: 5.192
+[INFO] [1778090389.282855334] [planning_dl]:   Last Point:  X: 1.800, Y: 9.254
+[INFO] [1778090389.284308568] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090389.338549410] [planning_dl]: --- FRAME START: 9 Markers Received ---
+[INFO] [1778090389.338955930] [planning_dl]: Filtered Cones Entering Model (7):
+[INFO] [1778090389.339313509] [planning_dl]:   [0] YELLOW -> X: 1.759, Y: 2.086
+[INFO] [1778090389.339634564] [planning_dl]:   [1] BLUE -> X: -0.974, Y: 2.301
+[INFO] [1778090389.340054442] [planning_dl]:   [2] YELLOW -> X: 2.030, Y: 5.152
+[INFO] [1778090389.340526019] [planning_dl]:   [3] BLUE -> X: -1.017, Y: 5.401
+[INFO] [1778090389.340941637] [planning_dl]:   [4] BLUE -> X: -0.700, Y: 8.402
+[INFO] [1778090389.341547925] [planning_dl]:   [5] YELLOW -> X: 4.109, Y: 9.804
+[INFO] [1778090389.342392189] [planning_dl]:   [6] BLUE -> X: 1.055, Y: 12.467
+[INFO] [1778090389.359270225] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090389.360119259] [planning_dl]:   First Point: X: 0.112, Y: 0.617
+[INFO] [1778090389.360777743] [planning_dl]:   Middle Pt:   X: 0.892, Y: 5.190
+[INFO] [1778090389.361370355] [planning_dl]:   Last Point:  X: 1.804, Y: 9.251
+[INFO] [1778090389.363157975] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090389.454217964] [planning_dl]: --- FRAME START: 9 Markers Received ---
+[INFO] [1778090389.455053409] [planning_dl]: Filtered Cones Entering Model (7):
+[INFO] [1778090389.455821404] [planning_dl]:   [0] YELLOW -> X: 1.760, Y: 2.085
+[INFO] [1778090389.456230968] [planning_dl]:   [1] BLUE -> X: -0.974, Y: 2.301
+[INFO] [1778090389.456625046] [planning_dl]:   [2] YELLOW -> X: 2.026, Y: 5.144
+[INFO] [1778090389.457029998] [planning_dl]:   [3] BLUE -> X: -1.016, Y: 5.401
+[INFO] [1778090389.457295194] [planning_dl]:   [4] BLUE -> X: -0.699, Y: 8.405
+[INFO] [1778090389.457552160] [planning_dl]:   [5] YELLOW -> X: 4.111, Y: 9.801
+[INFO] [1778090389.457814599] [planning_dl]:   [6] BLUE -> X: 1.091, Y: 12.443
+[INFO] [1778090389.463733722] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090389.464233600] [planning_dl]:   First Point: X: 0.111, Y: 0.614
+[INFO] [1778090389.464685907] [planning_dl]:   Middle Pt:   X: 0.895, Y: 5.188
+[INFO] [1778090389.465040714] [planning_dl]:   Last Point:  X: 1.816, Y: 9.247
+[INFO] [1778090389.465961340] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090389.531045360] [planning_dl]: --- FRAME START: 9 Markers Received ---
+[INFO] [1778090389.531424315] [planning_dl]: Filtered Cones Entering Model (7):
+[INFO] [1778090389.531718230] [planning_dl]:   [0] YELLOW -> X: 1.764, Y: 2.083
+[INFO] [1778090389.531980424] [planning_dl]:   [1] BLUE -> X: -0.972, Y: 2.301
+[INFO] [1778090389.532236406] [planning_dl]:   [2] YELLOW -> X: 2.027, Y: 5.141
+[INFO] [1778090389.532495013] [planning_dl]:   [3] BLUE -> X: -1.005, Y: 5.403
+[INFO] [1778090389.532831474] [planning_dl]:   [4] BLUE -> X: -0.689, Y: 8.402
+[INFO] [1778090389.533299867] [planning_dl]:   [5] YELLOW -> X: 4.124, Y: 9.792
+[INFO] [1778090389.533702209] [planning_dl]:   [6] BLUE -> X: 1.139, Y: 12.432
+[INFO] [1778090389.542466965] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090389.543295615] [planning_dl]:   First Point: X: 0.113, Y: 0.610
+[INFO] [1778090389.543716647] [planning_dl]:   Middle Pt:   X: 0.903, Y: 5.184
+[INFO] [1778090389.544045735] [planning_dl]:   Last Point:  X: 1.837, Y: 9.240
+[INFO] [1778090389.545525888] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090389.610778155] [planning_dl]: --- FRAME START: 10 Markers Received ---
+[INFO] [1778090389.611685712] [planning_dl]: Filtered Cones Entering Model (8):
+[INFO] [1778090389.612660086] [planning_dl]:   [0] YELLOW -> X: 1.793, Y: 2.060
+[INFO] [1778090389.613619072] [planning_dl]:   [1] BLUE -> X: -0.943, Y: 2.304
+[INFO] [1778090389.613979488] [planning_dl]:   [2] YELLOW -> X: 2.115, Y: 5.128
+[INFO] [1778090389.614255578] [planning_dl]:   [3] BLUE -> X: -0.917, Y: 5.418
+[INFO] [1778090389.614537180] [planning_dl]:   [4] BLUE -> X: -0.564, Y: 8.401
+[INFO] [1778090389.614808605] [planning_dl]:   [5] YELLOW -> X: 4.280, Y: 9.731
+[INFO] [1778090389.615053355] [planning_dl]:   [6] YELLOW -> X: 3.290, Y: 9.742
+[INFO] [1778090389.615312761] [planning_dl]:   [7] BLUE -> X: 1.360, Y: 12.416
+[INFO] [1778090389.625630725] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090389.628026794] [planning_dl]:   First Point: X: 0.267, Y: 1.034
+[INFO] [1778090389.628458836] [planning_dl]:   Middle Pt:   X: 1.075, Y: 5.446
+[INFO] [1778090389.629073885] [planning_dl]:   Last Point:  X: 2.045, Y: 9.464
+[INFO] [1778090389.630220942] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090389.697476320] [planning_dl]: --- FRAME START: 10 Markers Received ---
+[INFO] [1778090389.697865041] [planning_dl]: Filtered Cones Entering Model (8):
+[INFO] [1778090389.698135468] [planning_dl]:   [0] YELLOW -> X: 1.805, Y: 2.044
+[INFO] [1778090389.698443398] [planning_dl]:   [1] BLUE -> X: -0.931, Y: 2.307
+[INFO] [1778090389.698841489] [planning_dl]:   [2] YELLOW -> X: 2.144, Y: 5.117
+[INFO] [1778090389.699203379] [planning_dl]:   [3] BLUE -> X: -0.884, Y: 5.423
+[INFO] [1778090389.699764801] [planning_dl]:   [4] BLUE -> X: -0.529, Y: 8.402
+[INFO] [1778090389.700417289] [planning_dl]:   [5] YELLOW -> X: 4.325, Y: 9.704
+[INFO] [1778090389.700978375] [planning_dl]:   [6] YELLOW -> X: 3.307, Y: 9.747
+[INFO] [1778090389.701547454] [planning_dl]:   [7] BLUE -> X: 1.409, Y: 12.399
+[INFO] [1778090389.715292453] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090389.716155469] [planning_dl]:   First Point: X: 0.280, Y: 1.031
+[INFO] [1778090389.716975401] [planning_dl]:   Middle Pt:   X: 1.097, Y: 5.440
+[INFO] [1778090389.717708390] [planning_dl]:   Last Point:  X: 2.080, Y: 9.458
+[INFO] [1778090389.719557974] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090389.788680157] [planning_dl]: --- FRAME START: 10 Markers Received ---
+[INFO] [1778090389.789485878] [planning_dl]: Filtered Cones Entering Model (8):
+[INFO] [1778090389.790217840] [planning_dl]:   [0] YELLOW -> X: 1.808, Y: 2.038
+[INFO] [1778090389.790971800] [planning_dl]:   [1] BLUE -> X: -0.927, Y: 2.308
+[INFO] [1778090389.791609014] [planning_dl]:   [2] YELLOW -> X: 2.153, Y: 5.115
+[INFO] [1778090389.792269360] [planning_dl]:   [3] BLUE -> X: -0.877, Y: 5.423
+[INFO] [1778090389.792985093] [planning_dl]:   [4] BLUE -> X: -0.525, Y: 8.409
+[INFO] [1778090389.793820769] [planning_dl]:   [5] YELLOW -> X: 4.329, Y: 9.699
+[INFO] [1778090389.794544739] [planning_dl]:   [6] YELLOW -> X: 3.309, Y: 9.758
+[INFO] [1778090389.795228332] [planning_dl]:   [7] BLUE -> X: 1.411, Y: 12.388
+[INFO] [1778090389.804239551] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090389.804725758] [planning_dl]:   First Point: X: 0.284, Y: 1.031
+[INFO] [1778090389.805115592] [planning_dl]:   Middle Pt:   X: 1.101, Y: 5.439
+[INFO] [1778090389.805436974] [planning_dl]:   Last Point:  X: 2.084, Y: 9.458
+[INFO] [1778090389.806421912] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090389.877189824] [planning_dl]: --- FRAME START: 10 Markers Received ---
+[INFO] [1778090389.878041695] [planning_dl]: Filtered Cones Entering Model (8):
+[INFO] [1778090389.878845767] [planning_dl]:   [0] YELLOW -> X: 1.813, Y: 2.032
+[INFO] [1778090389.879626921] [planning_dl]:   [1] BLUE -> X: -0.922, Y: 2.310
+[INFO] [1778090389.880288360] [planning_dl]:   [2] YELLOW -> X: 2.164, Y: 5.113
+[INFO] [1778090389.881083015] [planning_dl]:   [3] BLUE -> X: -0.865, Y: 5.419
+[INFO] [1778090389.881889524] [planning_dl]:   [4] BLUE -> X: -0.513, Y: 8.429
+[INFO] [1778090389.882754559] [planning_dl]:   [5] YELLOW -> X: 4.347, Y: 9.689
+[INFO] [1778090389.883627757] [planning_dl]:   [6] YELLOW -> X: 3.326, Y: 9.813
+[INFO] [1778090389.884443271] [planning_dl]:   [7] BLUE -> X: 1.439, Y: 12.381
+[INFO] [1778090389.893436933] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090389.893998791] [planning_dl]:   First Point: X: 0.290, Y: 1.031
+[INFO] [1778090389.894496585] [planning_dl]:   Middle Pt:   X: 1.109, Y: 5.438
+[INFO] [1778090389.894884291] [planning_dl]:   Last Point:  X: 2.097, Y: 9.455
+[INFO] [1778090389.895882716] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090389.963392669] [planning_dl]: --- FRAME START: 10 Markers Received ---
+[INFO] [1778090389.963841300] [planning_dl]: Filtered Cones Entering Model (8):
+[INFO] [1778090389.964147773] [planning_dl]:   [0] YELLOW -> X: 1.833, Y: 2.010
+[INFO] [1778090389.964424952] [planning_dl]:   [1] BLUE -> X: -0.897, Y: 2.314
+[INFO] [1778090389.964690678] [planning_dl]:   [2] YELLOW -> X: 2.223, Y: 5.070
+[INFO] [1778090389.964955419] [planning_dl]:   [3] BLUE -> X: -0.804, Y: 5.443
+[INFO] [1778090389.965218626] [planning_dl]:   [4] BLUE -> X: -0.399, Y: 8.446
+[INFO] [1778090389.965495701] [planning_dl]:   [5] YELLOW -> X: 4.472, Y: 9.631
+[INFO] [1778090389.965798223] [planning_dl]:   [6] YELLOW -> X: 3.466, Y: 9.801
+[INFO] [1778090389.966211881] [planning_dl]:   [7] BLUE -> X: 1.612, Y: 12.368
+[INFO] [1778090389.980172298] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090389.980799242] [planning_dl]:   First Point: X: 0.308, Y: 1.020
+[INFO] [1778090389.981185562] [planning_dl]:   Middle Pt:   X: 1.168, Y: 5.413
+[INFO] [1778090389.981546627] [planning_dl]:   Last Point:  X: 2.219, Y: 9.418
+[INFO] [1778090389.982561634] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090390.055953040] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090390.056386988] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090390.056717030] [planning_dl]:   [0] YELLOW -> X: 1.860, Y: 1.979
+[INFO] [1778090390.057063565] [planning_dl]:   [1] BLUE -> X: -0.864, Y: 2.321
+[INFO] [1778090390.057423240] [planning_dl]:   [2] YELLOW -> X: 2.296, Y: 5.016
+[INFO] [1778090390.057838594] [planning_dl]:   [3] BLUE -> X: -0.717, Y: 5.451
+[INFO] [1778090390.058214758] [planning_dl]:   [4] YELLOW -> X: 5.293, Y: 6.987
+[INFO] [1778090390.058644679] [planning_dl]:   [5] BLUE -> X: -0.256, Y: 8.450
+[INFO] [1778090390.059030417] [planning_dl]:   [6] YELLOW -> X: 4.621, Y: 9.554
+[INFO] [1778090390.059404672] [planning_dl]:   [7] YELLOW -> X: 3.618, Y: 9.736
+[INFO] [1778090390.059785651] [planning_dl]:   [8] BLUE -> X: 1.803, Y: 12.343
+[INFO] [1778090390.073471178] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090390.074030935] [planning_dl]:   First Point: X: 0.455, Y: 1.273
+[INFO] [1778090390.074423823] [planning_dl]:   Middle Pt:   X: 1.459, Y: 5.742
+[INFO] [1778090390.074838372] [planning_dl]:   Last Point:  X: 2.881, Y: 9.923
+[INFO] [1778090390.075873967] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090390.158015928] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090390.158565275] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090390.158948005] [planning_dl]:   [0] YELLOW -> X: 1.887, Y: 1.950
+[INFO] [1778090390.159256640] [planning_dl]:   [1] BLUE -> X: -0.831, Y: 2.331
+[INFO] [1778090390.159528677] [planning_dl]:   [2] YELLOW -> X: 2.361, Y: 4.989
+[INFO] [1778090390.159795714] [planning_dl]:   [3] BLUE -> X: -0.642, Y: 5.453
+[INFO] [1778090390.160048077] [planning_dl]:   [4] YELLOW -> X: 5.333, Y: 6.951
+[INFO] [1778090390.160334881] [planning_dl]:   [5] BLUE -> X: -0.137, Y: 8.498
+[INFO] [1778090390.160600016] [planning_dl]:   [6] YELLOW -> X: 4.748, Y: 9.484
+[INFO] [1778090390.160871475] [planning_dl]:   [7] YELLOW -> X: 3.741, Y: 9.656
+[INFO] [1778090390.161142658] [planning_dl]:   [8] BLUE -> X: 1.962, Y: 12.314
+[INFO] [1778090390.170022276] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090390.170717495] [planning_dl]:   First Point: X: 0.476, Y: 1.266
+[INFO] [1778090390.171181712] [planning_dl]:   Middle Pt:   X: 1.519, Y: 5.718
+[INFO] [1778090390.171651136] [planning_dl]:   Last Point:  X: 3.010, Y: 9.887
+[INFO] [1778090390.173109369] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090390.243851935] [planning_dl]: --- FRAME START: 10 Markers Received ---
+[INFO] [1778090390.244352791] [planning_dl]: Filtered Cones Entering Model (8):
+[INFO] [1778090390.244649586] [planning_dl]:   [0] YELLOW -> X: 1.901, Y: 1.932
+[INFO] [1778090390.244901145] [planning_dl]:   [1] BLUE -> X: -0.812, Y: 2.338
+[INFO] [1778090390.245144379] [planning_dl]:   [2] YELLOW -> X: 2.388, Y: 4.958
+[INFO] [1778090390.245395346] [planning_dl]:   [3] BLUE -> X: -0.607, Y: 5.457
+[INFO] [1778090390.245634980] [planning_dl]:   [4] BLUE -> X: -0.082, Y: 8.520
+[INFO] [1778090390.245872337] [planning_dl]:   [5] YELLOW -> X: 4.806, Y: 9.449
+[INFO] [1778090390.246132851] [planning_dl]:   [6] YELLOW -> X: 3.797, Y: 9.605
+[INFO] [1778090390.246404404] [planning_dl]:   [7] BLUE -> X: 2.036, Y: 12.304
+[INFO] [1778090390.255587153] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090390.256318828] [planning_dl]:   First Point: X: 0.373, Y: 0.987
+[INFO] [1778090390.256944511] [planning_dl]:   Middle Pt:   X: 1.330, Y: 5.351
+[INFO] [1778090390.257596038] [planning_dl]:   Last Point:  X: 2.535, Y: 9.333
+[INFO] [1778090390.259297157] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090390.343398112] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090390.343890359] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090390.344285978] [planning_dl]:   [0] YELLOW -> X: 1.913, Y: 1.919
+[INFO] [1778090390.344613423] [planning_dl]:   [1] BLUE -> X: -0.797, Y: 2.343
+[INFO] [1778090390.344931384] [planning_dl]:   [2] YELLOW -> X: 2.413, Y: 4.942
+[INFO] [1778090390.345230368] [planning_dl]:   [3] BLUE -> X: -0.581, Y: 5.465
+[INFO] [1778090390.345524366] [planning_dl]:   [4] YELLOW -> X: 5.440, Y: 6.938
+[INFO] [1778090390.345811967] [planning_dl]:   [5] BLUE -> X: -0.032, Y: 8.526
+[INFO] [1778090390.346095068] [planning_dl]:   [6] YELLOW -> X: 4.857, Y: 9.419
+[INFO] [1778090390.346417790] [planning_dl]:   [7] YELLOW -> X: 3.844, Y: 9.564
+[INFO] [1778090390.346716801] [planning_dl]:   [8] BLUE -> X: 2.098, Y: 12.298
+[INFO] [1778090390.358136483] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090390.358661226] [planning_dl]:   First Point: X: 0.494, Y: 1.254
+[INFO] [1778090390.359054784] [planning_dl]:   Middle Pt:   X: 1.571, Y: 5.698
+[INFO] [1778090390.359428462] [planning_dl]:   Last Point:  X: 3.126, Y: 9.854
+[INFO] [1778090390.360452151] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090390.427077194] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090390.428156943] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090390.429092334] [planning_dl]:   [0] YELLOW -> X: 1.917, Y: 1.915
+[INFO] [1778090390.429828473] [planning_dl]:   [1] BLUE -> X: -0.793, Y: 2.345
+[INFO] [1778090390.430630461] [planning_dl]:   [2] YELLOW -> X: 2.417, Y: 4.941
+[INFO] [1778090390.430990834] [planning_dl]:   [3] BLUE -> X: -0.576, Y: 5.468
+[INFO] [1778090390.431284354] [planning_dl]:   [4] YELLOW -> X: 5.452, Y: 6.911
+[INFO] [1778090390.431569631] [planning_dl]:   [5] BLUE -> X: -0.019, Y: 8.527
+[INFO] [1778090390.431955334] [planning_dl]:   [6] YELLOW -> X: 4.865, Y: 9.406
+[INFO] [1778090390.432405331] [planning_dl]:   [7] YELLOW -> X: 3.855, Y: 9.554
+[INFO] [1778090390.432801642] [planning_dl]:   [8] BLUE -> X: 2.114, Y: 12.293
+[INFO] [1778090390.439541137] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090390.440138252] [planning_dl]:   First Point: X: 0.495, Y: 1.253
+[INFO] [1778090390.440630444] [planning_dl]:   Middle Pt:   X: 1.577, Y: 5.696
+[INFO] [1778090390.441428638] [planning_dl]:   Last Point:  X: 3.140, Y: 9.853
+[INFO] [1778090390.442699443] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090390.526984141] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090390.527761371] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090390.528736251] [planning_dl]:   [0] YELLOW -> X: 1.920, Y: 1.913
+[INFO] [1778090390.529753669] [planning_dl]:   [1] BLUE -> X: -0.790, Y: 2.348
+[INFO] [1778090390.530953244] [planning_dl]:   [2] YELLOW -> X: 2.418, Y: 4.941
+[INFO] [1778090390.531365611] [planning_dl]:   [3] BLUE -> X: -0.574, Y: 5.470
+[INFO] [1778090390.531657833] [planning_dl]:   [4] YELLOW -> X: 5.441, Y: 6.849
+[INFO] [1778090390.532228165] [planning_dl]:   [5] BLUE -> X: -0.015, Y: 8.599
+[INFO] [1778090390.533291925] [planning_dl]:   [6] YELLOW -> X: 4.864, Y: 9.394
+[INFO] [1778090390.533790008] [planning_dl]:   [7] YELLOW -> X: 3.858, Y: 9.548
+[INFO] [1778090390.534761957] [planning_dl]:   [8] BLUE -> X: 2.124, Y: 12.293
+[INFO] [1778090390.544584379] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090390.545109080] [planning_dl]:   First Point: X: 0.496, Y: 1.258
+[INFO] [1778090390.545573175] [planning_dl]:   Middle Pt:   X: 1.580, Y: 5.708
+[INFO] [1778090390.546043577] [planning_dl]:   Last Point:  X: 3.146, Y: 9.869
+[INFO] [1778090390.547299413] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090390.622266395] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090390.623046240] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090390.623526097] [planning_dl]:   [0] YELLOW -> X: 1.921, Y: 1.913
+[INFO] [1778090390.623934298] [planning_dl]:   [1] BLUE -> X: -0.789, Y: 2.350
+[INFO] [1778090390.624232387] [planning_dl]:   [2] YELLOW -> X: 2.418, Y: 4.941
+[INFO] [1778090390.624540146] [planning_dl]:   [3] BLUE -> X: -0.572, Y: 5.461
+[INFO] [1778090390.624832797] [planning_dl]:   [4] YELLOW -> X: 5.437, Y: 6.845
+[INFO] [1778090390.625106633] [planning_dl]:   [5] BLUE -> X: -0.015, Y: 8.637
+[INFO] [1778090390.625367425] [planning_dl]:   [6] YELLOW -> X: 4.862, Y: 9.389
+[INFO] [1778090390.625638661] [planning_dl]:   [7] YELLOW -> X: 3.859, Y: 9.547
+[INFO] [1778090390.625928359] [planning_dl]:   [8] BLUE -> X: 2.122, Y: 12.294
+[INFO] [1778090390.640621990] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090390.641511864] [planning_dl]:   First Point: X: 0.497, Y: 1.260
+[INFO] [1778090390.642030352] [planning_dl]:   Middle Pt:   X: 1.580, Y: 5.712
+[INFO] [1778090390.642504347] [planning_dl]:   Last Point:  X: 3.143, Y: 9.874
+[INFO] [1778090390.643450774] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090390.708526549] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090390.708896405] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090390.709170825] [planning_dl]:   [0] YELLOW -> X: 1.922, Y: 1.912
+[INFO] [1778090390.709436002] [planning_dl]:   [1] BLUE -> X: -0.789, Y: 2.351
+[INFO] [1778090390.709688638] [planning_dl]:   [2] YELLOW -> X: 2.419, Y: 4.941
+[INFO] [1778090390.710048051] [planning_dl]:   [3] BLUE -> X: -0.570, Y: 5.444
+[INFO] [1778090390.710372734] [planning_dl]:   [4] YELLOW -> X: 5.437, Y: 6.844
+[INFO] [1778090390.710651217] [planning_dl]:   [5] BLUE -> X: -0.018, Y: 8.678
+[INFO] [1778090390.710914029] [planning_dl]:   [6] YELLOW -> X: 4.859, Y: 9.381
+[INFO] [1778090390.711161347] [planning_dl]:   [7] YELLOW -> X: 3.860, Y: 9.547
+[INFO] [1778090390.711406486] [planning_dl]:   [8] BLUE -> X: 2.122, Y: 12.295
+[INFO] [1778090390.720568547] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090390.721435299] [planning_dl]:   First Point: X: 0.499, Y: 1.260
+[INFO] [1778090390.722222643] [planning_dl]:   Middle Pt:   X: 1.580, Y: 5.716
+[INFO] [1778090390.723262405] [planning_dl]:   Last Point:  X: 3.140, Y: 9.880
+[INFO] [1778090390.725120587] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090390.798648439] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090390.799816629] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090390.800868495] [planning_dl]:   [0] YELLOW -> X: 1.918, Y: 1.913
+[INFO] [1778090390.801295076] [planning_dl]:   [1] BLUE -> X: -0.796, Y: 2.350
+[INFO] [1778090390.801629326] [planning_dl]:   [2] YELLOW -> X: 2.407, Y: 4.945
+[INFO] [1778090390.802226651] [planning_dl]:   [3] BLUE -> X: -0.585, Y: 5.422
+[INFO] [1778090390.802712318] [planning_dl]:   [4] YELLOW -> X: 5.418, Y: 6.862
+[INFO] [1778090390.803260980] [planning_dl]:   [5] BLUE -> X: -0.062, Y: 8.673
+[INFO] [1778090390.803698220] [planning_dl]:   [6] YELLOW -> X: 4.805, Y: 9.384
+[INFO] [1778090390.804147628] [planning_dl]:   [7] YELLOW -> X: 3.813, Y: 9.552
+[INFO] [1778090390.804602689] [planning_dl]:   [8] BLUE -> X: 2.059, Y: 12.296
+[INFO] [1778090390.819212721] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090390.820022737] [planning_dl]:   First Point: X: 0.498, Y: 1.261
+[INFO] [1778090390.820579830] [planning_dl]:   Middle Pt:   X: 1.564, Y: 5.724
+[INFO] [1778090390.821248109] [planning_dl]:   Last Point:  X: 3.094, Y: 9.896
+[INFO] [1778090390.822715513] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090390.890246986] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090390.890786664] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090390.891135162] [planning_dl]:   [0] YELLOW -> X: 1.919, Y: 1.910
+[INFO] [1778090390.891418377] [planning_dl]:   [1] BLUE -> X: -0.795, Y: 2.351
+[INFO] [1778090390.891725920] [planning_dl]:   [2] YELLOW -> X: 2.414, Y: 4.946
+[INFO] [1778090390.892002621] [planning_dl]:   [3] BLUE -> X: -0.579, Y: 5.421
+[INFO] [1778090390.892774319] [planning_dl]:   [4] YELLOW -> X: 5.432, Y: 6.863
+[INFO] [1778090390.893343155] [planning_dl]:   [5] BLUE -> X: -0.055, Y: 8.679
+[INFO] [1778090390.893679159] [planning_dl]:   [6] YELLOW -> X: 4.816, Y: 9.379
+[INFO] [1778090390.893968162] [planning_dl]:   [7] YELLOW -> X: 3.826, Y: 9.549
+[INFO] [1778090390.894358746] [planning_dl]:   [8] BLUE -> X: 2.080, Y: 12.300
+[INFO] [1778090390.904870642] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090390.905614872] [planning_dl]:   First Point: X: 0.500, Y: 1.260
+[INFO] [1778090390.906234712] [planning_dl]:   Middle Pt:   X: 1.569, Y: 5.722
+[INFO] [1778090390.906790927] [planning_dl]:   Last Point:  X: 3.106, Y: 9.892
+[INFO] [1778090390.908023828] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090390.985117789] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090390.985580512] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090390.985932095] [planning_dl]:   [0] YELLOW -> X: 1.927, Y: 1.898
+[INFO] [1778090390.986244444] [planning_dl]:   [1] BLUE -> X: -0.782, Y: 2.351
+[INFO] [1778090390.986732206] [planning_dl]:   [2] YELLOW -> X: 2.446, Y: 4.936
+[INFO] [1778090390.987087556] [planning_dl]:   [3] BLUE -> X: -0.542, Y: 5.423
+[INFO] [1778090390.987400242] [planning_dl]:   [4] YELLOW -> X: 5.494, Y: 6.839
+[INFO] [1778090390.987684374] [planning_dl]:   [5] BLUE -> X: 0.021, Y: 8.675
+[INFO] [1778090390.987953228] [planning_dl]:   [6] YELLOW -> X: 4.889, Y: 9.342
+[INFO] [1778090390.988214003] [planning_dl]:   [7] YELLOW -> X: 3.898, Y: 9.513
+[INFO] [1778090390.988476647] [planning_dl]:   [8] BLUE -> X: 2.194, Y: 12.300
+[INFO] [1778090391.019248899] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090391.020037827] [planning_dl]:   First Point: X: 0.507, Y: 1.250
+[INFO] [1778090391.021246709] [planning_dl]:   Middle Pt:   X: 1.599, Y: 5.701
+[INFO] [1778090391.022469474] [planning_dl]:   Last Point:  X: 3.185, Y: 9.855
+[INFO] [1778090391.023987177] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090391.099972622] [planning_dl]: --- FRAME START: 10 Markers Received ---
+[INFO] [1778090391.100799725] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090391.101611104] [planning_dl]:   [0] YELLOW -> X: 1.948, Y: 1.870
+[INFO] [1778090391.102453968] [planning_dl]:   [1] BLUE -> X: -0.753, Y: 2.353
+[INFO] [1778090391.103433908] [planning_dl]:   [2] YELLOW -> X: 2.510, Y: 4.892
+[INFO] [1778090391.104447471] [planning_dl]:   [3] BLUE -> X: -0.469, Y: 5.434
+[INFO] [1778090391.106413069] [planning_dl]:   [4] YELLOW -> X: 5.594, Y: 6.775
+[INFO] [1778090391.107040224] [planning_dl]:   [5] BLUE -> X: 0.143, Y: 8.679
+[INFO] [1778090391.107559919] [planning_dl]:   [6] YELLOW -> X: 5.018, Y: 9.269
+[INFO] [1778090391.108020813] [planning_dl]:   [7] YELLOW -> X: 4.026, Y: 9.443
+[INFO] [1778090391.108535583] [planning_dl]:   [8] BLUE -> X: 2.371, Y: 12.295
+[INFO] [1778090391.121330380] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090391.122003720] [planning_dl]:   First Point: X: 0.523, Y: 1.233
+[INFO] [1778090391.122544048] [planning_dl]:   Middle Pt:   X: 1.656, Y: 5.671
+[INFO] [1778090391.122943795] [planning_dl]:   Last Point:  X: 3.320, Y: 9.803
+[INFO] [1778090391.123936326] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090391.181837813] [planning_dl]: --- FRAME START: 10 Markers Received ---
+[INFO] [1778090391.182447446] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090391.182971818] [planning_dl]:   [0] YELLOW -> X: 1.961, Y: 1.851
+[INFO] [1778090391.183495495] [planning_dl]:   [1] BLUE -> X: -0.738, Y: 2.354
+[INFO] [1778090391.184357924] [planning_dl]:   [2] YELLOW -> X: 2.539, Y: 4.864
+[INFO] [1778090391.185335809] [planning_dl]:   [3] BLUE -> X: -0.431, Y: 5.434
+[INFO] [1778090391.186972495] [planning_dl]:   [4] YELLOW -> X: 5.645, Y: 6.732
+[INFO] [1778090391.188122450] [planning_dl]:   [5] BLUE -> X: 0.205, Y: 8.678
+[INFO] [1778090391.189067433] [planning_dl]:   [6] YELLOW -> X: 5.078, Y: 9.226
+[INFO] [1778090391.189971321] [planning_dl]:   [7] YELLOW -> X: 4.086, Y: 9.401
+[INFO] [1778090391.190567065] [planning_dl]:   [8] BLUE -> X: 2.449, Y: 12.286
+[INFO] [1778090391.199785787] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090391.200770181] [planning_dl]:   First Point: X: 0.532, Y: 1.222
+[INFO] [1778090391.201319758] [planning_dl]:   Middle Pt:   X: 1.683, Y: 5.654
+[INFO] [1778090391.201771835] [planning_dl]:   Last Point:  X: 3.383, Y: 9.776
+[INFO] [1778090391.203301630] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090391.306761731] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090391.307676182] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090391.308335279] [planning_dl]:   [0] YELLOW -> X: 1.903, Y: 1.853
+[INFO] [1778090391.308910444] [planning_dl]:   [1] BLUE -> X: -0.819, Y: 2.308
+[INFO] [1778090391.309508725] [planning_dl]:   [2] YELLOW -> X: 2.367, Y: 4.857
+[INFO] [1778090391.310099567] [planning_dl]:   [3] BLUE -> X: -0.622, Y: 5.404
+[INFO] [1778090391.310715517] [planning_dl]:   [4] YELLOW -> X: 5.402, Y: 6.827
+[INFO] [1778090391.311330571] [planning_dl]:   [5] BLUE -> X: -0.140, Y: 8.610
+[INFO] [1778090391.311927125] [planning_dl]:   [6] YELLOW -> X: 4.726, Y: 9.273
+[INFO] [1778090391.312563374] [planning_dl]:   [7] YELLOW -> X: 3.731, Y: 9.411
+[INFO] [1778090391.313143177] [planning_dl]:   [8] BLUE -> X: 1.967, Y: 12.281
+[INFO] [1778090391.328277144] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090391.329009324] [planning_dl]:   First Point: X: 0.482, Y: 1.217
+[INFO] [1778090391.329649447] [planning_dl]:   Middle Pt:   X: 1.531, Y: 5.697
+[INFO] [1778090391.330230965] [planning_dl]:   Last Point:  X: 3.030, Y: 9.882
+[INFO] [1778090391.332004144] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090391.438709943] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090391.439493814] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090391.440136983] [planning_dl]:   [0] YELLOW -> X: 1.770, Y: 1.930
+[INFO] [1778090391.440769357] [planning_dl]:   [1] BLUE -> X: -0.979, Y: 2.206
+[INFO] [1778090391.441453469] [planning_dl]:   [2] YELLOW -> X: 2.053, Y: 4.993
+[INFO] [1778090391.442048906] [planning_dl]:   [3] BLUE -> X: -0.984, Y: 5.386
+[INFO] [1778090391.442682476] [planning_dl]:   [4] YELLOW -> X: 4.956, Y: 7.162
+[INFO] [1778090391.443407215] [planning_dl]:   [5] BLUE -> X: -0.690, Y: 8.572
+[INFO] [1778090391.444070971] [planning_dl]:   [6] YELLOW -> X: 4.129, Y: 9.562
+[INFO] [1778090391.444707050] [planning_dl]:   [7] YELLOW -> X: 3.128, Y: 9.636
+[INFO] [1778090391.445368285] [planning_dl]:   [8] BLUE -> X: 1.193, Y: 12.329
+[INFO] [1778090391.649361829] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090391.662492948] [planning_dl]:   First Point: X: 0.383, Y: 1.238
+[INFO] [1778090391.663539511] [planning_dl]:   Middle Pt:   X: 1.224, Y: 5.790
+[INFO] [1778090391.664380058] [planning_dl]:   Last Point:  X: 2.351, Y: 10.023
+[INFO] [1778090391.666519544] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090391.782981245] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090391.783419427] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090391.783728282] [planning_dl]:   [0] BLUE -> X: -1.334, Y: 1.921
+[INFO] [1778090391.784034767] [planning_dl]:   [1] YELLOW -> X: 1.416, Y: 2.118
+[INFO] [1778090391.784314839] [planning_dl]:   [2] BLUE -> X: -1.889, Y: 5.078
+[INFO] [1778090391.784624330] [planning_dl]:   [3] YELLOW -> X: 1.193, Y: 5.226
+[INFO] [1778090391.784914774] [planning_dl]:   [4] YELLOW -> X: 3.708, Y: 7.819
+[INFO] [1778090391.785206913] [planning_dl]:   [5] BLUE -> X: -2.119, Y: 8.312
+[INFO] [1778090391.785486304] [planning_dl]:   [6] YELLOW -> X: 1.468, Y: 9.917
+[INFO] [1778090391.785808185] [planning_dl]:   [7] YELLOW -> X: 2.479, Y: 10.028
+[INFO] [1778090391.786365892] [planning_dl]:   [8] BLUE -> X: -0.880, Y: 12.319
+[INFO] [1778090391.797863354] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090391.798559219] [planning_dl]:   First Point: X: -0.014, Y: 1.216
+[INFO] [1778090391.799249935] [planning_dl]:   Middle Pt:   X: 0.241, Y: 5.940
+[INFO] [1778090391.799896048] [planning_dl]:   Last Point:  X: 0.430, Y: 10.209
+[INFO] [1778090391.801431217] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090391.887549380] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090391.888587007] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090391.888992665] [planning_dl]:   [0] BLUE -> X: -1.417, Y: 1.840
+[INFO] [1778090391.889266946] [planning_dl]:   [1] YELLOW -> X: 1.316, Y: 2.182
+[INFO] [1778090391.889536028] [planning_dl]:   [2] BLUE -> X: -2.108, Y: 4.923
+[INFO] [1778090391.889815088] [planning_dl]:   [3] YELLOW -> X: 0.967, Y: 5.324
+[INFO] [1778090391.890087198] [planning_dl]:   [4] YELLOW -> X: 3.369, Y: 7.990
+[INFO] [1778090391.890461278] [planning_dl]:   [5] BLUE -> X: -2.484, Y: 8.201
+[INFO] [1778090391.890769800] [planning_dl]:   [6] YELLOW -> X: 1.030, Y: 9.957
+[INFO] [1778090391.891153130] [planning_dl]:   [7] YELLOW -> X: 2.037, Y: 10.127
+[INFO] [1778090391.891535542] [planning_dl]:   [8] BLUE -> X: -1.416, Y: 12.262
+[INFO] [1778090391.908927392] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090391.909706671] [planning_dl]:   First Point: X: -0.096, Y: 1.217
+[INFO] [1778090391.910662536] [planning_dl]:   Middle Pt:   X: -0.048, Y: 5.937
+[INFO] [1778090391.911263459] [planning_dl]:   Last Point:  X: -0.102, Y: 10.203
+[INFO] [1778090391.912759242] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090392.000996963] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090392.001747234] [planning_dl]: Filtered Cones Entering Model (10):
+[INFO] [1778090392.002524113] [planning_dl]:   [0] BLUE -> X: -1.473, Y: 1.774
+[INFO] [1778090392.003242104] [planning_dl]:   [1] YELLOW -> X: 1.244, Y: 2.222
+[INFO] [1778090392.003987546] [planning_dl]:   [2] BLUE -> X: -2.244, Y: 4.787
+[INFO] [1778090392.005154617] [planning_dl]:   [3] YELLOW -> X: 0.802, Y: 5.379
+[INFO] [1778090392.006154685] [planning_dl]:   [4] YELLOW -> X: 3.128, Y: 8.095
+[INFO] [1778090392.006786587] [planning_dl]:   [5] BLUE -> X: -2.727, Y: 8.196
+[INFO] [1778090392.007328528] [planning_dl]:   [6] BLUE -> X: 5.975, Y: 8.702
+[INFO] [1778090392.007786062] [planning_dl]:   [7] YELLOW -> X: 0.719, Y: 9.966
+[INFO] [1778090392.008242704] [planning_dl]:   [8] YELLOW -> X: 1.726, Y: 10.176
+[INFO] [1778090392.008679107] [planning_dl]:   [9] BLUE -> X: -1.795, Y: 12.211
+[INFO] [1778090392.026035273] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090392.026738361] [planning_dl]:   First Point: X: -0.170, Y: 1.293
+[INFO] [1778090392.027240418] [planning_dl]:   Middle Pt:   X: -0.104, Y: 6.118
+[INFO] [1778090392.027642577] [planning_dl]:   Last Point:  X: -0.006, Y: 10.488
+[INFO] [1778090392.028685255] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090392.119615913] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090392.120428790] [planning_dl]: Filtered Cones Entering Model (10):
+[INFO] [1778090392.121068101] [planning_dl]:   [0] BLUE -> X: -1.507, Y: 1.722
+[INFO] [1778090392.121595687] [planning_dl]:   [1] YELLOW -> X: 1.194, Y: 2.253
+[INFO] [1778090392.122015808] [planning_dl]:   [2] BLUE -> X: -2.321, Y: 4.680
+[INFO] [1778090392.122508347] [planning_dl]:   [3] YELLOW -> X: 0.682, Y: 5.404
+[INFO] [1778090392.122995465] [planning_dl]:   [4] BLUE -> X: -2.874, Y: 8.046
+[INFO] [1778090392.123686037] [planning_dl]:   [5] YELLOW -> X: 2.961, Y: 8.184
+[INFO] [1778090392.124592517] [planning_dl]:   [6] BLUE -> X: 5.777, Y: 8.815
+[INFO] [1778090392.125305077] [planning_dl]:   [7] YELLOW -> X: 0.502, Y: 9.959
+[INFO] [1778090392.126110487] [planning_dl]:   [8] YELLOW -> X: 1.505, Y: 10.205
+[INFO] [1778090392.126878744] [planning_dl]:   [9] BLUE -> X: -2.067, Y: 12.178
+[INFO] [1778090392.145899330] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090392.146424382] [planning_dl]:   First Point: X: -0.182, Y: 1.292
+[INFO] [1778090392.146873645] [planning_dl]:   Middle Pt:   X: -0.237, Y: 6.129
+[INFO] [1778090392.147291309] [planning_dl]:   Last Point:  X: -0.377, Y: 10.513
+[INFO] [1778090392.150540701] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090392.241650645] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090392.242643673] [planning_dl]: Filtered Cones Entering Model (10):
+[INFO] [1778090392.243478078] [planning_dl]:   [0] BLUE -> X: -1.526, Y: 1.690
+[INFO] [1778090392.244380980] [planning_dl]:   [1] YELLOW -> X: 1.164, Y: 2.267
+[INFO] [1778090392.245326808] [planning_dl]:   [2] BLUE -> X: -2.363, Y: 4.608
+[INFO] [1778090392.246185205] [planning_dl]:   [3] YELLOW -> X: 0.611, Y: 5.408
+[INFO] [1778090392.247633381] [planning_dl]:   [4] BLUE -> X: -2.958, Y: 7.950
+[INFO] [1778090392.248776778] [planning_dl]:   [5] YELLOW -> X: 2.860, Y: 8.230
+[INFO] [1778090392.249917994] [planning_dl]:   [6] BLUE -> X: 5.659, Y: 8.874
+[INFO] [1778090392.250962024] [planning_dl]:   [7] YELLOW -> X: 0.370, Y: 9.958
+[INFO] [1778090392.251787285] [planning_dl]:   [8] YELLOW -> X: 1.361, Y: 10.220
+[INFO] [1778090392.252359598] [planning_dl]:   [9] BLUE -> X: -2.230, Y: 12.122
+[INFO] [1778090392.280520101] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090392.281396672] [planning_dl]:   First Point: X: -0.201, Y: 1.280
+[INFO] [1778090392.282156262] [planning_dl]:   Middle Pt:   X: -0.320, Y: 6.106
+[INFO] [1778090392.282844942] [planning_dl]:   Last Point:  X: -0.539, Y: 10.481
+[INFO] [1778090392.289021682] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090392.366750207] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090392.367222523] [planning_dl]: Filtered Cones Entering Model (10):
+[INFO] [1778090392.367534235] [planning_dl]:   [0] BLUE -> X: -1.597, Y: 1.589
+[INFO] [1778090392.367815810] [planning_dl]:   [1] YELLOW -> X: 1.050, Y: 2.295
+[INFO] [1778090392.368092111] [planning_dl]:   [2] BLUE -> X: -2.547, Y: 4.425
+[INFO] [1778090392.368362678] [planning_dl]:   [3] YELLOW -> X: 0.335, Y: 5.416
+[INFO] [1778090392.368664834] [planning_dl]:   [4] BLUE -> X: -3.324, Y: 7.640
+[INFO] [1778090392.368993765] [planning_dl]:   [5] YELLOW -> X: 2.454, Y: 8.383
+[INFO] [1778090392.369317841] [planning_dl]:   [6] BLUE -> X: 5.204, Y: 9.110
+[INFO] [1778090392.369646089] [planning_dl]:   [7] YELLOW -> X: -0.131, Y: 9.953
+[INFO] [1778090392.369935786] [planning_dl]:   [8] YELLOW -> X: 0.858, Y: 10.245
+[INFO] [1778090392.370210043] [planning_dl]:   [9] BLUE -> X: -2.824, Y: 11.875
+[INFO] [1778090392.378750452] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090392.379815175] [planning_dl]:   First Point: X: -0.291, Y: 1.257
+[INFO] [1778090392.380813773] [planning_dl]:   Middle Pt:   X: -0.649, Y: 6.033
+[INFO] [1778090392.381487382] [planning_dl]:   Last Point:  X: -1.163, Y: 10.363
+[INFO] [1778090392.383518651] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090392.452756647] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090392.453256105] [planning_dl]: Filtered Cones Entering Model (10):
+[INFO] [1778090392.453936167] [planning_dl]:   [0] BLUE -> X: -1.623, Y: 1.540
+[INFO] [1778090392.454683146] [planning_dl]:   [1] YELLOW -> X: 1.005, Y: 2.306
+[INFO] [1778090392.455379475] [planning_dl]:   [2] BLUE -> X: -2.621, Y: 4.353
+[INFO] [1778090392.455957964] [planning_dl]:   [3] YELLOW -> X: 0.237, Y: 5.415
+[INFO] [1778090392.456625597] [planning_dl]:   [4] BLUE -> X: -3.454, Y: 7.521
+[INFO] [1778090392.457341179] [planning_dl]:   [5] YELLOW -> X: 2.301, Y: 8.430
+[INFO] [1778090392.457974497] [planning_dl]:   [6] BLUE -> X: 5.037, Y: 9.198
+[INFO] [1778090392.458644048] [planning_dl]:   [7] YELLOW -> X: -0.313, Y: 9.943
+[INFO] [1778090392.459270618] [planning_dl]:   [8] YELLOW -> X: 0.670, Y: 10.253
+[INFO] [1778090392.459911443] [planning_dl]:   [9] BLUE -> X: -3.043, Y: 11.834
+[INFO] [1778090392.470667395] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090392.471586166] [planning_dl]:   First Point: X: -0.328, Y: 1.250
+[INFO] [1778090392.472209824] [planning_dl]:   Middle Pt:   X: -0.772, Y: 6.002
+[INFO] [1778090392.472804007] [planning_dl]:   Last Point:  X: -1.388, Y: 10.306
+[INFO] [1778090392.474303333] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090392.546676658] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090392.548161589] [planning_dl]: Filtered Cones Entering Model (10):
+[INFO] [1778090392.549076290] [planning_dl]:   [0] BLUE -> X: -1.636, Y: 1.503
+[INFO] [1778090392.549943658] [planning_dl]:   [1] YELLOW -> X: 0.980, Y: 2.311
+[INFO] [1778090392.550918202] [planning_dl]:   [2] BLUE -> X: -2.658, Y: 4.301
+[INFO] [1778090392.551613280] [planning_dl]:   [3] YELLOW -> X: 0.169, Y: 5.407
+[INFO] [1778090392.552300673] [planning_dl]:   [4] BLUE -> X: -3.496, Y: 7.387
+[INFO] [1778090392.552942018] [planning_dl]:   [5] YELLOW -> X: 2.217, Y: 8.462
+[INFO] [1778090392.553644179] [planning_dl]:   [6] BLUE -> X: 4.943, Y: 9.245
+[INFO] [1778090392.554427887] [planning_dl]:   [7] YELLOW -> X: -0.418, Y: 9.906
+[INFO] [1778090392.555194555] [planning_dl]:   [8] YELLOW -> X: 0.565, Y: 10.258
+[INFO] [1778090392.555736606] [planning_dl]:   [9] BLUE -> X: -3.140, Y: 11.778
+[INFO] [1778090392.562988589] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090392.563689424] [planning_dl]:   First Point: X: -0.349, Y: 1.236
+[INFO] [1778090392.564477000] [planning_dl]:   Middle Pt:   X: -0.836, Y: 5.974
+[INFO] [1778090392.564967017] [planning_dl]:   Last Point:  X: -1.499, Y: 10.265
+[INFO] [1778090392.566613934] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090392.637277993] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090392.637711621] [planning_dl]: Filtered Cones Entering Model (10):
+[INFO] [1778090392.638013979] [planning_dl]:   [0] BLUE -> X: -1.614, Y: 1.509
+[INFO] [1778090392.638642740] [planning_dl]:   [1] YELLOW -> X: 1.012, Y: 2.299
+[INFO] [1778090392.639338926] [planning_dl]:   [2] BLUE -> X: -2.575, Y: 4.320
+[INFO] [1778090392.640059348] [planning_dl]:   [3] YELLOW -> X: 0.252, Y: 5.383
+[INFO] [1778090392.640736294] [planning_dl]:   [4] BLUE -> X: -3.311, Y: 7.345
+[INFO] [1778090392.641366902] [planning_dl]:   [5] YELLOW -> X: 2.379, Y: 8.450
+[INFO] [1778090392.642039381] [planning_dl]:   [6] BLUE -> X: 5.120, Y: 9.169
+[INFO] [1778090392.642741429] [planning_dl]:   [7] YELLOW -> X: -0.232, Y: 9.883
+[INFO] [1778090392.643414049] [planning_dl]:   [8] YELLOW -> X: 0.764, Y: 10.250
+[INFO] [1778090392.644118335] [planning_dl]:   [9] BLUE -> X: -2.880, Y: 11.788
+[INFO] [1778090392.656961500] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090392.658088531] [planning_dl]:   First Point: X: -0.313, Y: 1.210
+[INFO] [1778090392.658802742] [planning_dl]:   Middle Pt:   X: -0.706, Y: 5.969
+[INFO] [1778090392.659365902] [planning_dl]:   Last Point:  X: -1.239, Y: 10.289
+[INFO] [1778090392.661011743] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090392.740491475] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090392.741301318] [planning_dl]: Filtered Cones Entering Model (10):
+[INFO] [1778090392.741833374] [planning_dl]:   [0] BLUE -> X: -1.497, Y: 1.541
+[INFO] [1778090392.742144070] [planning_dl]:   [1] YELLOW -> X: 1.167, Y: 2.209
+[INFO] [1778090392.742451626] [planning_dl]:   [2] BLUE -> X: -2.253, Y: 4.389
+[INFO] [1778090392.742753402] [planning_dl]:   [3] YELLOW -> X: 0.630, Y: 5.306
+[INFO] [1778090392.743153308] [planning_dl]:   [4] BLUE -> X: -2.777, Y: 7.380
+[INFO] [1778090392.743445900] [planning_dl]:   [5] YELLOW -> X: 2.940, Y: 8.258
+[INFO] [1778090392.744197530] [planning_dl]:   [6] BLUE -> X: 5.722, Y: 8.783
+[INFO] [1778090392.745182942] [planning_dl]:   [7] YELLOW -> X: 0.430, Y: 9.845
+[INFO] [1778090392.745588792] [planning_dl]:   [8] YELLOW -> X: 1.444, Y: 10.163
+[INFO] [1778090392.746354231] [planning_dl]:   [9] BLUE -> X: -2.098, Y: 11.826
+[INFO] [1778090392.756904739] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090392.757882474] [planning_dl]:   First Point: X: -0.173, Y: 1.146
+[INFO] [1778090392.758346400] [planning_dl]:   Middle Pt:   X: -0.252, Y: 5.957
+[INFO] [1778090392.758741909] [planning_dl]:   Last Point:  X: -0.385, Y: 10.323
+[INFO] [1778090392.760316707] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090392.850572382] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090392.851300717] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090392.851973720] [planning_dl]:   [0] BLUE -> X: -1.411, Y: 1.586
+[INFO] [1778090392.852611005] [planning_dl]:   [1] YELLOW -> X: 1.273, Y: 2.119
+[INFO] [1778090392.853178771] [planning_dl]:   [2] BLUE -> X: -2.050, Y: 4.478
+[INFO] [1778090392.853741859] [planning_dl]:   [3] YELLOW -> X: 0.880, Y: 5.228
+[INFO] [1778090392.854074950] [planning_dl]:   [4] BLUE -> X: -2.433, Y: 7.399
+[INFO] [1778090392.854396985] [planning_dl]:   [5] YELLOW -> X: 3.303, Y: 8.090
+[INFO] [1778090392.854724532] [planning_dl]:   [6] YELLOW -> X: 0.857, Y: 9.782
+[INFO] [1778090392.854989049] [planning_dl]:   [7] YELLOW -> X: 1.884, Y: 10.053
+[INFO] [1778090392.855249943] [planning_dl]:   [8] BLUE -> X: -1.563, Y: 11.849
+[INFO] [1778090392.860302317] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090392.860792260] [planning_dl]:   First Point: X: -0.094, Y: 1.034
+[INFO] [1778090392.861118323] [planning_dl]:   Middle Pt:   X: -0.107, Y: 5.718
+[INFO] [1778090392.861440868] [planning_dl]:   Last Point:  X: -0.255, Y: 9.936
+[INFO] [1778090392.862438730] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090392.936321738] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090392.936701102] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090392.937008784] [planning_dl]:   [0] BLUE -> X: -1.353, Y: 1.610
+[INFO] [1778090392.937274267] [planning_dl]:   [1] YELLOW -> X: 1.341, Y: 2.039
+[INFO] [1778090392.937535085] [planning_dl]:   [2] BLUE -> X: -1.911, Y: 4.525
+[INFO] [1778090392.937793134] [planning_dl]:   [3] YELLOW -> X: 1.046, Y: 5.149
+[INFO] [1778090392.938051112] [planning_dl]:   [4] BLUE -> X: -2.188, Y: 7.406
+[INFO] [1778090392.938328064] [planning_dl]:   [5] YELLOW -> X: 3.554, Y: 7.960
+[INFO] [1778090392.938840071] [planning_dl]:   [6] YELLOW -> X: 1.154, Y: 9.720
+[INFO] [1778090392.939236756] [planning_dl]:   [7] YELLOW -> X: 2.190, Y: 9.959
+[INFO] [1778090392.939558528] [planning_dl]:   [8] BLUE -> X: -1.193, Y: 11.852
+[INFO] [1778090392.952616138] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090392.953449155] [planning_dl]:   First Point: X: -0.041, Y: 1.000
+[INFO] [1778090392.955100740] [planning_dl]:   Middle Pt:   X: 0.092, Y: 5.675
+[INFO] [1778090392.956506028] [planning_dl]:   Last Point:  X: 0.109, Y: 9.887
+[INFO] [1778090392.958464778] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090393.040100721] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090393.040904123] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090393.041605296] [planning_dl]:   [0] BLUE -> X: -1.301, Y: 1.627
+[INFO] [1778090393.042378761] [planning_dl]:   [1] YELLOW -> X: 1.404, Y: 1.965
+[INFO] [1778090393.043032949] [planning_dl]:   [2] BLUE -> X: -1.778, Y: 4.566
+[INFO] [1778090393.043782413] [planning_dl]:   [3] YELLOW -> X: 1.196, Y: 5.081
+[INFO] [1778090393.044484673] [planning_dl]:   [4] BLUE -> X: -1.959, Y: 7.408
+[INFO] [1778090393.045199687] [planning_dl]:   [5] YELLOW -> X: 3.794, Y: 7.839
+[INFO] [1778090393.045690368] [planning_dl]:   [6] YELLOW -> X: 1.439, Y: 9.657
+[INFO] [1778090393.046008006] [planning_dl]:   [7] YELLOW -> X: 2.482, Y: 9.868
+[INFO] [1778090393.046418394] [planning_dl]:   [8] BLUE -> X: -0.840, Y: 11.848
+[INFO] [1778090393.058983958] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090393.060020492] [planning_dl]:   First Point: X: 0.007, Y: 0.969
+[INFO] [1778090393.060882959] [planning_dl]:   Middle Pt:   X: 0.274, Y: 5.628
+[INFO] [1778090393.061770344] [planning_dl]:   Last Point:  X: 0.449, Y: 9.831
+[INFO] [1778090393.063512284] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090393.163890546] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090393.164751049] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090393.165728133] [planning_dl]:   [0] BLUE -> X: -1.247, Y: 1.638
+[INFO] [1778090393.166344074] [planning_dl]:   [1] YELLOW -> X: 1.468, Y: 1.873
+[INFO] [1778090393.167167643] [planning_dl]:   [2] BLUE -> X: -1.638, Y: 4.581
+[INFO] [1778090393.167776414] [planning_dl]:   [3] YELLOW -> X: 1.357, Y: 4.966
+[INFO] [1778090393.168627671] [planning_dl]:   [4] BLUE -> X: -1.698, Y: 7.377
+[INFO] [1778090393.169573907] [planning_dl]:   [5] YELLOW -> X: 4.047, Y: 7.675
+[INFO] [1778090393.170193218] [planning_dl]:   [6] YELLOW -> X: 1.747, Y: 9.563
+[INFO] [1778090393.170752720] [planning_dl]:   [7] YELLOW -> X: 2.796, Y: 9.742
+[INFO] [1778090393.171308985] [planning_dl]:   [8] BLUE -> X: -0.462, Y: 11.816
+[INFO] [1778090393.193625944] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090393.194539579] [planning_dl]:   First Point: X: 0.054, Y: 0.921
+[INFO] [1778090393.195307378] [planning_dl]:   Middle Pt:   X: 0.464, Y: 5.552
+[INFO] [1778090393.196030205] [planning_dl]:   Last Point:  X: 0.809, Y: 9.743
+[INFO] [1778090393.197913144] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090393.267938254] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090393.268529964] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090393.268856216] [planning_dl]:   [0] BLUE -> X: -1.217, Y: 1.644
+[INFO] [1778090393.269152452] [planning_dl]:   [1] YELLOW -> X: 1.505, Y: 1.814
+[INFO] [1778090393.269423479] [planning_dl]:   [2] BLUE -> X: -1.554, Y: 4.591
+[INFO] [1778090393.269686038] [planning_dl]:   [3] YELLOW -> X: 1.451, Y: 4.900
+[INFO] [1778090393.269950914] [planning_dl]:   [4] BLUE -> X: -1.553, Y: 7.384
+[INFO] [1778090393.270220235] [planning_dl]:   [5] YELLOW -> X: 4.197, Y: 7.575
+[INFO] [1778090393.270546299] [planning_dl]:   [6] YELLOW -> X: 1.931, Y: 9.504
+[INFO] [1778090393.270856176] [planning_dl]:   [7] YELLOW -> X: 2.984, Y: 9.665
+[INFO] [1778090393.271172145] [planning_dl]:   [8] BLUE -> X: -0.253, Y: 11.783
+[INFO] [1778090393.287390685] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090393.287858103] [planning_dl]:   First Point: X: 0.082, Y: 0.893
+[INFO] [1778090393.288202971] [planning_dl]:   Middle Pt:   X: 0.568, Y: 5.508
+[INFO] [1778090393.288537753] [planning_dl]:   Last Point:  X: 1.007, Y: 9.692
+[INFO] [1778090393.289410092] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090393.390763797] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090393.391280900] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090393.391799710] [planning_dl]:   [0] BLUE -> X: -1.181, Y: 1.647
+[INFO] [1778090393.392145857] [planning_dl]:   [1] YELLOW -> X: 1.545, Y: 1.741
+[INFO] [1778090393.392437402] [planning_dl]:   [2] BLUE -> X: -1.456, Y: 4.606
+[INFO] [1778090393.392710589] [planning_dl]:   [3] YELLOW -> X: 1.551, Y: 4.832
+[INFO] [1778090393.392973072] [planning_dl]:   [4] YELLOW -> X: 4.356, Y: 7.446
+[INFO] [1778090393.393235677] [planning_dl]:   [5] BLUE -> X: -1.405, Y: 7.448
+[INFO] [1778090393.393501569] [planning_dl]:   [6] YELLOW -> X: 2.128, Y: 9.420
+[INFO] [1778090393.393786770] [planning_dl]:   [7] YELLOW -> X: 3.190, Y: 9.572
+[INFO] [1778090393.394093249] [planning_dl]:   [8] BLUE -> X: -0.003, Y: 11.744
+[INFO] [1778090393.400549616] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090393.401382277] [planning_dl]:   First Point: X: 0.129, Y: 0.849
+[INFO] [1778090393.401824692] [planning_dl]:   Middle Pt:   X: 0.680, Y: 5.467
+[INFO] [1778090393.402276027] [planning_dl]:   Last Point:  X: 1.293, Y: 9.660
+[INFO] [1778090393.403565158] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090393.484257383] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090393.485155778] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090393.486018458] [planning_dl]:   [0] BLUE -> X: -1.177, Y: 1.647
+[INFO] [1778090393.486458577] [planning_dl]:   [1] YELLOW -> X: 1.549, Y: 1.716
+[INFO] [1778090393.486817308] [planning_dl]:   [2] BLUE -> X: -1.444, Y: 4.611
+[INFO] [1778090393.487251714] [planning_dl]:   [3] YELLOW -> X: 1.560, Y: 4.808
+[INFO] [1778090393.487755430] [planning_dl]:   [4] YELLOW -> X: 4.374, Y: 7.423
+[INFO] [1778090393.488216633] [planning_dl]:   [5] BLUE -> X: -1.399, Y: 7.525
+[INFO] [1778090393.488631957] [planning_dl]:   [6] YELLOW -> X: 2.147, Y: 9.401
+[INFO] [1778090393.489025668] [planning_dl]:   [7] YELLOW -> X: 3.211, Y: 9.554
+[INFO] [1778090393.489359061] [planning_dl]:   [8] BLUE -> X: 0.022, Y: 11.743
+[INFO] [1778090393.506769173] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090393.507567182] [planning_dl]:   First Point: X: 0.129, Y: 0.843
+[INFO] [1778090393.508219557] [planning_dl]:   Middle Pt:   X: 0.689, Y: 5.463
+[INFO] [1778090393.508930962] [planning_dl]:   Last Point:  X: 1.307, Y: 9.656
+[INFO] [1778090393.510418591] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090393.663103326] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090393.663937967] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090393.664816524] [planning_dl]:   [0] BLUE -> X: -1.173, Y: 1.625
+[INFO] [1778090393.665497390] [planning_dl]:   [1] YELLOW -> X: 1.556, Y: 1.656
+[INFO] [1778090393.666186266] [planning_dl]:   [2] BLUE -> X: -1.432, Y: 4.602
+[INFO] [1778090393.666961189] [planning_dl]:   [3] YELLOW -> X: 1.579, Y: 4.749
+[INFO] [1778090393.667886841] [planning_dl]:   [4] YELLOW -> X: 4.413, Y: 7.358
+[INFO] [1778090393.669034121] [planning_dl]:   [5] BLUE -> X: -1.354, Y: 7.518
+[INFO] [1778090393.670121262] [planning_dl]:   [6] YELLOW -> X: 2.196, Y: 9.348
+[INFO] [1778090393.670545344] [planning_dl]:   [7] YELLOW -> X: 3.264, Y: 9.503
+[INFO] [1778090393.670857279] [planning_dl]:   [8] BLUE -> X: 0.071, Y: 11.712
+[INFO] [1778090393.685394781] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090393.686321138] [planning_dl]:   First Point: X: 0.127, Y: 0.808
+[INFO] [1778090393.687073128] [planning_dl]:   Middle Pt:   X: 0.711, Y: 5.423
+[INFO] [1778090393.687882165] [planning_dl]:   Last Point:  X: 1.351, Y: 9.613
+[INFO] [1778090393.690595807] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090393.778416656] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090393.779541799] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090393.779987042] [planning_dl]:   [0] BLUE -> X: -1.167, Y: 1.593
+[INFO] [1778090393.780331062] [planning_dl]:   [1] YELLOW -> X: 1.564, Y: 1.612
+[INFO] [1778090393.780656567] [planning_dl]:   [2] BLUE -> X: -1.414, Y: 4.577
+[INFO] [1778090393.780964029] [planning_dl]:   [3] YELLOW -> X: 1.596, Y: 4.702
+[INFO] [1778090393.781283958] [planning_dl]:   [4] YELLOW -> X: 4.442, Y: 7.309
+[INFO] [1778090393.781571536] [planning_dl]:   [5] BLUE -> X: -1.336, Y: 7.522
+[INFO] [1778090393.781874562] [planning_dl]:   [6] YELLOW -> X: 2.231, Y: 9.306
+[INFO] [1778090393.782266737] [planning_dl]:   [7] YELLOW -> X: 3.301, Y: 9.445
+[INFO] [1778090393.782764001] [planning_dl]:   [8] BLUE -> X: 0.114, Y: 11.692
+[INFO] [1778090393.792946575] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090393.793806060] [planning_dl]:   First Point: X: 0.131, Y: 0.775
+[INFO] [1778090393.794608165] [planning_dl]:   Middle Pt:   X: 0.726, Y: 5.389
+[INFO] [1778090393.795348419] [planning_dl]:   Last Point:  X: 1.378, Y: 9.579
+[INFO] [1778090393.797221189] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090393.865726949] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090393.866135201] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090393.866478994] [planning_dl]:   [0] BLUE -> X: -1.159, Y: 1.538
+[INFO] [1778090393.866778160] [planning_dl]:   [1] YELLOW -> X: 1.573, Y: 1.558
+[INFO] [1778090393.867045474] [planning_dl]:   [2] BLUE -> X: -1.404, Y: 4.531
+[INFO] [1778090393.867308363] [planning_dl]:   [3] YELLOW -> X: 1.610, Y: 4.649
+[INFO] [1778090393.867638473] [planning_dl]:   [4] YELLOW -> X: 4.461, Y: 7.252
+[INFO] [1778090393.867928875] [planning_dl]:   [5] BLUE -> X: -1.332, Y: 7.516
+[INFO] [1778090393.868209521] [planning_dl]:   [6] YELLOW -> X: 2.252, Y: 9.251
+[INFO] [1778090393.868510033] [planning_dl]:   [7] BLUE -> X: 0.135, Y: 11.646
+[INFO] [1778090393.868799167] [planning_dl]:   [8] YELLOW -> X: 3.331, Y: 9.365
+[INFO] [1778090393.875404255] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090393.875895101] [planning_dl]:   First Point: X: 0.076, Y: 0.773
+[INFO] [1778090393.876226568] [planning_dl]:   Middle Pt:   X: 0.758, Y: 5.360
+[INFO] [1778090393.876539917] [planning_dl]:   Last Point:  X: 1.461, Y: 9.500
+[INFO] [1778090393.877470119] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090393.936722455] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090393.937112835] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090393.937448092] [planning_dl]:   [0] BLUE -> X: -1.154, Y: 1.513
+[INFO] [1778090393.937739428] [planning_dl]:   [1] YELLOW -> X: 1.576, Y: 1.535
+[INFO] [1778090393.938001127] [planning_dl]:   [2] BLUE -> X: -1.399, Y: 4.508
+[INFO] [1778090393.938278615] [planning_dl]:   [3] YELLOW -> X: 1.615, Y: 4.620
+[INFO] [1778090393.938647951] [planning_dl]:   [4] YELLOW -> X: 4.470, Y: 7.224
+[INFO] [1778090393.938945718] [planning_dl]:   [5] BLUE -> X: -1.331, Y: 7.514
+[INFO] [1778090393.939259250] [planning_dl]:   [6] YELLOW -> X: 2.262, Y: 9.224
+[INFO] [1778090393.939520374] [planning_dl]:   [7] YELLOW -> X: 3.335, Y: 9.351
+[INFO] [1778090393.939774747] [planning_dl]:   [8] BLUE -> X: 0.147, Y: 11.604
+[INFO] [1778090393.950336037] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090393.950891643] [planning_dl]:   First Point: X: 0.136, Y: 0.706
+[INFO] [1778090393.951331476] [planning_dl]:   Middle Pt:   X: 0.737, Y: 5.323
+[INFO] [1778090393.951736069] [planning_dl]:   Last Point:  X: 1.392, Y: 9.516
+[INFO] [1778090393.952806182] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090394.027769738] [planning_dl]: --- FRAME START: 11 Markers Received ---
+[INFO] [1778090394.028254638] [planning_dl]: Filtered Cones Entering Model (9):
+[INFO] [1778090394.028601015] [planning_dl]:   [0] BLUE -> X: -1.150, Y: 1.492
+[INFO] [1778090394.029050407] [planning_dl]:   [1] YELLOW -> X: 1.579, Y: 1.515
+[INFO] [1778090394.029649878] [planning_dl]:   [2] BLUE -> X: -1.392, Y: 4.489
+[INFO] [1778090394.030224011] [planning_dl]:   [3] YELLOW -> X: 1.618, Y: 4.595
+[INFO] [1778090394.030783642] [planning_dl]:   [4] YELLOW -> X: 4.480, Y: 7.199
+[INFO] [1778090394.031491327] [planning_dl]:   [5] BLUE -> X: -1.331, Y: 7.515
+[INFO] [1778090394.031911165] [planning_dl]:   [6] YELLOW -> X: 2.274, Y: 9.201
+[INFO] [1778090394.032214416] [planning_dl]:   [7] BLUE -> X: 0.158, Y: 11.570
+[INFO] [1778090394.032498844] [planning_dl]:   [8] YELLOW -> X: 3.358, Y: 9.310
+[INFO] [1778090394.039260827] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090394.040056137] [planning_dl]:   First Point: X: 0.078, Y: 0.731
+[INFO] [1778090394.041240710] [planning_dl]:   Middle Pt:   X: 0.766, Y: 5.322
+[INFO] [1778090394.042210755] [planning_dl]:   Last Point:  X: 1.475, Y: 9.462
+[INFO] [1778090394.044263481] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090394.116119998] [planning_dl]: --- FRAME START: 12 Markers Received ---
+[INFO] [1778090394.116872127] [planning_dl]: Filtered Cones Entering Model (10):
+[INFO] [1778090394.117562258] [planning_dl]:   [0] BLUE -> X: -1.142, Y: 1.464
+[INFO] [1778090394.118194946] [planning_dl]:   [1] YELLOW -> X: 1.585, Y: 1.481
+[INFO] [1778090394.118980754] [planning_dl]:   [2] BLUE -> X: -1.372, Y: 4.458
+[INFO] [1778090394.119533260] [planning_dl]:   [3] YELLOW -> X: 1.628, Y: 4.539
+[INFO] [1778090394.120090413] [planning_dl]:   [4] YELLOW -> X: 4.507, Y: 7.150
+[INFO] [1778090394.120691101] [planning_dl]:   [5] BLUE -> X: -1.321, Y: 7.517
+[INFO] [1778090394.121202343] [planning_dl]:   [6] YELLOW -> X: 4.298, Y: 8.379
+[INFO] [1778090394.121755347] [planning_dl]:   [7] YELLOW -> X: 2.310, Y: 9.158
+[INFO] [1778090394.122282153] [planning_dl]:   [8] YELLOW -> X: 3.376, Y: 9.273
+[INFO] [1778090394.122849782] [planning_dl]:   [9] BLUE -> X: 0.206, Y: 11.507
+[INFO] [1778090394.135880662] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090394.136552871] [planning_dl]:   First Point: X: 0.308, Y: 0.999
+[INFO] [1778090394.136919578] [planning_dl]:   Middle Pt:   X: 0.985, Y: 5.788
+[INFO] [1778090394.137265661] [planning_dl]:   Last Point:  X: 1.939, Y: 10.490
+[INFO] [1778090394.138196919] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090394.208360847] [planning_dl]: --- FRAME START: 12 Markers Received ---
+[INFO] [1778090394.208743534] [planning_dl]: Filtered Cones Entering Model (10):
+[INFO] [1778090394.209004862] [planning_dl]:   [0] BLUE -> X: -1.134, Y: 1.434
+[INFO] [1778090394.209246611] [planning_dl]:   [1] YELLOW -> X: 1.591, Y: 1.448
+[INFO] [1778090394.209485344] [planning_dl]:   [2] BLUE -> X: -1.357, Y: 4.435
+[INFO] [1778090394.209718569] [planning_dl]:   [3] YELLOW -> X: 1.641, Y: 4.492
+[INFO] [1778090394.209953493] [planning_dl]:   [4] YELLOW -> X: 4.527, Y: 7.110
+[INFO] [1778090394.210192097] [planning_dl]:   [5] BLUE -> X: -1.315, Y: 7.518
+[INFO] [1778090394.210487653] [planning_dl]:   [6] YELLOW -> X: 4.303, Y: 8.334
+[INFO] [1778090394.210731617] [planning_dl]:   [7] YELLOW -> X: 2.333, Y: 9.121
+[INFO] [1778090394.210975397] [planning_dl]:   [8] YELLOW -> X: 3.409, Y: 9.218
+[INFO] [1778090394.211216524] [planning_dl]:   [9] BLUE -> X: 0.233, Y: 11.457
+[INFO] [1778090394.221803426] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090394.222501836] [planning_dl]:   First Point: X: 0.311, Y: 0.969
+[INFO] [1778090394.223030004] [planning_dl]:   Middle Pt:   X: 0.994, Y: 5.759
+[INFO] [1778090394.223537197] [planning_dl]:   Last Point:  X: 1.957, Y: 10.464
+[INFO] [1778090394.224780595] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090394.286783449] [planning_dl]: --- FRAME START: 13 Markers Received ---
+[INFO] [1778090394.287628871] [planning_dl]: Filtered Cones Entering Model (11):
+[INFO] [1778090394.288446590] [planning_dl]:   [0] BLUE -> X: -1.130, Y: 1.411
+[INFO] [1778090394.289362950] [planning_dl]:   [1] YELLOW -> X: 1.595, Y: 1.425
+[INFO] [1778090394.290715560] [planning_dl]:   [2] BLUE -> X: -1.350, Y: 4.423
+[INFO] [1778090394.291550872] [planning_dl]:   [3] YELLOW -> X: 1.649, Y: 4.467
+[INFO] [1778090394.292370692] [planning_dl]:   [4] YELLOW -> X: 1.786, Y: 4.785
+[INFO] [1778090394.293100196] [planning_dl]:   [5] YELLOW -> X: 4.536, Y: 7.087
+[INFO] [1778090394.293819785] [planning_dl]:   [6] BLUE -> X: -1.313, Y: 7.517
+[INFO] [1778090394.294736454] [planning_dl]:   [7] YELLOW -> X: 4.308, Y: 8.310
+[INFO] [1778090394.295505938] [planning_dl]:   [8] YELLOW -> X: 2.341, Y: 9.096
+[INFO] [1778090394.296522801] [planning_dl]:   [9] YELLOW -> X: 3.405, Y: 9.189
+[INFO] [1778090394.297638110] [planning_dl]:   [10] BLUE -> X: 0.247, Y: 11.441
+[INFO] [1778090394.303647983] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090394.304244374] [planning_dl]:   First Point: X: 0.284, Y: 1.127
+[INFO] [1778090394.304731885] [planning_dl]:   Middle Pt:   X: 1.173, Y: 6.150
+[INFO] [1778090394.305174906] [planning_dl]:   Last Point:  X: 2.191, Y: 10.681
+[INFO] [1778090394.306376085] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090394.368889158] [planning_dl]: --- FRAME START: 13 Markers Received ---
+[INFO] [1778090394.369296987] [planning_dl]: Filtered Cones Entering Model (11):
+[INFO] [1778090394.369585347] [planning_dl]:   [0] BLUE -> X: -1.123, Y: 1.376
+[INFO] [1778090394.370188451] [planning_dl]:   [1] YELLOW -> X: 1.600, Y: 1.390
+[INFO] [1778090394.370951049] [planning_dl]:   [2] BLUE -> X: -1.342, Y: 4.387
+[INFO] [1778090394.371683851] [planning_dl]:   [3] YELLOW -> X: 1.711, Y: 4.546
+[INFO] [1778090394.372337747] [planning_dl]:   [4] YELLOW -> X: 1.697, Y: 4.563
+[INFO] [1778090394.372982300] [planning_dl]:   [5] YELLOW -> X: 4.545, Y: 7.051
+[INFO] [1778090394.373585513] [planning_dl]:   [6] BLUE -> X: -1.308, Y: 7.514
+[INFO] [1778090394.373885155] [planning_dl]:   [7] YELLOW -> X: 4.314, Y: 8.268
+[INFO] [1778090394.374140701] [planning_dl]:   [8] YELLOW -> X: 2.351, Y: 9.063
+[INFO] [1778090394.374430705] [planning_dl]:   [9] YELLOW -> X: 3.414, Y: 9.155
+[INFO] [1778090394.375070567] [planning_dl]:   [10] BLUE -> X: 0.261, Y: 11.424
+[INFO] [1778090394.382480479] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090394.383133163] [planning_dl]:   First Point: X: 0.279, Y: 1.084
+[INFO] [1778090394.383658908] [planning_dl]:   Middle Pt:   X: 1.166, Y: 6.104
+[INFO] [1778090394.384762646] [planning_dl]:   Last Point:  X: 2.171, Y: 10.658
+[INFO] [1778090394.386345440] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090394.445144571] [planning_dl]: --- FRAME START: 13 Markers Received ---
+[INFO] [1778090394.445773629] [planning_dl]: Filtered Cones Entering Model (11):
+[INFO] [1778090394.446662741] [planning_dl]:   [0] BLUE -> X: -1.119, Y: 1.353
+[INFO] [1778090394.447241330] [planning_dl]:   [1] YELLOW -> X: 1.604, Y: 1.365
+[INFO] [1778090394.448010895] [planning_dl]:   [2] BLUE -> X: -1.335, Y: 4.356
+[INFO] [1778090394.448807067] [planning_dl]:   [3] YELLOW -> X: 1.704, Y: 4.492
+[INFO] [1778090394.449494962] [planning_dl]:   [4] YELLOW -> X: 1.727, Y: 4.613
+[INFO] [1778090394.450137401] [planning_dl]:   [5] YELLOW -> X: 4.554, Y: 7.023
+[INFO] [1778090394.450775153] [planning_dl]:   [6] BLUE -> X: -1.303, Y: 7.511
+[INFO] [1778090394.451489546] [planning_dl]:   [7] YELLOW -> X: 4.323, Y: 8.237
+[INFO] [1778090394.452115637] [planning_dl]:   [8] YELLOW -> X: 2.362, Y: 9.037
+[INFO] [1778090394.452709410] [planning_dl]:   [9] YELLOW -> X: 3.421, Y: 9.120
+[INFO] [1778090394.453413180] [planning_dl]:   [10] BLUE -> X: 0.272, Y: 11.407
+[INFO] [1778090394.468759999] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090394.469660741] [planning_dl]:   First Point: X: 0.283, Y: 1.068
+[INFO] [1778090394.470518544] [planning_dl]:   Middle Pt:   X: 1.169, Y: 6.087
+[INFO] [1778090394.471218238] [planning_dl]:   Last Point:  X: 2.174, Y: 10.642
+[INFO] [1778090394.472820920] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090394.542085523] [planning_dl]: --- FRAME START: 13 Markers Received ---
+[INFO] [1778090394.542521612] [planning_dl]: Filtered Cones Entering Model (11):
+[INFO] [1778090394.542853773] [planning_dl]:   [0] BLUE -> X: -1.111, Y: 1.322
+[INFO] [1778090394.543129982] [planning_dl]:   [1] YELLOW -> X: 1.610, Y: 1.328
+[INFO] [1778090394.543394530] [planning_dl]:   [2] BLUE -> X: -1.316, Y: 4.323
+[INFO] [1778090394.543680039] [planning_dl]:   [3] YELLOW -> X: 1.709, Y: 4.429
+[INFO] [1778090394.543958653] [planning_dl]:   [4] YELLOW -> X: 1.792, Y: 4.747
+[INFO] [1778090394.544240477] [planning_dl]:   [5] YELLOW -> X: 4.579, Y: 6.972
+[INFO] [1778090394.544492141] [planning_dl]:   [6] BLUE -> X: -1.278, Y: 7.501
+[INFO] [1778090394.544737382] [planning_dl]:   [7] YELLOW -> X: 4.350, Y: 8.179
+[INFO] [1778090394.545125607] [planning_dl]:   [8] YELLOW -> X: 2.393, Y: 8.994
+[INFO] [1778090394.545824777] [planning_dl]:   [9] YELLOW -> X: 3.433, Y: 9.083
+[INFO] [1778090394.546804894] [planning_dl]:   [10] BLUE -> X: 0.303, Y: 11.381
+[INFO] [1778090394.564619631] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090394.566025141] [planning_dl]:   First Point: X: 0.295, Y: 1.056
+[INFO] [1778090394.566928489] [planning_dl]:   Middle Pt:   X: 1.187, Y: 6.069
+[INFO] [1778090394.567697352] [planning_dl]:   Last Point:  X: 2.204, Y: 10.624
+[INFO] [1778090394.569405869] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090394.631819727] [planning_dl]: --- FRAME START: 13 Markers Received ---
+[INFO] [1778090394.632211164] [planning_dl]: Filtered Cones Entering Model (11):
+[INFO] [1778090394.632493141] [planning_dl]:   [0] BLUE -> X: -1.103, Y: 1.288
+[INFO] [1778090394.632795030] [planning_dl]:   [1] YELLOW -> X: 1.609, Y: 1.299
+[INFO] [1778090394.633051670] [planning_dl]:   [2] BLUE -> X: -1.304, Y: 4.286
+[INFO] [1778090394.633325885] [planning_dl]:   [3] YELLOW -> X: 1.713, Y: 4.379
+[INFO] [1778090394.633581320] [planning_dl]:   [4] YELLOW -> X: 1.813, Y: 4.770
+[INFO] [1778090394.633944637] [planning_dl]:   [5] YELLOW -> X: 4.594, Y: 6.928
+[INFO] [1778090394.634913403] [planning_dl]:   [6] BLUE -> X: -1.260, Y: 7.472
+[INFO] [1778090394.635893005] [planning_dl]:   [7] YELLOW -> X: 4.367, Y: 8.133
+[INFO] [1778090394.636688432] [planning_dl]:   [8] YELLOW -> X: 2.412, Y: 8.955
+[INFO] [1778090394.637476928] [planning_dl]:   [9] YELLOW -> X: 3.448, Y: 9.035
+[INFO] [1778090394.638129115] [planning_dl]:   [10] BLUE -> X: 0.322, Y: 11.364
+[INFO] [1778090394.643038126] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090394.643394561] [planning_dl]:   First Point: X: 0.297, Y: 1.029
+[INFO] [1778090394.643656804] [planning_dl]:   Middle Pt:   X: 1.192, Y: 6.036
+[INFO] [1778090394.643881223] [planning_dl]:   Last Point:  X: 2.215, Y: 10.601
+[INFO] [1778090394.644661593] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090394.708466566] [planning_dl]: --- FRAME START: 13 Markers Received ---
+[INFO] [1778090394.708856846] [planning_dl]: Filtered Cones Entering Model (11):
+[INFO] [1778090394.709160471] [planning_dl]:   [0] BLUE -> X: -1.099, Y: 1.266
+[INFO] [1778090394.709865785] [planning_dl]:   [1] YELLOW -> X: 1.587, Y: 1.280
+[INFO] [1778090394.710532442] [planning_dl]:   [2] BLUE -> X: -1.299, Y: 4.262
+[INFO] [1778090394.711122003] [planning_dl]:   [3] YELLOW -> X: 1.715, Y: 4.346
+[INFO] [1778090394.711509739] [planning_dl]:   [4] YELLOW -> X: 1.812, Y: 4.770
+[INFO] [1778090394.711952203] [planning_dl]:   [5] YELLOW -> X: 4.602, Y: 6.901
+[INFO] [1778090394.712343804] [planning_dl]:   [6] BLUE -> X: -1.250, Y: 7.448
+[INFO] [1778090394.712764597] [planning_dl]:   [7] YELLOW -> X: 4.375, Y: 8.106
+[INFO] [1778090394.713288292] [planning_dl]:   [8] YELLOW -> X: 2.420, Y: 8.926
+[INFO] [1778090394.713706723] [planning_dl]:   [9] YELLOW -> X: 3.455, Y: 9.004
+[INFO] [1778090394.714033784] [planning_dl]:   [10] BLUE -> X: 0.328, Y: 11.342
+[INFO] [1778090394.722180689] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090394.724055462] [planning_dl]:   First Point: X: 0.289, Y: 1.006
+[INFO] [1778090394.725004545] [planning_dl]:   Middle Pt:   X: 1.187, Y: 6.006
+[INFO] [1778090394.725575600] [planning_dl]:   Last Point:  X: 2.218, Y: 10.580
+[INFO] [1778090394.726842451] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090394.800627515] [planning_dl]: --- FRAME START: 13 Markers Received ---
+[INFO] [1778090394.801002102] [planning_dl]: Filtered Cones Entering Model (11):
+[INFO] [1778090394.801274460] [planning_dl]:   [0] BLUE -> X: -1.097, Y: 1.231
+[INFO] [1778090394.801530594] [planning_dl]:   [1] YELLOW -> X: 1.587, Y: 1.280
+[INFO] [1778090394.801804733] [planning_dl]:   [2] BLUE -> X: -1.299, Y: 4.226
+[INFO] [1778090394.802097249] [planning_dl]:   [3] YELLOW -> X: 1.714, Y: 4.312
+[INFO] [1778090394.802479199] [planning_dl]:   [4] YELLOW -> X: 1.811, Y: 4.770
+[INFO] [1778090394.802827294] [planning_dl]:   [5] YELLOW -> X: 4.598, Y: 6.884
+[INFO] [1778090394.803134600] [planning_dl]:   [6] BLUE -> X: -1.252, Y: 7.409
+[INFO] [1778090394.803399906] [planning_dl]:   [7] YELLOW -> X: 4.368, Y: 8.088
+[INFO] [1778090394.803666698] [planning_dl]:   [8] YELLOW -> X: 2.413, Y: 8.901
+[INFO] [1778090394.803923795] [planning_dl]:   [9] YELLOW -> X: 3.447, Y: 8.982
+[INFO] [1778090394.804201700] [planning_dl]:   [10] BLUE -> X: 0.318, Y: 11.303
+[INFO] [1778090394.810553402] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090394.811153067] [planning_dl]:   First Point: X: 0.289, Y: 0.988
+[INFO] [1778090394.811641829] [planning_dl]:   Middle Pt:   X: 1.180, Y: 5.985
+[INFO] [1778090394.812144453] [planning_dl]:   Last Point:  X: 2.205, Y: 10.568
+[INFO] [1778090394.813451710] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090394.877296030] [planning_dl]: --- FRAME START: 13 Markers Received ---
+[INFO] [1778090394.878171191] [planning_dl]: Filtered Cones Entering Model (11):
+[INFO] [1778090394.880349423] [planning_dl]:   [0] BLUE -> X: -1.097, Y: 1.211
+[INFO] [1778090394.881392690] [planning_dl]:   [1] YELLOW -> X: 1.587, Y: 1.280
+[INFO] [1778090394.881869457] [planning_dl]:   [2] BLUE -> X: -1.306, Y: 4.214
+[INFO] [1778090394.882803210] [planning_dl]:   [3] YELLOW -> X: 1.707, Y: 4.307
+[INFO] [1778090394.883918458] [planning_dl]:   [4] YELLOW -> X: 1.811, Y: 4.770
+[INFO] [1778090394.884609786] [planning_dl]:   [5] YELLOW -> X: 4.581, Y: 6.885
+[INFO] [1778090394.884949382] [planning_dl]:   [6] BLUE -> X: -1.271, Y: 7.399
+[INFO] [1778090394.885239181] [planning_dl]:   [7] YELLOW -> X: 4.345, Y: 8.088
+[INFO] [1778090394.885509501] [planning_dl]:   [8] YELLOW -> X: 2.389, Y: 8.898
+[INFO] [1778090394.885811816] [planning_dl]:   [9] YELLOW -> X: 3.421, Y: 8.982
+[INFO] [1778090394.886110193] [planning_dl]:   [10] BLUE -> X: 0.290, Y: 11.289
+[INFO] [1778090394.894625397] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090394.895183185] [planning_dl]:   First Point: X: 0.290, Y: 0.982
+[INFO] [1778090394.895696531] [planning_dl]:   Middle Pt:   X: 1.168, Y: 5.984
+[INFO] [1778090394.896199557] [planning_dl]:   Last Point:  X: 2.171, Y: 10.575
+[INFO] [1778090394.897434439] [planning_dl]: --- FRAME END: Path Published ---
+
+[INFO] [1778090394.959481298] [planning_dl]: --- FRAME START: 13 Markers Received ---
+[INFO] [1778090394.959834774] [planning_dl]: Filtered Cones Entering Model (11):
+[INFO] [1778090394.960100861] [planning_dl]:   [0] BLUE -> X: -1.098, Y: 1.180
+[INFO] [1778090394.960350530] [planning_dl]:   [1] YELLOW -> X: 1.587, Y: 1.280
+[INFO] [1778090394.960595300] [planning_dl]:   [2] BLUE -> X: -1.314, Y: 4.197
+[INFO] [1778090394.960833874] [planning_dl]:   [3] YELLOW -> X: 1.699, Y: 4.287
+[INFO] [1778090394.961099623] [planning_dl]:   [4] YELLOW -> X: 1.810, Y: 4.771
+[INFO] [1778090394.961366970] [planning_dl]:   [5] YELLOW -> X: 4.567, Y: 6.875
+[INFO] [1778090394.961631796] [planning_dl]:   [6] BLUE -> X: -1.290, Y: 7.387
+[INFO] [1778090394.961881935] [planning_dl]:   [7] YELLOW -> X: 4.327, Y: 8.073
+[INFO] [1778090394.962133672] [planning_dl]:   [8] YELLOW -> X: 2.371, Y: 8.883
+[INFO] [1778090394.962396491] [planning_dl]:   [9] YELLOW -> X: 3.403, Y: 8.969
+[INFO] [1778090394.962675510] [planning_dl]:   [10] BLUE -> X: 0.276, Y: 11.270
+[INFO] [1778090394.973753195] [planning_dl]: Model Prediction (Path Points: 15):
+[INFO] [1778090394.974507011] [planning_dl]:   First Point: X: 0.288, Y: 0.970
+[INFO] [1778090394.975272882] [planning_dl]:   Middle Pt:   X: 1.156, Y: 5.975
+[INFO] [1778090394.975785177] [planning_dl]:   Last Point:  X: 2.145, Y: 10.571
+[INFO] [1778090394.976812359] [planning_dl]: --- FRAME END: Path Published ---
+
+Traceback (most recent call last):
+  File "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/planning_deep_learning/node.py", line 153, in main
+    rclpy.spin(node)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+    executor.spin_once()
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 776, in spin_once
+    self._spin_once_impl(timeout_sec)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 765, in _spin_once_impl
+    handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 748, in wait_for_ready_callbacks
+    return next(self._cb_iter)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 649, in _wait_for_ready_callbacks
+    raise ExternalShutdownException()
+rclpy.executors.ExternalShutdownException
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/lib/planning_deep_learning/dl_node", line 33, in <module>
+    sys.exit(load_entry_point('planning-deep-learning', 'console_scripts', 'dl_node')())
+  File "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/planning_deep_learning/node.py", line 157, in main
+    rclpy.shutdown()
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
+    _shutdown(context=context)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
+    return context.shutdown()
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
+    self.__context.shutdown()
+rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
+[ros2run]: Process exited with failure 1
