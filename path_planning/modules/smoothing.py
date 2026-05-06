@@ -1,5 +1,24 @@
 import numpy as np
 from scipy.interpolate import splprep, splev
+""""
+handwar 3ala no3 smoothing for straight paths only.
+1- pca
+2- line of sight, Converts zig-zag → straight segments
+
+new_path = [start]
+i = 0
+
+while i < len(path)-1:
+    j = len(path)-1
+    while j > i+1:
+        if line_of_sight(path[i], path[j]):
+            break
+        j -= 1
+    new_path.append(path[j])
+    i = j
+
+3- we can also use theta* instead of Dijkstra to get a smoother path.
+"""
 
 def smooth_path_bspline(rx, ry, smoothing=0.4, num_points=300):
     """

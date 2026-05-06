@@ -53,18 +53,18 @@ class PathPlanner:
          )
 
         # 5. Module 1: Generate Voronoi
-        points, colors, vor = voronoi_gen.generate_voronoi(balanced_cone_data)
+        points, colors, vor = voronoi_gen.generate_voronoi(cone_data)
 
         if vor is None:
             print("Voronoi generation failed. Switching to fallback.")
             return self._handle_low_cones(cone_data, car_pos, car_yaw)
-        
+        midpoint_nodes=[]
         # 6. Module 2: Build Safe Graph
         safe_graph = filters.build_safe_graph(
             vor,
             colors,
             midpoint_nodes ,
-            cone_data = balanced_cone_data,  # Use the balanced cone data for safety checks
+            cone_data = cone_data,
             max_edge_len=self.max_edge_len
         )
 
