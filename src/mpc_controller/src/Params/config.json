@@ -1,0 +1,10 @@
+{
+    "description": "Configuration file paths for MPC controller",
+    
+    "vehicle_file": "src/mpc_controller/src/Params/model.json",
+    "cost_file": "src/mpc_controller/src/Params/costs.json",
+    "constraints_file": "src/mpc_controller/src/Params/bounds.json",
+    "normalization_file": "src/mpc_controller/src/Params/normalization.json",
+    
+    "notes": "All paths are relative to project root. dt and horizon are loaded from vehicle_file only."
+}

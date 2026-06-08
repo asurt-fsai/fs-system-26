@@ -1,0 +1,25 @@
+{
+  "description": "Normalization factors for states and controls (for numerical stability)",
+  "state_normalization": {
+    "X": 1.0,
+    "Y": 1.0,
+    "theta": 1.0,
+    "delta": 1.0,
+    "v": 1.0
+  },
+  "control_normalization": {
+    "a": 1.0,
+    "delta_dot": 1.0
+  },
+  "reference_normalization": {
+    "Vx": 1.0,
+    "Vy": 1.0,
+    "r": 1.0,
+    "s": 1.0
+  },
+  "notes": {
+    "purpose": "Scale variables to improve numerical conditioning in optimization",
+    "value_of_1": "No scaling (identity)",
+    "typical_usage": "Set to max expected value of each variable"
+  }
+}
