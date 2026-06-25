@@ -1,0 +1,87 @@
+[0.000000] (-) TimerEvent: {}
+[0.000138] (path_csv) JobQueued: {'identifier': 'path_csv', 'dependencies': OrderedDict()}
+[0.000417] (path_csv) JobStarted: {'identifier': 'path_csv'}
+[0.099788] (-) TimerEvent: {}
+[0.200117] (-) TimerEvent: {}
+[0.300451] (-) TimerEvent: {}
+[0.400766] (-) TimerEvent: {}
+[0.501223] (-) TimerEvent: {}
+[0.601513] (-) TimerEvent: {}
+[0.701753] (-) TimerEvent: {}
+[0.801999] (-) TimerEvent: {}
+[0.902237] (-) TimerEvent: {}
+[1.002592] (-) TimerEvent: {}
+[1.102831] (-) TimerEvent: {}
+[1.203171] (-) TimerEvent: {}
+[1.303523] (-) TimerEvent: {}
+[1.403853] (-) TimerEvent: {}
+[1.504182] (-) TimerEvent: {}
+[1.604517] (-) TimerEvent: {}
+[1.704789] (-) TimerEvent: {}
+[1.805148] (-) TimerEvent: {}
+[1.905350] (-) TimerEvent: {}
+[2.005658] (-) TimerEvent: {}
+[2.105999] (-) TimerEvent: {}
+[2.206283] (-) TimerEvent: {}
+[2.306521] (-) TimerEvent: {}
+[2.406864] (-) TimerEvent: {}
+[2.507169] (-) TimerEvent: {}
+[2.607544] (-) TimerEvent: {}
+[2.707786] (-) TimerEvent: {}
+[2.808129] (-) TimerEvent: {}
+[2.908497] (-) TimerEvent: {}
+[3.008785] (-) TimerEvent: {}
+[3.109045] (-) TimerEvent: {}
+[3.209360] (-) TimerEvent: {}
+[3.309689] (-) TimerEvent: {}
+[3.410074] (-) TimerEvent: {}
+[3.510323] (-) TimerEvent: {}
+[3.610686] (-) TimerEvent: {}
+[3.711023] (-) TimerEvent: {}
+[3.811328] (-) TimerEvent: {}
+[3.911608] (-) TimerEvent: {}
+[4.011849] (-) TimerEvent: {}
+[4.112083] (-) TimerEvent: {}
+[4.212472] (-) TimerEvent: {}
+[4.312823] (-) TimerEvent: {}
+[4.413168] (-) TimerEvent: {}
+[4.513514] (-) TimerEvent: {}
+[4.613869] (-) TimerEvent: {}
+[4.714160] (-) TimerEvent: {}
+[4.814369] (-) TimerEvent: {}
+[4.914664] (-) TimerEvent: {}
+[5.014914] (-) TimerEvent: {}
+[5.115158] (-) TimerEvent: {}
+[5.145560] (path_csv) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/fsai/Desktop/IPG_2025Modified/formula-carmaker-fs_2024Modifiednextold/formula-carmaker-fs_2024/FCM_Projects/FS_autonomous/ros/ros2_ws/src/path_csv/build/path_csv/build', '--no-deps', 'symlink_data'], 'cwd': '/home/fsai/Desktop/IPG_2025Modified/formula-carmaker-fs_2024Modifiednextold/formula-carmaker-fs_2024/FCM_Projects/FS_autonomous/ros/ros2_ws/src/path_csv/build/path_csv', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'fsai', 'LC_TIME': 'ar_EG.UTF-8', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/opt/libphidget22/lib:/opt/ros/humble/lib', 'HOME': '/home/fsai', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'ar_EG.UTF-8', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '4078', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=17dc01afc885b3d486fee54f69e9eae1', 'COLORTERM': 'truecolor', 'IPGHOME': '/opt/ipg', 'IM_CONFIG_PHASE': '1', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'fsai', 'IGN_GAZEBO_MODEL_PATH': '/opt/ros/humble/share', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'fsai', 'TERM': 'xterm-256color', 'GAZEBO_MODEL_PATH': '/opt/ros/humble/share', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/opt/ros/humble/bin:/home/fsai/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/opt/ipg/bin', 'SESSION_MANAGER': 'local/fsai-System-Product-Name:@/tmp/.ICE-unix/4078,unix/fsai-System-Product-Name:/tmp/.ICE-unix/4078', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'ar_EG.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/965d96eb_ebb0_41d2_aa1f_cfc673f87e52', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'ar_EG.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.132', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '10', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'ar_EG.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'IGN_GAZEBO_RESOURCE_PATH': '/opt/ros/humble/share', 'LC_MEASUREMENT': 'ar_EG.UTF-8', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GAZEBO_RESOURCE_PATH': '/opt/ros/humble/share', 'LC_IDENTIFICATION': 'ar_EG.UTF-8', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/fsai/Desktop/IPG_2025Modified/formula-carmaker-fs_2024Modifiednextold/formula-carmaker-fs_2024/FCM_Projects/FS_autonomous/ros/ros2_ws/src/path_csv/build/path_csv', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=17dc01afc885b3d486fee54f69e9eae1', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/fsai/Desktop/IPG_2025Modified/formula-carmaker-fs_2024Modifiednextold/formula-carmaker-fs_2024/FCM_Projects/FS_autonomous/ros/ros2_ws/src/path_csv/build/path_csv/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fsai/Desktop/IPG_2025Modified/formula-carmaker-fs_2024Modifiednextold/formula-carmaker-fs_2024/FCM_Projects/FS_autonomous/ros/ros2_ws/src/path_csv/install/path_csv/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'ar_EG.UTF-8', 'LC_PAPER': 'ar_EG.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[5.215251] (-) TimerEvent: {}
+[5.290663] (path_csv) StderrLine: {'line': b"/home/fsai/.local/lib/python3.10/site-packages/setuptools/_distutils/dist.py:289: UserWarning: Unknown distribution option: 'tests_require'\n"}
+[5.290819] (path_csv) StderrLine: {'line': b'  warnings.warn(msg)\n'}
+[5.315341] (-) TimerEvent: {}
+[5.415543] (-) TimerEvent: {}
+[5.490460] (path_csv) StdoutLine: {'line': b'running develop\n'}
+[5.515636] (-) TimerEvent: {}
+[5.615857] (-) TimerEvent: {}
+[5.716128] (-) TimerEvent: {}
+[5.753554] (path_csv) StdoutLine: {'line': b'running egg_info\n'}
+[5.772834] (path_csv) StdoutLine: {'line': b'creating path_csv.egg-info\n'}
+[5.772964] (path_csv) StdoutLine: {'line': b'writing path_csv.egg-info/PKG-INFO\n'}
+[5.773439] (path_csv) StdoutLine: {'line': b'writing dependency_links to path_csv.egg-info/dependency_links.txt\n'}
+[5.773683] (path_csv) StdoutLine: {'line': b'writing entry points to path_csv.egg-info/entry_points.txt\n'}
+[5.773930] (path_csv) StdoutLine: {'line': b'writing requirements to path_csv.egg-info/requires.txt\n'}
+[5.774081] (path_csv) StdoutLine: {'line': b'writing top-level names to path_csv.egg-info/top_level.txt\n'}
+[5.774270] (path_csv) StdoutLine: {'line': b"writing manifest file 'path_csv.egg-info/SOURCES.txt'\n"}
+[5.816208] (-) TimerEvent: {}
+[5.820024] (path_csv) StdoutLine: {'line': b"reading manifest file 'path_csv.egg-info/SOURCES.txt'\n"}
+[5.820859] (path_csv) StdoutLine: {'line': b"writing manifest file 'path_csv.egg-info/SOURCES.txt'\n"}
+[5.873999] (path_csv) StdoutLine: {'line': b'running build_ext\n'}
+[5.874308] (path_csv) StdoutLine: {'line': b'Creating /home/fsai/Desktop/IPG_2025Modified/formula-carmaker-fs_2024Modifiednextold/formula-carmaker-fs_2024/FCM_Projects/FS_autonomous/ros/ros2_ws/src/path_csv/install/path_csv/lib/python3.10/site-packages/path-csv.egg-link (link to .)\n'}
+[5.874954] (path_csv) StdoutLine: {'line': b'Installing path_csv script to /home/fsai/Desktop/IPG_2025Modified/formula-carmaker-fs_2024Modifiednextold/formula-carmaker-fs_2024/FCM_Projects/FS_autonomous/ros/ros2_ws/src/path_csv/install/path_csv/lib/path_csv\n'}
+[5.875315] (path_csv) StdoutLine: {'line': b'\n'}
+[5.875445] (path_csv) StdoutLine: {'line': b'Installed /home/fsai/Desktop/IPG_2025Modified/formula-carmaker-fs_2024Modifiednextold/formula-carmaker-fs_2024/FCM_Projects/FS_autonomous/ros/ros2_ws/src/path_csv/build/path_csv\n'}
+[5.875650] (path_csv) StdoutLine: {'line': b'running symlink_data\n'}
+[5.875782] (path_csv) StdoutLine: {'line': b'creating /home/fsai/Desktop/IPG_2025Modified/formula-carmaker-fs_2024Modifiednextold/formula-carmaker-fs_2024/FCM_Projects/FS_autonomous/ros/ros2_ws/src/path_csv/install/path_csv/share/ament_index/resource_index/packages\n'}
+[5.875977] (path_csv) StdoutLine: {'line': b'symbolically linking /home/fsai/Desktop/IPG_2025Modified/formula-carmaker-fs_2024Modifiednextold/formula-carmaker-fs_2024/FCM_Projects/FS_autonomous/ros/ros2_ws/src/path_csv/build/path_csv/resource/path_csv -> /home/fsai/Desktop/IPG_2025Modified/formula-carmaker-fs_2024Modifiednextold/formula-carmaker-fs_2024/FCM_Projects/FS_autonomous/ros/ros2_ws/src/path_csv/install/path_csv/share/ament_index/resource_index/packages\n'}
+[5.876219] (path_csv) StdoutLine: {'line': b'symbolically linking /home/fsai/Desktop/IPG_2025Modified/formula-carmaker-fs_2024Modifiednextold/formula-carmaker-fs_2024/FCM_Projects/FS_autonomous/ros/ros2_ws/src/path_csv/build/path_csv/package.xml -> /home/fsai/Desktop/IPG_2025Modified/formula-carmaker-fs_2024Modifiednextold/formula-carmaker-fs_2024/FCM_Projects/FS_autonomous/ros/ros2_ws/src/path_csv/install/path_csv/share/path_csv\n'}
+[5.903902] (path_csv) CommandEnded: {'returncode': 0}
+[5.913302] (path_csv) JobEnded: {'identifier': 'path_csv', 'rc': 0}
+[5.913965] (-) EventReactorShutdown: {}

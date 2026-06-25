@@ -1,0 +1,13 @@
+package.xml
+setup.cfg
+setup.py
+path_csv/__init__.py
+path_csv/main.py
+path_csv.egg-info/PKG-INFO
+path_csv.egg-info/SOURCES.txt
+path_csv.egg-info/dependency_links.txt
+path_csv.egg-info/entry_points.txt
+path_csv.egg-info/requires.txt
+path_csv.egg-info/top_level.txt
+path_csv.egg-info/zip-safe
+resource/path_csv

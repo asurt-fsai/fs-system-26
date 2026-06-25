@@ -1,0 +1,2 @@
+[console_scripts]
+path_csv = path_csv.main:main
