@@ -30,6 +30,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 # Install Python executables
 install(PROGRAMS
   cone_mapping/cone_mapping_node.py
+  cone_mapping/cone_mapping_node_locally.py
   cone_mapping/zed_to_landmark.py
   DESTINATION lib/${PROJECT_NAME}
 )
