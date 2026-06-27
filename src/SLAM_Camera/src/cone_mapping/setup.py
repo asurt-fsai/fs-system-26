@@ -24,11 +24,4 @@ setup(
     description='Cone mapping and localization for Formula Student Driverless',
     license='MIT',
     tests_require=['pytest'],
-    entry_points={
-        'console_scripts': [
-            'cone_mapping_node = cone_mapping.cone_mapping_node:main',
-            'message_adapter = cone_mapping.message_adapter:main',
-            'zed_to_landmark = cone_mapping.zed_to_landmark:main',
-        ],
-    },
 )
