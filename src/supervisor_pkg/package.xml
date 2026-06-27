@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>supervisor_pkg</name>
+  <version>0.0.0</version>
+  <description>Supervisor system</description>
+
+  <maintainer email="yasmeentamer@todo.todo">yasmeentamer</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>ros_numpy</depend>
+  <depend>ackermann_msgs</depend>
+  <depend>eufs_msgs</depend>
+  <depend>asurt_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>std_srvs</depend>
+  <depend>tf_helper</depend>
+  <exec_depend>ament_index_python</exec_depend>
+
+  <exec_depend>ros2launch</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
