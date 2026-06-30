@@ -1,0 +1,4 @@
+[console_scripts]
+testing = tf_helper.statusPublisherTest:main
+testing2 = tf_helper.markerVizTest:main
+

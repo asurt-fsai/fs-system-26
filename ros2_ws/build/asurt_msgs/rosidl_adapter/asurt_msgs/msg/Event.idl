@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from asurt_msgs/msg/Event.msg
+// generated code does not contain a copyright notice
+
+#include "builtin_interfaces/msg/Time.idl"
+
+module asurt_msgs {
+  module msg {
+    struct Event {
+      builtin_interfaces::msg::Time stamp;
+
+      string severity;
+
+      string category;
+
+      string event_type;
+
+      string source;
+
+      string details_json;
+    };
+  };
+};

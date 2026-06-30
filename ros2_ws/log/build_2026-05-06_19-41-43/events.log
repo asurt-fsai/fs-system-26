@@ -1,0 +1,947 @@
+[0.000000] (-) TimerEvent: {}
+[0.000282] (-) JobUnselected: {'identifier': 'rviz_plugin_zed_od'}
+[0.000303] (-) JobUnselected: {'identifier': 'zed_aruco_localization'}
+[0.000312] (-) JobUnselected: {'identifier': 'zed_components'}
+[0.000319] (-) JobUnselected: {'identifier': 'zed_depth_to_laserscan'}
+[0.000325] (-) JobUnselected: {'identifier': 'zed_display_rviz2'}
+[0.000336] (-) JobUnselected: {'identifier': 'zed_ipc'}
+[0.000343] (-) JobUnselected: {'identifier': 'zed_isaac_ros_april_tag'}
+[0.000349] (-) JobUnselected: {'identifier': 'zed_isaac_ros_multi_camera'}
+[0.000355] (-) JobUnselected: {'identifier': 'zed_isaac_ros_nitros_sub'}
+[0.000361] (-) JobUnselected: {'identifier': 'zed_multi_camera'}
+[0.000367] (-) JobUnselected: {'identifier': 'zed_rgb_convert'}
+[0.000373] (-) JobUnselected: {'identifier': 'zed_robot_integration'}
+[0.000379] (-) JobUnselected: {'identifier': 'zed_ros2'}
+[0.000385] (-) JobUnselected: {'identifier': 'zed_topic_benchmark'}
+[0.000391] (-) JobUnselected: {'identifier': 'zed_topic_benchmark_component'}
+[0.000397] (-) JobUnselected: {'identifier': 'zed_topic_benchmark_interfaces'}
+[0.000403] (-) JobUnselected: {'identifier': 'zed_tutorial_depth'}
+[0.000410] (-) JobUnselected: {'identifier': 'zed_tutorial_pos_tracking'}
+[0.000416] (-) JobUnselected: {'identifier': 'zed_tutorial_video'}
+[0.000423] (-) JobUnselected: {'identifier': 'zed_wrapper'}
+[0.000431] (asurt_msgs) JobQueued: {'identifier': 'asurt_msgs', 'dependencies': OrderedDict()}
+[0.000440] (perception_zed_pkg) JobQueued: {'identifier': 'perception_zed_pkg', 'dependencies': OrderedDict()}
+[0.000447] (logging_system) JobQueued: {'identifier': 'logging_system', 'dependencies': OrderedDict([('asurt_msgs', '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs')])}
+[0.000456] (tf_helper) JobQueued: {'identifier': 'tf_helper', 'dependencies': OrderedDict([('asurt_msgs', '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs')])}
+[0.000463] (planning_centerline_calc) JobQueued: {'identifier': 'planning_centerline_calc', 'dependencies': OrderedDict([('asurt_msgs', '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs'), ('tf_helper', '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper')])}
+[0.000475] (planning_deep_learning) JobQueued: {'identifier': 'planning_deep_learning', 'dependencies': OrderedDict([('asurt_msgs', '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs'), ('tf_helper', '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper')])}
+[0.000483] (asurt_msgs) JobStarted: {'identifier': 'asurt_msgs'}
+[0.008405] (perception_zed_pkg) JobStarted: {'identifier': 'perception_zed_pkg'}
+[0.015200] (asurt_msgs) JobProgress: {'identifier': 'asurt_msgs', 'progress': 'cmake'}
+[0.016138] (asurt_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/asurt_msgs', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs'], 'cwd': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ayasx9'), ('SSH_AGENT_PID', '758'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('WT_PROFILE_ID', '{4ff56d04-d9cf-57ea-bae2-ad396374e7e3}'), ('HOME', '/home/ayasx9'), ('OLDPWD', '/home/ayasx9/FSAI26/perception_deep_logging'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/ayasx9/arl_workshop/turtle_proj1/install:/home/ayasx9/ros2_proj1/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ayasx9'), ('NAME', 'LAPTOP-4FIG3HKH'), ('WSL_INTEROP', '/run/WSL/33304_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/ayasx9/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/TortoiseGit/bin:/mnt/c/msys64/mingw64/bin:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/MongoDB/Server/8.2/bin:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python313/Scripts/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python313/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Launcher/:/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312/Scripts/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312/:/mnt/c/Users/ayaya/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ayaya/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/MinGW/bin:/mnt/c/questasim64_10.6c/win64:/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.3/bin:/mnt/c/Users/ayaya/.dotnet/tools:/mnt/c/Users/ayaya/AppData/Roaming/npm:/snap/bin'), ('WT_SESSION', 'a8b68465-9213-4108-af0d-28756bc3cd23'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-XXXXXXVhFQbw/agent.756'), ('AMENT_PREFIX_PATH', '/home/ayasx9/arl_workshop/turtle_proj1/install/my_launch_pkg:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes:/home/ayasx9/ros2_proj1/install/my_turtle_proj:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ayasx9/arl_workshop/turtle_proj1/build/project_nodes:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes/lib/python3.10/site-packages:/home/ayasx9/ros2_proj1/build/my_turtle_proj:/home/ayasx9/ros2_proj1/install/my_turtle_proj/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/ayasx9/arl_workshop/turtle_proj1/install/my_launch_pkg:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes:/home/ayasx9/ros2_proj1/install/my_turtle_proj:/opt/ros/humble'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:')]), 'shell': False}
+[0.099129] (-) TimerEvent: {}
+[0.199420] (-) TimerEvent: {}
+[0.299849] (-) TimerEvent: {}
+[0.310937] (asurt_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.399948] (-) TimerEvent: {}
+[0.500220] (-) TimerEvent: {}
+[0.534015] (perception_zed_pkg) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg/build', '--no-deps', 'symlink_data'], 'cwd': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'ayasx9', 'SSH_AGENT_PID': '758', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'WT_PROFILE_ID': '{4ff56d04-d9cf-57ea-bae2-ad396374e7e3}', 'HOME': '/home/ayasx9', 'OLDPWD': '/home/ayasx9/FSAI26/perception_deep_logging', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'WSL_DISTRO_NAME': 'Ubuntu-22.04', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/ayasx9/arl_workshop/turtle_proj1/install:/home/ayasx9/ros2_proj1/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'ayasx9', 'NAME': 'LAPTOP-4FIG3HKH', 'WSL_INTEROP': '/run/WSL/33304_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/ayasx9/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/TortoiseGit/bin:/mnt/c/msys64/mingw64/bin:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/MongoDB/Server/8.2/bin:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python313/Scripts/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python313/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Launcher/:/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312/Scripts/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312/:/mnt/c/Users/ayaya/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ayaya/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/MinGW/bin:/mnt/c/questasim64_10.6c/win64:/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.3/bin:/mnt/c/Users/ayaya/.dotnet/tools:/mnt/c/Users/ayaya/AppData/Roaming/npm:/snap/bin', 'WT_SESSION': 'a8b68465-9213-4108-af0d-28756bc3cd23', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AUTH_SOCK': '/tmp/ssh-XXXXXXVhFQbw/agent.756', 'AMENT_PREFIX_PATH': '/home/ayasx9/arl_workshop/turtle_proj1/install/my_launch_pkg:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes:/home/ayasx9/ros2_proj1/install/my_turtle_proj:/opt/ros/humble', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'PWD': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/lib/python3.10/site-packages:/home/ayasx9/arl_workshop/turtle_proj1/build/project_nodes:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes/lib/python3.10/site-packages:/home/ayasx9/ros2_proj1/build/my_turtle_proj:/home/ayasx9/ros2_proj1/install/my_turtle_proj/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/home/ayasx9/arl_workshop/turtle_proj1/install/my_launch_pkg', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}, 'shell': False}
+[0.600339] (-) TimerEvent: {}
+[0.700605] (-) TimerEvent: {}
+[0.702270] (perception_zed_pkg) StdoutLine: {'line': b'running develop\n'}
+[0.789550] (perception_zed_pkg) StdoutLine: {'line': b'running egg_info\n'}
+[0.789673] (perception_zed_pkg) StdoutLine: {'line': b'creating perception_zed_pkg.egg-info\n'}
+[0.790178] (perception_zed_pkg) StdoutLine: {'line': b'writing perception_zed_pkg.egg-info/PKG-INFO\n'}
+[0.790718] (perception_zed_pkg) StdoutLine: {'line': b'writing dependency_links to perception_zed_pkg.egg-info/dependency_links.txt\n'}
+[0.790842] (perception_zed_pkg) StdoutLine: {'line': b'writing entry points to perception_zed_pkg.egg-info/entry_points.txt\n'}
+[0.791106] (perception_zed_pkg) StdoutLine: {'line': b'writing requirements to perception_zed_pkg.egg-info/requires.txt\n'}
+[0.791252] (perception_zed_pkg) StdoutLine: {'line': b'writing top-level names to perception_zed_pkg.egg-info/top_level.txt\n'}
+[0.791359] (perception_zed_pkg) StdoutLine: {'line': b"writing manifest file 'perception_zed_pkg.egg-info/SOURCES.txt'\n"}
+[0.792359] (perception_zed_pkg) StdoutLine: {'line': b"reading manifest file 'perception_zed_pkg.egg-info/SOURCES.txt'\n"}
+[0.792704] (perception_zed_pkg) StdoutLine: {'line': b"writing manifest file 'perception_zed_pkg.egg-info/SOURCES.txt'\n"}
+[0.800685] (-) TimerEvent: {}
+[0.826272] (perception_zed_pkg) StdoutLine: {'line': b'running build_ext\n'}
+[0.826472] (perception_zed_pkg) StdoutLine: {'line': b'Creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/lib/python3.10/site-packages/perception-zed-pkg.egg-link (link to .)\n'}
+[0.826952] (perception_zed_pkg) StdoutLine: {'line': b'Installing conversion_node script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/lib/perception_zed_pkg\n'}
+[0.827265] (perception_zed_pkg) StdoutLine: {'line': b'\n'}
+[0.827328] (perception_zed_pkg) StdoutLine: {'line': b'Installed /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg\n'}
+[0.827360] (perception_zed_pkg) StdoutLine: {'line': b'running symlink_data\n'}
+[0.827483] (perception_zed_pkg) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/ament_index\n'}
+[0.827587] (perception_zed_pkg) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/ament_index/resource_index\n'}
+[0.827700] (perception_zed_pkg) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/ament_index/resource_index/packages\n'}
+[0.827807] (perception_zed_pkg) StdoutLine: {'line': b'symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg/resource/perception_zed_pkg -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/ament_index/resource_index/packages\n'}
+[0.828004] (perception_zed_pkg) StdoutLine: {'line': b'symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg/package.xml -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/perception_zed_pkg\n'}
+[0.828139] (perception_zed_pkg) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/perception_zed_pkg/launch\n'}
+[0.828282] (perception_zed_pkg) StdoutLine: {'line': b'symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg/launch/perception_launch.py -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/perception_zed_pkg/launch\n'}
+[0.849473] (perception_zed_pkg) CommandEnded: {'returncode': 0}
+[0.861348] (perception_zed_pkg) JobEnded: {'identifier': 'perception_zed_pkg', 'rc': 0}
+[0.900835] (-) TimerEvent: {}
+[1.001311] (-) TimerEvent: {}
+[1.101799] (-) TimerEvent: {}
+[1.202338] (-) TimerEvent: {}
+[1.302857] (-) TimerEvent: {}
+[1.400855] (asurt_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[1.403148] (-) TimerEvent: {}
+[1.503842] (-) TimerEvent: {}
+[1.604490] (-) TimerEvent: {}
+[1.704994] (-) TimerEvent: {}
+[1.805378] (-) TimerEvent: {}
+[1.905855] (-) TimerEvent: {}
+[2.006348] (-) TimerEvent: {}
+[2.106661] (-) TimerEvent: {}
+[2.206969] (-) TimerEvent: {}
+[2.307230] (-) TimerEvent: {}
+[2.388327] (asurt_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[2.407359] (-) TimerEvent: {}
+[2.507701] (-) TimerEvent: {}
+[2.608284] (-) TimerEvent: {}
+[2.613397] (asurt_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[2.618036] (asurt_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[2.620194] (asurt_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[2.621101] (asurt_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[2.625809] (asurt_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[2.708435] (-) TimerEvent: {}
+[2.808759] (-) TimerEvent: {}
+[2.855555] (asurt_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[2.860148] (asurt_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[2.860293] (asurt_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[2.860391] (asurt_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[2.870120] (asurt_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.13 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[2.908904] (-) TimerEvent: {}
+[2.981196] (asurt_msgs) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[3.009127] (-) TimerEvent: {}
+[3.031615] (asurt_msgs) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[3.058822] (asurt_msgs) StdoutLine: {'line': b'-- Found builtin_interfaces: 1.2.2 (/opt/ros/humble/share/builtin_interfaces/cmake)\n'}
+[3.109264] (-) TimerEvent: {}
+[3.209631] (-) TimerEvent: {}
+[3.310045] (-) TimerEvent: {}
+[3.330380] (asurt_msgs) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[3.335477] (asurt_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[3.344438] (asurt_msgs) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[3.357708] (asurt_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[3.373351] (asurt_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.387113] (asurt_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[3.395515] (asurt_msgs) StdoutLine: {'line': b'-- Found rclcpp: 16.0.18 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[3.410150] (-) TimerEvent: {}
+[3.440918] (asurt_msgs) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[3.445788] (asurt_msgs) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[3.510322] (-) TimerEvent: {}
+[3.610785] (-) TimerEvent: {}
+[3.711047] (-) TimerEvent: {}
+[3.811430] (-) TimerEvent: {}
+[3.911843] (-) TimerEvent: {}
+[4.012346] (-) TimerEvent: {}
+[4.112694] (-) TimerEvent: {}
+[4.213046] (-) TimerEvent: {}
+[4.313597] (-) TimerEvent: {}
+[4.414045] (-) TimerEvent: {}
+[4.514583] (-) TimerEvent: {}
+[4.615040] (-) TimerEvent: {}
+[4.715397] (-) TimerEvent: {}
+[4.815880] (-) TimerEvent: {}
+[4.916278] (-) TimerEvent: {}
+[5.016683] (-) TimerEvent: {}
+[5.116976] (-) TimerEvent: {}
+[5.217260] (-) TimerEvent: {}
+[5.317574] (-) TimerEvent: {}
+[5.358373] (asurt_msgs) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[5.417698] (-) TimerEvent: {}
+[5.518023] (-) TimerEvent: {}
+[5.618302] (-) TimerEvent: {}
+[5.718671] (-) TimerEvent: {}
+[5.819117] (-) TimerEvent: {}
+[5.919419] (-) TimerEvent: {}
+[6.019696] (-) TimerEvent: {}
+[6.119958] (-) TimerEvent: {}
+[6.220218] (-) TimerEvent: {}
+[6.320494] (-) TimerEvent: {}
+[6.420778] (-) TimerEvent: {}
+[6.521086] (-) TimerEvent: {}
+[6.606951] (asurt_msgs) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[6.621193] (-) TimerEvent: {}
+[6.721478] (-) TimerEvent: {}
+[6.821769] (-) TimerEvent: {}
+[6.922025] (-) TimerEvent: {}
+[7.022348] (-) TimerEvent: {}
+[7.122632] (-) TimerEvent: {}
+[7.222890] (-) TimerEvent: {}
+[7.323166] (-) TimerEvent: {}
+[7.423452] (-) TimerEvent: {}
+[7.523700] (-) TimerEvent: {}
+[7.623949] (-) TimerEvent: {}
+[7.724224] (-) TimerEvent: {}
+[7.824494] (-) TimerEvent: {}
+[7.924734] (-) TimerEvent: {}
+[8.025033] (-) TimerEvent: {}
+[8.125301] (-) TimerEvent: {}
+[8.225588] (-) TimerEvent: {}
+[8.325868] (-) TimerEvent: {}
+[8.426136] (-) TimerEvent: {}
+[8.526442] (-) TimerEvent: {}
+[8.626871] (-) TimerEvent: {}
+[8.727238] (-) TimerEvent: {}
+[8.827648] (-) TimerEvent: {}
+[8.928114] (-) TimerEvent: {}
+[9.028634] (-) TimerEvent: {}
+[9.129058] (-) TimerEvent: {}
+[9.229477] (-) TimerEvent: {}
+[9.329964] (-) TimerEvent: {}
+[9.430522] (-) TimerEvent: {}
+[9.531042] (-) TimerEvent: {}
+[9.631302] (-) TimerEvent: {}
+[9.731673] (-) TimerEvent: {}
+[9.832095] (-) TimerEvent: {}
+[9.932577] (-) TimerEvent: {}
+[10.033087] (-) TimerEvent: {}
+[10.133534] (-) TimerEvent: {}
+[10.234042] (-) TimerEvent: {}
+[10.315352] (asurt_msgs) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[10.325656] (asurt_msgs) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[10.334187] (-) TimerEvent: {}
+[10.434598] (-) TimerEvent: {}
+[10.435017] (asurt_msgs) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[10.435177] (asurt_msgs) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[10.534706] (-) TimerEvent: {}
+[10.543595] (asurt_msgs) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[10.544713] (asurt_msgs) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[10.594386] (asurt_msgs) StdoutLine: {'line': b'-- Found geometry_msgs: 4.9.1 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[10.606165] (asurt_msgs) StdoutLine: {'line': b'-- Found sensor_msgs: 4.9.1 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[10.634829] (-) TimerEvent: {}
+[10.735131] (-) TimerEvent: {}
+[10.835488] (-) TimerEvent: {}
+[10.848996] (asurt_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[10.935629] (-) TimerEvent: {}
+[11.035897] (-) TimerEvent: {}
+[11.107971] (asurt_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[11.136186] (-) TimerEvent: {}
+[11.214514] (asurt_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[11.236282] (-) TimerEvent: {}
+[11.336568] (-) TimerEvent: {}
+[11.346061] (asurt_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") \n'}
+[11.348505] (asurt_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[11.436677] (-) TimerEvent: {}
+[11.536930] (-) TimerEvent: {}
+[11.637193] (-) TimerEvent: {}
+[11.647450] (asurt_msgs) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") \n'}
+[11.647655] (asurt_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[11.647718] (asurt_msgs) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[11.647776] (asurt_msgs) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[11.660521] (asurt_msgs) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[11.732745] (asurt_msgs) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[11.737288] (-) TimerEvent: {}
+[11.774453] (asurt_msgs) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[11.774720] (asurt_msgs) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[11.774788] (asurt_msgs) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[11.778362] (asurt_msgs) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[11.783894] (asurt_msgs) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[11.787117] (asurt_msgs) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[11.807615] (asurt_msgs) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[11.807739] (asurt_msgs) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[11.811222] (asurt_msgs) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[11.814398] (asurt_msgs) StdoutLine: {'line': b'-- Configuring done\n'}
+[11.837409] (-) TimerEvent: {}
+[11.856464] (asurt_msgs) StdoutLine: {'line': b'-- Generating done\n'}
+[11.866381] (asurt_msgs) StdoutLine: {'line': b'-- Build files have been written to: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs\n'}
+[11.874318] (asurt_msgs) CommandEnded: {'returncode': 0}
+[11.875895] (asurt_msgs) JobProgress: {'identifier': 'asurt_msgs', 'progress': 'build'}
+[11.875926] (asurt_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs', '--', '-j12', '-l12'], 'cwd': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ayasx9'), ('SSH_AGENT_PID', '758'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('WT_PROFILE_ID', '{4ff56d04-d9cf-57ea-bae2-ad396374e7e3}'), ('HOME', '/home/ayasx9'), ('OLDPWD', '/home/ayasx9/FSAI26/perception_deep_logging'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/ayasx9/arl_workshop/turtle_proj1/install:/home/ayasx9/ros2_proj1/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ayasx9'), ('NAME', 'LAPTOP-4FIG3HKH'), ('WSL_INTEROP', '/run/WSL/33304_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/ayasx9/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/TortoiseGit/bin:/mnt/c/msys64/mingw64/bin:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/MongoDB/Server/8.2/bin:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python313/Scripts/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python313/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Launcher/:/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312/Scripts/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312/:/mnt/c/Users/ayaya/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ayaya/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/MinGW/bin:/mnt/c/questasim64_10.6c/win64:/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.3/bin:/mnt/c/Users/ayaya/.dotnet/tools:/mnt/c/Users/ayaya/AppData/Roaming/npm:/snap/bin'), ('WT_SESSION', 'a8b68465-9213-4108-af0d-28756bc3cd23'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-XXXXXXVhFQbw/agent.756'), ('AMENT_PREFIX_PATH', '/home/ayasx9/arl_workshop/turtle_proj1/install/my_launch_pkg:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes:/home/ayasx9/ros2_proj1/install/my_turtle_proj:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ayasx9/arl_workshop/turtle_proj1/build/project_nodes:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes/lib/python3.10/site-packages:/home/ayasx9/ros2_proj1/build/my_turtle_proj:/home/ayasx9/ros2_proj1/install/my_turtle_proj/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/ayasx9/arl_workshop/turtle_proj1/install/my_launch_pkg:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes:/home/ayasx9/ros2_proj1/install/my_turtle_proj:/opt/ros/humble'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:')]), 'shell': False}
+[11.905568] (asurt_msgs) StdoutLine: {'line': b'[  1%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[11.909700] (asurt_msgs) StdoutLine: {'line': b'[  1%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[11.920743] (asurt_msgs) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_symlink_asurt_msgs\n'}
+[11.937612] (-) TimerEvent: {}
+[12.038076] (-) TimerEvent: {}
+[12.138547] (asurt_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[12.138747] (-) TimerEvent: {}
+[12.139034] (asurt_msgs) StdoutLine: {'line': b'creating asurt_msgs.egg-info\n'}
+[12.139434] (asurt_msgs) StdoutLine: {'line': b'writing asurt_msgs.egg-info/PKG-INFO\n'}
+[12.139814] (asurt_msgs) StdoutLine: {'line': b'writing dependency_links to asurt_msgs.egg-info/dependency_links.txt\n'}
+[12.140026] (asurt_msgs) StdoutLine: {'line': b'writing top-level names to asurt_msgs.egg-info/top_level.txt\n'}
+[12.140558] (asurt_msgs) StdoutLine: {'line': b"writing manifest file 'asurt_msgs.egg-info/SOURCES.txt'\n"}
+[12.143620] (asurt_msgs) StdoutLine: {'line': b"reading manifest file 'asurt_msgs.egg-info/SOURCES.txt'\n"}
+[12.144248] (asurt_msgs) StdoutLine: {'line': b"writing manifest file 'asurt_msgs.egg-info/SOURCES.txt'\n"}
+[12.176867] (asurt_msgs) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_build_asurt_msgs_egg\n'}
+[12.238928] (-) TimerEvent: {}
+[12.339410] (-) TimerEvent: {}
+[12.439887] (-) TimerEvent: {}
+[12.540403] (-) TimerEvent: {}
+[12.641218] (-) TimerEvent: {}
+[12.691506] (asurt_msgs) StdoutLine: {'line': b'[  1%] Built target asurt_msgs__cpp\n'}
+[12.703721] (asurt_msgs) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[12.705342] (asurt_msgs) StdoutLine: {'line': b'[  3%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[12.705527] (asurt_msgs) StdoutLine: {'line': b'[  3%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[12.741368] (-) TimerEvent: {}
+[12.813404] (asurt_msgs) StdoutLine: {'line': b'[  4%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_c.dir/rosidl_generator_c/asurt_msgs/msg/detail/roadstate__functions.c.o\x1b[0m\n'}
+[12.816072] (asurt_msgs) StdoutLine: {'line': b'[  5%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_c.dir/rosidl_generator_c/asurt_msgs/msg/detail/node_status__functions.c.o\x1b[0m\n'}
+[12.816395] (asurt_msgs) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_c.dir/rosidl_generator_c/asurt_msgs/msg/detail/landmark_array__functions.c.o\x1b[0m\n'}
+[12.816583] (asurt_msgs) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_c.dir/rosidl_generator_c/asurt_msgs/msg/detail/landmark__functions.c.o\x1b[0m\n'}
+[12.816790] (asurt_msgs) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_c.dir/rosidl_generator_c/asurt_msgs/msg/detail/bounding_box__functions.c.o\x1b[0m\n'}
+[12.817835] (asurt_msgs) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_c.dir/rosidl_generator_c/asurt_msgs/msg/detail/cloud_info__functions.c.o\x1b[0m\n'}
+[12.819912] (asurt_msgs) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_c.dir/rosidl_generator_c/asurt_msgs/msg/detail/bounding_boxes__functions.c.o\x1b[0m\n'}
+[12.823876] (asurt_msgs) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_c.dir/rosidl_generator_c/asurt_msgs/msg/detail/cone_img__functions.c.o\x1b[0m\n'}
+[12.824091] (asurt_msgs) StdoutLine: {'line': b'[ 11%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_c.dir/rosidl_generator_c/asurt_msgs/msg/detail/cone_img_array__functions.c.o\x1b[0m\n'}
+[12.841770] (-) TimerEvent: {}
+[12.922413] (asurt_msgs) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_c.dir/rosidl_generator_c/asurt_msgs/msg/detail/event__functions.c.o\x1b[0m\n'}
+[12.926649] (asurt_msgs) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_c.dir/rosidl_generator_c/asurt_msgs/msg/detail/key_points__functions.c.o\x1b[0m\n'}
+[12.941958] (-) TimerEvent: {}
+[12.993774] (asurt_msgs) StdoutLine: {'line': b'[ 14%] \x1b[32m\x1b[1mLinking C shared library libasurt_msgs__rosidl_generator_c.so\x1b[0m\n'}
+[13.042164] (-) TimerEvent: {}
+[13.142593] (-) TimerEvent: {}
+[13.243130] (-) TimerEvent: {}
+[13.271451] (asurt_msgs) StdoutLine: {'line': b'[ 14%] Built target asurt_msgs__rosidl_generator_c\n'}
+[13.282499] (asurt_msgs) StdoutLine: {'line': b'[ 15%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[13.282976] (asurt_msgs) StdoutLine: {'line': b'[ 16%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[13.284347] (asurt_msgs) StdoutLine: {'line': b'[ 17%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[13.346354] (-) TimerEvent: {}
+[13.393561] (asurt_msgs) StdoutLine: {'line': b'[ 19%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/asurt_msgs/msg/node_status__type_support.cpp.o\x1b[0m\n'}
+[13.393819] (asurt_msgs) StdoutLine: {'line': b'[ 19%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/asurt_msgs/msg/landmark__type_support.cpp.o\x1b[0m\n'}
+[13.394019] (asurt_msgs) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/asurt_msgs/msg/roadstate__type_support.cpp.o\x1b[0m\n'}
+[13.394189] (asurt_msgs) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/asurt_msgs/msg/cloud_info__type_support.cpp.o\x1b[0m\n'}
+[13.396127] (asurt_msgs) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/asurt_msgs/msg/bounding_box__type_support.cpp.o\x1b[0m\n'}
+[13.399023] (asurt_msgs) StdoutLine: {'line': b'[ 23%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/asurt_msgs/msg/landmark_array__type_support.cpp.o\x1b[0m\n'}
+[13.403268] (asurt_msgs) StdoutLine: {'line': b'[ 24%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/asurt_msgs/msg/bounding_boxes__type_support.cpp.o\x1b[0m\n'}
+[13.446484] (-) TimerEvent: {}
+[13.546999] (-) TimerEvent: {}
+[13.650341] (-) TimerEvent: {}
+[13.726371] (asurt_msgs) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/asurt_msgs/msg/detail/landmark__type_support.cpp.o\x1b[0m\n'}
+[13.750488] (-) TimerEvent: {}
+[13.850926] (-) TimerEvent: {}
+[13.951368] (-) TimerEvent: {}
+[13.976178] (asurt_msgs) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/asurt_msgs/msg/cone_img__type_support.cpp.o\x1b[0m\n'}
+[13.978991] (asurt_msgs) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/asurt_msgs/msg/detail/dds_fastrtps/landmark__type_support.cpp.o\x1b[0m\n'}
+[14.012894] (asurt_msgs) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/asurt_msgs/msg/cone_img_array__type_support.cpp.o\x1b[0m\n'}
+[14.025591] (asurt_msgs) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/asurt_msgs/msg/detail/landmark_array__type_support.cpp.o\x1b[0m\n'}
+[14.049155] (asurt_msgs) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/asurt_msgs/msg/detail/dds_fastrtps/landmark_array__type_support.cpp.o\x1b[0m\n'}
+[14.051501] (-) TimerEvent: {}
+[14.059429] (asurt_msgs) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/asurt_msgs/msg/key_points__type_support.cpp.o\x1b[0m\n'}
+[14.062517] (asurt_msgs) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/asurt_msgs/msg/detail/dds_fastrtps/node_status__type_support.cpp.o\x1b[0m\n'}
+[14.067758] (asurt_msgs) StdoutLine: {'line': b'[ 31%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/asurt_msgs/msg/detail/node_status__type_support.cpp.o\x1b[0m\n'}
+[14.154346] (-) TimerEvent: {}
+[14.220199] (asurt_msgs) StdoutLine: {'line': b'[ 32%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/asurt_msgs/msg/landmark__type_support.cpp.o\x1b[0m\n'}
+[14.254488] (-) TimerEvent: {}
+[14.286692] (asurt_msgs) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/asurt_msgs/msg/landmark_array__type_support.cpp.o\x1b[0m\n'}
+[14.333629] (asurt_msgs) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/asurt_msgs/msg/node_status__type_support.cpp.o\x1b[0m\n'}
+[14.355359] (-) TimerEvent: {}
+[14.369010] (asurt_msgs) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/asurt_msgs/msg/detail/roadstate__type_support.cpp.o\x1b[0m\n'}
+[14.384455] (asurt_msgs) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/asurt_msgs/msg/roadstate__type_support.cpp.o\x1b[0m\n'}
+[14.438981] (asurt_msgs) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/asurt_msgs/msg/detail/dds_fastrtps/roadstate__type_support.cpp.o\x1b[0m\n'}
+[14.441344] (asurt_msgs) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/asurt_msgs/msg/detail/dds_fastrtps/cloud_info__type_support.cpp.o\x1b[0m\n'}
+[14.450360] (asurt_msgs) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/asurt_msgs/msg/cloud_info__type_support.cpp.o\x1b[0m\n'}
+[14.455495] (-) TimerEvent: {}
+[14.499849] (asurt_msgs) StdoutLine: {'line': b'[ 39%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/asurt_msgs/msg/bounding_box__type_support.cpp.o\x1b[0m\n'}
+[14.555630] (-) TimerEvent: {}
+[14.557866] (asurt_msgs) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/asurt_msgs/msg/bounding_boxes__type_support.cpp.o\x1b[0m\n'}
+[14.577876] (asurt_msgs) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/asurt_msgs/msg/event__type_support.cpp.o\x1b[0m\n'}
+[14.608952] (asurt_msgs) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/asurt_msgs/msg/cone_img__type_support.cpp.o\x1b[0m\n'}
+[14.612202] (asurt_msgs) StdoutLine: {'line': b'[ 43%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/asurt_msgs/msg/detail/landmark__type_support_c.cpp.o\x1b[0m\n'}
+[14.635514] (asurt_msgs) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/asurt_msgs/msg/detail/landmark__type_support.c.o\x1b[0m\n'}
+[14.655790] (-) TimerEvent: {}
+[14.663548] (asurt_msgs) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/asurt_msgs/msg/cone_img_array__type_support.cpp.o\x1b[0m\n'}
+[14.665247] (asurt_msgs) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/asurt_msgs/msg/detail/landmark_array__type_support.c.o\x1b[0m\n'}
+[14.694219] (asurt_msgs) StdoutLine: {'line': b'[ 47%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/asurt_msgs/msg/detail/node_status__type_support.c.o\x1b[0m\n'}
+[14.706498] (asurt_msgs) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/asurt_msgs/msg/detail/landmark_array__type_support_c.cpp.o\x1b[0m\n'}
+[14.712898] (asurt_msgs) StdoutLine: {'line': b'[ 49%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/asurt_msgs/msg/key_points__type_support.cpp.o\x1b[0m\n'}
+[14.719148] (asurt_msgs) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/asurt_msgs/msg/detail/node_status__type_support_c.cpp.o\x1b[0m\n'}
+[14.734404] (asurt_msgs) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/asurt_msgs/msg/event__type_support.cpp.o\x1b[0m\n'}
+[14.749027] (asurt_msgs) StdoutLine: {'line': b'[ 52%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/asurt_msgs/msg/detail/roadstate__type_support.c.o\x1b[0m\n'}
+[14.755937] (-) TimerEvent: {}
+[14.764272] (asurt_msgs) StdoutLine: {'line': b'[ 53%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/asurt_msgs/msg/detail/cloud_info__type_support.cpp.o\x1b[0m\n'}
+[14.789328] (asurt_msgs) StdoutLine: {'line': b'[ 54%] \x1b[32m\x1b[1mLinking CXX shared library libasurt_msgs__rosidl_typesupport_c.so\x1b[0m\n'}
+[14.797158] (asurt_msgs) StdoutLine: {'line': b'[ 55%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/asurt_msgs/msg/detail/cloud_info__type_support.c.o\x1b[0m\n'}
+[14.807072] (asurt_msgs) StdoutLine: {'line': b'[ 56%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/asurt_msgs/msg/detail/dds_fastrtps/bounding_box__type_support.cpp.o\x1b[0m\n'}
+[14.831103] (asurt_msgs) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/asurt_msgs/msg/detail/roadstate__type_support_c.cpp.o\x1b[0m\n'}
+[14.856610] (-) TimerEvent: {}
+[14.877835] (asurt_msgs) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/asurt_msgs/msg/detail/bounding_box__type_support.c.o\x1b[0m\n'}
+[14.943189] (asurt_msgs) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/asurt_msgs/msg/detail/bounding_boxes__type_support.c.o\x1b[0m\n'}
+[14.958518] (-) TimerEvent: {}
+[15.022596] (asurt_msgs) StdoutLine: {'line': b'[ 59%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/asurt_msgs/msg/detail/cone_img__type_support.c.o\x1b[0m\n'}
+[15.037750] (asurt_msgs) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/asurt_msgs/msg/detail/dds_fastrtps/bounding_boxes__type_support.cpp.o\x1b[0m\n'}
+[15.062360] (-) TimerEvent: {}
+[15.073185] (asurt_msgs) StdoutLine: {'line': b'[ 61%] \x1b[32m\x1b[1mLinking CXX shared library libasurt_msgs__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[15.084469] (asurt_msgs) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/asurt_msgs/msg/detail/cone_img_array__type_support.c.o\x1b[0m\n'}
+[15.106668] (asurt_msgs) StdoutLine: {'line': b'[ 63%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/asurt_msgs/msg/detail/key_points__type_support.c.o\x1b[0m\n'}
+[15.127024] (asurt_msgs) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/asurt_msgs/msg/detail/bounding_box__type_support.cpp.o\x1b[0m\n'}
+[15.138365] (asurt_msgs) StdoutLine: {'line': b'[ 64%] Built target asurt_msgs__rosidl_typesupport_c\n'}
+[15.139375] (asurt_msgs) StdoutLine: {'line': b'[ 65%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/asurt_msgs/msg/detail/event__type_support.c.o\x1b[0m\n'}
+[15.151566] (asurt_msgs) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/asurt_msgs/msg/detail/bounding_boxes__type_support.cpp.o\x1b[0m\n'}
+[15.158864] (asurt_msgs) StdoutLine: {'line': b'[ 67%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/asurt_msgs/msg/detail/cone_img__type_support.cpp.o\x1b[0m\n'}
+[15.162515] (-) TimerEvent: {}
+[15.191825] (asurt_msgs) StdoutLine: {'line': b'[ 68%] \x1b[32m\x1b[1mLinking C shared library libasurt_msgs__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[15.208818] (asurt_msgs) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/asurt_msgs/msg/detail/cloud_info__type_support_c.cpp.o\x1b[0m\n'}
+[15.262721] (-) TimerEvent: {}
+[15.271553] (asurt_msgs) StdoutLine: {'line': b'[ 69%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/asurt_msgs/msg/detail/dds_fastrtps/cone_img__type_support.cpp.o\x1b[0m\n'}
+[15.345089] (asurt_msgs) StdoutLine: {'line': b'[ 69%] Built target asurt_msgs__rosidl_typesupport_cpp\n'}
+[15.360751] (asurt_msgs) StdoutLine: {'line': b'[ 70%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/asurt_msgs/msg/detail/cone_img_array__type_support.cpp.o\x1b[0m\n'}
+[15.362898] (-) TimerEvent: {}
+[15.420323] (asurt_msgs) StdoutLine: {'line': b'[ 71%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/asurt_msgs/msg/detail/dds_fastrtps/cone_img_array__type_support.cpp.o\x1b[0m\n'}
+[15.430228] (asurt_msgs) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/asurt_msgs/msg/detail/bounding_box__type_support_c.cpp.o\x1b[0m\n'}
+[15.437062] (asurt_msgs) StdoutLine: {'line': b'[ 72%] Built target asurt_msgs__rosidl_typesupport_introspection_c\n'}
+[15.449226] (asurt_msgs) StdoutLine: {'line': b'[ 73%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/asurt_msgs/msg/detail/key_points__type_support.cpp.o\x1b[0m\n'}
+[15.463029] (-) TimerEvent: {}
+[15.496479] (asurt_msgs) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/asurt_msgs/msg/detail/event__type_support.cpp.o\x1b[0m\n'}
+[15.563250] (-) TimerEvent: {}
+[15.663709] (-) TimerEvent: {}
+[15.679757] (asurt_msgs) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/asurt_msgs/msg/detail/bounding_boxes__type_support_c.cpp.o\x1b[0m\n'}
+[15.763900] (-) TimerEvent: {}
+[15.776205] (asurt_msgs) StdoutLine: {'line': b'[ 76%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/asurt_msgs/msg/detail/cone_img__type_support_c.cpp.o\x1b[0m\n'}
+[15.790305] (asurt_msgs) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/asurt_msgs/msg/detail/cone_img_array__type_support_c.cpp.o\x1b[0m\n'}
+[15.820571] (asurt_msgs) StdoutLine: {'line': b'[ 78%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/asurt_msgs/msg/detail/key_points__type_support_c.cpp.o\x1b[0m\n'}
+[15.864039] (-) TimerEvent: {}
+[15.950658] (asurt_msgs) StdoutLine: {'line': b'[ 79%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/asurt_msgs/msg/detail/event__type_support_c.cpp.o\x1b[0m\n'}
+[15.964175] (-) TimerEvent: {}
+[15.965884] (asurt_msgs) StdoutLine: {'line': b'[ 79%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/asurt_msgs/msg/detail/dds_fastrtps/key_points__type_support.cpp.o\x1b[0m\n'}
+[16.034270] (asurt_msgs) StdoutLine: {'line': b'[ 80%] \x1b[32mBuilding CXX object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/asurt_msgs/msg/detail/dds_fastrtps/event__type_support.cpp.o\x1b[0m\n'}
+[16.064301] (-) TimerEvent: {}
+[16.167043] (-) TimerEvent: {}
+[16.272123] (-) TimerEvent: {}
+[16.373894] (-) TimerEvent: {}
+[16.475970] (-) TimerEvent: {}
+[16.504869] (asurt_msgs) StdoutLine: {'line': b'[ 81%] \x1b[32m\x1b[1mLinking CXX shared library libasurt_msgs__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[16.578603] (-) TimerEvent: {}
+[16.689098] (-) TimerEvent: {}
+[16.791033] (-) TimerEvent: {}
+[16.893644] (-) TimerEvent: {}
+[16.997345] (-) TimerEvent: {}
+[17.099808] (-) TimerEvent: {}
+[17.202798] (-) TimerEvent: {}
+[17.310530] (-) TimerEvent: {}
+[17.416228] (-) TimerEvent: {}
+[17.518590] (-) TimerEvent: {}
+[17.620911] (-) TimerEvent: {}
+[17.723357] (-) TimerEvent: {}
+[17.825376] (-) TimerEvent: {}
+[17.928004] (-) TimerEvent: {}
+[18.030752] (-) TimerEvent: {}
+[18.132935] (-) TimerEvent: {}
+[18.235653] (-) TimerEvent: {}
+[18.337973] (-) TimerEvent: {}
+[18.441647] (-) TimerEvent: {}
+[18.544664] (-) TimerEvent: {}
+[18.647367] (-) TimerEvent: {}
+[18.753524] (-) TimerEvent: {}
+[18.856391] (-) TimerEvent: {}
+[18.959052] (-) TimerEvent: {}
+[18.996352] (asurt_msgs) StdoutLine: {'line': b'[ 81%] Built target asurt_msgs__rosidl_typesupport_introspection_cpp\n'}
+[19.059684] (-) TimerEvent: {}
+[19.161613] (-) TimerEvent: {}
+[19.264070] (-) TimerEvent: {}
+[19.359560] (asurt_msgs) StdoutLine: {'line': b'[ 82%] \x1b[32m\x1b[1mLinking CXX shared library libasurt_msgs__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[19.364807] (-) TimerEvent: {}
+[19.467267] (-) TimerEvent: {}
+[19.569055] (-) TimerEvent: {}
+[19.671663] (-) TimerEvent: {}
+[19.774379] (-) TimerEvent: {}
+[19.876607] (-) TimerEvent: {}
+[19.978868] (-) TimerEvent: {}
+[20.081208] (-) TimerEvent: {}
+[20.184093] (-) TimerEvent: {}
+[20.286327] (-) TimerEvent: {}
+[20.388154] (-) TimerEvent: {}
+[20.399609] (asurt_msgs) StdoutLine: {'line': b'[ 83%] \x1b[32m\x1b[1mLinking CXX shared library libasurt_msgs__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[20.489161] (-) TimerEvent: {}
+[20.590664] (-) TimerEvent: {}
+[20.692419] (-) TimerEvent: {}
+[20.793925] (-) TimerEvent: {}
+[20.895817] (-) TimerEvent: {}
+[20.999060] (-) TimerEvent: {}
+[21.100638] (-) TimerEvent: {}
+[21.202509] (-) TimerEvent: {}
+[21.304588] (-) TimerEvent: {}
+[21.406818] (-) TimerEvent: {}
+[21.412108] (asurt_msgs) StdoutLine: {'line': b'[ 83%] Built target asurt_msgs__rosidl_typesupport_fastrtps_c\n'}
+[21.507242] (-) TimerEvent: {}
+[21.609270] (-) TimerEvent: {}
+[21.711564] (-) TimerEvent: {}
+[21.813226] (-) TimerEvent: {}
+[21.915323] (-) TimerEvent: {}
+[21.990167] (asurt_msgs) StdoutLine: {'line': b'[ 83%] Built target asurt_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[22.006752] (asurt_msgs) StdoutLine: {'line': b'[ 83%] Built target asurt_msgs\n'}
+[22.015535] (-) TimerEvent: {}
+[22.026945] (asurt_msgs) StdoutLine: {'line': b'[ 84%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[22.115719] (-) TimerEvent: {}
+[22.216284] (-) TimerEvent: {}
+[22.316689] (-) TimerEvent: {}
+[22.417041] (-) TimerEvent: {}
+[22.517364] (-) TimerEvent: {}
+[22.618109] (-) TimerEvent: {}
+[22.718523] (-) TimerEvent: {}
+[22.819428] (-) TimerEvent: {}
+[22.849786] (asurt_msgs) StdoutLine: {'line': b'[ 84%] Built target asurt_msgs__py\n'}
+[22.870487] (asurt_msgs) StdoutLine: {'line': b'[ 85%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_py.dir/rosidl_generator_py/asurt_msgs/msg/_node_status_s.c.o\x1b[0m\n'}
+[22.870768] (asurt_msgs) StdoutLine: {'line': b'[ 86%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_py.dir/rosidl_generator_py/asurt_msgs/msg/_landmark_s.c.o\x1b[0m\n'}
+[22.871379] (asurt_msgs) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_py.dir/rosidl_generator_py/asurt_msgs/msg/_landmark_array_s.c.o\x1b[0m\n'}
+[22.872405] (asurt_msgs) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_py.dir/rosidl_generator_py/asurt_msgs/msg/_roadstate_s.c.o\x1b[0m\n'}
+[22.872569] (asurt_msgs) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_py.dir/rosidl_generator_py/asurt_msgs/msg/_cloud_info_s.c.o\x1b[0m\n'}
+[22.873555] (asurt_msgs) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_py.dir/rosidl_generator_py/asurt_msgs/msg/_bounding_boxes_s.c.o\x1b[0m\n'}
+[22.873713] (asurt_msgs) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_py.dir/rosidl_generator_py/asurt_msgs/msg/_bounding_box_s.c.o\x1b[0m\n'}
+[22.874616] (asurt_msgs) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_py.dir/rosidl_generator_py/asurt_msgs/msg/_key_points_s.c.o\x1b[0m\n'}
+[22.875867] (asurt_msgs) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_py.dir/rosidl_generator_py/asurt_msgs/msg/_cone_img_s.c.o\x1b[0m\n'}
+[22.876423] (asurt_msgs) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_py.dir/rosidl_generator_py/asurt_msgs/msg/_cone_img_array_s.c.o\x1b[0m\n'}
+[22.878229] (asurt_msgs) StdoutLine: {'line': b'[ 94%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_generator_py.dir/rosidl_generator_py/asurt_msgs/msg/_event_s.c.o\x1b[0m\n'}
+[22.919611] (-) TimerEvent: {}
+[23.020732] (-) TimerEvent: {}
+[23.122047] (-) TimerEvent: {}
+[23.165171] (asurt_msgs) StdoutLine: {'line': b'[ 95%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/asurt_msgs/libasurt_msgs__rosidl_generator_py.so\x1b[0m\n'}
+[23.222294] (-) TimerEvent: {}
+[23.322816] (-) TimerEvent: {}
+[23.423281] (-) TimerEvent: {}
+[23.514595] (asurt_msgs) StdoutLine: {'line': b'[ 95%] Built target asurt_msgs__rosidl_generator_py\n'}
+[23.523696] (-) TimerEvent: {}
+[23.534302] (asurt_msgs) StdoutLine: {'line': b'[ 96%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/asurt_msgs/_asurt_msgs_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[23.539859] (asurt_msgs) StdoutLine: {'line': b'[ 97%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/asurt_msgs/_asurt_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[23.543230] (asurt_msgs) StdoutLine: {'line': b'[ 97%] \x1b[32mBuilding C object CMakeFiles/asurt_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/asurt_msgs/_asurt_msgs_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[23.624024] (-) TimerEvent: {}
+[23.673891] (asurt_msgs) StdoutLine: {'line': b'[ 98%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/asurt_msgs/asurt_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[23.675255] (asurt_msgs) StdoutLine: {'line': b'[ 99%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/asurt_msgs/asurt_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[23.676312] (asurt_msgs) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/asurt_msgs/asurt_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[23.724152] (-) TimerEvent: {}
+[23.824643] (-) TimerEvent: {}
+[23.903215] (asurt_msgs) StdoutLine: {'line': b'[100%] Built target asurt_msgs__rosidl_typesupport_introspection_c__pyext\n'}
+[23.910999] (asurt_msgs) StdoutLine: {'line': b'[100%] Built target asurt_msgs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[23.916620] (asurt_msgs) StdoutLine: {'line': b'[100%] Built target asurt_msgs__rosidl_typesupport_c__pyext\n'}
+[23.925074] (-) TimerEvent: {}
+[23.929724] (asurt_msgs) CommandEnded: {'returncode': 0}
+[23.930126] (asurt_msgs) JobProgress: {'identifier': 'asurt_msgs', 'progress': 'install'}
+[23.938233] (asurt_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs'], 'cwd': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ayasx9'), ('SSH_AGENT_PID', '758'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('WT_PROFILE_ID', '{4ff56d04-d9cf-57ea-bae2-ad396374e7e3}'), ('HOME', '/home/ayasx9'), ('OLDPWD', '/home/ayasx9/FSAI26/perception_deep_logging'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/ayasx9/arl_workshop/turtle_proj1/install:/home/ayasx9/ros2_proj1/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ayasx9'), ('NAME', 'LAPTOP-4FIG3HKH'), ('WSL_INTEROP', '/run/WSL/33304_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/ayasx9/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/TortoiseGit/bin:/mnt/c/msys64/mingw64/bin:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/MongoDB/Server/8.2/bin:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python313/Scripts/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python313/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Launcher/:/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312/Scripts/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312/:/mnt/c/Users/ayaya/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ayaya/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/MinGW/bin:/mnt/c/questasim64_10.6c/win64:/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.3/bin:/mnt/c/Users/ayaya/.dotnet/tools:/mnt/c/Users/ayaya/AppData/Roaming/npm:/snap/bin'), ('WT_SESSION', 'a8b68465-9213-4108-af0d-28756bc3cd23'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-XXXXXXVhFQbw/agent.756'), ('AMENT_PREFIX_PATH', '/home/ayasx9/arl_workshop/turtle_proj1/install/my_launch_pkg:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes:/home/ayasx9/ros2_proj1/install/my_turtle_proj:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ayasx9/arl_workshop/turtle_proj1/build/project_nodes:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes/lib/python3.10/site-packages:/home/ayasx9/ros2_proj1/build/my_turtle_proj:/home/ayasx9/ros2_proj1/install/my_turtle_proj/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/ayasx9/arl_workshop/turtle_proj1/install/my_launch_pkg:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes:/home/ayasx9/ros2_proj1/install/my_turtle_proj:/opt/ros/humble'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:')]), 'shell': False}
+[23.943739] (asurt_msgs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[23.944277] (asurt_msgs) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[23.945369] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/ament_index/resource_index/rosidl_interfaces/asurt_msgs\n'}
+[23.955956] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/bounding_box.h\n'}
+[23.962506] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/bounding_boxes.h\n'}
+[23.969505] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/cloud_info.h\n'}
+[23.976466] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/cone_img.h\n'}
+[23.983595] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/cone_img_array.h\n'}
+[23.991314] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_box__functions.h\n'}
+[23.998490] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_box__struct.h\n'}
+[24.006598] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_box__type_support.h\n'}
+[24.012946] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_boxes__functions.h\n'}
+[24.020854] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_boxes__struct.h\n'}
+[24.025430] (-) TimerEvent: {}
+[24.029379] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_boxes__type_support.h\n'}
+[24.036634] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cloud_info__functions.h\n'}
+[24.043213] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cloud_info__struct.h\n'}
+[24.050756] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cloud_info__type_support.h\n'}
+[24.057243] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img__functions.h\n'}
+[24.065760] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img__struct.h\n'}
+[24.073083] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img__type_support.h\n'}
+[24.079685] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img_array__functions.h\n'}
+[24.085468] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img_array__struct.h\n'}
+[24.092128] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img_array__type_support.h\n'}
+[24.098105] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/event__functions.h\n'}
+[24.104579] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/event__struct.h\n'}
+[24.109646] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/event__type_support.h\n'}
+[24.115319] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/key_points__functions.h\n'}
+[24.120939] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/key_points__struct.h\n'}
+[24.125605] (-) TimerEvent: {}
+[24.126009] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/key_points__type_support.h\n'}
+[24.132228] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark__functions.h\n'}
+[24.138675] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark__struct.h\n'}
+[24.144485] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark__type_support.h\n'}
+[24.150367] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark_array__functions.h\n'}
+[24.156144] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark_array__struct.h\n'}
+[24.161192] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark_array__type_support.h\n'}
+[24.166876] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/node_status__functions.h\n'}
+[24.172365] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/node_status__struct.h\n'}
+[24.177947] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/node_status__type_support.h\n'}
+[24.182785] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/roadstate__functions.h\n'}
+[24.188306] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/roadstate__struct.h\n'}
+[24.193469] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/roadstate__type_support.h\n'}
+[24.198496] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/event.h\n'}
+[24.203945] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/key_points.h\n'}
+[24.208962] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/landmark.h\n'}
+[24.214688] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/landmark_array.h\n'}
+[24.220429] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/node_status.h\n'}
+[24.225820] (-) TimerEvent: {}
+[24.226162] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/roadstate.h\n'}
+[24.232045] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/rosidl_generator_c__visibility_control.h\n'}
+[24.237887] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/environment/library_path.sh\n'}
+[24.243311] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/environment/library_path.dsv\n'}
+[24.248736] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_box__rosidl_typesupport_fastrtps_c.h\n'}
+[24.253767] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_boxes__rosidl_typesupport_fastrtps_c.h\n'}
+[24.258540] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cloud_info__rosidl_typesupport_fastrtps_c.h\n'}
+[24.264518] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img__rosidl_typesupport_fastrtps_c.h\n'}
+[24.269566] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img_array__rosidl_typesupport_fastrtps_c.h\n'}
+[24.274765] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/event__rosidl_typesupport_fastrtps_c.h\n'}
+[24.280979] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/key_points__rosidl_typesupport_fastrtps_c.h\n'}
+[24.287563] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark__rosidl_typesupport_fastrtps_c.h\n'}
+[24.294060] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark_array__rosidl_typesupport_fastrtps_c.h\n'}
+[24.299788] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/node_status__rosidl_typesupport_fastrtps_c.h\n'}
+[24.305616] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/roadstate__rosidl_typesupport_fastrtps_c.h\n'}
+[24.314819] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[24.321995] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/bounding_box.hpp\n'}
+[24.325975] (-) TimerEvent: {}
+[24.328814] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/bounding_boxes.hpp\n'}
+[24.335305] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/cloud_info.hpp\n'}
+[24.341895] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/cone_img.hpp\n'}
+[24.347864] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/cone_img_array.hpp\n'}
+[24.353487] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_box__builder.hpp\n'}
+[24.359447] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_box__struct.hpp\n'}
+[24.364939] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_box__traits.hpp\n'}
+[24.370362] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_box__type_support.hpp\n'}
+[24.375086] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_boxes__builder.hpp\n'}
+[24.379945] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_boxes__struct.hpp\n'}
+[24.385210] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_boxes__traits.hpp\n'}
+[24.390045] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_boxes__type_support.hpp\n'}
+[24.395533] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cloud_info__builder.hpp\n'}
+[24.400357] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cloud_info__struct.hpp\n'}
+[24.406677] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cloud_info__traits.hpp\n'}
+[24.412256] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cloud_info__type_support.hpp\n'}
+[24.417650] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img__builder.hpp\n'}
+[24.424226] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img__struct.hpp\n'}
+[24.426332] (-) TimerEvent: {}
+[24.430332] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img__traits.hpp\n'}
+[24.436167] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img__type_support.hpp\n'}
+[24.441902] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img_array__builder.hpp\n'}
+[24.448202] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img_array__struct.hpp\n'}
+[24.453238] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img_array__traits.hpp\n'}
+[24.458320] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img_array__type_support.hpp\n'}
+[24.464015] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/event__builder.hpp\n'}
+[24.469115] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/event__struct.hpp\n'}
+[24.473987] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/event__traits.hpp\n'}
+[24.479324] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/event__type_support.hpp\n'}
+[24.484328] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/key_points__builder.hpp\n'}
+[24.489468] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/key_points__struct.hpp\n'}
+[24.495401] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/key_points__traits.hpp\n'}
+[24.500995] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/key_points__type_support.hpp\n'}
+[24.506576] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark__builder.hpp\n'}
+[24.513122] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark__struct.hpp\n'}
+[24.518179] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark__traits.hpp\n'}
+[24.523437] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark__type_support.hpp\n'}
+[24.526496] (-) TimerEvent: {}
+[24.529436] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark_array__builder.hpp\n'}
+[24.534785] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark_array__struct.hpp\n'}
+[24.541129] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark_array__traits.hpp\n'}
+[24.547925] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark_array__type_support.hpp\n'}
+[24.554320] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/node_status__builder.hpp\n'}
+[24.559722] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/node_status__struct.hpp\n'}
+[24.564926] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/node_status__traits.hpp\n'}
+[24.570735] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/node_status__type_support.hpp\n'}
+[24.576569] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/roadstate__builder.hpp\n'}
+[24.581951] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/roadstate__struct.hpp\n'}
+[24.587418] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/roadstate__traits.hpp\n'}
+[24.592807] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/roadstate__type_support.hpp\n'}
+[24.597822] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/event.hpp\n'}
+[24.602969] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/key_points.hpp\n'}
+[24.608274] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/landmark.hpp\n'}
+[24.613314] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/landmark_array.hpp\n'}
+[24.618550] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/node_status.hpp\n'}
+[24.624361] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/roadstate.hpp\n'}
+[24.626631] (-) TimerEvent: {}
+[24.630832] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[24.637301] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_box__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[24.642566] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_boxes__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[24.648443] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cloud_info__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[24.655041] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[24.660790] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img_array__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[24.665695] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/event__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[24.671356] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/key_points__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[24.676451] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[24.682635] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark_array__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[24.688302] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/node_status__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[24.693902] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/roadstate__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[24.699990] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[24.706424] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_box__rosidl_typesupport_introspection_c.h\n'}
+[24.711828] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_boxes__rosidl_typesupport_introspection_c.h\n'}
+[24.718807] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cloud_info__rosidl_typesupport_introspection_c.h\n'}
+[24.725082] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img__rosidl_typesupport_introspection_c.h\n'}
+[24.726727] (-) TimerEvent: {}
+[24.731465] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img_array__rosidl_typesupport_introspection_c.h\n'}
+[24.737795] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/event__rosidl_typesupport_introspection_c.h\n'}
+[24.743426] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/key_points__rosidl_typesupport_introspection_c.h\n'}
+[24.749186] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark__rosidl_typesupport_introspection_c.h\n'}
+[24.755114] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark_array__rosidl_typesupport_introspection_c.h\n'}
+[24.760111] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/node_status__rosidl_typesupport_introspection_c.h\n'}
+[24.765664] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/roadstate__rosidl_typesupport_introspection_c.h\n'}
+[24.771107] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[24.776777] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_box__rosidl_typesupport_introspection_cpp.hpp\n'}
+[24.782489] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/bounding_boxes__rosidl_typesupport_introspection_cpp.hpp\n'}
+[24.788910] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cloud_info__rosidl_typesupport_introspection_cpp.hpp\n'}
+[24.793959] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img__rosidl_typesupport_introspection_cpp.hpp\n'}
+[24.798690] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/cone_img_array__rosidl_typesupport_introspection_cpp.hpp\n'}
+[24.803621] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/event__rosidl_typesupport_introspection_cpp.hpp\n'}
+[24.808907] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/key_points__rosidl_typesupport_introspection_cpp.hpp\n'}
+[24.814129] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark__rosidl_typesupport_introspection_cpp.hpp\n'}
+[24.822959] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/landmark_array__rosidl_typesupport_introspection_cpp.hpp\n'}
+[24.826922] (-) TimerEvent: {}
+[24.832543] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/node_status__rosidl_typesupport_introspection_cpp.hpp\n'}
+[24.838640] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/include/asurt_msgs/asurt_msgs/msg/detail/roadstate__rosidl_typesupport_introspection_cpp.hpp\n'}
+[24.845311] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/environment/pythonpath.sh\n'}
+[24.853821] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/environment/pythonpath.dsv\n'}
+[24.861904] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs-2.0.0-py3.10.egg-info/PKG-INFO\n'}
+[24.868832] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs-2.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[24.876476] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs-2.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[24.882151] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs-2.0.0-py3.10.egg-info/top_level.txt\n'}
+[24.890113] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/__init__.py\n'}
+[24.896331] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/_asurt_msgs_s.ep.rosidl_typesupport_c.c\n'}
+[24.902098] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/_asurt_msgs_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[24.909002] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/_asurt_msgs_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[24.915861] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/asurt_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[24.922743] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/asurt_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[24.927145] (-) TimerEvent: {}
+[24.927913] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/asurt_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[24.935434] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/libasurt_msgs__rosidl_generator_py.so\n'}
+[24.942573] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/__init__.py\n'}
+[24.948804] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_bounding_box.py\n'}
+[24.956128] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_bounding_box_s.c\n'}
+[24.961265] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_bounding_boxes.py\n'}
+[24.966584] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_bounding_boxes_s.c\n'}
+[24.973246] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_cloud_info.py\n'}
+[24.979456] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_cloud_info_s.c\n'}
+[24.984910] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_cone_img.py\n'}
+[24.990360] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_cone_img_array.py\n'}
+[24.996449] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_cone_img_array_s.c\n'}
+[25.002310] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_cone_img_s.c\n'}
+[25.007730] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_event.py\n'}
+[25.013346] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_event_s.c\n'}
+[25.019101] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_key_points.py\n'}
+[25.024306] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_key_points_s.c\n'}
+[25.027438] (-) TimerEvent: {}
+[25.029978] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_landmark.py\n'}
+[25.035618] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_landmark_array.py\n'}
+[25.042064] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_landmark_array_s.c\n'}
+[25.046645] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_landmark_s.c\n'}
+[25.051777] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_node_status.py\n'}
+[25.057021] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_node_status_s.c\n'}
+[25.062108] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_roadstate.py\n'}
+[25.067387] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_roadstate_s.c\n'}
+[25.073424] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/asurt_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[25.073674] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/asurt_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[25.075074] (asurt_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/asurt_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[25.075114] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/Landmark.idl\n'}
+[25.080952] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/LandmarkArray.idl\n'}
+[25.087471] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/NodeStatus.idl\n'}
+[25.095205] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/Roadstate.idl\n'}
+[25.104179] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/CloudInfo.idl\n'}
+[25.110805] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/BoundingBox.idl\n'}
+[25.117365] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/BoundingBoxes.idl\n'}
+[25.125528] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/ConeImg.idl\n'}
+[25.127702] (-) TimerEvent: {}
+[25.132581] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/ConeImgArray.idl\n'}
+[25.139241] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/KeyPoints.idl\n'}
+[25.145643] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/Event.idl\n'}
+[25.152012] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/Landmark.msg\n'}
+[25.160758] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/LandmarkArray.msg\n'}
+[25.167441] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/NodeStatus.msg\n'}
+[25.176777] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/Roadstate.msg\n'}
+[25.182841] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/CloudInfo.msg\n'}
+[25.191875] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/BoundingBox.msg\n'}
+[25.197755] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/BoundingBoxes.msg\n'}
+[25.205838] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/ConeImg.msg\n'}
+[25.211602] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/ConeImgArray.msg\n'}
+[25.217332] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/KeyPoints.msg\n'}
+[25.224102] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/msg/Event.msg\n'}
+[25.227800] (-) TimerEvent: {}
+[25.230182] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/ament_index/resource_index/package_run_dependencies/asurt_msgs\n'}
+[25.237566] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/ament_index/resource_index/parent_prefix_path/asurt_msgs\n'}
+[25.242935] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/environment/ament_prefix_path.sh\n'}
+[25.248675] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/environment/ament_prefix_path.dsv\n'}
+[25.255084] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/environment/path.sh\n'}
+[25.260661] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/environment/path.dsv\n'}
+[25.266430] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/local_setup.bash\n'}
+[25.272334] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/local_setup.sh\n'}
+[25.277701] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/local_setup.zsh\n'}
+[25.283316] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/local_setup.dsv\n'}
+[25.289166] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/package.dsv\n'}
+[25.295053] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/ament_index/resource_index/packages/asurt_msgs\n'}
+[25.301492] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/rosidl_cmake-extras.cmake\n'}
+[25.307688] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[25.314446] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[25.320069] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[25.326543] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[25.327910] (-) TimerEvent: {}
+[25.333104] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[25.339636] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[25.344688] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/asurt_msgsConfig.cmake\n'}
+[25.349720] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/asurt_msgsConfig-version.cmake\n'}
+[25.355659] (asurt_msgs) StdoutLine: {'line': b'-- Symlinking: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/package.xml\n'}
+[25.360950] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/libasurt_msgs__rosidl_generator_c.so\n'}
+[25.361511] (asurt_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/libasurt_msgs__rosidl_generator_c.so" to ""\n'}
+[25.361634] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/libasurt_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[25.361840] (asurt_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/libasurt_msgs__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[25.361969] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/libasurt_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[25.362315] (asurt_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/libasurt_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[25.362372] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/libasurt_msgs__rosidl_typesupport_introspection_c.so\n'}
+[25.362465] (asurt_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/libasurt_msgs__rosidl_typesupport_introspection_c.so" to ""\n'}
+[25.362514] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/libasurt_msgs__rosidl_typesupport_c.so\n'}
+[25.362805] (asurt_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/libasurt_msgs__rosidl_typesupport_c.so" to ""\n'}
+[25.362855] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/libasurt_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[25.363401] (asurt_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/libasurt_msgs__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[25.363513] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/libasurt_msgs__rosidl_typesupport_cpp.so\n'}
+[25.363589] (asurt_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/libasurt_msgs__rosidl_typesupport_cpp.so" to ""\n'}
+[25.395374] (asurt_msgs) StdoutLine: {'line': b"Listing '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs'...\n"}
+[25.395581] (asurt_msgs) StdoutLine: {'line': b"Compiling '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/__init__.py'...\n"}
+[25.395636] (asurt_msgs) StdoutLine: {'line': b"Listing '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg'...\n"}
+[25.395668] (asurt_msgs) StdoutLine: {'line': b"Compiling '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/__init__.py'...\n"}
+[25.395696] (asurt_msgs) StdoutLine: {'line': b"Compiling '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_bounding_box.py'...\n"}
+[25.395723] (asurt_msgs) StdoutLine: {'line': b"Compiling '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_bounding_boxes.py'...\n"}
+[25.395757] (asurt_msgs) StdoutLine: {'line': b"Compiling '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_cloud_info.py'...\n"}
+[25.395782] (asurt_msgs) StdoutLine: {'line': b"Compiling '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_cone_img.py'...\n"}
+[25.395808] (asurt_msgs) StdoutLine: {'line': b"Compiling '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_cone_img_array.py'...\n"}
+[25.395833] (asurt_msgs) StdoutLine: {'line': b"Compiling '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_event.py'...\n"}
+[25.395862] (asurt_msgs) StdoutLine: {'line': b"Compiling '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_key_points.py'...\n"}
+[25.395886] (asurt_msgs) StdoutLine: {'line': b"Compiling '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_landmark.py'...\n"}
+[25.395922] (asurt_msgs) StdoutLine: {'line': b"Compiling '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_landmark_array.py'...\n"}
+[25.395947] (asurt_msgs) StdoutLine: {'line': b"Compiling '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_node_status.py'...\n"}
+[25.395971] (asurt_msgs) StdoutLine: {'line': b"Compiling '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages/asurt_msgs/msg/_roadstate.py'...\n"}
+[25.398577] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/libasurt_msgs__rosidl_generator_py.so\n'}
+[25.398880] (asurt_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/libasurt_msgs__rosidl_generator_py.so" to ""\n'}
+[25.398930] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/export_asurt_msgs__rosidl_generator_cExport.cmake\n'}
+[25.398962] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/export_asurt_msgs__rosidl_generator_cExport-noconfig.cmake\n'}
+[25.399088] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/export_asurt_msgs__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[25.399143] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/export_asurt_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[25.399175] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/export_asurt_msgs__rosidl_generator_cppExport.cmake\n'}
+[25.399279] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/export_asurt_msgs__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[25.399324] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/export_asurt_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[25.399464] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/asurt_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[25.399706] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/asurt_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[25.399765] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/asurt_msgs__rosidl_typesupport_cExport.cmake\n'}
+[25.400021] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/asurt_msgs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[25.400225] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/asurt_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[25.400308] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/asurt_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[25.400776] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/asurt_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[25.400839] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/asurt_msgs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[25.400869] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/export_asurt_msgs__rosidl_generator_pyExport.cmake\n'}
+[25.400896] (asurt_msgs) StdoutLine: {'line': b'-- Installing: /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/cmake/export_asurt_msgs__rosidl_generator_pyExport-noconfig.cmake\n'}
+[25.402018] (asurt_msgs) CommandEnded: {'returncode': 0}
+[25.416363] (asurt_msgs) JobEnded: {'identifier': 'asurt_msgs', 'rc': 0}
+[25.416873] (tf_helper) JobStarted: {'identifier': 'tf_helper'}
+[25.421761] (logging_system) JobStarted: {'identifier': 'logging_system'}
+[25.428023] (-) TimerEvent: {}
+[25.528255] (-) TimerEvent: {}
+[25.628638] (-) TimerEvent: {}
+[25.728960] (-) TimerEvent: {}
+[25.829349] (-) TimerEvent: {}
+[25.929863] (-) TimerEvent: {}
+[26.030175] (-) TimerEvent: {}
+[26.130649] (-) TimerEvent: {}
+[26.231204] (-) TimerEvent: {}
+[26.271073] (logging_system) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/build', '--no-deps', 'symlink_data'], 'cwd': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'ayasx9', 'SSH_AGENT_PID': '758', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'WT_PROFILE_ID': '{4ff56d04-d9cf-57ea-bae2-ad396374e7e3}', 'HOME': '/home/ayasx9', 'OLDPWD': '/home/ayasx9/FSAI26/perception_deep_logging', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'WSL_DISTRO_NAME': 'Ubuntu-22.04', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/ayasx9/arl_workshop/turtle_proj1/install:/home/ayasx9/ros2_proj1/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'ayasx9', 'NAME': 'LAPTOP-4FIG3HKH', 'WSL_INTEROP': '/run/WSL/33304_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/ayasx9/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/TortoiseGit/bin:/mnt/c/msys64/mingw64/bin:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/MongoDB/Server/8.2/bin:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python313/Scripts/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python313/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Launcher/:/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312/Scripts/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312/:/mnt/c/Users/ayaya/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ayaya/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/MinGW/bin:/mnt/c/questasim64_10.6c/win64:/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.3/bin:/mnt/c/Users/ayaya/.dotnet/tools:/mnt/c/Users/ayaya/AppData/Roaming/npm:/snap/bin', 'WT_SESSION': 'a8b68465-9213-4108-af0d-28756bc3cd23', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AUTH_SOCK': '/tmp/ssh-XXXXXXVhFQbw/agent.756', 'AMENT_PREFIX_PATH': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:/home/ayasx9/arl_workshop/turtle_proj1/install/my_launch_pkg:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes:/home/ayasx9/ros2_proj1/install/my_turtle_proj:/opt/ros/humble', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'PWD': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages:/home/ayasx9/arl_workshop/turtle_proj1/build/project_nodes:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes/lib/python3.10/site-packages:/home/ayasx9/ros2_proj1/build/my_turtle_proj:/home/ayasx9/ros2_proj1/install/my_turtle_proj/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:/home/ayasx9/arl_workshop/turtle_proj1/install/my_launch_pkg', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}, 'shell': False}
+[26.331422] (-) TimerEvent: {}
+[26.432179] (-) TimerEvent: {}
+[26.473691] (logging_system) StdoutLine: {'line': b'running develop\n'}
+[26.474840] (tf_helper) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/build', '--no-deps', 'symlink_data'], 'cwd': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'ayasx9', 'SSH_AGENT_PID': '758', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'WT_PROFILE_ID': '{4ff56d04-d9cf-57ea-bae2-ad396374e7e3}', 'HOME': '/home/ayasx9', 'OLDPWD': '/home/ayasx9/FSAI26/perception_deep_logging', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'WSL_DISTRO_NAME': 'Ubuntu-22.04', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/ayasx9/arl_workshop/turtle_proj1/install:/home/ayasx9/ros2_proj1/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'ayasx9', 'NAME': 'LAPTOP-4FIG3HKH', 'WSL_INTEROP': '/run/WSL/33304_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/ayasx9/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/TortoiseGit/bin:/mnt/c/msys64/mingw64/bin:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/MongoDB/Server/8.2/bin:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python313/Scripts/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python313/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Launcher/:/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312/Scripts/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312/:/mnt/c/Users/ayaya/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ayaya/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/MinGW/bin:/mnt/c/questasim64_10.6c/win64:/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.3/bin:/mnt/c/Users/ayaya/.dotnet/tools:/mnt/c/Users/ayaya/AppData/Roaming/npm:/snap/bin', 'WT_SESSION': 'a8b68465-9213-4108-af0d-28756bc3cd23', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AUTH_SOCK': '/tmp/ssh-XXXXXXVhFQbw/agent.756', 'AMENT_PREFIX_PATH': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:/home/ayasx9/arl_workshop/turtle_proj1/install/my_launch_pkg:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes:/home/ayasx9/ros2_proj1/install/my_turtle_proj:/opt/ros/humble', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'PWD': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages:/home/ayasx9/arl_workshop/turtle_proj1/build/project_nodes:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes/lib/python3.10/site-packages:/home/ayasx9/ros2_proj1/build/my_turtle_proj:/home/ayasx9/ros2_proj1/install/my_turtle_proj/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:/home/ayasx9/arl_workshop/turtle_proj1/install/my_launch_pkg', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}, 'shell': False}
+[26.532432] (-) TimerEvent: {}
+[26.567479] (logging_system) StdoutLine: {'line': b'running egg_info\n'}
+[26.567625] (logging_system) StdoutLine: {'line': b'creating logging_system.egg-info\n'}
+[26.567941] (logging_system) StdoutLine: {'line': b'writing logging_system.egg-info/PKG-INFO\n'}
+[26.568154] (logging_system) StdoutLine: {'line': b'writing dependency_links to logging_system.egg-info/dependency_links.txt\n'}
+[26.568307] (logging_system) StdoutLine: {'line': b'writing entry points to logging_system.egg-info/entry_points.txt\n'}
+[26.568434] (logging_system) StdoutLine: {'line': b'writing requirements to logging_system.egg-info/requires.txt\n'}
+[26.568752] (logging_system) StdoutLine: {'line': b'writing top-level names to logging_system.egg-info/top_level.txt\n'}
+[26.569022] (logging_system) StdoutLine: {'line': b"writing manifest file 'logging_system.egg-info/SOURCES.txt'\n"}
+[26.570367] (logging_system) StdoutLine: {'line': b"reading manifest file 'logging_system.egg-info/SOURCES.txt'\n"}
+[26.570773] (logging_system) StdoutLine: {'line': b"writing manifest file 'logging_system.egg-info/SOURCES.txt'\n"}
+[26.608813] (logging_system) StdoutLine: {'line': b'running build_ext\n'}
+[26.609370] (logging_system) StdoutLine: {'line': b'Creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/python3.10/site-packages/logging-system.egg-link (link to .)\n'}
+[26.609952] (logging_system) StdoutLine: {'line': b'Installing logger_node script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/logging_system\n'}
+[26.610340] (logging_system) StdoutLine: {'line': b'Installing resource_monitor script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/logging_system\n'}
+[26.610665] (logging_system) StdoutLine: {'line': b'Installing rosout_monitor script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/logging_system\n'}
+[26.610796] (logging_system) StdoutLine: {'line': b'Installing topic_monitor script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/logging_system\n'}
+[26.611106] (logging_system) StdoutLine: {'line': b'\n'}
+[26.611274] (logging_system) StdoutLine: {'line': b'Installed /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system\n'}
+[26.611317] (logging_system) StdoutLine: {'line': b'running symlink_data\n'}
+[26.611352] (logging_system) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/ament_index\n'}
+[26.611622] (logging_system) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/ament_index/resource_index\n'}
+[26.611954] (logging_system) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/ament_index/resource_index/packages\n'}
+[26.612520] (logging_system) StdoutLine: {'line': b'symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/resource/logging_system -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/ament_index/resource_index/packages\n'}
+[26.612616] (logging_system) StdoutLine: {'line': b'symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/package.xml -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/logging_system\n'}
+[26.612784] (logging_system) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/logging_system/launch\n'}
+[26.613030] (logging_system) StdoutLine: {'line': b'symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/launch/logging_launch.py -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/logging_system/launch\n'}
+[26.632655] (-) TimerEvent: {}
+[26.636406] (logging_system) CommandEnded: {'returncode': 0}
+[26.642742] (logging_system) JobEnded: {'identifier': 'logging_system', 'rc': 0}
+[26.653960] (tf_helper) StdoutLine: {'line': b'running develop\n'}
+[26.732769] (-) TimerEvent: {}
+[26.742585] (tf_helper) StdoutLine: {'line': b'running egg_info\n'}
+[26.742708] (tf_helper) StdoutLine: {'line': b'creating tf_helper.egg-info\n'}
+[26.742894] (tf_helper) StdoutLine: {'line': b'writing tf_helper.egg-info/PKG-INFO\n'}
+[26.743366] (tf_helper) StdoutLine: {'line': b'writing dependency_links to tf_helper.egg-info/dependency_links.txt\n'}
+[26.744319] (tf_helper) StdoutLine: {'line': b'writing entry points to tf_helper.egg-info/entry_points.txt\n'}
+[26.744391] (tf_helper) StdoutLine: {'line': b'writing requirements to tf_helper.egg-info/requires.txt\n'}
+[26.744421] (tf_helper) StdoutLine: {'line': b'writing top-level names to tf_helper.egg-info/top_level.txt\n'}
+[26.744447] (tf_helper) StdoutLine: {'line': b"writing manifest file 'tf_helper.egg-info/SOURCES.txt'\n"}
+[26.745184] (tf_helper) StdoutLine: {'line': b"reading manifest file 'tf_helper.egg-info/SOURCES.txt'\n"}
+[26.746183] (tf_helper) StdoutLine: {'line': b"writing manifest file 'tf_helper.egg-info/SOURCES.txt'\n"}
+[26.780608] (tf_helper) StdoutLine: {'line': b'running build_ext\n'}
+[26.780735] (tf_helper) StdoutLine: {'line': b'Creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/python3.10/site-packages/tf-helper.egg-link (link to .)\n'}
+[26.781259] (tf_helper) StdoutLine: {'line': b'Installing testing script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/tf_helper\n'}
+[26.781458] (tf_helper) StdoutLine: {'line': b'Installing testing2 script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/tf_helper\n'}
+[26.781859] (tf_helper) StdoutLine: {'line': b'\n'}
+[26.781912] (tf_helper) StdoutLine: {'line': b'Installed /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper\n'}
+[26.781961] (tf_helper) StdoutLine: {'line': b'running symlink_data\n'}
+[26.782039] (tf_helper) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/ament_index\n'}
+[26.782182] (tf_helper) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/ament_index/resource_index\n'}
+[26.782417] (tf_helper) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/ament_index/resource_index/packages\n'}
+[26.782885] (tf_helper) StdoutLine: {'line': b'symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/resource/tf_helper -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/ament_index/resource_index/packages\n'}
+[26.783121] (tf_helper) StdoutLine: {'line': b'symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/package.xml -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/tf_helper\n'}
+[26.802396] (tf_helper) CommandEnded: {'returncode': 0}
+[26.807841] (tf_helper) JobEnded: {'identifier': 'tf_helper', 'rc': 0}
+[26.808122] (planning_centerline_calc) JobStarted: {'identifier': 'planning_centerline_calc'}
+[26.813076] (planning_deep_learning) JobStarted: {'identifier': 'planning_deep_learning'}
+[26.832952] (-) TimerEvent: {}
+[26.933563] (-) TimerEvent: {}
+[27.033849] (-) TimerEvent: {}
+[27.134175] (-) TimerEvent: {}
+[27.234624] (-) TimerEvent: {}
+[27.335099] (-) TimerEvent: {}
+[27.435701] (-) TimerEvent: {}
+[27.536299] (-) TimerEvent: {}
+[27.636797] (-) TimerEvent: {}
+[27.737116] (-) TimerEvent: {}
+[27.837560] (-) TimerEvent: {}
+[27.938018] (-) TimerEvent: {}
+[28.038685] (-) TimerEvent: {}
+[28.139176] (-) TimerEvent: {}
+[28.168445] (planning_centerline_calc) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/build', '--no-deps', 'symlink_data'], 'cwd': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'ayasx9', 'SSH_AGENT_PID': '758', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'WT_PROFILE_ID': '{4ff56d04-d9cf-57ea-bae2-ad396374e7e3}', 'HOME': '/home/ayasx9', 'OLDPWD': '/home/ayasx9/FSAI26/perception_deep_logging', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'WSL_DISTRO_NAME': 'Ubuntu-22.04', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/ayasx9/arl_workshop/turtle_proj1/install:/home/ayasx9/ros2_proj1/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'ayasx9', 'NAME': 'LAPTOP-4FIG3HKH', 'WSL_INTEROP': '/run/WSL/33304_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/ayasx9/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/TortoiseGit/bin:/mnt/c/msys64/mingw64/bin:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/MongoDB/Server/8.2/bin:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python313/Scripts/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python313/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Launcher/:/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312/Scripts/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312/:/mnt/c/Users/ayaya/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ayaya/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/MinGW/bin:/mnt/c/questasim64_10.6c/win64:/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.3/bin:/mnt/c/Users/ayaya/.dotnet/tools:/mnt/c/Users/ayaya/AppData/Roaming/npm:/snap/bin', 'WT_SESSION': 'a8b68465-9213-4108-af0d-28756bc3cd23', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AUTH_SOCK': '/tmp/ssh-XXXXXXVhFQbw/agent.756', 'AMENT_PREFIX_PATH': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:/home/ayasx9/arl_workshop/turtle_proj1/install/my_launch_pkg:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes:/home/ayasx9/ros2_proj1/install/my_turtle_proj:/opt/ros/humble', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'PWD': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages:/home/ayasx9/arl_workshop/turtle_proj1/build/project_nodes:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes/lib/python3.10/site-packages:/home/ayasx9/ros2_proj1/build/my_turtle_proj:/home/ayasx9/ros2_proj1/install/my_turtle_proj/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:/home/ayasx9/arl_workshop/turtle_proj1/install/my_launch_pkg', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}, 'shell': False}
+[28.239348] (-) TimerEvent: {}
+[28.339999] (-) TimerEvent: {}
+[28.440793] (-) TimerEvent: {}
+[28.501020] (planning_centerline_calc) StdoutLine: {'line': b'running develop\n'}
+[28.540986] (-) TimerEvent: {}
+[28.548592] (planning_deep_learning) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/build', '--no-deps', 'symlink_data'], 'cwd': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'ayasx9', 'SSH_AGENT_PID': '758', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'WT_PROFILE_ID': '{4ff56d04-d9cf-57ea-bae2-ad396374e7e3}', 'HOME': '/home/ayasx9', 'OLDPWD': '/home/ayasx9/FSAI26/perception_deep_logging', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'WSL_DISTRO_NAME': 'Ubuntu-22.04', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/ayasx9/arl_workshop/turtle_proj1/install:/home/ayasx9/ros2_proj1/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'ayasx9', 'NAME': 'LAPTOP-4FIG3HKH', 'WSL_INTEROP': '/run/WSL/33304_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/ayasx9/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/TortoiseGit/bin:/mnt/c/msys64/mingw64/bin:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/160/DTS/Binn/:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/MongoDB/Server/8.2/bin:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python313/Scripts/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python313/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Launcher/:/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312/Scripts/:/mnt/c/Users/ayaya/AppData/Local/Programs/Python/Python312/:/mnt/c/Users/ayaya/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ayaya/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/MinGW/bin:/mnt/c/questasim64_10.6c/win64:/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2024.3.3/bin:/mnt/c/Users/ayaya/.dotnet/tools:/mnt/c/Users/ayaya/AppData/Roaming/npm:/snap/bin', 'WT_SESSION': 'a8b68465-9213-4108-af0d-28756bc3cd23', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AUTH_SOCK': '/tmp/ssh-XXXXXXVhFQbw/agent.756', 'AMENT_PREFIX_PATH': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:/home/ayasx9/arl_workshop/turtle_proj1/install/my_launch_pkg:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes:/home/ayasx9/ros2_proj1/install/my_turtle_proj:/opt/ros/humble', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'PWD': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages:/home/ayasx9/arl_workshop/turtle_proj1/build/project_nodes:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes/lib/python3.10/site-packages:/home/ayasx9/ros2_proj1/build/my_turtle_proj:/home/ayasx9/ros2_proj1/install/my_turtle_proj/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:/home/ayasx9/arl_workshop/turtle_proj1/install/my_launch_pkg', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}, 'shell': False}
+[28.641411] (-) TimerEvent: {}
+[28.697629] (planning_centerline_calc) StdoutLine: {'line': b'running egg_info\n'}
+[28.697912] (planning_centerline_calc) StdoutLine: {'line': b'creating planning_centerline_calc.egg-info\n'}
+[28.698277] (planning_centerline_calc) StdoutLine: {'line': b'writing planning_centerline_calc.egg-info/PKG-INFO\n'}
+[28.698758] (planning_centerline_calc) StdoutLine: {'line': b'writing dependency_links to planning_centerline_calc.egg-info/dependency_links.txt\n'}
+[28.699164] (planning_centerline_calc) StdoutLine: {'line': b'writing entry points to planning_centerline_calc.egg-info/entry_points.txt\n'}
+[28.699526] (planning_centerline_calc) StdoutLine: {'line': b'writing requirements to planning_centerline_calc.egg-info/requires.txt\n'}
+[28.699709] (planning_centerline_calc) StdoutLine: {'line': b'writing top-level names to planning_centerline_calc.egg-info/top_level.txt\n'}
+[28.700375] (planning_centerline_calc) StdoutLine: {'line': b"writing manifest file 'planning_centerline_calc.egg-info/SOURCES.txt'\n"}
+[28.704873] (planning_centerline_calc) StdoutLine: {'line': b"reading manifest file 'planning_centerline_calc.egg-info/SOURCES.txt'\n"}
+[28.705915] (planning_centerline_calc) StdoutLine: {'line': b"writing manifest file 'planning_centerline_calc.egg-info/SOURCES.txt'\n"}
+[28.741623] (-) TimerEvent: {}
+[28.771064] (planning_centerline_calc) StdoutLine: {'line': b'running build_ext\n'}
+[28.771270] (planning_centerline_calc) StdoutLine: {'line': b'Creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/lib/python3.10/site-packages/planning-centerline-calc.egg-link (link to .)\n'}
+[28.772119] (planning_centerline_calc) StdoutLine: {'line': b'Installing planning_centerline_calc_node script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/lib/planning_centerline_calc\n'}
+[28.772540] (planning_centerline_calc) StdoutLine: {'line': b'\n'}
+[28.772674] (planning_centerline_calc) StdoutLine: {'line': b'Installed /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc\n'}
+[28.772830] (planning_centerline_calc) StdoutLine: {'line': b'running symlink_data\n'}
+[28.772969] (planning_centerline_calc) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/ament_index\n'}
+[28.773242] (planning_centerline_calc) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/ament_index/resource_index\n'}
+[28.773341] (planning_centerline_calc) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/ament_index/resource_index/packages\n'}
+[28.773455] (planning_centerline_calc) StdoutLine: {'line': b'symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/resource/planning_centerline_calc -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/ament_index/resource_index/packages\n'}
+[28.773608] (planning_centerline_calc) StdoutLine: {'line': b'symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/package.xml -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc\n'}
+[28.774013] (planning_centerline_calc) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/launch\n'}
+[28.774171] (planning_centerline_calc) StdoutLine: {'line': b'symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/launch/planning_centerline_calc.launch.py -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/launch\n'}
+[28.774364] (planning_centerline_calc) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/config\n'}
+[28.774516] (planning_centerline_calc) StdoutLine: {'line': b'symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/config/planning_parameters.yaml -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/config\n'}
+[28.810230] (planning_centerline_calc) CommandEnded: {'returncode': 0}
+[28.822505] (planning_centerline_calc) JobEnded: {'identifier': 'planning_centerline_calc', 'rc': 0}
+[28.841942] (-) TimerEvent: {}
+[28.844188] (planning_deep_learning) StdoutLine: {'line': b'running develop\n'}
+[28.942336] (-) TimerEvent: {}
+[29.013004] (planning_deep_learning) StdoutLine: {'line': b'running egg_info\n'}
+[29.013232] (planning_deep_learning) StdoutLine: {'line': b'creating planning_deep_learning.egg-info\n'}
+[29.013714] (planning_deep_learning) StdoutLine: {'line': b'writing planning_deep_learning.egg-info/PKG-INFO\n'}
+[29.014166] (planning_deep_learning) StdoutLine: {'line': b'writing dependency_links to planning_deep_learning.egg-info/dependency_links.txt\n'}
+[29.014539] (planning_deep_learning) StdoutLine: {'line': b'writing entry points to planning_deep_learning.egg-info/entry_points.txt\n'}
+[29.014724] (planning_deep_learning) StdoutLine: {'line': b'writing requirements to planning_deep_learning.egg-info/requires.txt\n'}
+[29.015099] (planning_deep_learning) StdoutLine: {'line': b'writing top-level names to planning_deep_learning.egg-info/top_level.txt\n'}
+[29.015261] (planning_deep_learning) StdoutLine: {'line': b"writing manifest file 'planning_deep_learning.egg-info/SOURCES.txt'\n"}
+[29.017935] (planning_deep_learning) StdoutLine: {'line': b"reading manifest file 'planning_deep_learning.egg-info/SOURCES.txt'\n"}
+[29.018599] (planning_deep_learning) StdoutLine: {'line': b"writing manifest file 'planning_deep_learning.egg-info/SOURCES.txt'\n"}
+[29.042535] (-) TimerEvent: {}
+[29.078312] (planning_deep_learning) StdoutLine: {'line': b'running build_ext\n'}
+[29.078526] (planning_deep_learning) StdoutLine: {'line': b'Creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/lib/python3.10/site-packages/planning-deep-learning.egg-link (link to .)\n'}
+[29.079222] (planning_deep_learning) StdoutLine: {'line': b'Installing dl_node script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/lib/planning_deep_learning\n'}
+[29.079586] (planning_deep_learning) StdoutLine: {'line': b'\n'}
+[29.079952] (planning_deep_learning) StdoutLine: {'line': b'Installed /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning\n'}
+[29.080138] (planning_deep_learning) StdoutLine: {'line': b'running symlink_data\n'}
+[29.080550] (planning_deep_learning) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/ament_index\n'}
+[29.080793] (planning_deep_learning) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/ament_index/resource_index\n'}
+[29.080917] (planning_deep_learning) StdoutLine: {'line': b'creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/ament_index/resource_index/packages\n'}
+[29.081152] (planning_deep_learning) StdoutLine: {'line': b'symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/resource/planning_deep_learning -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/ament_index/resource_index/packages\n'}
+[29.081557] (planning_deep_learning) StdoutLine: {'line': b'symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/package.xml -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/planning_deep_learning\n'}
+[29.111300] (planning_deep_learning) CommandEnded: {'returncode': 0}
+[29.121066] (planning_deep_learning) JobEnded: {'identifier': 'planning_deep_learning', 'rc': 0}
+[29.121606] (-) EventReactorShutdown: {}

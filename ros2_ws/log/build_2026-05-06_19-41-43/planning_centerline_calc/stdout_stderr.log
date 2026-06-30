@@ -1,0 +1,26 @@
+running develop
+running egg_info
+creating planning_centerline_calc.egg-info
+writing planning_centerline_calc.egg-info/PKG-INFO
+writing dependency_links to planning_centerline_calc.egg-info/dependency_links.txt
+writing entry points to planning_centerline_calc.egg-info/entry_points.txt
+writing requirements to planning_centerline_calc.egg-info/requires.txt
+writing top-level names to planning_centerline_calc.egg-info/top_level.txt
+writing manifest file 'planning_centerline_calc.egg-info/SOURCES.txt'
+reading manifest file 'planning_centerline_calc.egg-info/SOURCES.txt'
+writing manifest file 'planning_centerline_calc.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/lib/python3.10/site-packages/planning-centerline-calc.egg-link (link to .)
+Installing planning_centerline_calc_node script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/lib/planning_centerline_calc
+
+Installed /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc
+running symlink_data
+creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/ament_index
+creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/ament_index/resource_index
+creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/ament_index/resource_index/packages
+symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/resource/planning_centerline_calc -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/ament_index/resource_index/packages
+symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/package.xml -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc
+creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/launch
+symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/launch/planning_centerline_calc.launch.py -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/launch
+creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/config
+symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/config/planning_parameters.yaml -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/config

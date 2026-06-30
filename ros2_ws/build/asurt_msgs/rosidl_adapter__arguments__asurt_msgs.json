@@ -1,0 +1,16 @@
+{
+  "package_name": "asurt_msgs",
+  "non_idl_tuples": [
+    "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/asurt_msgs:msg/Landmark.msg",
+    "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/asurt_msgs:msg/LandmarkArray.msg",
+    "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/asurt_msgs:msg/NodeStatus.msg",
+    "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/asurt_msgs:msg/Roadstate.msg",
+    "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/asurt_msgs:msg/CloudInfo.msg",
+    "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/asurt_msgs:msg/BoundingBox.msg",
+    "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/asurt_msgs:msg/BoundingBoxes.msg",
+    "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/asurt_msgs:msg/ConeImg.msg",
+    "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/asurt_msgs:msg/ConeImgArray.msg",
+    "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/asurt_msgs:msg/KeyPoints.msg",
+    "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/asurt_msgs:msg/Event.msg"
+  ]
+}

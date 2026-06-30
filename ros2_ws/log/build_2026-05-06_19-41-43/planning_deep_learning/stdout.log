@@ -1,0 +1,22 @@
+running develop
+running egg_info
+creating planning_deep_learning.egg-info
+writing planning_deep_learning.egg-info/PKG-INFO
+writing dependency_links to planning_deep_learning.egg-info/dependency_links.txt
+writing entry points to planning_deep_learning.egg-info/entry_points.txt
+writing requirements to planning_deep_learning.egg-info/requires.txt
+writing top-level names to planning_deep_learning.egg-info/top_level.txt
+writing manifest file 'planning_deep_learning.egg-info/SOURCES.txt'
+reading manifest file 'planning_deep_learning.egg-info/SOURCES.txt'
+writing manifest file 'planning_deep_learning.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/lib/python3.10/site-packages/planning-deep-learning.egg-link (link to .)
+Installing dl_node script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/lib/planning_deep_learning
+
+Installed /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning
+running symlink_data
+creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/ament_index
+creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/ament_index/resource_index
+creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/ament_index/resource_index/packages
+symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/resource/planning_deep_learning -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/ament_index/resource_index/packages
+symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/package.xml -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/planning_deep_learning

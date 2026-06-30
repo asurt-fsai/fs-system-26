@@ -1,0 +1,25 @@
+[1.060s] Invoking command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper': AMENT_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/build --no-deps symlink_data
+[1.237s] running develop
+[1.326s] running egg_info
+[1.326s] creating tf_helper.egg-info
+[1.326s] writing tf_helper.egg-info/PKG-INFO
+[1.327s] writing dependency_links to tf_helper.egg-info/dependency_links.txt
+[1.327s] writing entry points to tf_helper.egg-info/entry_points.txt
+[1.328s] writing requirements to tf_helper.egg-info/requires.txt
+[1.328s] writing top-level names to tf_helper.egg-info/top_level.txt
+[1.328s] writing manifest file 'tf_helper.egg-info/SOURCES.txt'
+[1.328s] reading manifest file 'tf_helper.egg-info/SOURCES.txt'
+[1.329s] writing manifest file 'tf_helper.egg-info/SOURCES.txt'
+[1.364s] running build_ext
+[1.364s] Creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/python3.10/site-packages/tf-helper.egg-link (link to .)
+[1.364s] Installing testing script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/tf_helper
+[1.365s] Installing testing2 script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/tf_helper
+[1.365s] 
+[1.365s] Installed /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper
+[1.365s] running symlink_data
+[1.365s] creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/ament_index
+[1.365s] creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/ament_index/resource_index
+[1.366s] creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/ament_index/resource_index/packages
+[1.366s] symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/resource/tf_helper -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/ament_index/resource_index/packages
+[1.366s] symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/package.xml -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/tf_helper
+[1.386s] Invoked command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper' returned '0': AMENT_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/build --no-deps symlink_data

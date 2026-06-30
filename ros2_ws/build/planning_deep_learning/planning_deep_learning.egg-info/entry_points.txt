@@ -1,0 +1,3 @@
+[console_scripts]
+dl_node = planning_deep_learning.node:main
+

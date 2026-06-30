@@ -1,0 +1,3 @@
+[console_scripts]
+planning_centerline_calc_node = planning_centerline_calc.node:main
+

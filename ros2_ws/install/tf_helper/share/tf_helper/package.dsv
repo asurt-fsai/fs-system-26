@@ -1,0 +1,9 @@
+source;share/tf_helper/hook/pythonpath.ps1
+source;share/tf_helper/hook/pythonpath.dsv
+source;share/tf_helper/hook/pythonpath.sh
+source;share/tf_helper/hook/ament_prefix_path.ps1
+source;share/tf_helper/hook/ament_prefix_path.dsv
+source;share/tf_helper/hook/ament_prefix_path.sh
+source;../../build/tf_helper/share/tf_helper/hook/pythonpath_develop.ps1
+source;../../build/tf_helper/share/tf_helper/hook/pythonpath_develop.dsv
+source;../../build/tf_helper/share/tf_helper/hook/pythonpath_develop.sh

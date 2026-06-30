@@ -1,0 +1,23 @@
+running develop
+running egg_info
+creating tf_helper.egg-info
+writing tf_helper.egg-info/PKG-INFO
+writing dependency_links to tf_helper.egg-info/dependency_links.txt
+writing entry points to tf_helper.egg-info/entry_points.txt
+writing requirements to tf_helper.egg-info/requires.txt
+writing top-level names to tf_helper.egg-info/top_level.txt
+writing manifest file 'tf_helper.egg-info/SOURCES.txt'
+reading manifest file 'tf_helper.egg-info/SOURCES.txt'
+writing manifest file 'tf_helper.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/python3.10/site-packages/tf-helper.egg-link (link to .)
+Installing testing script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/tf_helper
+Installing testing2 script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/tf_helper
+
+Installed /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper
+running symlink_data
+creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/ament_index
+creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/ament_index/resource_index
+creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/ament_index/resource_index/packages
+symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/resource/tf_helper -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/ament_index/resource_index/packages
+symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/package.xml -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/tf_helper

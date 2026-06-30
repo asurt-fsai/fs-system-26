@@ -1,0 +1,233 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-e4c0327f43e5b8bc3f49.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				},
+				{
+					"build" : "asurt_msgs__py",
+					"jsonFile" : "directory-asurt_msgs__py-ffc4247ae98ef8cc8e01.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs/asurt_msgs__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "asurt_msgs",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_asurt_msgs_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_asurt_msgs_egg-11aa8c0c518a674a87c8.json",
+					"name" : "ament_cmake_python_build_asurt_msgs_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_symlink_asurt_msgs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_symlink_asurt_msgs-51d44a7ec95648f7f6d0.json",
+					"name" : "ament_cmake_python_symlink_asurt_msgs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "asurt_msgs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-asurt_msgs-ee142affb41b626988e5.json",
+					"name" : "asurt_msgs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "asurt_msgs__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-asurt_msgs__cpp-caf41b3fd02fe780de42.json",
+					"name" : "asurt_msgs__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "asurt_msgs__py::@250aa13dfa0a75ef36b1",
+					"jsonFile" : "target-asurt_msgs__py-3150bc79246d816e5161.json",
+					"name" : "asurt_msgs__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "asurt_msgs__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-asurt_msgs__rosidl_generator_c-a0f6c8aa5ff86a9051b9.json",
+					"name" : "asurt_msgs__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "asurt_msgs__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-asurt_msgs__rosidl_generator_py-fefaa7e41385c0a6e62a.json",
+					"name" : "asurt_msgs__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "asurt_msgs__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-asurt_msgs__rosidl_typesupport_c-00ef50f335991f9d0f1c.json",
+					"name" : "asurt_msgs__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "asurt_msgs__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-asurt_msgs__rosidl_typesupport_c__pyext-d85bed6ae3c5643a520b.json",
+					"name" : "asurt_msgs__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "asurt_msgs__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-asurt_msgs__rosidl_typesupport_cpp-ff9641e9a16106cdc7f0.json",
+					"name" : "asurt_msgs__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "asurt_msgs__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-asurt_msgs__rosidl_typesupport_fastrtps_c-e5ce5ce33e750815b6b7.json",
+					"name" : "asurt_msgs__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "asurt_msgs__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-asurt_msgs__rosidl_typesupport_fastrtps_c__pyext-11728985e861b15b0587.json",
+					"name" : "asurt_msgs__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "asurt_msgs__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-asurt_msgs__rosidl_typesupport_fastrtps_cpp-c8c0499e4ef1c5b0d252.json",
+					"name" : "asurt_msgs__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "asurt_msgs__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-asurt_msgs__rosidl_typesupport_introspection_c-92d9a9e63d01456b1791.json",
+					"name" : "asurt_msgs__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "asurt_msgs__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-asurt_msgs__rosidl_typesupport_introspection_c__pyext-1e1a29297543340da13e.json",
+					"name" : "asurt_msgs__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "asurt_msgs__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-asurt_msgs__rosidl_typesupport_introspection_cpp-c05831ffb9d1ef93c8ba.json",
+					"name" : "asurt_msgs__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "asurt_msgs_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-asurt_msgs_uninstall-b63b8ed89518bc152a63.json",
+					"name" : "asurt_msgs_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-99ad1988b5d952640291.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs",
+		"source" : "/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/asurt_msgs"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

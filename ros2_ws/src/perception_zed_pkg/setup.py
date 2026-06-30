@@ -28,6 +28,7 @@ setup(
     entry_points={
         'console_scripts': [
             'conversion_node = perception_zed_pkg.conversion_node:main',
+            'loop_closure_node = perception_zed_pkg.loop_closure_node:main',
         ],
     },
 )

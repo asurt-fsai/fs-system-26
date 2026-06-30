@@ -1,0 +1,9 @@
+source;share/planning_deep_learning/hook/pythonpath.ps1
+source;share/planning_deep_learning/hook/pythonpath.dsv
+source;share/planning_deep_learning/hook/pythonpath.sh
+source;share/planning_deep_learning/hook/ament_prefix_path.ps1
+source;share/planning_deep_learning/hook/ament_prefix_path.dsv
+source;share/planning_deep_learning/hook/ament_prefix_path.sh
+source;../../build/planning_deep_learning/share/planning_deep_learning/hook/pythonpath_develop.ps1
+source;../../build/planning_deep_learning/share/planning_deep_learning/hook/pythonpath_develop.dsv
+source;../../build/planning_deep_learning/share/planning_deep_learning/hook/pythonpath_develop.sh

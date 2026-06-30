@@ -1,0 +1,24 @@
+[1.738s] Invoking command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning': AMENT_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/build --no-deps symlink_data
+[2.031s] running develop
+[2.200s] running egg_info
+[2.200s] creating planning_deep_learning.egg-info
+[2.201s] writing planning_deep_learning.egg-info/PKG-INFO
+[2.201s] writing dependency_links to planning_deep_learning.egg-info/dependency_links.txt
+[2.202s] writing entry points to planning_deep_learning.egg-info/entry_points.txt
+[2.202s] writing requirements to planning_deep_learning.egg-info/requires.txt
+[2.202s] writing top-level names to planning_deep_learning.egg-info/top_level.txt
+[2.202s] writing manifest file 'planning_deep_learning.egg-info/SOURCES.txt'
+[2.205s] reading manifest file 'planning_deep_learning.egg-info/SOURCES.txt'
+[2.206s] writing manifest file 'planning_deep_learning.egg-info/SOURCES.txt'
+[2.265s] running build_ext
+[2.265s] Creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/lib/python3.10/site-packages/planning-deep-learning.egg-link (link to .)
+[2.266s] Installing dl_node script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/lib/planning_deep_learning
+[2.267s] 
+[2.267s] Installed /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning
+[2.267s] running symlink_data
+[2.268s] creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/ament_index
+[2.268s] creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/ament_index/resource_index
+[2.268s] creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/ament_index/resource_index/packages
+[2.268s] symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/resource/planning_deep_learning -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/ament_index/resource_index/packages
+[2.269s] symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/package.xml -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/planning_deep_learning
+[2.299s] Invoked command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning' returned '0': AMENT_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/build --no-deps symlink_data

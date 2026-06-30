@@ -1,0 +1,868 @@
+[0.165s] [34mcolcon[0m [1;30mDEBUG[0m [32mCommand line arguments: ['/usr/bin/colcon', 'build', '--symlink-install', '--packages-select', 'tf_helper', 'asurt_msgs', 'planning_deep_learning', 'planning_centerline_calc', 'perception_zed_pkg', 'logging_system'][0m
+[0.165s] [34mcolcon[0m [1;30mDEBUG[0m [32mParsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=12, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['tf_helper', 'asurt_msgs', 'planning_deep_learning', 'planning_centerline_calc', 'perception_zed_pkg', 'logging_system'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7e9c1c402c20>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7e9c1c402710>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7e9c1c402710>>)[0m
+[0.258s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(colcon_meta) check parameters
+[0.258s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) check parameters
+[0.258s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) check parameters
+[0.258s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) check parameters
+[0.258s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(colcon_meta) discover
+[0.258s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) discover
+[0.258s] [34mcolcon.colcon_core.package_discovery[0m [1;30mINFO[0m Crawling recursively for packages in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws'
+[0.258s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.259s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ignore'
+[0.259s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ignore_ament_install'
+[0.259s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['colcon_pkg']
+[0.259s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'colcon_pkg'
+[0.259s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['colcon_meta']
+[0.259s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'colcon_meta'
+[0.259s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['ros']
+[0.259s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ros'
+[0.280s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['cmake', 'python']
+[0.280s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'cmake'
+[0.280s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'python'
+[0.280s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['python_setup_py']
+[0.280s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'python_setup_py'
+[0.280s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.280s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) by extension 'ignore'
+[0.280s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) ignored
+[0.280s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.280s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) by extension 'ignore'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) ignored
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) by extension 'ignore'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) ignored
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(logging_debug) by extensions ['ignore', 'ignore_ament_install']
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(logging_debug) by extension 'ignore'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(logging_debug) by extension 'ignore_ament_install'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(logging_debug) by extensions ['colcon_pkg']
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(logging_debug) by extension 'colcon_pkg'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(logging_debug) by extensions ['colcon_meta']
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(logging_debug) by extension 'colcon_meta'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(logging_debug) by extensions ['ros']
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(logging_debug) by extension 'ros'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(logging_debug) by extensions ['cmake', 'python']
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(logging_debug) by extension 'cmake'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(logging_debug) by extension 'python'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(logging_debug) by extensions ['python_setup_py']
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(logging_debug) by extension 'python_setup_py'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'ignore'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'ignore_ament_install'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['colcon_pkg']
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'colcon_pkg'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['colcon_meta']
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'colcon_meta'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['ros']
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'ros'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['cmake', 'python']
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'cmake'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'python'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['python_setup_py']
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'python_setup_py'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/asurt_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/asurt_msgs) by extension 'ignore'
+[0.281s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/asurt_msgs) by extension 'ignore_ament_install'
+[0.282s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/asurt_msgs) by extensions ['colcon_pkg']
+[0.282s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/asurt_msgs) by extension 'colcon_pkg'
+[0.282s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/asurt_msgs) by extensions ['colcon_meta']
+[0.282s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/asurt_msgs) by extension 'colcon_meta'
+[0.282s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/asurt_msgs) by extensions ['ros']
+[0.282s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/asurt_msgs) by extension 'ros'
+[0.283s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/asurt_msgs' with type 'ros.ament_cmake' and name 'asurt_msgs'[0m
+[0.283s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/logging_system) by extensions ['ignore', 'ignore_ament_install']
+[0.283s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/logging_system) by extension 'ignore'
+[0.283s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/logging_system) by extension 'ignore_ament_install'
+[0.283s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/logging_system) by extensions ['colcon_pkg']
+[0.283s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/logging_system) by extension 'colcon_pkg'
+[0.283s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/logging_system) by extensions ['colcon_meta']
+[0.283s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/logging_system) by extension 'colcon_meta'
+[0.283s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/logging_system) by extensions ['ros']
+[0.283s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/logging_system) by extension 'ros'
+[0.284s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/logging_system' with type 'ros.ament_python' and name 'logging_system'[0m
+[0.284s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/perception_zed_pkg) by extensions ['ignore', 'ignore_ament_install']
+[0.284s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/perception_zed_pkg) by extension 'ignore'
+[0.284s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/perception_zed_pkg) by extension 'ignore_ament_install'
+[0.284s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/perception_zed_pkg) by extensions ['colcon_pkg']
+[0.284s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/perception_zed_pkg) by extension 'colcon_pkg'
+[0.284s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/perception_zed_pkg) by extensions ['colcon_meta']
+[0.284s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/perception_zed_pkg) by extension 'colcon_meta'
+[0.284s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/perception_zed_pkg) by extensions ['ros']
+[0.284s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/perception_zed_pkg) by extension 'ros'
+[0.284s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/perception_zed_pkg' with type 'ros.ament_python' and name 'perception_zed_pkg'[0m
+[0.284s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/planning_centerline_calc_MIX) by extensions ['ignore', 'ignore_ament_install']
+[0.284s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/planning_centerline_calc_MIX) by extension 'ignore'
+[0.285s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/planning_centerline_calc_MIX) by extension 'ignore_ament_install'
+[0.285s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/planning_centerline_calc_MIX) by extensions ['colcon_pkg']
+[0.285s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/planning_centerline_calc_MIX) by extension 'colcon_pkg'
+[0.285s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/planning_centerline_calc_MIX) by extensions ['colcon_meta']
+[0.285s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/planning_centerline_calc_MIX) by extension 'colcon_meta'
+[0.285s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/planning_centerline_calc_MIX) by extensions ['ros']
+[0.285s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/planning_centerline_calc_MIX) by extension 'ros'
+[0.285s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/planning_centerline_calc_MIX' with type 'ros.ament_python' and name 'planning_centerline_calc'[0m
+[0.285s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/planning_deep_learning) by extensions ['ignore', 'ignore_ament_install']
+[0.285s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/planning_deep_learning) by extension 'ignore'
+[0.285s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/planning_deep_learning) by extension 'ignore_ament_install'
+[0.285s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/planning_deep_learning) by extensions ['colcon_pkg']
+[0.285s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/planning_deep_learning) by extension 'colcon_pkg'
+[0.285s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/planning_deep_learning) by extensions ['colcon_meta']
+[0.285s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/planning_deep_learning) by extension 'colcon_meta'
+[0.285s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/planning_deep_learning) by extensions ['ros']
+[0.285s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/planning_deep_learning) by extension 'ros'
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/planning_deep_learning' with type 'ros.ament_python' and name 'planning_deep_learning'[0m
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/tf_helper) by extensions ['ignore', 'ignore_ament_install']
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/tf_helper) by extension 'ignore'
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/tf_helper) by extension 'ignore_ament_install'
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/tf_helper) by extensions ['colcon_pkg']
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/tf_helper) by extension 'colcon_pkg'
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/tf_helper) by extensions ['colcon_meta']
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/tf_helper) by extension 'colcon_meta'
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/tf_helper) by extensions ['ros']
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/tf_helper) by extension 'ros'
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/tf_helper' with type 'ros.ament_python' and name 'tf_helper'[0m
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples) by extensions ['ignore', 'ignore_ament_install']
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples) by extension 'ignore'
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples) by extension 'ignore_ament_install'
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples) by extensions ['colcon_pkg']
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples) by extension 'colcon_pkg'
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples) by extensions ['colcon_meta']
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples) by extension 'colcon_meta'
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples) by extensions ['ros']
+[0.286s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples) by extension 'ros'
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples) by extensions ['cmake', 'python']
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples) by extension 'cmake'
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples) by extension 'python'
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples) by extensions ['python_setup_py']
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples) by extension 'python_setup_py'
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples) by extensions ['ignore', 'ignore_ament_install']
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples) by extension 'ignore'
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples) by extension 'ignore_ament_install'
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples) by extensions ['colcon_pkg']
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples) by extension 'colcon_pkg'
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples) by extensions ['colcon_meta']
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples) by extension 'colcon_meta'
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples) by extensions ['ros']
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples) by extension 'ros'
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples) by extensions ['cmake', 'python']
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples) by extension 'cmake'
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples) by extension 'python'
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples) by extensions ['python_setup_py']
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples) by extension 'python_setup_py'
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples/zed_aruco_localization) by extensions ['ignore', 'ignore_ament_install']
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples/zed_aruco_localization) by extension 'ignore'
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples/zed_aruco_localization) by extension 'ignore_ament_install'
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples/zed_aruco_localization) by extensions ['colcon_pkg']
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples/zed_aruco_localization) by extension 'colcon_pkg'
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples/zed_aruco_localization) by extensions ['colcon_meta']
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples/zed_aruco_localization) by extension 'colcon_meta'
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples/zed_aruco_localization) by extensions ['ros']
+[0.287s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples/zed_aruco_localization) by extension 'ros'
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-examples/examples/zed_aruco_localization' with type 'ros.ament_cmake' and name 'zed_aruco_localization'[0m
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples/zed_depth_to_laserscan) by extensions ['ignore', 'ignore_ament_install']
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples/zed_depth_to_laserscan) by extension 'ignore'
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples/zed_depth_to_laserscan) by extension 'ignore_ament_install'
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples/zed_depth_to_laserscan) by extensions ['colcon_pkg']
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples/zed_depth_to_laserscan) by extension 'colcon_pkg'
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples/zed_depth_to_laserscan) by extensions ['colcon_meta']
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples/zed_depth_to_laserscan) by extension 'colcon_meta'
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples/zed_depth_to_laserscan) by extensions ['ros']
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/examples/zed_depth_to_laserscan) by extension 'ros'
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-examples/examples/zed_depth_to_laserscan' with type 'ros.ament_cmake' and name 'zed_depth_to_laserscan'[0m
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/images) by extensions ['ignore', 'ignore_ament_install']
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/images) by extension 'ignore'
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/images) by extension 'ignore_ament_install'
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/images) by extensions ['colcon_pkg']
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/images) by extension 'colcon_pkg'
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/images) by extensions ['colcon_meta']
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/images) by extension 'colcon_meta'
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/images) by extensions ['ros']
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/images) by extension 'ros'
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/images) by extensions ['cmake', 'python']
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/images) by extension 'cmake'
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/images) by extension 'python'
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/images) by extensions ['python_setup_py']
+[0.288s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/images) by extension 'python_setup_py'
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros) by extensions ['ignore', 'ignore_ament_install']
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros) by extension 'ignore'
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros) by extension 'ignore_ament_install'
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros) by extensions ['colcon_pkg']
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros) by extension 'colcon_pkg'
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros) by extensions ['colcon_meta']
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros) by extension 'colcon_meta'
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros) by extensions ['ros']
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros) by extension 'ros'
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros) by extensions ['cmake', 'python']
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros) by extension 'cmake'
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros) by extension 'python'
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros) by extensions ['python_setup_py']
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros) by extension 'python_setup_py'
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_april_tag) by extensions ['ignore', 'ignore_ament_install']
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_april_tag) by extension 'ignore'
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_april_tag) by extension 'ignore_ament_install'
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_april_tag) by extensions ['colcon_pkg']
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_april_tag) by extension 'colcon_pkg'
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_april_tag) by extensions ['colcon_meta']
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_april_tag) by extension 'colcon_meta'
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_april_tag) by extensions ['ros']
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_april_tag) by extension 'ros'
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-examples/isaac_ros/zed_isaac_ros_april_tag' with type 'ros.ament_cmake' and name 'zed_isaac_ros_april_tag'[0m
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_multi_camera) by extensions ['ignore', 'ignore_ament_install']
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_multi_camera) by extension 'ignore'
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_multi_camera) by extension 'ignore_ament_install'
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_multi_camera) by extensions ['colcon_pkg']
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_multi_camera) by extension 'colcon_pkg'
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_multi_camera) by extensions ['colcon_meta']
+[0.289s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_multi_camera) by extension 'colcon_meta'
+[0.290s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_multi_camera) by extensions ['ros']
+[0.290s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_multi_camera) by extension 'ros'
+[0.290s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-examples/isaac_ros/zed_isaac_ros_multi_camera' with type 'ros.ament_cmake' and name 'zed_isaac_ros_multi_camera'[0m
+[0.290s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_nitros_sub) by extensions ['ignore', 'ignore_ament_install']
+[0.290s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_nitros_sub) by extension 'ignore'
+[0.290s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_nitros_sub) by extension 'ignore_ament_install'
+[0.290s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_nitros_sub) by extensions ['colcon_pkg']
+[0.290s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_nitros_sub) by extension 'colcon_pkg'
+[0.290s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_nitros_sub) by extensions ['colcon_meta']
+[0.290s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_nitros_sub) by extension 'colcon_meta'
+[0.290s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_nitros_sub) by extensions ['ros']
+[0.290s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/isaac_ros/zed_isaac_ros_nitros_sub) by extension 'ros'
+[0.290s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-examples/isaac_ros/zed_isaac_ros_nitros_sub' with type 'ros.ament_cmake' and name 'zed_isaac_ros_nitros_sub'[0m
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/rviz-plugin-zed-od) by extensions ['ignore', 'ignore_ament_install']
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/rviz-plugin-zed-od) by extension 'ignore'
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/rviz-plugin-zed-od) by extension 'ignore_ament_install'
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/rviz-plugin-zed-od) by extensions ['colcon_pkg']
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/rviz-plugin-zed-od) by extension 'colcon_pkg'
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/rviz-plugin-zed-od) by extensions ['colcon_meta']
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/rviz-plugin-zed-od) by extension 'colcon_meta'
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/rviz-plugin-zed-od) by extensions ['ros']
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/rviz-plugin-zed-od) by extension 'ros'
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-examples/rviz-plugin-zed-od' with type 'ros.ament_cmake' and name 'rviz_plugin_zed_od'[0m
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools) by extensions ['ignore', 'ignore_ament_install']
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools) by extension 'ignore'
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools) by extension 'ignore_ament_install'
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools) by extensions ['colcon_pkg']
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools) by extension 'colcon_pkg'
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools) by extensions ['colcon_meta']
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools) by extension 'colcon_meta'
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools) by extensions ['ros']
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools) by extension 'ros'
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools) by extensions ['cmake', 'python']
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools) by extension 'cmake'
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools) by extension 'python'
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools) by extensions ['python_setup_py']
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools) by extension 'python_setup_py'
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark) by extensions ['ignore', 'ignore_ament_install']
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark) by extension 'ignore'
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark) by extension 'ignore_ament_install'
+[0.291s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark) by extensions ['colcon_pkg']
+[0.292s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark) by extension 'colcon_pkg'
+[0.292s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark) by extensions ['colcon_meta']
+[0.292s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark) by extension 'colcon_meta'
+[0.292s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark) by extensions ['ros']
+[0.292s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark) by extension 'ros'
+[0.292s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-examples/tools/zed_benchmark' with type 'ros.ament_cmake' and name 'zed_topic_benchmark'[0m
+[0.292s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark_component) by extensions ['ignore', 'ignore_ament_install']
+[0.292s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark_component) by extension 'ignore'
+[0.292s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark_component) by extension 'ignore_ament_install'
+[0.292s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark_component) by extensions ['colcon_pkg']
+[0.292s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark_component) by extension 'colcon_pkg'
+[0.292s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark_component) by extensions ['colcon_meta']
+[0.292s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark_component) by extension 'colcon_meta'
+[0.292s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark_component) by extensions ['ros']
+[0.292s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark_component) by extension 'ros'
+[0.292s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-examples/tools/zed_benchmark_component' with type 'ros.ament_cmake' and name 'zed_topic_benchmark_component'[0m
+[0.292s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark_interfaces) by extension 'ignore'
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark_interfaces) by extension 'ignore_ament_install'
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark_interfaces) by extensions ['colcon_pkg']
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark_interfaces) by extension 'colcon_pkg'
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark_interfaces) by extensions ['colcon_meta']
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark_interfaces) by extension 'colcon_meta'
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark_interfaces) by extensions ['ros']
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tools/zed_benchmark_interfaces) by extension 'ros'
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-examples/tools/zed_benchmark_interfaces' with type 'ros.ament_cmake' and name 'zed_topic_benchmark_interfaces'[0m
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials) by extensions ['ignore', 'ignore_ament_install']
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials) by extension 'ignore'
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials) by extension 'ignore_ament_install'
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials) by extensions ['colcon_pkg']
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials) by extension 'colcon_pkg'
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials) by extensions ['colcon_meta']
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials) by extension 'colcon_meta'
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials) by extensions ['ros']
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials) by extension 'ros'
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials) by extensions ['cmake', 'python']
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials) by extension 'cmake'
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials) by extension 'python'
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials) by extensions ['python_setup_py']
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials) by extension 'python_setup_py'
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_depth_tutorial) by extensions ['ignore', 'ignore_ament_install']
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_depth_tutorial) by extension 'ignore'
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_depth_tutorial) by extension 'ignore_ament_install'
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_depth_tutorial) by extensions ['colcon_pkg']
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_depth_tutorial) by extension 'colcon_pkg'
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_depth_tutorial) by extensions ['colcon_meta']
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_depth_tutorial) by extension 'colcon_meta'
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_depth_tutorial) by extensions ['ros']
+[0.293s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_depth_tutorial) by extension 'ros'
+[0.294s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-examples/tutorials/zed_depth_tutorial' with type 'ros.ament_cmake' and name 'zed_tutorial_depth'[0m
+[0.294s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_ipc) by extensions ['ignore', 'ignore_ament_install']
+[0.294s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_ipc) by extension 'ignore'
+[0.294s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_ipc) by extension 'ignore_ament_install'
+[0.294s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_ipc) by extensions ['colcon_pkg']
+[0.294s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_ipc) by extension 'colcon_pkg'
+[0.294s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_ipc) by extensions ['colcon_meta']
+[0.294s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_ipc) by extension 'colcon_meta'
+[0.294s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_ipc) by extensions ['ros']
+[0.294s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_ipc) by extension 'ros'
+[0.294s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-examples/tutorials/zed_ipc' with type 'ros.ament_cmake' and name 'zed_ipc'[0m
+[0.294s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_multi_camera) by extensions ['ignore', 'ignore_ament_install']
+[0.295s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_multi_camera) by extension 'ignore'
+[0.295s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_multi_camera) by extension 'ignore_ament_install'
+[0.295s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_multi_camera) by extensions ['colcon_pkg']
+[0.295s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_multi_camera) by extension 'colcon_pkg'
+[0.295s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_multi_camera) by extensions ['colcon_meta']
+[0.295s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_multi_camera) by extension 'colcon_meta'
+[0.295s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_multi_camera) by extensions ['ros']
+[0.295s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_multi_camera) by extension 'ros'
+[0.295s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-examples/tutorials/zed_multi_camera' with type 'ros.ament_cmake' and name 'zed_multi_camera'[0m
+[0.295s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_pose_tutorial) by extensions ['ignore', 'ignore_ament_install']
+[0.295s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_pose_tutorial) by extension 'ignore'
+[0.295s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_pose_tutorial) by extension 'ignore_ament_install'
+[0.295s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_pose_tutorial) by extensions ['colcon_pkg']
+[0.295s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_pose_tutorial) by extension 'colcon_pkg'
+[0.295s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_pose_tutorial) by extensions ['colcon_meta']
+[0.295s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_pose_tutorial) by extension 'colcon_meta'
+[0.295s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_pose_tutorial) by extensions ['ros']
+[0.295s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_pose_tutorial) by extension 'ros'
+[0.296s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-examples/tutorials/zed_pose_tutorial' with type 'ros.ament_cmake' and name 'zed_tutorial_pos_tracking'[0m
+[0.296s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_rgb_convert) by extensions ['ignore', 'ignore_ament_install']
+[0.296s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_rgb_convert) by extension 'ignore'
+[0.296s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_rgb_convert) by extension 'ignore_ament_install'
+[0.296s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_rgb_convert) by extensions ['colcon_pkg']
+[0.296s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_rgb_convert) by extension 'colcon_pkg'
+[0.296s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_rgb_convert) by extensions ['colcon_meta']
+[0.296s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_rgb_convert) by extension 'colcon_meta'
+[0.296s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_rgb_convert) by extensions ['ros']
+[0.296s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_rgb_convert) by extension 'ros'
+[0.297s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-examples/tutorials/zed_rgb_convert' with type 'ros.ament_cmake' and name 'zed_rgb_convert'[0m
+[0.297s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_robot_integration) by extensions ['ignore', 'ignore_ament_install']
+[0.297s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_robot_integration) by extension 'ignore'
+[0.297s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_robot_integration) by extension 'ignore_ament_install'
+[0.297s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_robot_integration) by extensions ['colcon_pkg']
+[0.297s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_robot_integration) by extension 'colcon_pkg'
+[0.297s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_robot_integration) by extensions ['colcon_meta']
+[0.297s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_robot_integration) by extension 'colcon_meta'
+[0.297s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_robot_integration) by extensions ['ros']
+[0.297s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_robot_integration) by extension 'ros'
+[0.297s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-examples/tutorials/zed_robot_integration' with type 'ros.ament_cmake' and name 'zed_robot_integration'[0m
+[0.297s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_video_tutorial) by extensions ['ignore', 'ignore_ament_install']
+[0.297s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_video_tutorial) by extension 'ignore'
+[0.297s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_video_tutorial) by extension 'ignore_ament_install'
+[0.297s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_video_tutorial) by extensions ['colcon_pkg']
+[0.297s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_video_tutorial) by extension 'colcon_pkg'
+[0.297s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_video_tutorial) by extensions ['colcon_meta']
+[0.297s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_video_tutorial) by extension 'colcon_meta'
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_video_tutorial) by extensions ['ros']
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/tutorials/zed_video_tutorial) by extension 'ros'
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-examples/tutorials/zed_video_tutorial' with type 'ros.ament_cmake' and name 'zed_tutorial_video'[0m
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove) by extensions ['ignore', 'ignore_ament_install']
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove) by extension 'ignore'
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove) by extension 'ignore_ament_install'
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove) by extensions ['colcon_pkg']
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove) by extension 'colcon_pkg'
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove) by extensions ['colcon_meta']
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove) by extension 'colcon_meta'
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove) by extensions ['ros']
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove) by extension 'ros'
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove) by extensions ['cmake', 'python']
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove) by extension 'cmake'
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove) by extension 'python'
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove) by extensions ['python_setup_py']
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove) by extension 'python_setup_py'
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/images) by extensions ['ignore', 'ignore_ament_install']
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/images) by extension 'ignore'
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/images) by extension 'ignore_ament_install'
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/images) by extensions ['colcon_pkg']
+[0.298s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/images) by extension 'colcon_pkg'
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/images) by extensions ['colcon_meta']
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/images) by extension 'colcon_meta'
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/images) by extensions ['ros']
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/images) by extension 'ros'
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/images) by extensions ['cmake', 'python']
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/images) by extension 'cmake'
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/images) by extension 'python'
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/images) by extensions ['python_setup_py']
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/images) by extension 'python_setup_py'
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/layouts) by extensions ['ignore', 'ignore_ament_install']
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/layouts) by extension 'ignore'
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/layouts) by extension 'ignore_ament_install'
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/layouts) by extensions ['colcon_pkg']
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/layouts) by extension 'colcon_pkg'
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/layouts) by extensions ['colcon_meta']
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/layouts) by extension 'colcon_meta'
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/layouts) by extensions ['ros']
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/layouts) by extension 'ros'
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/layouts) by extensions ['cmake', 'python']
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/layouts) by extension 'cmake'
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/layouts) by extension 'python'
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/layouts) by extensions ['python_setup_py']
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_foxglove/layouts) by extension 'python_setup_py'
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_rviz2) by extensions ['ignore', 'ignore_ament_install']
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_rviz2) by extension 'ignore'
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_rviz2) by extension 'ignore_ament_install'
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_rviz2) by extensions ['colcon_pkg']
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_rviz2) by extension 'colcon_pkg'
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_rviz2) by extensions ['colcon_meta']
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_rviz2) by extension 'colcon_meta'
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_rviz2) by extensions ['ros']
+[0.299s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-examples/zed_display_rviz2) by extension 'ros'
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-examples/zed_display_rviz2' with type 'ros.ament_cmake' and name 'zed_display_rviz2'[0m
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper) by extensions ['ignore', 'ignore_ament_install']
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper) by extension 'ignore'
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper) by extension 'ignore_ament_install'
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper) by extensions ['colcon_pkg']
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper) by extension 'colcon_pkg'
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper) by extensions ['colcon_meta']
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper) by extension 'colcon_meta'
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper) by extensions ['ros']
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper) by extension 'ros'
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper) by extensions ['cmake', 'python']
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper) by extension 'cmake'
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper) by extension 'python'
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper) by extensions ['python_setup_py']
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper) by extension 'python_setup_py'
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/docker) by extensions ['ignore', 'ignore_ament_install']
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/docker) by extension 'ignore'
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/docker) by extension 'ignore_ament_install'
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/docker) by extensions ['colcon_pkg']
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/docker) by extension 'colcon_pkg'
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/docker) by extensions ['colcon_meta']
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/docker) by extension 'colcon_meta'
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/docker) by extensions ['ros']
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/docker) by extension 'ros'
+[0.300s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/docker) by extensions ['cmake', 'python']
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/docker) by extension 'cmake'
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/docker) by extension 'python'
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/docker) by extensions ['python_setup_py']
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/docker) by extension 'python_setup_py'
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/images) by extensions ['ignore', 'ignore_ament_install']
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/images) by extension 'ignore'
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/images) by extension 'ignore_ament_install'
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/images) by extensions ['colcon_pkg']
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/images) by extension 'colcon_pkg'
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/images) by extensions ['colcon_meta']
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/images) by extension 'colcon_meta'
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/images) by extensions ['ros']
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/images) by extension 'ros'
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/images) by extensions ['cmake', 'python']
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/images) by extension 'cmake'
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/images) by extension 'python'
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/images) by extensions ['python_setup_py']
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/images) by extension 'python_setup_py'
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_components) by extensions ['ignore', 'ignore_ament_install']
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_components) by extension 'ignore'
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_components) by extension 'ignore_ament_install'
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_components) by extensions ['colcon_pkg']
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_components) by extension 'colcon_pkg'
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_components) by extensions ['colcon_meta']
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_components) by extension 'colcon_meta'
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_components) by extensions ['ros']
+[0.301s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_components) by extension 'ros'
+[0.302s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-wrapper/zed_components' with type 'ros.ament_cmake' and name 'zed_components'[0m
+[0.302s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_ros2) by extensions ['ignore', 'ignore_ament_install']
+[0.302s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_ros2) by extension 'ignore'
+[0.302s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_ros2) by extension 'ignore_ament_install'
+[0.302s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_ros2) by extensions ['colcon_pkg']
+[0.302s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_ros2) by extension 'colcon_pkg'
+[0.302s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_ros2) by extensions ['colcon_meta']
+[0.302s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_ros2) by extension 'colcon_meta'
+[0.302s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_ros2) by extensions ['ros']
+[0.302s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_ros2) by extension 'ros'
+[0.302s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-wrapper/zed_ros2' with type 'ros.ament_cmake' and name 'zed_ros2'[0m
+[0.302s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_wrapper) by extensions ['ignore', 'ignore_ament_install']
+[0.302s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_wrapper) by extension 'ignore'
+[0.302s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_wrapper) by extension 'ignore_ament_install'
+[0.302s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_wrapper) by extensions ['colcon_pkg']
+[0.302s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_wrapper) by extension 'colcon_pkg'
+[0.303s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_wrapper) by extensions ['colcon_meta']
+[0.303s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_wrapper) by extension 'colcon_meta'
+[0.303s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_wrapper) by extensions ['ros']
+[0.303s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/zed-ros2-wrapper/zed_wrapper) by extension 'ros'
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/zed-ros2-wrapper/zed_wrapper' with type 'ros.ament_cmake' and name 'zed_wrapper'[0m
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing) by extensions ['ignore', 'ignore_ament_install']
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing) by extension 'ignore'
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing) by extension 'ignore_ament_install'
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing) by extensions ['colcon_pkg']
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing) by extension 'colcon_pkg'
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing) by extensions ['colcon_meta']
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing) by extension 'colcon_meta'
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing) by extensions ['ros']
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing) by extension 'ros'
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing) by extensions ['cmake', 'python']
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing) by extension 'cmake'
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing) by extension 'python'
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing) by extensions ['python_setup_py']
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing) by extension 'python_setup_py'
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_37_00) by extensions ['ignore', 'ignore_ament_install']
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_37_00) by extension 'ignore'
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_37_00) by extension 'ignore_ament_install'
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_37_00) by extensions ['colcon_pkg']
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_37_00) by extension 'colcon_pkg'
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_37_00) by extensions ['colcon_meta']
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_37_00) by extension 'colcon_meta'
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_37_00) by extensions ['ros']
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_37_00) by extension 'ros'
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_37_00) by extensions ['cmake', 'python']
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_37_00) by extension 'cmake'
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_37_00) by extension 'python'
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_37_00) by extensions ['python_setup_py']
+[0.304s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_37_00) by extension 'python_setup_py'
+[0.305s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_40_41) by extensions ['ignore', 'ignore_ament_install']
+[0.305s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_40_41) by extension 'ignore'
+[0.305s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_40_41) by extension 'ignore_ament_install'
+[0.305s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_40_41) by extensions ['colcon_pkg']
+[0.305s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_40_41) by extension 'colcon_pkg'
+[0.305s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_40_41) by extensions ['colcon_meta']
+[0.305s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_40_41) by extension 'colcon_meta'
+[0.305s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_40_41) by extensions ['ros']
+[0.305s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_40_41) by extension 'ros'
+[0.305s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_40_41) by extensions ['cmake', 'python']
+[0.305s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_40_41) by extension 'cmake'
+[0.305s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_40_41) by extension 'python'
+[0.305s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_40_41) by extensions ['python_setup_py']
+[0.305s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(testing/rosbag2_2026_04_29-15_40_41) by extension 'python_setup_py'
+[0.305s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) using defaults
+[0.305s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) discover
+[0.305s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) using defaults
+[0.305s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) discover
+[0.305s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) using defaults
+[0.328s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'rviz_plugin_zed_od' in 'src/zed-ros2-examples/rviz-plugin-zed-od'
+[0.328s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_components' in 'src/zed-ros2-wrapper/zed_components'
+[0.328s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_topic_benchmark_interfaces' in 'src/zed-ros2-examples/tools/zed_benchmark_interfaces'
+[0.328s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_tutorial_depth' in 'src/zed-ros2-examples/tutorials/zed_depth_tutorial'
+[0.328s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_tutorial_pos_tracking' in 'src/zed-ros2-examples/tutorials/zed_pose_tutorial'
+[0.328s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_tutorial_video' in 'src/zed-ros2-examples/tutorials/zed_video_tutorial'
+[0.328s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_aruco_localization' in 'src/zed-ros2-examples/examples/zed_aruco_localization'
+[0.328s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_isaac_ros_nitros_sub' in 'src/zed-ros2-examples/isaac_ros/zed_isaac_ros_nitros_sub'
+[0.328s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_rgb_convert' in 'src/zed-ros2-examples/tutorials/zed_rgb_convert'
+[0.329s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_topic_benchmark_component' in 'src/zed-ros2-examples/tools/zed_benchmark_component'
+[0.329s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_wrapper' in 'src/zed-ros2-wrapper/zed_wrapper'
+[0.329s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_depth_to_laserscan' in 'src/zed-ros2-examples/examples/zed_depth_to_laserscan'
+[0.329s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_display_rviz2' in 'src/zed-ros2-examples/zed_display_rviz2'
+[0.329s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_isaac_ros_april_tag' in 'src/zed-ros2-examples/isaac_ros/zed_isaac_ros_april_tag'
+[0.329s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_isaac_ros_multi_camera' in 'src/zed-ros2-examples/isaac_ros/zed_isaac_ros_multi_camera'
+[0.329s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_multi_camera' in 'src/zed-ros2-examples/tutorials/zed_multi_camera'
+[0.329s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_robot_integration' in 'src/zed-ros2-examples/tutorials/zed_robot_integration'
+[0.329s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_ros2' in 'src/zed-ros2-wrapper/zed_ros2'
+[0.329s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_topic_benchmark' in 'src/zed-ros2-examples/tools/zed_benchmark'
+[0.329s] [34mcolcon.colcon_core.package_selection[0m [1;30mINFO[0m Skipping not selected package 'zed_ipc' in 'src/zed-ros2-examples/tutorials/zed_ipc'
+[0.329s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) check parameters
+[0.329s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) discover
+[0.333s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 2 installed packages in /home/ayasx9/arl_workshop/turtle_proj1/install[0m
+[0.333s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 1 installed packages in /home/ayasx9/ros2_proj1/install[0m
+[0.334s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 270 installed packages in /opt/ros/humble[0m
+[0.335s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) using defaults
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'asurt_msgs' build argument 'cmake_args' from command line to 'None'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'asurt_msgs' build argument 'cmake_target' from command line to 'None'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'asurt_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'asurt_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'asurt_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'asurt_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'asurt_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'asurt_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'asurt_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'asurt_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs', 'merge_install': False, 'path': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/asurt_msgs', 'symlink_install': True, 'test_result_base': None}[0m
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'perception_zed_pkg' build argument 'cmake_args' from command line to 'None'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'perception_zed_pkg' build argument 'cmake_target' from command line to 'None'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'perception_zed_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'perception_zed_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'perception_zed_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'perception_zed_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'perception_zed_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'perception_zed_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'perception_zed_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'perception_zed_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg', 'merge_install': False, 'path': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/perception_zed_pkg', 'symlink_install': True, 'test_result_base': None}[0m
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'logging_system' build argument 'cmake_args' from command line to 'None'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'logging_system' build argument 'cmake_target' from command line to 'None'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'logging_system' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'logging_system' build argument 'cmake_clean_cache' from command line to 'False'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'logging_system' build argument 'cmake_clean_first' from command line to 'False'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'logging_system' build argument 'cmake_force_configure' from command line to 'False'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'logging_system' build argument 'ament_cmake_args' from command line to 'None'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'logging_system' build argument 'catkin_cmake_args' from command line to 'None'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'logging_system' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.354s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'logging_system' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system', 'merge_install': False, 'path': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/logging_system', 'symlink_install': True, 'test_result_base': None}[0m
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'tf_helper' build argument 'cmake_args' from command line to 'None'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'tf_helper' build argument 'cmake_target' from command line to 'None'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'tf_helper' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'tf_helper' build argument 'cmake_clean_cache' from command line to 'False'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'tf_helper' build argument 'cmake_clean_first' from command line to 'False'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'tf_helper' build argument 'cmake_force_configure' from command line to 'False'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'tf_helper' build argument 'ament_cmake_args' from command line to 'None'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'tf_helper' build argument 'catkin_cmake_args' from command line to 'None'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'tf_helper' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'tf_helper' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper', 'merge_install': False, 'path': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/tf_helper', 'symlink_install': True, 'test_result_base': None}[0m
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'planning_centerline_calc' build argument 'cmake_args' from command line to 'None'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'planning_centerline_calc' build argument 'cmake_target' from command line to 'None'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'planning_centerline_calc' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'planning_centerline_calc' build argument 'cmake_clean_cache' from command line to 'False'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'planning_centerline_calc' build argument 'cmake_clean_first' from command line to 'False'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'planning_centerline_calc' build argument 'cmake_force_configure' from command line to 'False'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'planning_centerline_calc' build argument 'ament_cmake_args' from command line to 'None'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'planning_centerline_calc' build argument 'catkin_cmake_args' from command line to 'None'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'planning_centerline_calc' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'planning_centerline_calc' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc', 'merge_install': False, 'path': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/planning_centerline_calc_MIX', 'symlink_install': True, 'test_result_base': None}[0m
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'planning_deep_learning' build argument 'cmake_args' from command line to 'None'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'planning_deep_learning' build argument 'cmake_target' from command line to 'None'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'planning_deep_learning' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'planning_deep_learning' build argument 'cmake_clean_cache' from command line to 'False'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'planning_deep_learning' build argument 'cmake_clean_first' from command line to 'False'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'planning_deep_learning' build argument 'cmake_force_configure' from command line to 'False'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'planning_deep_learning' build argument 'ament_cmake_args' from command line to 'None'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'planning_deep_learning' build argument 'catkin_cmake_args' from command line to 'None'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'planning_deep_learning' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.355s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'planning_deep_learning' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning', 'merge_install': False, 'path': '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/planning_deep_learning', 'symlink_install': True, 'test_result_base': None}[0m
+[0.355s] [34mcolcon.colcon_core.executor[0m [1;30mINFO[0m Executing jobs using 'parallel' executor
+[0.356s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mrun_until_complete[0m
+[0.356s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/asurt_msgs' with build type 'ament_cmake'
+[0.356s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/asurt_msgs'
+[0.361s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.362s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.362s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[0.365s] [34mcolcon.colcon_ros.task.ament_python.build[0m [1;30mINFO[0m Building ROS package in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/perception_zed_pkg' with build type 'ament_python'
+[0.365s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('perception_zed_pkg', 'ament_prefix_path')
+[0.365s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/perception_zed_pkg/hook/ament_prefix_path.ps1'
+[0.367s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/perception_zed_pkg/hook/ament_prefix_path.dsv'
+[0.368s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/perception_zed_pkg/hook/ament_prefix_path.sh'
+[0.369s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.369s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[0.375s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes:/home/ayasx9/ros2_proj1/install/my_turtle_proj:/opt/ros/humble /usr/bin/cmake /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/asurt_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs[0m
+[0.542s] [34mcolcon.colcon_core.task.python.build[0m [1;30mINFO[0m Building Python package in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/perception_zed_pkg'
+[0.542s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.542s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[0.893s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg': PYTHONPATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg/build --no-deps symlink_data[0m
+[1.206s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('perception_zed_pkg', 'pythonpath_develop')
+[1.206s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg/share/perception_zed_pkg/hook/pythonpath_develop.ps1'
+[1.206s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg' returned '0': PYTHONPATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg/build --no-deps symlink_data[0m
+[1.207s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg/share/perception_zed_pkg/hook/pythonpath_develop.dsv'
+[1.207s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg/share/perception_zed_pkg/hook/pythonpath_develop.sh'
+[1.212s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg' for CMake module files
+[1.212s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg' for CMake config files
+[1.213s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/lib'
+[1.213s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/bin'
+[1.213s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/lib/pkgconfig/perception_zed_pkg.pc'
+[1.213s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/lib/python3.10/site-packages'
+[1.213s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('perception_zed_pkg', 'pythonpath')
+[1.213s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/perception_zed_pkg/hook/pythonpath.ps1'
+[1.213s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/perception_zed_pkg/hook/pythonpath.dsv'
+[1.213s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/perception_zed_pkg/hook/pythonpath.sh'
+[1.214s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/bin'
+[1.214s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(perception_zed_pkg)
+[1.214s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/perception_zed_pkg/package.ps1'
+[1.215s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/perception_zed_pkg/package.dsv'
+[1.216s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/perception_zed_pkg/package.sh'
+[1.216s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/perception_zed_pkg/package.bash'
+[1.217s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/perception_zed_pkg/package.zsh'
+[1.218s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/share/colcon-core/packages/perception_zed_pkg)
+[12.232s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes:/home/ayasx9/ros2_proj1/install/my_turtle_proj:/opt/ros/humble /usr/bin/cmake /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/asurt_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs[0m
+[12.233s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes:/home/ayasx9/ros2_proj1/install/my_turtle_proj:/opt/ros/humble /usr/bin/cmake --build /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs -- -j12 -l12[0m
+[24.287s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes:/home/ayasx9/ros2_proj1/install/my_turtle_proj:/opt/ros/humble /usr/bin/cmake --build /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs -- -j12 -l12[0m
+[24.296s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes:/home/ayasx9/ros2_proj1/install/my_turtle_proj:/opt/ros/humble /usr/bin/cmake --install /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs[0m
+[25.759s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(asurt_msgs)
+[25.759s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs' for CMake module files
+[25.759s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ayasx9/arl_workshop/turtle_proj1/install/project_nodes:/home/ayasx9/ros2_proj1/install/my_turtle_proj:/opt/ros/humble /usr/bin/cmake --install /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/asurt_msgs[0m
+[25.760s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs' for CMake config files
+[25.761s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('asurt_msgs', 'cmake_prefix_path')
+[25.761s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/hook/cmake_prefix_path.ps1'
+[25.761s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/hook/cmake_prefix_path.dsv'
+[25.762s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/hook/cmake_prefix_path.sh'
+[25.762s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib'
+[25.762s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('asurt_msgs', 'ld_library_path_lib')
+[25.762s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/hook/ld_library_path_lib.ps1'
+[25.762s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/hook/ld_library_path_lib.dsv'
+[25.763s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/hook/ld_library_path_lib.sh'
+[25.763s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/bin'
+[25.763s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/pkgconfig/asurt_msgs.pc'
+[25.763s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/python3.10/site-packages'
+[25.764s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/bin'
+[25.764s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/package.ps1'
+[25.764s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/package.dsv'
+[25.764s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/package.sh'
+[25.765s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/package.bash'
+[25.765s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/package.zsh'
+[25.765s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/colcon-core/packages/asurt_msgs)
+[25.766s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(asurt_msgs)
+[25.766s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs' for CMake module files
+[25.767s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs' for CMake config files
+[25.767s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('asurt_msgs', 'cmake_prefix_path')
+[25.767s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/hook/cmake_prefix_path.ps1'
+[25.768s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/hook/cmake_prefix_path.dsv'
+[25.768s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/hook/cmake_prefix_path.sh'
+[25.768s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib'
+[25.768s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('asurt_msgs', 'ld_library_path_lib')
+[25.769s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/hook/ld_library_path_lib.ps1'
+[25.769s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/hook/ld_library_path_lib.dsv'
+[25.769s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/hook/ld_library_path_lib.sh'
+[25.770s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/bin'
+[25.770s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/pkgconfig/asurt_msgs.pc'
+[25.770s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib/python3.10/site-packages'
+[25.770s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/bin'
+[25.770s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/package.ps1'
+[25.771s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/package.dsv'
+[25.771s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/package.sh'
+[25.772s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/package.bash'
+[25.772s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/asurt_msgs/package.zsh'
+[25.772s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/share/colcon-core/packages/asurt_msgs)
+[25.773s] [34mcolcon.colcon_ros.task.ament_python.build[0m [1;30mINFO[0m Building ROS package in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/tf_helper' with build type 'ament_python'
+[25.773s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('tf_helper', 'ament_prefix_path')
+[25.773s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/tf_helper/hook/ament_prefix_path.ps1'
+[25.774s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/tf_helper/hook/ament_prefix_path.dsv'
+[25.774s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/tf_helper/hook/ament_prefix_path.sh'
+[25.775s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[25.775s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[25.778s] [34mcolcon.colcon_ros.task.ament_python.build[0m [1;30mINFO[0m Building ROS package in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/logging_system' with build type 'ament_python'
+[25.778s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('logging_system', 'ament_prefix_path')
+[25.778s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/logging_system/hook/ament_prefix_path.ps1'
+[25.780s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/logging_system/hook/ament_prefix_path.dsv'
+[25.780s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/logging_system/hook/ament_prefix_path.sh'
+[25.781s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[25.781s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[26.065s] [34mcolcon.colcon_core.task.python.build[0m [1;30mINFO[0m Building Python package in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/logging_system'
+[26.066s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[26.066s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[26.294s] [34mcolcon.colcon_core.task.python.build[0m [1;30mINFO[0m Building Python package in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/tf_helper'
+[26.294s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[26.294s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[26.629s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system': AMENT_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/build --no-deps symlink_data[0m
+[26.834s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper': AMENT_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/build --no-deps symlink_data[0m
+[26.993s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('logging_system', 'pythonpath_develop')
+[26.993s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/share/logging_system/hook/pythonpath_develop.ps1'
+[26.993s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system' returned '0': AMENT_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/build --no-deps symlink_data[0m
+[26.994s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/share/logging_system/hook/pythonpath_develop.dsv'
+[26.994s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/share/logging_system/hook/pythonpath_develop.sh'
+[26.995s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system' for CMake module files
+[26.995s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system' for CMake config files
+[26.995s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib'
+[26.995s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/bin'
+[26.995s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/pkgconfig/logging_system.pc'
+[26.995s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/python3.10/site-packages'
+[26.996s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('logging_system', 'pythonpath')
+[26.996s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/logging_system/hook/pythonpath.ps1'
+[26.996s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/logging_system/hook/pythonpath.dsv'
+[26.997s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/logging_system/hook/pythonpath.sh'
+[26.997s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/bin'
+[26.997s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(logging_system)
+[26.997s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/logging_system/package.ps1'
+[26.998s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/logging_system/package.dsv'
+[26.998s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/logging_system/package.sh'
+[26.998s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/logging_system/package.bash'
+[26.998s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/logging_system/package.zsh'
+[26.999s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/colcon-core/packages/logging_system)
+[27.159s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('tf_helper', 'pythonpath_develop')
+[27.159s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/share/tf_helper/hook/pythonpath_develop.ps1'
+[27.160s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper' returned '0': AMENT_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/build --no-deps symlink_data[0m
+[27.160s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/share/tf_helper/hook/pythonpath_develop.dsv'
+[27.161s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper/share/tf_helper/hook/pythonpath_develop.sh'
+[27.161s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper' for CMake module files
+[27.161s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper' for CMake config files
+[27.161s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib'
+[27.161s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/bin'
+[27.161s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/pkgconfig/tf_helper.pc'
+[27.161s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/python3.10/site-packages'
+[27.162s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('tf_helper', 'pythonpath')
+[27.162s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/tf_helper/hook/pythonpath.ps1'
+[27.162s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/tf_helper/hook/pythonpath.dsv'
+[27.162s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/tf_helper/hook/pythonpath.sh'
+[27.162s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/bin'
+[27.162s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(tf_helper)
+[27.163s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/tf_helper/package.ps1'
+[27.163s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/tf_helper/package.dsv'
+[27.163s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/tf_helper/package.sh'
+[27.163s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/tf_helper/package.bash'
+[27.164s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/tf_helper/package.zsh'
+[27.164s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/share/colcon-core/packages/tf_helper)
+[27.164s] [34mcolcon.colcon_ros.task.ament_python.build[0m [1;30mINFO[0m Building ROS package in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/planning_centerline_calc_MIX' with build type 'ament_python'
+[27.164s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('planning_centerline_calc', 'ament_prefix_path')
+[27.164s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/hook/ament_prefix_path.ps1'
+[27.165s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/hook/ament_prefix_path.dsv'
+[27.165s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/hook/ament_prefix_path.sh'
+[27.166s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[27.166s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[27.169s] [34mcolcon.colcon_ros.task.ament_python.build[0m [1;30mINFO[0m Building ROS package in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/planning_deep_learning' with build type 'ament_python'
+[27.170s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('planning_deep_learning', 'ament_prefix_path')
+[27.170s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/planning_deep_learning/hook/ament_prefix_path.ps1'
+[27.171s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/planning_deep_learning/hook/ament_prefix_path.dsv'
+[27.171s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/planning_deep_learning/hook/ament_prefix_path.sh'
+[27.171s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[27.172s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[27.631s] [34mcolcon.colcon_core.task.python.build[0m [1;30mINFO[0m Building Python package in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/planning_centerline_calc_MIX'
+[27.632s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[27.632s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[27.907s] [34mcolcon.colcon_core.task.python.build[0m [1;30mINFO[0m Building Python package in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/src/planning_deep_learning'
+[27.908s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[27.908s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[28.527s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc': AMENT_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/build --no-deps symlink_data[0m
+[28.908s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning': AMENT_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/build --no-deps symlink_data[0m
+[29.166s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('planning_centerline_calc', 'pythonpath_develop')
+[29.167s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/share/planning_centerline_calc/hook/pythonpath_develop.ps1'
+[29.168s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc' returned '0': AMENT_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/build --no-deps symlink_data[0m
+[29.169s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/share/planning_centerline_calc/hook/pythonpath_develop.dsv'
+[29.169s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_centerline_calc/share/planning_centerline_calc/hook/pythonpath_develop.sh'
+[29.170s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc' for CMake module files
+[29.171s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc' for CMake config files
+[29.171s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/lib'
+[29.172s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/bin'
+[29.172s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/lib/pkgconfig/planning_centerline_calc.pc'
+[29.172s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/lib/python3.10/site-packages'
+[29.172s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('planning_centerline_calc', 'pythonpath')
+[29.173s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/hook/pythonpath.ps1'
+[29.173s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/hook/pythonpath.dsv'
+[29.174s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/hook/pythonpath.sh'
+[29.175s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/bin'
+[29.175s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(planning_centerline_calc)
+[29.175s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/package.ps1'
+[29.176s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/package.dsv'
+[29.177s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/package.sh'
+[29.177s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/package.bash'
+[29.178s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/planning_centerline_calc/package.zsh'
+[29.178s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_centerline_calc/share/colcon-core/packages/planning_centerline_calc)
+[29.467s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('planning_deep_learning', 'pythonpath_develop')
+[29.468s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/share/planning_deep_learning/hook/pythonpath_develop.ps1'
+[29.470s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning' returned '0': AMENT_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/tf_helper:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/tf_helper/lib/python3.10/site-packages:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/asurt_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/build --no-deps symlink_data[0m
+[29.470s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/share/planning_deep_learning/hook/pythonpath_develop.dsv'
+[29.471s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/planning_deep_learning/share/planning_deep_learning/hook/pythonpath_develop.sh'
+[29.472s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning' for CMake module files
+[29.472s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning' for CMake config files
+[29.472s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/lib'
+[29.472s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/bin'
+[29.472s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/lib/pkgconfig/planning_deep_learning.pc'
+[29.472s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/lib/python3.10/site-packages'
+[29.472s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('planning_deep_learning', 'pythonpath')
+[29.473s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/planning_deep_learning/hook/pythonpath.ps1'
+[29.473s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/planning_deep_learning/hook/pythonpath.dsv'
+[29.473s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/planning_deep_learning/hook/pythonpath.sh'
+[29.474s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/bin'
+[29.474s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(planning_deep_learning)
+[29.475s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/planning_deep_learning/package.ps1'
+[29.476s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/planning_deep_learning/package.dsv'
+[29.476s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/planning_deep_learning/package.sh'
+[29.476s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/planning_deep_learning/package.bash'
+[29.476s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/planning_deep_learning/package.zsh'
+[29.477s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/planning_deep_learning/share/colcon-core/packages/planning_deep_learning)
+[29.477s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mclosing loop[0m
+[29.477s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mloop closed[0m
+[29.477s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mrun_until_complete finished with '0'[0m
+[29.478s] [34mcolcon.colcon_core.event_reactor[0m [1;30mDEBUG[0m [32mjoining thread[0m
+[29.626s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[29.626s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[29.626s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[29.626s] [34mcolcon.colcon_notification.desktop_notification[0m [1;30mINFO[0m Sending desktop notification using 'notify2'
+[29.632s] [34mcolcon.colcon_notification.desktop_notification.notify2[0m [1;30mDEBUG[0m [32mFailed to initialize notify2: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.Notifications was not provided by any .service files[0m
+[29.632s] [34mcolcon.colcon_core.event_reactor[0m [1;30mDEBUG[0m [32mjoined thread[0m
+[29.633s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/local_setup.ps1'
+[29.634s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix util module '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/_local_setup_util_ps1.py'
+[29.636s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/setup.ps1'
+[29.637s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/local_setup.sh'
+[29.639s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix util module '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/_local_setup_util_sh.py'
+[29.640s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/setup.sh'
+[29.641s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/local_setup.bash'
+[29.642s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/setup.bash'
+[29.643s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/local_setup.zsh'
+[29.644s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/setup.zsh'

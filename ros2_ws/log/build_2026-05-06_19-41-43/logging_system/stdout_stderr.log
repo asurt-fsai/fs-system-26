@@ -1,0 +1,27 @@
+running develop
+running egg_info
+creating logging_system.egg-info
+writing logging_system.egg-info/PKG-INFO
+writing dependency_links to logging_system.egg-info/dependency_links.txt
+writing entry points to logging_system.egg-info/entry_points.txt
+writing requirements to logging_system.egg-info/requires.txt
+writing top-level names to logging_system.egg-info/top_level.txt
+writing manifest file 'logging_system.egg-info/SOURCES.txt'
+reading manifest file 'logging_system.egg-info/SOURCES.txt'
+writing manifest file 'logging_system.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/python3.10/site-packages/logging-system.egg-link (link to .)
+Installing logger_node script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/logging_system
+Installing resource_monitor script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/logging_system
+Installing rosout_monitor script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/logging_system
+Installing topic_monitor script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/lib/logging_system
+
+Installed /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system
+running symlink_data
+creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/ament_index
+creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/ament_index/resource_index
+creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/ament_index/resource_index/packages
+symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/resource/logging_system -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/ament_index/resource_index/packages
+symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/package.xml -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/logging_system
+creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/logging_system/launch
+symbolically linking /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/logging_system/launch/logging_launch.py -> /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/logging_system/share/logging_system/launch

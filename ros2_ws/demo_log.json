@@ -1,0 +1,15 @@
+{"timestamp": 1777562000.0, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 11.2, "pid": 1001, "threshold": 10.0}}
+{"timestamp": 1777562003.0, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 7.1, "pid": 1001, "threshold": 10.0}}
+{"timestamp": 1777562006.0, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 11.6, "pid": 1001, "threshold": 10.0}}
+{"timestamp": 1777562009.0, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 8.9, "pid": 1001, "threshold": 10.0}}
+{"timestamp": 1777562012.0, "severity": "WARN", "category": "TOPIC_HEALTH", "event_type": "LOW_FREQ", "source": "topic_monitor", "details": {"topic": "/perception_markers", "freq": 0.0, "expected": 10}}
+{"timestamp": 1777562015.0, "severity": "WARN", "category": "TOPIC_HEALTH", "event_type": "LOW_FREQ", "source": "topic_monitor", "details": {"topic": "/topic2", "freq": 0.0, "expected": 10}}
+{"timestamp": 1777562018.0, "severity": "ERROR", "category": "TOPIC_HEALTH", "event_type": "NODE_CRASH", "source": "topic_monitor", "details": {"topic": "/topic2", "silence_seconds": 2.82, "timeout": 2.0}}
+{"timestamp": 1777562022.0, "severity": "WARN", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_START", "source": "SYSTEM", "details": {"power": 30.28, "threshold": 30.0}}
+{"timestamp": 1777562025.0, "severity": "INFO", "category": "RESOURCES", "event_type": "XAVIER_HIGH_POWER_STOP", "source": "SYSTEM", "details": {"power": 29.96, "threshold": 30.0}}
+{"timestamp": 1777562030.0, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "conversion_node", "details": {"cpu": 11.0, "pid": 2002, "threshold": 10.0}}
+{"timestamp": 1777562033.0, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 12.1, "pid": 1001, "threshold": 10.0}}
+{"timestamp": 1777562036.0, "severity": "INFO", "category": "RESOURCES", "event_type": "HIGH_CPU_STOP", "source": "dl_node", "details": {"cpu": 9.3, "pid": 1001, "threshold": 10.0}}
+{"timestamp": 1777562039.0, "severity": "WARN", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_START", "source": "SYSTEM", "details": {"cpu": 81.2, "threshold": 80.0}}
+{"timestamp": 1777562042.0, "severity": "INFO", "category": "RESOURCES", "event_type": "OVERALL_HIGH_CPU_STOP", "source": "SYSTEM", "details": {"cpu": 19.2, "threshold": 80.0}}
+{"timestamp": 1777562045.0, "severity": "WARN", "category": "RESOURCES", "event_type": "HIGH_CPU_START", "source": "dl_node", "details": {"cpu": 10.6, "pid": 1001, "threshold": 10.0}}

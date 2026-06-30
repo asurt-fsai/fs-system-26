@@ -1,0 +1,6 @@
+[console_scripts]
+logger_node = logging_system.logger_node:main
+resource_monitor = logging_system.resource_monitor:main
+rosout_monitor = logging_system.rosout_monitor:main
+topic_monitor = logging_system.topic_monitor:main
+

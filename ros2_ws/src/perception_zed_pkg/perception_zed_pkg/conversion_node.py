@@ -4,6 +4,7 @@ from zed_msgs.msg import ObjectsStamped
 from asurt_msgs.msg import LandmarkArray, Landmark
 from visualization_msgs.msg import MarkerArray, Marker
 import math
+from std_msgs.msg import Bool
 
 # Constants for cone types
 BLUE_CONE = 0
@@ -27,6 +28,13 @@ class Zed_to_Landmark(Node):
         # Publisher for MarkerArray visualization
         self.marker_publisher = self.create_publisher(MarkerArray, "/perception_markers", 10)
         self.message_count = 0
+
+        # Publisher for supervisor
+        self.orange_gate_pub = self.create_publisher(
+            Bool,
+            '/orange_gate_detected',
+            10
+        )
 
     def listener_callback(self, msg):
         # Convert each detected object to Landmark format and publish a LandmarkArray
@@ -54,6 +62,12 @@ class Zed_to_Landmark(Node):
             marker.header = msg.header
             marker_array.markers.append(marker)
 
+        ## Orange Cones detection for supervisor ##
+        detected = self.detect_orange_gate(landmark_array)
+        gate_msg = Bool()
+        gate_msg.data = detected
+        self.orange_gate_pub.publish(gate_msg)
+        
         self.landmarks_publisher.publish(landmark_array)
         self.marker_publisher.publish(marker_array)
         self.message_count += 1
@@ -153,7 +167,35 @@ class Zed_to_Landmark(Node):
         marker.color.a = 1.0  # Alpha
 
         return marker
+    
 
+    def detect_orange_gate(self, cone_array):
+
+        left_found = False
+        right_found = False
+
+        for cone in cone_array.landmarks:
+
+            if cone.type != cone.LARGE_CONE:
+                continue
+
+            distance = math.hypot(
+                cone.position.x,
+                cone.position.y
+            )
+
+            if distance > 3.0:
+                continue
+
+            if cone.position.y > 0.5:
+                left_found = True
+
+            if cone.position.y < -0.5:
+                right_found = True
+
+        return left_found and right_found
+
+    
 def main(args=None):
     rclpy.init(args=args)
 
