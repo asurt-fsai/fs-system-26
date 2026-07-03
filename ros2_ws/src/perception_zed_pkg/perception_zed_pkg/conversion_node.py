@@ -4,7 +4,7 @@ from zed_msgs.msg import ObjectsStamped
 from asurt_msgs.msg import LandmarkArray, Landmark
 from visualization_msgs.msg import MarkerArray, Marker
 import math
-from std_msgs.msg import Bool
+from std_msgs.msg import Bool, Float32
 
 # Constants for cone types
 BLUE_CONE = 0
@@ -29,6 +29,16 @@ class Zed_to_Landmark(Node):
         self.marker_publisher = self.create_publisher(MarkerArray, "/perception_markers", 10)
         self.message_count = 0
 
+        # distance topic to prevent orange cones duplicate detections
+        self.pose_sub = self.create_subscription(
+            Float32,
+            '/slam/distance',
+            self.distance_callback,
+            10
+        )
+        self.travelled_distance = 0.0
+        self.last_gate_seen_distance = 0.0
+        self.orange_gate_last_seen = False
         # Publisher for supervisor
         self.orange_gate_pub = self.create_publisher(
             Bool,
@@ -65,13 +75,21 @@ class Zed_to_Landmark(Node):
         ## Orange Cones detection for supervisor ##
         detected = self.detect_orange_gate(landmark_array)
         gate_msg = Bool()
-        gate_msg.data = detected
-        self.orange_gate_pub.publish(gate_msg)
-        
+
+        if detected and not self.orange_gate_last_seen:
+            gate_msg.data = True
+            self.orange_gate_pub.publish(gate_msg)
+            self.orange_gate_last_seen = True
+            self.get_logger().info("Orange Cone Gate Detected")
+        elif not detected and self.orange_gate_last_seen:
+            gate_msg.data = False
+            self.orange_gate_pub.publish(gate_msg)
+            self.orange_gate_last_seen = False
+
         self.landmarks_publisher.publish(landmark_array)
         self.marker_publisher.publish(marker_array)
         self.message_count += 1
-        self.get_logger().info(f"Published LandmarkArray and MarkerArray from message {self.message_count}, total landmarks stored: {len(landmark_array.landmarks)}")
+        #self.get_logger().info(f"Published LandmarkArray and MarkerArray from message {self.message_count}, total landmarks stored: {len(landmark_array.landmarks)}")
 
 
     def convert_object_to_landmark(self, obj):
@@ -94,10 +112,10 @@ class Zed_to_Landmark(Node):
             type_ = BLUE_CONE
         elif 'yellow' in label:
             type_ = YELLOW_CONE
-        elif 'orange' in label:
-            type_ = ORANGE_CONE
         elif 'large' in label:
             type_ = LARGE_CONE
+        elif 'orange' in label:
+            type_ = ORANGE_CONE
         else:
             type_ = CONE_TYPE_UNKNOWN
 
@@ -155,43 +173,55 @@ class Zed_to_Landmark(Node):
             marker.color.r = 1.0
             marker.color.g = 0.65
             marker.color.b = 0.0
-        elif 'large' in label:
-            marker.color.r = 0.5
-            marker.color.g = 0.5
-            marker.color.b = 0.5
         else:
             marker.color.r = 1.0
             marker.color.g = 1.0
             marker.color.b = 1.0
-
+            
+        if 'large' in label:   ###### large orange -> Grey
+            marker.color.r = 0.5
+            marker.color.g = 0.5
+            marker.color.b = 0.5
+        
+        
         marker.color.a = 1.0  # Alpha
 
         return marker
     
+    def distance_callback(self, msg):
+        self.travelled_distance = float(msg.data)
+
 
     def detect_orange_gate(self, cone_array):
 
         left_found = False
         right_found = False
 
+        # only detect a new gate after travelling far enough from the last seen gate
+        if self.last_gate_seen_distance is not None:
+            distance_since_last_gate = self.travelled_distance - self.last_gate_seen_distance
+            if distance_since_last_gate < 5.0:
+                return False
+        
         for cone in cone_array.landmarks:
 
             if cone.type != cone.LARGE_CONE:
                 continue
-
+            
             distance = math.hypot(
                 cone.position.x,
                 cone.position.y
             )
-
-            if distance > 3.0:
+            if distance > 4.0:
                 continue
 
             if cone.position.y > 0.5:
                 left_found = True
+                #self.get_logger().info(f"left cone found")
 
             if cone.position.y < -0.5:
                 right_found = True
+                #self.get_logger().info(f"right cone found")
 
         return left_found and right_found
 

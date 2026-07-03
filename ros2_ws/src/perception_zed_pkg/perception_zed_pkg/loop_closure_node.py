@@ -53,13 +53,13 @@ class OdomLoopClosureNode(Node):
 
         self.distance_pub = self.create_publisher(
             Float32,
-            '/supervisor_distance',
+            '/slam/distance',
             10
         )
 
         self.loop_closure_pub = self.create_publisher(
             Bool,
-            '/odom_loop_closure',
+            '/loop_closure_flag',
             10
         )
 

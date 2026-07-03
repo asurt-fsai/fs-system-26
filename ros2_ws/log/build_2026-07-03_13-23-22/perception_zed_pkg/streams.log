@@ -1,0 +1,18 @@
+[0.544s] Invoking command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg': PYTHONPATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg/build --no-deps symlink_data
+[0.704s] running develop
+[0.808s] running egg_info
+[0.808s] writing perception_zed_pkg.egg-info/PKG-INFO
+[0.809s] writing dependency_links to perception_zed_pkg.egg-info/dependency_links.txt
+[0.809s] writing entry points to perception_zed_pkg.egg-info/entry_points.txt
+[0.809s] writing requirements to perception_zed_pkg.egg-info/requires.txt
+[0.809s] writing top-level names to perception_zed_pkg.egg-info/top_level.txt
+[0.810s] reading manifest file 'perception_zed_pkg.egg-info/SOURCES.txt'
+[0.811s] writing manifest file 'perception_zed_pkg.egg-info/SOURCES.txt'
+[0.845s] running build_ext
+[0.845s] Creating /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/lib/python3.10/site-packages/perception-zed-pkg.egg-link (link to .)
+[0.846s] Installing conversion_node script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/lib/perception_zed_pkg
+[0.846s] Installing loop_closure_node script to /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/lib/perception_zed_pkg
+[0.846s] 
+[0.846s] Installed /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg
+[0.846s] running symlink_data
+[0.866s] Invoked command in '/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg' returned '0': PYTHONPATH=/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/install/perception_zed_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ayasx9/FSAI26/perception_deep_logging/ros2_ws/build/perception_zed_pkg/build --no-deps symlink_data
