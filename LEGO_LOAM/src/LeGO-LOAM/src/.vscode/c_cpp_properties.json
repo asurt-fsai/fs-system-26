@@ -1,0 +1,29 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/ahmedmahmoud/test_real/install/velodyne_pointcloud/include/**",
+        "/home/ahmedmahmoud/test_real/install/velodyne_driver/include/**",
+        "/home/ahmedmahmoud/test_real/install/velodyne_msgs/include/**",
+        "/home/ahmedmahmoud/test_real/install/velodyne_laserscan/include/**",
+        "/home/ahmedmahmoud/test_real/install/cloud_msgs/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/ahmedmahmoud/test_real/src/LeGO-LOAM-SR_New/LeGO-LOAM-SR/LeGO-LOAM/include/**",
+        "/home/ahmedmahmoud/test_real/src/velodyne/velodyne_driver/include/**",
+        "/home/ahmedmahmoud/test_real/src/velodyne/velodyne_laserscan/include/**",
+        "/home/ahmedmahmoud/test_real/src/velodyne/velodyne_pointcloud/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

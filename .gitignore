@@ -1,0 +1,19 @@
+# Ignore all ROS 2 bag directories/files
+*bags/
+*.bag
+
+# Ignore all zip archives
+*.zip
+
+# Ignore log directories
+logs/
+
+# Optional: Ignore build/install artifacts if any sneak in later
+build/
+install/
+log/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd

@@ -1,0 +1,23 @@
+simple_pure_pursuit_node:
+  ros__parameters:
+    control:
+      look_ahead_constant: 3.0    #5.0
+      cmd: "/ackr"
+      marker_viz: "marker_viz"
+      # frame_id: "base_link"
+      #frame_id: "Cam_F"
+      #frame_id: "Fr1A"
+      frame_id: "zed_left_camera_frame"
+
+    planning:
+      waypoints_clean: "/path"
+      #waypoints_clean: "/csvtopath"
+
+    physical:
+      car_base_length: 2.7 
+    
+    speed_target: 12.0 #4
+    rate: 10
+
+
+    

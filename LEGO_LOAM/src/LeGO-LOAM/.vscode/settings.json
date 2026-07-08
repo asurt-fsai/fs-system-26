@@ -1,0 +1,18 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/ahmedmahmoud/test_real/install/velodyne_msgs/local/lib/python3.10/dist-packages",
+        "/home/ahmedmahmoud/test_real/install/distance_evaluator/lib/python3.10/site-packages",
+        "/home/ahmedmahmoud/test_real/install/distance_comparator/lib/python3.10/site-packages",
+        "/home/ahmedmahmoud/test_real/install/cloud_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/ahmedmahmoud/test_real/install/velodyne_msgs/local/lib/python3.10/dist-packages",
+        "/home/ahmedmahmoud/test_real/install/distance_evaluator/lib/python3.10/site-packages",
+        "/home/ahmedmahmoud/test_real/install/distance_comparator/lib/python3.10/site-packages",
+        "/home/ahmedmahmoud/test_real/install/cloud_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

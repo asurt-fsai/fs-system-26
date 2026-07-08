@@ -1,0 +1,7 @@
+StaticB_Node:
+    ros__parameters:
+      maxSteer: 27.2
+      '/ackr': '/ackr'
+      '/finisher/is_finished': '/finisher/is_finished'
+      '/ros_can/ebs': '/ros_can/ebs'
+      '/supervisor/driving_flag': '/state_machine/driving_flag'

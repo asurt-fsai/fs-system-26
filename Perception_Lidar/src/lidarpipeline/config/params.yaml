@@ -1,0 +1,55 @@
+lidar_processor_node:
+  ros__parameters:
+
+    # Algorithm: 'box' uses the original axis-aligned bounds filter.
+    #            'lut' uses the LUT corridor filter (builds from cone detections).
+    filter_algorithm: 'lut'
+
+    # Shared spatial / RANSAC parameters (used by both algorithms)
+    x: [0.0, 8.0]
+    y: [-4.0, 8.0]
+    z: [-2.0, 2.0]
+
+    car_x: [-1.0, 1.0]
+    car_y: [-0.5, 0.5]
+
+    ground_level: 0.2
+    point_num: 10
+    distance_threshold: 0.06
+    ransac_n: 3
+    num_iterations: 200
+    horizontal_plane_gradient: 0.8
+
+    voxel_size: 0.03
+
+    # Clustering
+    cluster_distance_threshold: 0.2
+    cluster_min_size: 2
+    cluster_max_size: 100
+
+    # LUT filter — spatial bounds
+    lut_max_distance: 20.0
+    lut_z: [-2.0, 2.0]
+
+    # LUT filter — cone gating
+    lut_max_cone_lateral: 2.5
+    lut_max_track_half_width: 2.0
+
+    # LUT filter — cone classifier used ONLY for corridor building
+    # Tune these independently from the final classification classifier.
+    lut_cone_radius: 0.1
+    lut_cone_height: 0.3
+    lut_min_cone_points: 5
+    lut_l2_loss_threshold: 0.05
+    lut_lin_loss_percentage: 0.1
+
+    # LUT building
+    lut_resolution: 0.1
+    lut_ema_alpha: 0.2
+    lut_max_width_change: 0.2
+    lut_tolerance_multiplier: 5.0
+
+    # LUT corridor filtering margins
+    lut_filter_margin: 1.5
+    lut_filter_x_margin_before: 1.0
+    lut_filter_x_margin_after: 2.0

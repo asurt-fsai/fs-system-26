@@ -1,0 +1,66 @@
+# planning_node:
+#   ros__parameters:
+#     planning:
+#       topics:
+#         frame_id: "Fr1A"
+
+#         pathTopic: "/path"
+#         odometryTopic: "/carmaker/Odometry"
+#         conesTopic: "/carmaker/ObjectList"
+
+#       sorting:
+#         thresholdDirectionalAngle: 45.0 # 45.0 degree
+#         thresholdAbsoluteAngle: 60.0 #60.0 degree
+#         maxNNeighbors: 5
+#         maxDist: 6.0 #6.0
+#         maxDistToFirst: 6.0
+#         maxLength: 15    # INTMax no. of cones 
+
+#       matching:
+#         minTrackWidth: 3.0
+#         maxSearchRange: 5.0
+#         maxSearchAngle: 50.0
+#         matchesShouldBeMonotonic: True
+
+#       path:
+#         maximalDistanceForValidPath: 5.0
+#         mpcPathLength: 15.0 
+#         mpcPredictionHorizon: 40
+      
+#       slice:
+#         radius: 20.0
+#         angle_deg: 150.0
+#===========================GLOBAL PARAMS=================================        
+local_planning_node:
+  ros__parameters:
+    use_sim_time: true
+    planning:
+      topics:
+        frame_id: "zed_left_camera_frame"
+
+        pathTopic: "/path"
+        odometryTopic: "/zed/zed_node/pose"
+        conesTopic: "/map/global_cones_markers"  #/carmaker/ObjectList #"/carmaker/Odometry"
+        ##/map/global_cones_markers
+      sorting:
+        thresholdDirectionalAngle: 60.0 # was 45.0 - relaxed for curved sections
+        thresholdAbsoluteAngle: 75.0 # was 60.0 - relaxed for curved sections
+        maxNNeighbors: 25
+        maxDist: 10.0 # was 6.0 - allow connecting further-apart cones
+        maxDistToFirst: 15.0 # was 12.0
+        maxLength: 50    # INTMax no. of cones 
+
+      matching:
+        minTrackWidth: 3.0
+        maxSearchRange: 5.0
+        maxSearchAngle: 50.0
+        matchesShouldBeMonotonic: True
+
+      path:
+        maximalDistanceForValidPath: 15.0
+        mpcPathLength: 40.0 
+        mpcPredictionHorizon: 40
+      
+      slice:
+        radius: 40.0
+        angle_deg: 210.0

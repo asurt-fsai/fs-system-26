@@ -1,0 +1,6 @@
+StaticA_Node:
+    ros__parameters:
+        maxSteer: 27.2
+        '/finisher/is_finished': '/finisher/is_finished'
+        '/supervisor/driving_flag': '/state_machine/driving_flag'
+        '/ackr': '/ackr'

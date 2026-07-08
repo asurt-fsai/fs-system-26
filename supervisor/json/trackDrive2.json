@@ -1,0 +1,13 @@
+{
+    "modules": [
+        {
+            "pkg": "adaptive_pure_pursuit",
+            "launch_file": "adaptivePurePursuit.launch.py",
+            "heartbeats_topic": "/status/adaptive_pure_pursuit",
+            "is_node_msg":true
+
+
+        }
+
+    ]
+}
