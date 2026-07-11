@@ -1,0 +1,11 @@
+mission_finisher:
+    ros__parameters:
+      '/slam/distance': '/slam/distance'
+      '/slam/loopClosure': '/loop_closure_flag'
+      '/supervisor/loopClosureCount' : '/supervisor/loopClosureCount'
+      '/perception/isOrangeCone': '/perception/isOrangeCone'
+      '/perception/isSmallOrangeCone': '/perception/isSmallOrangeCone'
+      '/finisher/is_finished': "/finisher/is_finished"
+      '/sleepTime': 10.0
+      '/acceleration_distance': 82.0
+      '/skidpad_finisher': '/skidpad_finisher'

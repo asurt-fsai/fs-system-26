@@ -1,0 +1,5 @@
+skidPadPathPlannerNode:
+  ros__parameters:
+    pathTopic: "/path"
+    conesTopic: "map/global_cones"
+    stateTopic: "/zed/zed_node/odom"

@@ -1,0 +1,7 @@
+Auto_demo_node:
+    ros__parameters:
+        maxSteer: 27.2
+        '/supervisor/driving_flag': '/state_machine/driving_flag'
+        '/ackr': '/ackr'
+        '/finisher/is_finished': "/finisher/is_finished"
+        '/ros_can/ebs': "/ros_can/ebs"

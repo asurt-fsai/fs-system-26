@@ -1,0 +1,8 @@
+acceleration_node:
+  ros__parameters:
+    acceleration:
+      topics:
+        frame_id: "base_link"
+        pathTopic: "/path"
+        odometryTopic: "/carmaker/Odometry"
+        conesTopic: "/carmaker/ObjectList"

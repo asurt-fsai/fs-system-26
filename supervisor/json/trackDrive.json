@@ -1,0 +1,44 @@
+{
+    "modules": [
+
+
+        {
+            "pkg": "perception_zed_pkg",
+            "launch_file": "perception_launch.py",
+            "heartbeats_topic": "/status/perception_camera_node",
+            "is_node_msg": true
+        },
+
+                {
+            "pkg": "adaptive_pure_pursuit",
+            "launch_file": "adaptive_pure_pursuit.launch.py",
+            "heartbeats_topic": "/status/adaptive_pure_pursuit",
+            "is_node_msg":true
+        },
+        {
+            "pkg": "cone_mapping",
+            "launch_file": "cone_mapping_launch.py",
+            "heartbeats_topic": "/status/cone_mapping",
+            "is_node_msg":true
+        },
+        {
+            "pkg": "planning_deep_learning",
+            "launch_file": "dl_node_single_launch.py",
+            "heartbeats_topic": "/status/planning_node",
+            "is_node_msg": true
+        },
+        {
+            "pkg": "lego_loam_sr",
+            "launch_file": "run.launch.py",
+            "heartbeats_topic": "/status/legoloam", 
+            "is_node_msg": true
+        }
+        
+        
+        
+
+        
+        
+    
+    ]
+}

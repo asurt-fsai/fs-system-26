@@ -1,0 +1,40 @@
+# ROS 2 Workspace Build Artifacts
+build/
+install/
+log/
+
+# ROS Bag Files (ROS 1 and ROS 2)
+*.db3
+*.mcap
+*.bag
+rosbag2_*/
+metadata.yaml
+
+# Python Artifacts
+_pycache_/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+develop-eggs/
+venv/
+.env
+
+# C++ / Compiled Binaries
+*.o
+*.so
+*.a
+*.out
+*.elf
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Ubuntu / OS Temporary Files
+.directory
+.Trash-*
+.nfs*

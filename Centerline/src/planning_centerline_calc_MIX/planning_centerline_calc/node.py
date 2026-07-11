@@ -1,0 +1,520 @@
+#!/usr/bin/env python3
+"""
+Path planning node
+This node is responsible for starting the path planning module
+"""
+
+import threading
+from typing import Any, List
+
+from matplotlib.ticker import MultipleLocator
+import rclpy
+from rclpy.node import Node
+from asurt_msgs.msg import LandmarkArray,Landmark
+from visualization_msgs.msg import MarkerArray, Marker
+from nav_msgs.msg import Odometry, Path
+from geometry_msgs.msg import Pose, PoseStamped
+import numpy as np
+from tf_transformations import euler_from_quaternion
+from tf_helper.StatusPublisher import StatusPublisher
+from tf_helper.TFHelper import TFHelper
+
+from src.full_pipeline.full_pipeline import PathPlanner, ParametersState
+from src.utils.cone_types import ConeTypes
+from src.types_file import FloatArray
+import matplotlib.pyplot as plt
+import csv
+
+class PlanningNode(Node): # pylint: disable=too-many-instance-attributes
+    """
+    A class representing a planning node.
+
+    This node is responsible for receiving data from perception and localization,
+    calculating a path based on the received data, and sending the path to control.
+
+    Attributes:
+        path (list): The calculated path.
+        cones (list): The positions of cones detected by perception.
+        carPosition (list): The position of the car.
+        carDirection (list): The direction of the car.
+        subscriber1 (Subscriber): The subscriber for receiving data from perception.
+        subscriber2 (Subscriber): The subscriber for receiving data from localization.
+        publisher (Publisher): The publisher for sending the calculated path.
+
+    Methods:
+        receive_from_perception: Receives data from perception.
+        receive_from_localization: Receives data from localization.
+        send_to_control: Sends the calculated path to control.
+    """
+
+    def __init__(self) -> None:
+        super().__init__("planning_node")
+        self.get_logger().info("Path Planner instantiated...jknjk")
+        self.path: FloatArray = np.zeros((0, 2))
+        self.cones: List[FloatArray] = [np.zeros((0, 2)) for _ in ConeTypes]
+        self.carPosition = np.array([0, 0])
+        self.carDirection = np.float_(0.0)
+
+        self.fig, self.ax = plt.subplots()
+        self.blue_scatter = self.ax.scatter([], [], c='blue', label='Blue Cones')
+        self.yellow_scatter = self.ax.scatter([], [], c='yellow', label='Yellow Cones')
+        self.path_line, = self.ax.plot([], [], 'r-', label='Path')  # red line
+        self.car_pos_plot = self.ax.plot([], [], 'ko', label='Car')[0]  # car position as black dot
+
+        self.ax.set_title("Path Planning Visualization")
+        self.ax.set_xlabel("X (m)")
+        self.ax.set_ylabel("Y (m)")
+        self.ax.grid(True)
+        handles, labels = self.ax.get_legend_handles_labels()
+        if labels:            # only if there’s at least one non‑underscore label
+            self.ax.legend()
+        #self.ax.legend()
+        plt.show(block=False)
+
+
+        self.publisher: rclpy.publisher.Publisher
+
+        self.declareParameters()
+        self.setParameters()
+        self.initPubAndSub()
+        
+
+
+        self.tfHelper = TFHelper(self)
+
+    def declareParameters(self) -> None:
+        """
+        Declare the parameters for the planning node.
+        """
+        self.declare_parameter(
+            "planning.sorting.thresholdDirectionalAngle", rclpy.Parameter.Type.DOUBLE
+            )
+        self.declare_parameter(
+            "planning.sorting.thresholdAbsoluteAngle", rclpy.Parameter.Type.DOUBLE
+            )
+        self.declare_parameter(
+            "planning.sorting.maxNNeighbors", rclpy.Parameter.Type.INTEGER
+            )
+        self.declare_parameter(
+            "planning.sorting.maxDist", rclpy.Parameter.Type.DOUBLE
+            )
+        self.declare_parameter(
+            "planning.sorting.maxDistToFirst", rclpy.Parameter.Type.DOUBLE
+            )
+        self.declare_parameter(
+            "planning.sorting.maxLength", rclpy.Parameter.Type.INTEGER
+            )
+
+        self.declare_parameter(
+            "planning.matching.minTrackWidth", rclpy.Parameter.Type.DOUBLE
+            )
+        self.declare_parameter(
+            "planning.matching.maxSearchRange", rclpy.Parameter.Type.DOUBLE
+            )
+        self.declare_parameter(
+            "planning.matching.maxSearchAngle", rclpy.Parameter.Type.DOUBLE
+            )
+        self.declare_parameter(
+            "planning.matching.matchesShouldBeMonotonic", rclpy.Parameter.Type.BOOL
+            )
+
+        self.declare_parameter(
+            "planning.path.maximalDistanceForValidPath", rclpy.Parameter.Type.DOUBLE
+            )
+        self.declare_parameter(
+            "planning.path.mpcPathLength", rclpy.Parameter.Type.DOUBLE
+            )
+        self.declare_parameter(
+            "planning.path.mpcPredictionHorizon", rclpy.Parameter.Type.INTEGER
+            )
+
+        self.declare_parameter("planning.topics.frame_id", rclpy.Parameter.Type.STRING)
+        self.declare_parameter("planning.topics.pathTopic", rclpy.Parameter.Type.STRING)
+        self.declare_parameter("planning.topics.odometryTopic", rclpy.Parameter.Type.STRING)
+        self.declare_parameter("planning.topics.conesTopic", rclpy.Parameter.Type.STRING)
+
+    def setParameters(self) -> None:
+        """
+        Get parameters from the parameter server and set them to their respective varibles
+        """
+        thresholdDirectionalAngle = (
+            np.deg2rad(
+                self.get_parameter(
+                    "planning.sorting.thresholdDirectionalAngle"
+                    ).get_parameter_value().double_value
+                )
+            )
+        thresholdAbsoluteAngle = (
+            np.deg2rad(
+                self.get_parameter(
+                    "planning.sorting.thresholdAbsoluteAngle"
+                    ).get_parameter_value().double_value
+                )
+            )
+        maxNNeighbors = (
+            self.get_parameter(
+                "planning.sorting.maxNNeighbors"
+                ).get_parameter_value().integer_value
+            )
+        maxDist = (
+            self.get_parameter(
+                "planning.sorting.maxDist"
+                ).get_parameter_value().double_value
+            )
+        maxDistToFirst = (
+            self.get_parameter(
+                "planning.sorting.maxDistToFirst"
+                ).get_parameter_value().double_value
+            )
+        maxLength = (
+            self.get_parameter(
+                "planning.sorting.maxLength"
+                ).get_parameter_value().integer_value
+            )
+
+        minTrackWidth = (
+            self.get_parameter(
+                "planning.matching.minTrackWidth"
+                ).get_parameter_value().double_value
+            )
+        maxSearchRange = (
+            self.get_parameter(
+                "planning.matching.maxSearchRange"
+                ).get_parameter_value().double_value
+            )
+        maxSearchAngle = (
+                np.deg2rad(
+                    self.get_parameter(
+                        "planning.matching.maxSearchAngle"
+                        ).get_parameter_value().double_value
+                    )
+            )
+        matchesShouldBeMonotonic = (
+            self.get_parameter(
+                "planning.matching.matchesShouldBeMonotonic"
+                ).get_parameter_value().bool_value
+            )
+
+        maximalDistanceForValidPath = (
+            self.get_parameter(
+                "planning.path.maximalDistanceForValidPath"
+                ).get_parameter_value().double_value
+            )
+        mpcPathLength = (
+            self.get_parameter(
+                "planning.path.mpcPathLength"
+                ).get_parameter_value().double_value
+            )
+        mpcPredictionHorizon = (
+            self.get_parameter(
+                "planning.path.mpcPredictionHorizon"
+                ).get_parameter_value().integer_value
+            )
+
+        self.params = ParametersState(
+            thresholdDirectionalAngle = thresholdDirectionalAngle,
+            thresholdAbsoluteAngle = thresholdAbsoluteAngle,
+            maxNNeighbors = maxNNeighbors,
+            maxDist = maxDist,
+            maxDistToFirst = maxDistToFirst,
+            maxLength = maxLength,
+
+            minTrackWidth = minTrackWidth,
+            maxSearchRange = maxSearchRange,
+            maxSearchAngle = maxSearchAngle,
+            matchesShouldBeMonotonic = matchesShouldBeMonotonic,
+
+            maximalDistanceForValidPath = maximalDistanceForValidPath,
+            mpcPathLength = mpcPathLength,
+            mpcPredictionHorizon = mpcPredictionHorizon
+        )
+
+        self.pathPlanner = PathPlanner(self.params)
+
+        self.frameId = (
+            self.get_parameter("planning.topics.frame_id").get_parameter_value().string_value
+        )
+
+    def initPubAndSub(self) -> None:
+        """
+        Initialize Publishers and subscribers for planning node
+
+        Parameters
+        ----------
+
+        pathTopic: str
+            The topic to publish the path
+        
+        odometryTopic: str
+            The topic to subscribe to the odometry information comming from SLAM
+
+        conesTopic: str
+            The topic to subscribe to the cones information comming from SLAM
+        """
+        pathTopic = (
+            self.get_parameter("planning.topics.pathTopic").get_parameter_value().string_value
+        )
+        odometryTopic = (
+            self.get_parameter("planning.topics.odometryTopic").get_parameter_value().string_value
+        )
+        conesTopic = (
+            self.get_parameter("planning.topics.conesTopic").get_parameter_value().string_value
+        )
+        self.publisher = self.create_publisher(Path, pathTopic, 10)
+        self.subscriber1 = self.create_subscription(
+            MarkerArray, conesTopic, self.receiveFromPerception, 10
+        )
+        # self.subscriber2 = self.create_subscription(
+        #     Odometry, odometryTopic, self.receiveFromLocalization, 10
+        # )
+
+    # def receiveFromPerception(self, msg: LandmarkArray) -> None:
+    #      """
+    #      Receives data from perception.
+
+    #      Args:
+    #          msg (LandmarkArray): The data received from perception.
+    #      """
+    #      # get cones_colors, cones_positions
+    #      msg = self.tfHelper.transformMsg(msg, self.frameId)
+    #      self.get_logger().info("Recieved")
+    #      self.cones = [np.zeros((0, 2)) for _ in ConeTypes]
+    #      for landmark in msg.markers:
+    #          if landmark.type == Landmark.BLUE_CONE:
+    #              self.cones[ConeTypes.BLUE] = np.vstack(
+    #                  (self.cones[ConeTypes.BLUE],
+    #                   np.array([landmark.pose.position.x,
+    #                             landmark.pose.position.y]))
+    #              )
+    #          elif landmark.type == Landmark.YELLOW_CONE:
+    #              self.cones[ConeTypes.YELLOW] = np.vstack(
+    #                  (self.cones[ConeTypes.YELLOW],
+    #                   np.array([landmark.pose.position.x,
+    #                             landmark.pose.position.y]))
+    #              )
+    #          else:
+    #              self.cones[ConeTypes.UNKNOWN] = np.vstack(
+    #                  (self.cones[ConeTypes.UNKNOWN],
+    #                   np.array([landmark.pose.position.x,
+    #                             landmark.pose.position.y]))
+    #              )
+    #      self.get_logger().info("Path Sent")
+    #      self.sendToControl()
+
+
+    def receiveFromPerception(self, msg: MarkerArray) -> None:
+        """
+        Receives data from perception in the form of a MarkerArray.
+    
+        Args:
+            msg (MarkerArray): The data received from perception.
+        """
+        # Transform the received message if necessary
+        #msg = self.tfHelper.transformMsg(msg, self.frameId)
+        #self.get_logger().info("Received MarkerArray")
+        self.cones = [np.zeros((0, 2)) for _ in ConeTypes]
+    
+        # total = len(msg.markers)
+        # msg.markers = msg.markers[:total//2]
+    
+        for marker in msg.markers:
+            r, g, b = marker.color.r, marker.color.g, marker.color.b
+            x, y = marker.pose.position.x, marker.pose.position.y
+    
+            # Skip white markers (possibly artifacts or ignored markers)
+            if r > 0.95 and g > 0.95 and b > 0.95:
+                #self.get_logger().info("\nSkipping white marker...\n")
+                continue
+    
+            # Determine cone type based on color
+            elif g > 0.8:  # Yellow Cone
+                # self.get_logger().info("\Yellow Cone\n")
+                cone_type = ConeTypes.YELLOW
+            elif b > 0.8 and g < 0.4 and r < 0.4:  # Blue Cone
+                cone_type = ConeTypes.BLUE
+                # self.get_logger().info("\Blue Cone\n")
+            elif marker.ns == "Large Orange Cone":  # Large Orange Cone
+                cone_type = ConeTypes.ORANGE_BIG
+            else:  # Unknown cone type
+                cone_type = ConeTypes.UNKNOWN
+                # self.get_logger().info("\nDakhalt Fel Unknown Zeft\n")
+    
+            # Append position to the corresponding cone type
+            self.cones[cone_type] = np.vstack((self.cones[cone_type], np.array([x, y])))
+    
+            # Append to global list
+            self.all_cones_xy.append((x, y, cone_type))
+    
+        # self.get_logger().info("Path Sent")
+        #self.get_logger().info(f" current cones Blue \n{np.array(self.cones[ConeTypes.BLUE]).shape}\n")
+        #self.get_logger().info(f" current cones Yellow\n{np.array(self.cones[ConeTypes.YELLOW]).shape}\n")
+        # self.carPosition = np.array([0,0])
+        # self.carDirection = 0.000
+        self.sendToControl()
+
+    def receiveFromLocalization(self, msg: Odometry) -> None:
+        """
+        Receives data from localization.
+
+        Args:
+            msg (Odometry): The data received from localization.
+        """
+        # get car_position, car_direction
+        pose = msg.pose.pose
+        orientationQ = pose.orientation
+        self.carPosition = np.array([pose.position.x, pose.position.y])
+        #self.carPosition = np.array([0,0])
+
+        orientationList = [orientationQ.x, orientationQ.y, orientationQ.z, orientationQ.w]
+        (_, _, yaw) = euler_from_quaternion(orientationList)
+        self.carDirection = yaw
+        #self.carDirection = 1.57
+
+
+
+    def sendToControl(self) -> None:
+        """
+        Sends the calculated path to control.
+        """
+        if self.carDirection is None:
+            return
+        self.path = self.pathPlanner.calculatePathInGlobalFrame(
+            vehiclePosition=np.array([0,0]), vehicleDirection=0.0, cones=self.cones
+        )
+        if self.path is not None:
+            timestamp = self.get_clock().now().to_msg()
+            path = Path()
+            path.header.stamp = timestamp
+            path.header.frame_id = self.frameId
+
+            for dataPoint in self.path:
+                pose = Pose()
+                pose.position.x = dataPoint[0]
+                pose.position.y = dataPoint[1]
+
+                poseStamped = PoseStamped()
+                poseStamped.pose = pose
+                poseStamped.header.stamp = timestamp
+                poseStamped.header.frame_id = self.frameId
+
+                path.poses.append(poseStamped)
+
+            self.publisher.publish(path)
+
+            # === Plotting ===
+
+            # # Update cones
+            # blue_cones = self.cones[ConeTypes.BLUE]
+            # yellow_cones = self.cones[ConeTypes.YELLOW]
+
+            # self.blue_scatter.set_offsets(blue_cones)
+            # self.yellow_scatter.set_offsets(yellow_cones)
+
+            # self.get_logger().info(f"Blue Cones: {len(self.cones[ConeTypes.BLUE])}")
+            # self.get_logger().info(f"Yellow Cones: {len(self.cones[ConeTypes.YELLOW])}")
+
+            # # Update path
+            # path_array = np.array(self.path)
+            # if path_array.size > 0:
+            #     self.path_line.set_data(path_array[:, 0], path_array[:, 1])
+            # else:
+            #     self.path_line.set_data([], [])
+
+            # # Update car position
+            # self.car_pos_plot.set_data([self.carPosition[0]], [self.carPosition[1]])
+
+            # self.ax.relim()
+            # self.ax.autoscale_view()
+            # self.fig.canvas.draw()
+            # self.fig.canvas.flush_events()
+            # plt.pause(0.001)  # non-blocking update   
+            self.ax.clear()
+
+            # Re-set labels, grid, legend after clearing
+            self.ax.set_title("Path Planning Visualization")
+            self.ax.set_xlabel("X (m)")
+            self.ax.set_ylabel("Y (m)")
+            self.ax.grid(True)
+            handles, labels = self.ax.get_legend_handles_labels()
+            if labels:            # only if there’s at least one non‑underscore label
+                self.ax.legend()
+        
+            #self.ax.legend()
+
+            # Plot cones as points
+            blue_cones = self.cones[ConeTypes.BLUE]
+            yellow_cones = self.cones[ConeTypes.YELLOW]
+
+            if blue_cones.shape[0] > 0:
+                self.ax.plot(blue_cones[:, 0], blue_cones[:, 1], 'bo', label='Blue Cones', markersize=3)
+                
+                for idx in range(len(blue_cones)):
+                    self.ax.annotate(f"{idx}", (blue_cones[idx, 0], blue_cones[idx, 1]), color='blue', fontsize=6)
+            
+            if yellow_cones.shape[0] > 0:
+                self.ax.plot(yellow_cones[:, 0], yellow_cones[:, 1], 'yo', label='Yellow Cones', markersize=3)
+                
+                for idx in range(len(yellow_cones)):
+                    self.ax.annotate(f"{idx}", (yellow_cones[idx, 0], yellow_cones[idx, 1]), color='orange', fontsize=6)
+
+            # Plot path as red line
+            path_array = np.array(self.path)
+            if path_array.size > 0:
+                self.ax.plot(path_array[:, 0], path_array[:, 1], 'r-', label='Path')
+
+            # Plot car position as black dot
+            self.ax.plot(self.carPosition[0], self.carPosition[1], 'ko', label='Car')
+
+            self.ax.relim()
+            self.ax.autoscale_view()
+
+            self.fig.canvas.draw()
+            self.fig.canvas.flush_events()
+            plt.pause(0.001)
+
+    ######## Additional functions for debugging ########
+
+    def declare_cone_map(self):
+        self.all_cones_xy = []  # x, y, cone_type
+
+
+    def save_cone_map_to_csv(self, path="cone_map.csv"):
+        with open(path, mode="w", newline="") as file:
+            writer = csv.writer(file)
+            writer.writerow(["x", "y", "cone_type"])
+            for x, y, cone_type in self.all_cones_xy:
+                writer.writerow([x, y, cone_type])
+        self.get_logger().info(f"Saved full cone map to: {path}")
+
+
+
+
+def main() -> None:
+    """
+    Initializes ROS, creates PlanningNode, spins, & shuts down.
+    """
+    rclpy.init()
+    node = PlanningNode()
+    status = StatusPublisher("/status/planning_node", node)
+
+    status.starting()
+    node.declare_cone_map()
+
+    # Publish heartbeat to show the module is ready
+    status.ready()
+
+    # Main loop
+    # Spin in a seperate thread
+    # thread = threading.Thread(target=rclpy.spin, args=(node, ), daemon=True)
+    # thread.start()
+    rclpy.spin(node)
+    rate = node.create_rate(100)
+    while rclpy.ok():
+        rate.sleep()
+        # Publish heartbeat to show the module is running
+        status.running()
+    node.get_logger().info("ok")
+
+
+if __name__ == "__main__":
+    main()
