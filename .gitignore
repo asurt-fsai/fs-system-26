@@ -9,6 +9,7 @@ log/
 *.bag
 rosbag2_*/
 metadata.yaml
+bags/
 
 # Python Artifacts
 _pycache_/
@@ -38,3 +39,12 @@ venv/
 .directory
 .Trash-*
 .nfs*
+
+# ROS 2 Bags and Runtime Logs
+*.db3
+*.mcap
+log/
+logs/
+*.log
+rosbag2_*
+*.zip
