@@ -20,16 +20,30 @@ find_package(sensor_msgs REQUIRED)
 find_package(ackermann_msgs REQUIRED)
 find_package(eufs_msgs REQUIRED)
 
-# Make FS-AI-API
-add_custom_target(fs-ai-api ALL
-    COMMAND $(MAKE) -C ${PROJECT_SOURCE_DIR}/FS-AI-API/FS-AI_API -f makefile
+# =========================================================================
+# CHANGED: Removed the buggy external 'add_custom_target' Makefile runner
+# and replaced it with a native CMake static library compilation.
+# =========================================================================
+add_library(fs_ai_api STATIC 
+    FS-AI-API/FS-AI_API/fs-ai_api.c
+    FS-AI-API/FS-AI_API/can.c
 )
+# Force Position Independent Code (vital for mixing C libraries with ROS 2 on ARM)
+set_target_properties(fs_ai_api PROPERTIES POSITION_INDEPENDENT_CODE ON)
+# =========================================================================
 
 # Create ros_can_node executable
 include_directories(include FS-AI-API/FS-AI_API)
 add_executable(ros_can_node src/ros_can.cpp)
-add_dependencies(ros_can_node fs-ai-api)
-target_link_libraries(ros_can_node ${PROJECT_SOURCE_DIR}/FS-AI-API/FS-AI_API/fs-ai_api.a)
+
+# =========================================================================
+# CHANGED: Removed 'add_dependencies(ros_can_node fs-ai-api)' 
+# and updated target_link_libraries to point to our native CMake target 
+# plus the threading library.
+# =========================================================================
+target_link_libraries(ros_can_node fs_ai_api pthread)
+# =========================================================================
+
 ament_target_dependencies(ros_can_node rclcpp tf2 tf2_ros std_srvs sensor_msgs std_msgs ackermann_msgs eufs_msgs)
 
 # Install executable

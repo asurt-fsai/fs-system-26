@@ -10,6 +10,7 @@ publishes the path sequentially.
 import os
 import math
 import numpy as np
+import matplotlib.pyplot as plt
 
 import rclpy
 from rclpy.node import Node
@@ -59,11 +60,16 @@ class PlanningDlNode(Node):
 
         # --- Cached state ----------------------------------------------------
         self.path = None
+        self.latest_cones = None
+
+        # --- Setup Visualization ---------------------------------------------
+        self.fig, self.ax = plt.subplots()
+        plt.show(block=False)
 
         # --- ROS pub/sub -----------------------------------------------------
         self.subscriber1 = self.create_subscription(
             MarkerArray,
-            "/perception_markers",
+            "/carmaker/ObjectList",
             self.receiveFromPerception,
             10,
         )
@@ -135,7 +141,7 @@ class PlanningDlNode(Node):
             # Nearest-first, max 10 cones
             visible_cones.sort(key=lambda item: item[0])
             MAX_CONES = 10
-            cones_features = [c[1] for c in visible_cones[:MAX_CONES]]
+            cones_features = [c[1] fo-r c in visible_cones[:MAX_CONES]]
 
             if len(cones_features) == 0:
                 return  # nothing to infer on
@@ -148,29 +154,68 @@ class PlanningDlNode(Node):
                 pad = np.zeros((MAX_CONES - len(cones_array), feature_dim), dtype=np.float32)
                 cones_array = np.concatenate([cones_array, pad], axis=0)
 
+            # Cache the latest input for plotting
+            self.latest_cones = cones_array
+
             # ── Synchronous Inference ────────────────────────────────────
             try:
                 # predict() runs sequentially, blocking the ROS thread until finished
                 result = self.model.predict(cones_array)
                 # predict() returns shape (1, 15, 2);  [0] → (15, 2)
                 self.path = result[0]
-                # self._publish_path()
+                
                 self._publish_path(incoming_stamp)
+                self.update_plot()
+                
             except Exception as e:
                 self.get_logger().error(f"Error during predict: {e}")
         finally:
             end_time = time.perf_counter()
             duration_ms = (end_time - start_time) * 1000.0
             self.time_duration.publish(Float64(data=duration_ms))
+
+    # ── Plotting ────────────────────────────────────────────────────
+    def update_plot(self):
+        if self.latest_cones is None or self.path is None:
+            return
+
+        self.ax.clear()
+        self.ax.set_title("Path Planning Live Tracking (Local Node)")
+        self.ax.set_xlabel("X (Local)")
+        self.ax.set_ylabel("Y (Forward)")
+        self.ax.grid(True)
+
+        # Plot cones
+        if self.is_colorless:
+            cones = self.latest_cones
+            if len(cones) > 0:
+                self.ax.plot(cones[:, 0], cones[:, 1], 'ko', markersize=6, label='Cones')
+        else:
+            blue_cones = self.latest_cones[self.latest_cones[:, 2] == 1.0][:, :2]
+            yellow_cones = self.latest_cones[self.latest_cones[:, 3] == 1.0][:, :2]
+            
+            if len(blue_cones) > 0:
+                self.ax.plot(blue_cones[:, 0], blue_cones[:, 1], 'bo', markersize=6, label='Blue Cones')
+            if len(yellow_cones) > 0:
+                self.ax.plot(yellow_cones[:, 0], yellow_cones[:, 1], 'yo', markersize=6, label='Yellow Cones')
+
+        # Plot predicted trajectory
+        self.ax.plot(self.path[:, 0], self.path[:, 1], 'r-', linewidth=2, label='Predicted Path')
+        self.ax.scatter(self.path[:, 0], self.path[:, 1], c='red', s=10) # Individual points
+
+        self.ax.legend(loc='upper right')
+        self.fig.canvas.draw()
+        self.fig.canvas.flush_events()
+        plt.pause(0.001)
+
     # ── Path publisher ──────────────────────────────────────────────
     def _publish_path(self, timestamp):
         if self.path is None:
             return
 
-        # timestamp = self.get_clock().now().to_msg()
         path_msg = Path()
         path_msg.header.stamp    = timestamp
-        path_msg.header.frame_id = "zed_left_camera_frame"
+        path_msg.header.frame_id = "Fr1A"
 
         for pt in self.path:
             pose = Pose()
@@ -181,7 +226,7 @@ class PlanningDlNode(Node):
             ps = PoseStamped()
             ps.pose = pose
             ps.header.stamp    = timestamp
-            ps.header.frame_id = "zed_left_camera_frame"
+            ps.header.frame_id = "Fr1A"
             path_msg.poses.append(ps)
 
         self.publisher.publish(path_msg)
@@ -206,7 +251,7 @@ def main(args=None):
     model_file = os.path.join(
         get_package_share_directory("planning_deep_learning"),
         "Completed_Models",
-        "best_model.engine",
+        "best-model-pov-2deg.engine",
     )
     node = PlanningDlNode(model_file)
 
