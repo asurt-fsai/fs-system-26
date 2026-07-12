@@ -10,8 +10,15 @@ Mimics the real C++ ros_can node:
   - Service /vcu_prev_state  → step AS state backward
   - Service /ros_can/ebs     → force AS_EBS immediately
 
+AS_READY → AS_DRIVING is always a manual step via /vcu_next_state — for both
+static missions (18/19, AutoDemo 15) and dynamic missions — so tests can
+control exactly when the vehicle starts driving instead of it happening as a
+side effect of receiving /state_machine/driving_flag. On the real car this
+step is instant for static missions (no driver — software Go IS the go
+signal) and gated on a physical driver/ASSI Go button for dynamic missions;
+the sim always requires the explicit trigger regardless of mission type.
+
 Auto-transitions (VCU-side decisions the sim reproduces):
-  - AS_READY → AS_DRIVING  : rising edge of /state_machine/driving_flag
   - AS_DRIVING → AS_FINISHED : mission_completed==True AND current_vel < 1.0 m/s
 
 Usage:
@@ -87,13 +94,8 @@ class VCUSimulator(Node):
     # ------------------------------------------------------------------
 
     def _on_driving_flag(self, msg: Bool) -> None:
-        rising_edge = msg.data and not self._driving_flag
-
-        # Rising edge while AS_READY → auto-advance to AS_DRIVING (VCU Go decision)
-        if rising_edge and self._as_state == 1:
-            self._as_state = 2
-            self.get_logger().info("[VCU] driving_flag rising edge -> AS_DRIVING")
-
+        # AS_READY -> AS_DRIVING is a manual step only (see /vcu_next_state) —
+        # receiving driving_flag never moves as_state on its own.
         # Flag latches true only while in AS_DRIVING; ignored/cleared in all other states
         self._driving_flag = msg.data and (self._as_state == 2)
         self.get_logger().info(f"[VCU] driving_flag={self._driving_flag}")

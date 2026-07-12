@@ -294,17 +294,12 @@ class Supervisor:
         driving_flag = False
         mission_flag = False
 
-        if self.currentState in (SuperState.WAITING, SuperState.LAUNCHING):
+        if self.currentState in (SuperState.WAITING, SuperState.LAUNCHING, SuperState.READY ):
             mission_flag = False
             driving_flag = False
 
-        elif self.currentState == SuperState.READY:
-            # AI modules ready — publish Go signal so VCU transitions AS_READY → AS_DRIVING.
-            # ros_can translates this into MISSION_RUNNING on the CAN bus; the VCU acts on that.
-            mission_flag = False
-            driving_flag = True
 
-        elif self.currentState in (SuperState.RUNNING, SuperState.STOPPING):
+        elif self.currentState in (SuperState.RUNNING, SuperState.STOPPING) and self.asState==2:
             mission_flag = False
             driving_flag = True
 
