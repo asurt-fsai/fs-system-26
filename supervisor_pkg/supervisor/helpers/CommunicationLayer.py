@@ -303,7 +303,7 @@ class CommunicationLayer(rclpy.node.Node):
         /mission_flag
         """
         #  Ackermann drive command
-        self._cmd_pub = self.create_publisher( AckermannDriveStamped, "/ackermann_cmd", 10)
+        self._cmd_pub = self.create_publisher( AckermannDriveStamped, "/cmd", 10)
 
         # Driving flag (enables autonomous driving)
         self._driving_flag_pub = self.create_publisher(Bool,"/state_machine/driving_flag",10)

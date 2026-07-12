@@ -271,7 +271,7 @@ def main(args=None):
     model_file = os.path.join(
         get_package_share_directory("planning_deep_learning"),
         "Completed_Models",
-        "best_model.engine",
+        "best_model_xavier.engine",
     )
     node = PlanningDlNode(model_file)
 
