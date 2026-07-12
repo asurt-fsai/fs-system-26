@@ -48,3 +48,11 @@ logs/
 *.log
 rosbag2_*
 *.zip
+
+# IDE, OS, and OS-transfer junk files
+*.nbc
+*.nbi
+*:Zone.Identifier
+*.Zone.Identifier
+.DS_Store
+Thumbs.db
