@@ -3,9 +3,9 @@
 
 
         {
-            "pkg": "perception_zed_pkg",
-            "launch_file": "perception_launch.py",
-            "heartbeats_topic": "/status/perception_camera_node",
+            "pkg": "lego_loam_sr",
+            "launch_file": "run.launch.py",
+            "heartbeats_topic": "/status/legoloam", 
             "is_node_msg": true
         },
         
@@ -17,14 +17,8 @@
         },
         
         {
-            "pkg": "cone_mapping",
-            "launch_file": "local_cone_mapping_launch.py",
-            "heartbeats_topic": "/status/cone_mapping_locally",
-            "is_node_msg":true
-        },
-        {
             "pkg": "planning_deep_learning",
-            "launch_file": "dl_node_single_launch.py",
+            "launch_file": "dl_node_global_launch.py",
             "heartbeats_topic": "/status/planning_node",
             "is_node_msg": true
         }

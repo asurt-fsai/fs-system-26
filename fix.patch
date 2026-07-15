@@ -1,0 +1,15 @@
+--- src/imageProjection.cpp
++++ src/imageProjection.cpp
+@@ -677,9 +677,9 @@
+     float cy = (min_y + max_y) / 2.0;
+     float cz = (min_z + max_z) / 2.0;
+ 
+-    centroid.x = cy;   // LiDAR y → Camera x
+-    centroid.y = cz;   // LiDAR z → Camera y
+-    centroid.z = cx;   // LiDAR x → Camera z
++    centroid.x = cx;
++    centroid.y = cy;
++    centroid.z = cz;
+     centroid.intensity = 0;
+ 
+     // Reject anything too far away (cones beyond 15m are unreliable)

@@ -36,7 +36,7 @@ class GlobalPlanningDlNode(Node):
         # Odom subscription
         self.odom_sub = self.create_subscription(
             Odometry,
-            "/zed/zed_node/odom",
+            "/aft_mapped_adjusted",
             self.odom_callback,
             10
         )
@@ -54,11 +54,11 @@ class GlobalPlanningDlNode(Node):
         self.conesList = None
 
         # Setup Visualization
-        # self.fig, self.ax = plt.subplots()
-        # plt.show(block=False)
+        self.fig, self.ax = plt.subplots()
+        plt.show(block=False)
         
         self.subscriber1 = self.create_subscription(
-            MarkerArray, "map/global_cones_markers", self.receiveFromPerception, 10)
+            MarkerArray, "/cone_map_marker", self.receiveFromPerception, 10)
         self.publisher = self.create_publisher(
             Path, "/path", 10)
 
@@ -106,8 +106,8 @@ class GlobalPlanningDlNode(Node):
             # ==========================================================
             # OLD BOX FOV (Commented out as requested)
             # y_model is forward distance, x_model is lateral distance
-            if y_model < 0.0 or y_model > 15.0 or x_model < - 4.0 or x_model > 4.0:
-                continue
+            # if y_model < 0.0 or y_model > 15.0 or x_model < - 4.0 or x_model > 4.0:
+            #     continue
             # ==========================================================
 
             # # Filter 1: 15-meter radius
@@ -131,7 +131,7 @@ class GlobalPlanningDlNode(Node):
                 continue
 
             if self.is_colorless:
-                if is_blue or is_yellow:
+                # if is_blue or is_yellow or is_white:
                     visible_cones.append((dist, [x_model, y_model]))
             else:
                 if is_blue:
@@ -217,7 +217,7 @@ class GlobalPlanningDlNode(Node):
             self.publisher.publish(path_msg)
             self.get_logger().info("--- FRAME END: Path Published ---\n")
             
-            # self.update_plot()
+            self.update_plot()
 
     def update_plot(self):
         self.ax.clear()
@@ -251,7 +251,7 @@ class GlobalPlanningDlNode(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    model_file = os.path.join(get_package_share_directory('planning_deep_learning'), 'Completed_Models', 'best_model.pt')        
+    model_file = os.path.join(get_package_share_directory('planning_deep_learning'), 'Completed_Models', 'colorless_0-14_0.3m_POV.pt')        
     node = GlobalPlanningDlNode(model_file)
     try:
         rclpy.spin(node)
