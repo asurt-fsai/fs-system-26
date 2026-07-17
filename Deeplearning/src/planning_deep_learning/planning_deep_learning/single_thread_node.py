@@ -123,9 +123,15 @@ class PlanningDlNode(Node):
                 is_blue   = b > 0.80 and g < 0.45 and r < 0.45
                 is_yellow = r > 0.70 and g > 0.70 and b < 0.45
 
+                if not is_blue and not is_yellow:
+                    if x_model > 0.0:
+                        is_yellow = True
+                    else:
+                        is_blue = True
+                        
                  # Identify orange cones 
-                is_small_orange = r > 0.90 and 0.55 < g < 0.75 and b < 0.10
-                is_large_orange = 0.40 < r < 0.60 and 0.40 < g < 0.60 and 0.40 < b < 0.60
+                is_small_orange = r == 1.0 and g == 0.65 and b == 0.0
+                is_large_orange = r == 0.5 and g == 0.5 and b == 0.5
                 is_orange = is_small_orange or is_large_orange
 
                 if is_white:
@@ -152,7 +158,7 @@ class PlanningDlNode(Node):
             is_empty = (len(visible_cones) == 0 and len(orange_cones) == 0)
             is_orange = (len(orange_cones) >= 1 and len(visible_cones) <= 2)
 
-            if is_orange or is_empty:
+            if  is_orange or is_empty:
                 override_path = []
                 
                 # Much faster, no unnecessary odometry math required.

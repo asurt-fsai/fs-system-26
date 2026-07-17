@@ -24,7 +24,10 @@ setup(
     tests_require=["pytest"],
     entry_points={
         "console_scripts": [
-            "SkidPadPathPlannerNode = planning_skidpad.path_gen:main",
+            "SkidPadPathPlannerNode = planning_skidpad.skidpad_node:main",
+            "skidpad_node = planning_skidpad.skidpad_node:main",
+            "skidpad_simulator = planning_skidpad.skidpad_simulator:main",
+            "skidpad_hardcoded_planner = planning_skidpad.skidpad_hardcoded_planner:main",
         ],
     },
 )

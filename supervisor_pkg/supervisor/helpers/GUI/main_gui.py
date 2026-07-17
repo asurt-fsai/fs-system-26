@@ -1,6 +1,7 @@
 import tkinter as tk
 import logging
 import os
+import signal
 import threading
 
 import rclpy
@@ -991,13 +992,28 @@ class MainGUI:
             self.state_machine_panel.shutdown()
         self.root.destroy()
 
+    def _heartbeat(self):
+        # Recurring no-op tick so Tkinter's C event loop regularly returns
+        # control to the Python interpreter, which is required for pending
+        # OS signals (SIGINT/SIGTERM from `ros2 launch`) to be noticed
+        # promptly. Without this, mainloop() can block long enough that
+        # launch escalates to SIGTERM before we ever get to shut down.
+        self.root.after(200, self._heartbeat)
+
 
 def main():
     logging.basicConfig(level=logging.INFO)
     root = tk.Tk()
     app = MainGUI(root)
 
+    def _handle_signal(_signum, _frame):
+        root.after(0, app.on_close)
+
+    signal.signal(signal.SIGINT, _handle_signal)
+    signal.signal(signal.SIGTERM, _handle_signal)
+
     root.protocol("WM_DELETE_WINDOW", app.on_close)
+    app._heartbeat()
     root.mainloop()
 
 if __name__ == "__main__":

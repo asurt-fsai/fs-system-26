@@ -58,6 +58,12 @@ class Module:
             return False
 
         self.logger.info(f"[MODULE] Launching {self.pkg}")
+
+        # Give control modules extra time for upstream nodes (e.g. camera/odometry) to start
+        if "adaptive" in self.pkg.lower():
+            self.logger.info(f"[MODULE] {self.pkg} is a control module, waiting 5 seconds before launch.")
+            time.sleep(7.0)
+
         # record the start time for startup timeout checks
         self.startTime = time.time()
 

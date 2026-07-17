@@ -3,25 +3,25 @@ Controller:
     time_step: 0.1
 
     speed:
-      maximum: 2.5
+      maximum: 3.5
 
-      minimum: 0.3
+      minimum: 1.0
 
     gains:
-      proportional: 2.5
+      proportional: 2.6
 
       integral: 0.0
 
-      differential: 0.3
+      differential: 2.3
       #lookAhead: 0.22
-      lookAhead: 2.2
+      lookAhead: 1.7
       #lookAhead: 0.3
 
     constants:
       # speed: 17.73
-      speed: 2.0
+      speed: 0.15
       #lookahead: 0.4
-      lookahead: 2.8
+      lookahead: 1.8
       #lookahead: 10.0 ew3a tgrbha_ana hzrtk
 
     drive: "/ackr"

@@ -1,5 +1,25 @@
 skidPadPathPlannerNode:
   ros__parameters:
     pathTopic: "/path"
-    conesTopic: "map/global_cones"
+    conesTopic: "/perception_markers"
     stateTopic: "/zed/zed_node/odom"
+
+skidpad_global_planning_dl:
+  ros__parameters:
+    skidpad_mode: true
+    skidpad_origin_x: 15.0
+    skidpad_origin_y: 0.0
+    skidpad_radius: 9.125
+    skidpad_dead_zone: 0.0
+
+skidpad_hardcoded_planner:
+  ros__parameters:
+    origin_x: 15.0
+    origin_y: 0.0
+    radius_mean: 9.125
+    publish_rate: 20.0
+    use_odom: true
+    pose_topic: "/zed/zed_node/pose"
+    odom_topic: "/zed/zed_node/odom"
+    align_to_initial_pose: true
+    status_topic: "/status/planning_skidpad_hardcoded"

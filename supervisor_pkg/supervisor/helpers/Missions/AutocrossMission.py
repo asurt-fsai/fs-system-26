@@ -15,7 +15,7 @@ class AutocrossMission(MissionFinishing):
         self.orangeConeDetected = False
         self.loopClosureDetected = False
         self.loopClosureDistance = None
-        self.LOOP_CLOSURE_FINISH_DISTANCE = 12 # meters
+        self.LOOP_CLOSURE_FINISH_DISTANCE = 10 # meters
 
         self.currentDistance = 0.0
 
@@ -57,7 +57,7 @@ class AutocrossMission(MissionFinishing):
         #     self.notifyMissionFinished()
 
          # Loop closure requires +5 m travel
-        if self.loopClosureDetected and self.orangeConeDetected:
+        if self.loopClosureDetected:
             distance_since_loop = (
                 self.currentDistance - self.loopClosureDistance
             )

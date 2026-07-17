@@ -13,6 +13,8 @@ class SkidpadMission(MissionFinishing):
         """
         super().__init__(communication, supervisor)
         self.skidpadFinished = False
+        self.targetDistance = 280
+        self.currentDistance = 0.0
 
     def onLoopClosure(self, data):
         """
@@ -38,6 +40,24 @@ class SkidpadMission(MissionFinishing):
             self.skidpadFinished = False
             self.checkFinish()
 
+    def onDistance(self, data):
+        """
+        Input  : data (str) — distance data from ROS topic
+        Output : None
+        Logic  : Parse data and update currentDistance.
+                 Call checkFinish() to evaluate completion.
+        """
+        try:
+            self.currentDistance = float(data)
+
+            self.logger.info(f"Distance = {self.currentDistance}")
+
+            self.checkFinish()
+
+        except Exception as e:
+            self.logger.info("Invalid distance ignored")
+            return
+        
     def checkFinish(self):
         """
         Input  : None
@@ -48,6 +68,6 @@ class SkidpadMission(MissionFinishing):
         if self.missionStatus == MissionStatus.FINISHED:
             return
 
-        if self.skidpadFinished:
-            self.logger.info("[SKIDPAD] 🏁 Skidpad mission finished")
+        if (self.currentDistance >= self.targetDistance):
+            self.logger.info("🏁 distance reached in SKIDPAD mission")
             self.notifyMissionFinished()

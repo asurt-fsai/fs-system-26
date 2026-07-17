@@ -40,7 +40,7 @@ class Car(Node):
 
     """
 
-    def __init__(self, xInitial, deltaT=0.1, wheelbaseLength=2.5):
+    def __init__(self, xInitial, deltaT=0.1, wheelbaseLength=1.25):
         super().__init__("KinematicBicycle")
         self.get_logger().info("Kinematic Bicycle Model Initialized")
 

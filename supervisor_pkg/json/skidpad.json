@@ -24,11 +24,10 @@
         },
         {
             "pkg": "planning_skidpad",
-            "launch_file": "skidpad.launch.py",
-            "heartbeats_topic": "/status/planning_skidpad",
+            "launch_file": "skidpad_adaptive_hardcoded_sim.launch.py",
+            "heartbeats_topic": "/status/planning_skidpad_hardcoded",
             "is_node_msg": true
         }
-        
     
     ]
 }
